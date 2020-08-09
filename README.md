@@ -30,9 +30,9 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # 快速开始
 
-#### 请点击：
+#### 请点击：[快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
 
-#### linux:
+#### linux: 
 
 
 
