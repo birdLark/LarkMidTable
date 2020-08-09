@@ -26,7 +26,7 @@
      
      ![flinkx的编译结果](https://img2020.cnblogs.com/blog/622382/202008/622382-20200809182513956-1929594896.png)
      
-   * ### 4.运行任务测试
+   * ### 4.配置文件
 
       4.1 flinkx-1.8_release\flinkconf目录下flink-conf.yaml里添加如下:
      
@@ -97,7 +97,15 @@
      -pluginRoot './plugins/'
      ```
      
+     ## 5.执行任务：
      
+     ```
+     [root@mini4 hadoop]# tar -zxvf flinkx-1.8_release.tar.gz 
+     
+     [root@mini4 flinkx-1.8_release]# sh start.sh 
+     ```
+
+[flinkx-1.8_release.tar.gz 下载]()
 
 ## 2.Flinkx-web的安装
 
