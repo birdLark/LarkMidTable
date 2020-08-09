@@ -87,13 +87,15 @@
      
      4.5编写启动脚本start.sh文件
      
+     ```
      `sh ./bin/flinkx `
      
      `-job './job/stream.json' `
      
      -flinkconf './flinkconf/' 
      
-     -pluginRoot './plugins/'`
+     -pluginRoot './plugins/'
+     ```
      
      
 
