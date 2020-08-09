@@ -5,7 +5,7 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # 系统框架图
 
-![Flinkx流程图](E:\flinkx-web\picture\Flinkx流程图.png)
+![Flinkx流程图](https://github.com/wxgzgl/flinkx-web/tree/master/picture/Flinkx流程图.png)
 
 ## 计划和目标
 
