@@ -7,6 +7,18 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 ![](https://img2020.cnblogs.com/blog/622382/202008/622382-20200809112010690-444044896.png)
 
+# 系统要求
+
+* java版本: Java 8（jdk版本建议1.8.201以上）
+* 数据库版本: Mysql5.7
+* 运行环境: MacOS, Windows,Linux
+
+# 快速开始
+
+#### 请点击：
+
+
+
 ## 计划和目标
 
 1.阅读flinkx-web的源码  
