@@ -26,41 +26,41 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # 支持的数据库
 
-|                        |  Database Type  |                      Reader                       |                     Writer                     | Flinx-web支持 |
-| :--------------------: | :-------------: | :-----------------------------------------------: | :--------------------------------------------: | ------------- |
-| Batch Synchronization  |      MySQL      |     [doc](docs/offline/reader/mysqlreader.md)     |   [doc](docs/offline/writer/mysqlwriter.md)    |               |
-|                        |     Oracle      |    [doc](docs/offline/reader/oraclereader.md)     |   [doc](docs/offline/writer/oraclewriter.md)   |               |
-|                        |    SqlServer    |   [doc](docs/offline/reader/sqlserverreader.md)   | [doc](docs/offline/writer/sqlserverwriter.md)  |               |
-|                        |   PostgreSQL    |  [doc](docs/offline/reader/postgresqlreader.md)   | [doc](docs/offline/writer/postgresqlwriter.md) |               |
-|                        |       DB2       |      [doc](docs/offline/reader/db2reader.md)      |    [doc](docs/offline/writer/db2writer.md)     |               |
-|                        |      GBase      |     [doc](docs/offline/reader/gbasereader.md)     |   [doc](docs/offline/writer/gbasewriter.md)    |               |
-|                        |   ClickHouse    |  [doc](docs/offline/reader/clickhousereader.md)   | [doc](docs/offline/writer/clickhousewriter.md) |               |
-|                        |     PolarDB     |    [doc](docs/offline/reader/polardbreader.md)    |  [doc](docs/offline/writer/polardbwriter.md)   |               |
-|                        |    SAP Hana     |    [doc](docs/offline/reader/saphanareader.md)    |  [doc](docs/offline/writer/saphanawriter.md)   |               |
-|                        |    Teradata     |   [doc](docs/offline/reader/teradatareader.md)    |  [doc](docs/offline/writer/teradatawriter.md)  |               |
-|                        |     Phoenix     |    [doc](docs/offline/reader/phoenixreader.md)    |  [doc](docs/offline/writer/phoenixwriter.md)   |               |
-|                        |      达梦       |      [doc](docs/offline/reader/dmreader.md)       |     [doc](docs/offline/writer/dmwriter.md)     |               |
-|                        |    Greenplum    |   [doc](docs/offline/reader/greenplumreader.md)   | [doc](docs/offline/writer/greenplumwriter.md)  |               |
-|                        |    Cassandra    |   [doc](docs/offline/reader/cassandrareader.md)   | [doc](docs/offline/writer/cassandrawriter.md)  |               |
-|                        |      ODPS       |     [doc](docs/offline/reader/odpsreader.md)      |    [doc](docs/offline/writer/odpswriter.md)    |               |
-|                        |      HBase      |     [doc](docs/offline/reader/hbasereader.md)     |   [doc](docs/offline/writer/hbasewriter.md)    |               |
-|                        |     MongoDB     |    [doc](docs/offline/reader/mongodbreader.md)    |  [doc](docs/offline/writer/mongodbwriter.md)   |               |
-|                        |      Kudu       |     [doc](docs/offline/reader/kudureader.md)      |    [doc](docs/offline/writer/kuduwriter.md)    |               |
-|                        |  ElasticSearch  |      [doc](docs/offline/reader/esreader.md)       |     [doc](docs/offline/writer/eswriter.md)     |               |
-|                        |       FTP       |      [doc](docs/offline/reader/ftpreader.md)      |    [doc](docs/offline/writer/ftpwriter.md)     |               |
-|                        |      HDFS       |     [doc](docs/offline/reader/hdfsreader.md)      |    [doc](docs/offline/writer/hdfswriter.md)    |               |
-|                        |   Carbondata    |  [doc](docs/offline/reader/carbondatareader.md)   | [doc](docs/offline/writer/carbondatawriter.md) |               |
-|                        |     Stream      |    [doc](docs/offline/reader/streamreader.md)     | [doc](docs/offline/writer/carbondatawriter.md) |               |
-|                        |      Redis      |                                                   |   [doc](docs/offline/writer/rediswriter.md)    |               |
-|                        |      Hive       |                                                   |    [doc](docs/offline/writer/hivewriter.md)    |               |
-| Stream Synchronization |      Kafka      |    [doc](docs/realTime/reader/kafkareader.md)     |   [doc](docs/realTime/writer/kafkawriter.md)   |               |
-|                        |      EMQX       |     [doc](docs/realTime/reader/emqxreader.md)     |   [doc](docs/realTime/writer/emqxwriter.md)    |               |
-|                        |     RestApi     |   [doc](docs/realTime/reader/restapireader.md)    |  [doc](docs/realTime/writer/restapiwriter.md)  |               |
-|                        |  MySQL Binlog   |    [doc](docs/realTime/reader/binlogreader.md)    |                                                |               |
-|                        |  MongoDB Oplog  | [doc](docs/realTime/reader/mongodboplogreader.md) |                                                |               |
-|                        | PostgreSQL WAL  |    [doc](docs/realTime/reader/pgwalreader.md)     |                                                |               |
-|                        | Oracle Logminer |                    Coming Soon                    |                                                |               |
-|                        |  SqlServer CDC  |                    Coming Soon                    |                                                |               |
+|                        |  Database Type  |                             文档                             | Writer | Flinx-web支持 |
+| :--------------------: | :-------------: | :----------------------------------------------------------: | :----: | ------------- |
+| Batch Synchronization  |      MySQL      | [读](docs/offline/reader/mysqlreader.md)  [doc](docs/offline/writer/mysqlwriter.md) |        |               |
+|                        |     Oracle      | [读](docs/offline/reader/oraclereader.md)  [doc](docs/offline/writer/oraclewriter.md) |        |               |
+|                        |    SqlServer    | [读](docs/offline/reader/sqlserverreader.md)  [doc](docs/offline/writer/sqlserverwriter.md) |        |               |
+|                        |   PostgreSQL    | [读](docs/offline/reader/postgresqlreader.md)  [doc](docs/offline/writer/postgresqlwriter.md) |        |               |
+|                        |       DB2       | [读](docs/offline/reader/db2reader.md)  [doc](docs/offline/writer/db2writer.md) |        |               |
+|                        |      GBase      | [读](docs/offline/reader/gbasereader.md)  [doc](docs/offline/writer/gbasewriter.md) |        |               |
+|                        |   ClickHouse    | [读](docs/offline/reader/clickhousereader.md)  [doc](docs/offline/writer/clickhousewriter.md) |        |               |
+|                        |     PolarDB     | [读](docs/offline/reader/polardbreader.md)  [doc](docs/offline/writer/polardbwriter.md) |        |               |
+|                        |    SAP Hana     | [读](docs/offline/reader/saphanareader.md)  [doc](docs/offline/writer/saphanawriter.md) |        |               |
+|                        |    Teradata     | [读](docs/offline/reader/teradatareader.md)  [doc](docs/offline/writer/teradatawriter.md) |        |               |
+|                        |     Phoenix     | [读](docs/offline/reader/phoenixreader.md)  [doc](docs/offline/writer/phoenixwriter.md) |        |               |
+|                        |      达梦       | [读](docs/offline/reader/dmreader.md)  [doc](docs/offline/writer/dmwriter.md) |        |               |
+|                        |    Greenplum    | [读](docs/offline/reader/greenplumreader.md)  [doc](docs/offline/writer/greenplumwriter.md) |        |               |
+|                        |    Cassandra    | [读](docs/offline/reader/cassandrareader.md)  [doc](docs/offline/writer/cassandrawriter.md) |        |               |
+|                        |      ODPS       | [读](docs/offline/reader/odpsreader.md)  [doc](docs/offline/writer/odpswriter.md) |        |               |
+|                        |      HBase      | [读](docs/offline/reader/hbasereader.md)  [doc](docs/offline/writer/hbasewriter.md) |        |               |
+|                        |     MongoDB     | [读](docs/offline/reader/mongodbreader.md)  [doc](docs/offline/writer/mongodbwriter.md) |        |               |
+|                        |      Kudu       | [读](docs/offline/reader/kudureader.md)  [doc](docs/offline/writer/kuduwriter.md) |        |               |
+|                        |  ElasticSearch  | [读](docs/offline/reader/esreader.md)  [doc](docs/offline/writer/eswriter.md) |        |               |
+|                        |       FTP       | [读](docs/offline/reader/ftpreader.md)  [doc](docs/offline/writer/ftpwriter.md) |        |               |
+|                        |      HDFS       | [读](docs/offline/reader/hdfsreader.md)  [doc](docs/offline/writer/hdfswriter.md) |        |               |
+|                        |   Carbondata    | [读](docs/offline/reader/carbondatareader.md)  [doc](docs/offline/writer/carbondatawriter.md) |        |               |
+|                        |     Stream      | [读](docs/offline/reader/streamreader.md)  [doc](docs/offline/writer/carbondatawriter.md) |        |               |
+|                        |      Redis      |          [doc](docs/offline/writer/rediswriter.md)           |        |               |
+|                        |      Hive       |           [doc](docs/offline/writer/hivewriter.md)           |        |               |
+| Stream Synchronization |      Kafka      | [读](docs/realTime/reader/kafkareader.md)  [doc](docs/realTime/writer/kafkawriter.md) |        |               |
+|                        |      EMQX       | [读](docs/realTime/reader/emqxreader.md)  [doc](docs/realTime/writer/emqxwriter.md) |        |               |
+|                        |     RestApi     | [读](docs/realTime/reader/restapireader.md)  [doc](docs/realTime/writer/restapiwriter.md) |        |               |
+|                        |  MySQL Binlog   |          [读](docs/realTime/reader/binlogreader.md)          |        |               |
+|                        |  MongoDB Oplog  |       [读](docs/realTime/reader/mongodboplogreader.md)       |        |               |
+|                        | PostgreSQL WAL  |          [读](docs/realTime/reader/pgwalreader.md)           |        |               |
+|                        | Oracle Logminer |                         Coming Soon                          |        |               |
+|                        |  SqlServer CDC  |                         Coming Soon                          |        |               |
 
 # flinkx-web产品计划
 
