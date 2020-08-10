@@ -20,7 +20,7 @@ $JAVA_RUN -cp $JAR_DIR $CLASS_NAME $@ &
 
 ## 2.查看Launcher类
 
-找到main方法 118行 ，本地模式
+找到Launcher的main方法 ，找到118行 ，本地模式
 
 实际上调用  com.dtstack.flinkx.Main类
 
