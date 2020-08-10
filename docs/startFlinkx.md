@@ -26,7 +26,7 @@ $JAVA_RUN -cp $JAR_DIR $CLASS_NAME $@ &
 
 1.获取传递的参数，78-84行
 
-2.解析我们jobpath传递的json文件，87行
+2.解析我们jobpath传递的json文件，得到具体的reader和writer类名，87行
 
 3.StreamExecutionEnvironment ，调用Datastream的环境 103行
 
