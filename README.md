@@ -8,7 +8,7 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # flinkx-web产品规划
 
-[flinkx执行引擎]( https://github.com/DTStack/flinkx )
+[flinkx执行引擎](  https://github.com/wxgzgl/flinkx  )
 
 [flinkx-web后端管理]( https://github.com/wxgzgl/flinkx-web )
 
