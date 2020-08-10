@@ -8,4 +8,5 @@
 
 ## 3.Flinkx如何通过JSON文件的配置调用各个读写插件的？
 
-[Flinkx调用读写插件]()
+[Flinkx调用读写插件]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/startRead.md )
+
