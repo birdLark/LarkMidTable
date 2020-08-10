@@ -1,5 +1,15 @@
 ## 产品规划
 
+[flinkx执行引擎]( https://github.com/DTStack/flinkx )
+
+[flinkx-web后端管理]( https://github.com/wxgzgl/flinkx-web )
+
+[flinkx-web-ui后端管理界面]( https://github.com/wxgzgl/flinkx-web/tree/master/flinkx-web-ui-master )
+
+
+
+# 产品计划
+
 1.阅读flinkx的源码，将flinkx产品封装成更容易使用的shell脚本  
 
 2.参考Datax-web的原型，快速的构建项目的WEB的客户端  
@@ -7,14 +17,6 @@
 3.将Web页面和后台的应用对应起来  
 
 4.针对用户提出的issue，解决实际出现的问题，完善产品  
-
-5.产品包括:
-
-[flinkx执行引擎]( https://github.com/DTStack/flinkx )
-
-[flinkx-web后端管理]( https://github.com/wxgzgl/flinkx-web )
-
-[flinkx-web-ui后端管理界面]( https://github.com/wxgzgl/flinkx-web/tree/master/flinkx-web-ui-master )
 
 
 
