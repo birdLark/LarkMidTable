@@ -6,7 +6,7 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 
 
-# 产品规划
+# flinkx-web产品规划
 
 [flinkx执行引擎]( https://github.com/DTStack/flinkx )
 
@@ -16,23 +16,17 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 
 
-# 产品流程图
+# flinkx-web产品流程图
 
 ![](https://img2020.cnblogs.com/blog/622382/202008/622382-20200809112010690-444044896.png)
 
-# 
 
 
 
-# 快速开始
-
-#### 请点击：[快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
-
-#### 文章学习：[Flinkx学习]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
 
 
-# 产品计划
+# flinkx-web产品计划
 
 1.阅读flinkx的源码，将flinkx产品封装成更容易使用的shell脚本  
 
@@ -41,6 +35,14 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 3.将Web页面和后台的应用对应起来  
 
 4.针对用户提出的issue，解决实际出现的问题，完善产品  
+
+
+
+# 快速开始
+
+#### 请点击：[快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
+
+#### 文章学习：[Flinkx学习]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
 
 
