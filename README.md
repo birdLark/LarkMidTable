@@ -28,15 +28,12 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # flinkx-web产品计划
 
-1.阅读flinkx的源码，将flinkx产品封装成更容易使用的shell脚本  
+1. 8月11日完成flinkx-web的登录功能，输出2篇文章
+2. 8月12日设计flinkx-web的生成JSON文件的页面，输出1篇文章
+3. 8月13日实现flinkx-web的生成JSON文件的功能，输出1篇文章
 
-2.参考Datax-web的原型，快速的构建项目的WEB的客户端  
-
-3.将Web页面和后台的应用对应起来  
-
-4.针对用户提出的issue，解决实际出现的问题，完善产品  
-
-
+4. 8月14日完善flinkx-web的部署文档，输出1篇文章
+5. 8月15日-8月16日，完成flinkx-web的设计工作
 
 # 快速开始
 
