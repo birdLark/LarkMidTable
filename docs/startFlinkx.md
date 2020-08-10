@@ -8,12 +8,12 @@ JAR_DIR=$FLINKX_HOME/lib/*
 CLASS_NAME=com.dtstack.flinkx.launcher.Launcher
 $JAVA_RUN -cp $JAR_DIR $CLASS_NAME $@ &
 
-# 1.java的命令
-# 2.查看lib文件,flinkx-launcher-1.6.jar 
-# 3.加载的主类
-# 4.$@为传递的参数
-# 5.&为后端运行
-# 6.翻译解释
+# 参数1.java的命令
+# 参数2.查看lib文件,flinkx-launcher-1.6.jar 
+# 参数3.加载的主类
+# 参数4.$@为传递的参数
+# 参数5.&为后端运行
+# 翻译解释
 # java -cp flinkx-launcher-1.6.jar com.dtstack.flinkx.launcher.Launcher $@ &
 
 ```
