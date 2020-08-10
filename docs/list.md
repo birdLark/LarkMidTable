@@ -4,5 +4,5 @@
 
 ## 2.Flinkx的启动流程是怎么样的？
 
-[Flinkx的启动流程]()
+[Flinkx的启动流程]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/startFlinkx.md )
 
