@@ -1,5 +1,15 @@
 # FlinkX Web用户手册
 
+### 系统要求
+
+* java版本: Java 8（jdk版本建议1.8.201以上）
+
+* 数据库版本: Mysql5.7
+
+* 运行环境: MacOS, Windows,Linux
+
+  
+
 ## 1.Flinkx的安装
 
    * ### 1.下载源码包
