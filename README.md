@@ -22,16 +22,6 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # 
 
-# 产品计划
-
-1.阅读flinkx的源码，将flinkx产品封装成更容易使用的shell脚本  
-
-2.参考Datax-web的原型，快速的构建项目的WEB的客户端  
-
-3.将Web页面和后台的应用对应起来  
-
-4.针对用户提出的issue，解决实际出现的问题，完善产品  
-
 
 
 # 系统要求
@@ -45,6 +35,20 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 #### 请点击：[快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
 
 #### 文章学习：[Flinkx学习]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
+
+
+
+# 产品计划
+
+1.阅读flinkx的源码，将flinkx产品封装成更容易使用的shell脚本  
+
+2.参考Datax-web的原型，快速的构建项目的WEB的客户端  
+
+3.将Web页面和后台的应用对应起来  
+
+4.针对用户提出的issue，解决实际出现的问题，完善产品  
+
+
 
 # 技术交流
 
