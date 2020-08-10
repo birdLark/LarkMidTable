@@ -8,6 +8,14 @@
 
 4.针对用户提出的issue，解决实际出现的问题，完善产品  
 
+5.产品包括:
+
+[flinkx执行引擎]()
+
+[flinkx-web后端管理]()
+
+[flinkx-web-ui后端管理界面]()
+
 
 
 # flinkx-web
