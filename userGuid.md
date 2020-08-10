@@ -12,7 +12,11 @@
 
      2.1 用解压软件进行解压即可
 
-     2.2  window环境下双击解压后的flinkx-1.8_release\bin\install_jars.bat，本地私服中安装db2jcc，ojdbc8，gbase，dm7的jdbc驱动的JAR包
+     2.2  window环境下双击解压后的flinkx-1.8_release\bin\install_jars.bat
+
+     ​        linux/mac环境下执行 sh install_jars.sh
+
+     本地私服中安装db2jcc，ojdbc8，gbase，dm7的jdbc驱动的JAR包
 
      
 
@@ -29,7 +33,7 @@
    * ### 4.配置文件
 
       4.1 flinkx-1.8_release\flinkconf目录下flink-conf.yaml里添加如下:
-     
+          
      ```
      rest.bind-port: 8888
      ```
@@ -88,9 +92,9 @@
      4.5编写启动脚本start.sh文件
      
      ```
-     `sh ./bin/flinkx `
+     sh ./bin/flinkx
      
-     `-job './job/stream.json' `
+     -job './job/stream.json'
      
      -flinkconf './flinkconf/' 
      
