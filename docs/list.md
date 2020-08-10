@@ -6,3 +6,6 @@
 
 [Flinkx的启动流程]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/startFlinkx.md )
 
+## 3.Flinkx如何通过JSON文件的配置调用各个读写插件的？
+
+[Flinkx调用读写插件]()
