@@ -119,7 +119,42 @@
      [root@mini4 flinkx-1.8_release]# sh start.sh 
      ```
 
-[flinkx-1.8_release.tar.gz 下载]()
+[flinkx-1.8_release.tar.gz 下载]() 可以加QQ群获得
 
 ## 2.Flinkx-web的安装
+
+### 2.1 创建数据库
+
+#### 执行bin/db下面的datax_web.sql文件(数据库版本5.1.0版本)
+
+### 2.2 修改项目配置
+
+### 1.修改datax_admin下resources/application.yml文件
+
+```
+#数据源
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/datax_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+```
+
+## 3.Flinkx-web的启动
+
+### 1.本地idea开发环境
+
+- 1.运行datax_admin下 DataXAdminApplication
+
+## 4、启动成功
+
+1.启动成功后打开页面（默认管理员用户名：admin 密码：123456） http://localhost:8080/index.html#/dashboard
+
+![启动成功](https://img2020.cnblogs.com/blog/622382/202008/622382-20200813002251461-1896158188.png)
+
+
+
+
+
+
 
