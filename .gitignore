@@ -1,2 +1,15 @@
 
 .idea/*
+*\*.iml
+/flinkx-rpc/target/
+com.flinkxweb.cn.iml
+flinkx-admin/flinkx-admin.iml
+flinkx-admin/flinkx-admin.iml
+flinkx-admin/target/*
+flinkx-rpc/*.iml
+flinkx-executor/target/
+flinkx-executor/datax-executor.iml
+flinkx-core/target/datax-core-2.1.2.jar
+flinkx-core/flinkx-core.iml
+flinkx-assembly/target/datax-assembly-2.1.2.jar
+flinkx-assembly/datax-assembly.iml
