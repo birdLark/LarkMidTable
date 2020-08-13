@@ -13,3 +13,5 @@ flinkx-core/target/datax-core-2.1.2.jar
 flinkx-core/flinkx-core.iml
 flinkx-assembly/target/datax-assembly-2.1.2.jar
 flinkx-assembly/datax-assembly.iml
+data/applogs/executor/jobhandler/datax-executor.log
+flinkx-admin/target/classes/com/guoliang/flinkx/admin/controller/JobProjectController.class

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -77,6 +78,7 @@ public class JobProjectController extends BaseController {
     @PostMapping
     public R<Boolean> insert(HttpServletRequest request, @RequestBody JobProject entity) {
         entity.setUserId(getCurrentUserId(request));
+        entity.setCreateTime(new Date());
         return success(this.jobProjectService.save(entity));
     }
 
@@ -93,6 +95,7 @@ public class JobProjectController extends BaseController {
         JobProject project = jobProjectService.getById(entity.getId());
         project.setName(entity.getName());
         project.setDescription(entity.getDescription());
+        project.setUpdateTime(new Date());
         return success(this.jobProjectService.updateById(entity));
     }
 
