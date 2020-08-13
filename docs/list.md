@@ -10,3 +10,6 @@
 
 [Flinkx调用读写插件]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/startRead.md )
 
+## 4.Flinkx的如何拓展读写插件？
+
+[Flink拓展读写插件](https://github.com/wxgzgl/flinkx-web/tree/master/docs/readPlugin.md)
