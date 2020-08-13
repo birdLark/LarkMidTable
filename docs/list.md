@@ -12,4 +12,8 @@
 
 ## 4.Flinkx的如何拓展读写插件？
 
-[Flink拓展读写插件](https://github.com/wxgzgl/flinkx-web/tree/master/docs/readPlugin.md)
+[Flinkx拓展读插件](https://github.com/wxgzgl/flinkx-web/tree/master/docs/readPlugin.md)
+
+5.聊聊flink的InputFormatSourceFunction
+
+[聊聊flink的InputFormatSourceFunction](https://github.com/wxgzgl/flinkx-web/blob/master/docs/InputFormateSourceFunction.md)
