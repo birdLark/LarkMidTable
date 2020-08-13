@@ -15,24 +15,3 @@ BaseRichInputFormat  extends    RichInputFormat  implements InputFormat
 5.关闭数据库链接358行			  :closeInternal()
 ```
 
-### 3.StreamInputForma类的刨析
-
-含有的3个参数说明：
-
-**sliceRecordCount**:每个通道生成的数据条数
-
-```
-public void openInternal(InputSplit inputSplit) throws IOException {
-    
-    if(CollectionUtils.isNotEmpty(sliceRecordCount) && sliceRecordCount.size() >     	
-                                  inputSplit.getSplitNumber()){
-       
-        channelRecordNum = sliceRecordCount.get(inputSplit.getSplitNumber());
-    }
-    // The record number of channel:[0] is [100]
-    LOG.info("The record number of channel:[{}] is [{}]", inputSplit.getSplitNumber(), channelRecordNum);
-}
-```
-
-
-
