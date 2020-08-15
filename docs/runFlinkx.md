@@ -81,3 +81,6 @@ mvn clean package -Dmaven.test.skip=true
 }
 ```
 
+## 7.运行程序
+
+执行flinkx-launcher模块中的Launcher类即可运行
