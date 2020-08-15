@@ -14,6 +14,12 @@
 
 [Flinkx拓展读插件](https://github.com/wxgzgl/flinkx-web/tree/master/docs/readPlugin.md)
 
-5.聊聊flink的InputFormatSourceFunction
+## 5.聊聊flink的InputFormatSourceFunction
 
 [聊聊flink的InputFormatSourceFunction](https://github.com/wxgzgl/flinkx-web/blob/master/docs/InputFormateSourceFunction.md)
+
+
+
+## 6.Flinkx如何在idea中运行？
+
+[Flinkx如何在idea中运行？](https://github.com/wxgzgl/flinkx-web/blob/master/docs/runFlinkx.md)
