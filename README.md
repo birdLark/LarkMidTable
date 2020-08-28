@@ -1,20 +1,21 @@
 # flinkx-web产品
 
-FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单易用的 操作界面，降低用户使用FlinkX的学习成本，缩短任务配置时间，避免配置过程中出错。用户可通过页面选择数据源即可创建数据同步任务，RDBMS数据源可批量创建数据同步任务，支持实时查看数据同步进度及日志并提供终止同步功能，集成并二次开发xxl-job可根据时间、自增主键增量同步数据。  
+FlinkX Web是在FlinkX之上开发的数据中台项目，提供简单易用的 操作界面，降低用户使用FlinkX的学习成本，缩短任务配置时间，避免配置过程中出错。用户可通过页面选择数据源即可创建数据同步任务，RDBMS数据源可批量创建数据同步任务，支持实时查看数据同步进度及日志并提供终止同步功能，集成并二次开发xxl-job可根据时间、自增主键增量同步数据。  
 
 任务"执行器"支持集群部署，支持执行器多节点路由策略选择，支持超时控制、失败重试、失败告警、任务依赖，执行器CPU.内存.负载的监控等等。后续还将提供更多的数据源支持、数据转换UDF、表结构同步、数据同步血缘等更为复杂的业务场景。
 
+# flinkx-web技术选型
 
-
-# flinkx-web产品规划
-
-[flinkx执行引擎](  https://github.com/wxgzgl/flinkx  )
-
-[flinkx-web后端管理]( https://github.com/wxgzgl/flinkx-web )
-
-[flinkx-web-ui后端管理界面]( https://github.com/wxgzgl/flinkx-web/tree/master/flinkx-web-ui-master )
-
-
+| 框架用途           | 框架名称         | 主要功能                                                     | Github地址                                                   |
+| ------------------ | ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 数据采集           | Flinkx           | 数据的导入导出ETL工具                                        | [flinkx](  https://github.com/wxgzgl/flinkx  )               |
+| 消息中间件         | Kafka            | LinkedIn用Scala语言实现，支持hadoop数据并行加载              | [kafka](https://github.com/apache/kafka)                     |
+| 数据存储           | Hive             | 基于MR的数据仓库工具                                         | [hive](https://github.com/apache/hive)                       |
+| 离线和实时计算框架 | Flink            | 基于Flink，一站式解决批流处理问题                            | [flink](https://github.com/apache/flink)                     |
+| 分析数据库         | Kylin            | 开源的、分布式的分析型数据仓库                               | [kylin](https://github.com/apache/kylin)                     |
+| 任务调度           | DolphinScheduler | 可视化DAG工作流任务调度系统                                  | [dolphin](https://github.com/apache/incubator-dolphinscheduler) |
+| 元数据管理         | Atlas            | 包括 数据分类、集中策略引擎、数据血缘、安全和生命周期管理在内的元数据治理核心能力 | [atlas](http://atlas.apache.org/)                            |
+| 集群监控           | CM+CDH           | 制作的一个Hadoop发行版，集成了Hadoop及Hive等与Hadoop关系紧密的工具 | [cdh](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) |
 
 # flinkx-web产品流程图
 
@@ -64,11 +65,7 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # flinkx-web产品计划
 
-1. ~~8月11日完成flinkx-web的登录功能，输出2篇文章~~(工作繁忙，文章未输出)
-2. ~~8月12日设计flinkx-web的生成JSON文件的页面，输出1篇文章~~(工作繁忙，文章未输出)
-3. ~~8月13日实现flinkx-web的生成JSON文件的功能，输出1篇文章~~(工作繁忙，文章未输出)
-4. 8月14日完善flinkx-web的部署文档，利用平台能够实现一个源的读写操作，将flinkx的插件能够打包安装到本地
-5. 8月15日-8月16日，完成flinkx-web的设计页面
+
 
 # 快速开始
 
@@ -80,6 +77,6 @@ FlinkX Web是在FlinkX之上开发的分布式数据同步工具，提供简单�
 
 # 技术交流
 
-搜索QQ群号[**678097205**]或者扫描下面的二维码进入Flinkx Web的QQ群，目前正是开源的初期阶段，暂时就我一个人。
+搜索QQ群号[**678097205**]或者扫描下面的二维码进入Flinkx Web的QQ群，目前正是开源的初期阶段，群里达到17人
 
 ![钉钉群](https://img2020.cnblogs.com/blog/622382/202008/622382-20200809130031496-886275303.png)
