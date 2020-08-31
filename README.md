@@ -73,7 +73,7 @@ FlinkX Web是在FlinkX之上开发的数据中台项目，提供简单易用的 
 
 #### 文章学习：[Flinkx学习]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
-
+[spring学习](https://github.com/wxgzgl/flinkx-web/tree/master/docs/spring/spring.md)
 
 # 技术交流
 
