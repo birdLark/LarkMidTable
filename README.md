@@ -45,7 +45,7 @@ FlinkX Web是在FlinkX之上开发的数据中台项目，提供简单易用的 
 
 #### 文章学习：[Flinkx学习]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
-#### 数据中台文章: [数据中台文章]()
+#### 数据中台文章: [数据中台文章](https://github.com/wxgzgl/flinkx-web/tree/master/docs/midtable/midtable.md)
 
 # 技术交流
 
