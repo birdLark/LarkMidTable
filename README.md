@@ -23,7 +23,7 @@ Lark 是一站式开源的数据中台，实现元数据管理，数据仓库开
 | 元数据管理         | Atlas            | 包括 数据分类、集中策略引擎、数据血缘、安全和生命周期管理在内的元数据治理核心能力 | [Atlas](http://atlas.apache.org/)                            |
 | 集群监控           | CM+CDH           | 制作的一个Hadoop发行版，集成了Hadoop及Hive等与Hadoop关系紧密的工具 | [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) |
 
-# Lark产品流程图
+# Lark产品架构图
 
 ![Lark-架构图](https://img2020.cnblogs.com/blog/622382/202009/622382-20200909001344893-705046927.png)
 
@@ -48,6 +48,16 @@ Lark 是一站式开源的数据中台，实现元数据管理，数据仓库开
 #### 文章学习：[Flinkx学习]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
 #### 数据中台文章: [数据中台文章](https://github.com/wxgzgl/flinkx-web/tree/master/docs/midtable/midtable.md)
+
+
+
+# Lark开发计划
+
+9月份-10月份，我们把这些大数据组件，包装成可配置的一些工具，一键打包，一键配置，部署简单，傻瓜式操作。
+
+11-12月份，我们可以将这些页面和后端配置，弄成web页面，然后我们具体划分，什么是数据血缘，什么是元数据…这样后续我们，比如配置flink任务，只需要选择一下，生成任务，然后配置一下任务调度。
+
+
 
 # 技术交流
 
