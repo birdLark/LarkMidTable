@@ -14,7 +14,7 @@ Lark 是一站式开源的数据中台，实现元数据管理，数据仓库开
 | [Hive](https://github.com/apache/hive)                       | 数据存储           | 基于MR的数据仓库工具                                         |
 | [Flink](https://github.com/apache/flink)                     | 离线和实时计算框架 | 基于Flink，一站式解决批流处理问题                            |
 | [Kylin](https://github.com/apache/kylin)                     | 分析数据库         | 开源的、分布式的分析型数据仓库                               |
-| [DolphinScheduler](https://github.com/apache/incubator-dolphinscheduler) | 任务调度           | 可视化DAG工作流任务调度系统                                  |
+| [Dolphin](https://github.com/apache/incubator-dolphinscheduler) | 任务调度           | 可视化DAG工作流任务调度系统                                  |
 | [Atlas](http://atlas.apache.org/)                            | 元数据管理         | 包括 数据分类、集中策略引擎、数据血缘、安全和生命周期管理在内的元数据治理核心能力 |
 | [K8S](https://github.com/kubernetes/kubernetes)              | 容器部署           | 部署容器化的应用简单并且高效                                 |
 
