@@ -22,7 +22,7 @@ Lark 是一站式开源的数据中台，实现元数据管理，数据仓库开
 
 # 产品架构图
 
-![架构图](https://github.com/wxgzgl/Lark/tree/master/picture/lark_architecture.png)
+![架构图](https://img2020.cnblogs.com/blog/622382/202009/622382-20200909200342233-1231297773.png)
 
 
 
