@@ -1,4 +1,4 @@
-# LarkMidTable产品
+# LarkMidTable
 
 Lark中文名称 云雀，云代表大数据，雀代表平凡和自由。
 
