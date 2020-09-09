@@ -16,8 +16,7 @@ Lark 是一站式开源的数据中台，实现元数据管理，数据仓库开
 | 分析数据库         | Kylin            | 开源的、分布式的分析型数据仓库                               | [Kylin](https://github.com/apache/kylin)                     |
 | 任务调度           | DolphinScheduler | 可视化DAG工作流任务调度系统                                  | [Dolphin](https://github.com/apache/incubator-dolphinscheduler) |
 | 元数据管理         | Atlas            | 包括 数据分类、集中策略引擎、数据血缘、安全和生命周期管理在内的元数据治理核心能力 | [Atlas](http://atlas.apache.org/)                            |
-| 集群监控           | CM+CDH           | 制作的一个Hadoop发行版，集成了Hadoop及Hive等与Hadoop关系紧密的工具 | [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) |
-| 容器               | Kubernetes       | 部署容器化的应用简单并且高效                                 | [K8S](https://github.com/kubernetes/kubernetes)              |
+| 容器部署           | Kubernetes       | 部署容器化的应用简单并且高效                                 | [K8S](https://github.com/kubernetes/kubernetes)              |
 
 
 
