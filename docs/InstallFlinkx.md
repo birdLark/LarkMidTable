@@ -1,4 +1,4 @@
-## Flinkx的安装
+## 1.Flinkx的安装
 
    * ### 1.下载源码包
 
@@ -107,3 +107,27 @@
      
      [root@mini4 flinkx-1.8_release]# sh start.sh 
      ```
+
+## 2.如何在standalone上提交任务？
+
+前置条件: flink1.8版本，高版本目前不支持
+
+解释: $FLINK_HOME 安装Flink的目录
+
+### 1.启动flink
+
+```
+$FLINK_HOME/bin/start-cluster.sh
+```
+
+### 2.执行如下命令
+
+```
+./bin/flinkx -mode standalone \
+             -job ./job/stream.json \
+             -flinkconf $FLINK_HOME/conf
+```
+
+### 3.演示结果如下
+
+![演示效果](https://img2020.cnblogs.com/blog/622382/202009/622382-20200909224643072-919640065.png)
