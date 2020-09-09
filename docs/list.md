@@ -23,3 +23,9 @@
 ## 6.Flinkx如何在idea中运行？
 
 [Flinkx如何在idea中运行？](https://github.com/wxgzgl/flinkx-web/blob/master/docs/runFlinkx.md)
+
+
+
+## 7.如何配置Zookeeper集群的启动脚本和停止脚本及查看状态脚本？
+
+[Zookeeper脚本](https://github.com/wxgzgl/Lark/tree/master/docs/zookeeper/shell.md)
