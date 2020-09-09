@@ -8,15 +8,15 @@ Lark 是一站式开源的数据中台，实现元数据管理，数据仓库开
 
 # 技术选型
 
-| 框架用途           | 框架名称         | 主要功能                                                     | Github地址                                                   |
-| ------------------ | ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 消息中间件         | Kafka            | LinkedIn用Scala语言实现，支持hadoop数据并行加载              | [Kafka](https://github.com/apache/kafka)                     |
-| 数据存储           | Hive             | 基于MR的数据仓库工具                                         | [Hive](https://github.com/apache/hive)                       |
-| 离线和实时计算框架 | Flink            | 基于Flink，一站式解决批流处理问题                            | [Flink](https://github.com/apache/flink)                     |
-| 分析数据库         | Kylin            | 开源的、分布式的分析型数据仓库                               | [Kylin](https://github.com/apache/kylin)                     |
-| 任务调度           | DolphinScheduler | 可视化DAG工作流任务调度系统                                  | [Dolphin](https://github.com/apache/incubator-dolphinscheduler) |
-| 元数据管理         | Atlas            | 包括 数据分类、集中策略引擎、数据血缘、安全和生命周期管理在内的元数据治理核心能力 | [Atlas](http://atlas.apache.org/)                            |
-| 容器部署           | Kubernetes       | 部署容器化的应用简单并且高效                                 | [K8S](https://github.com/kubernetes/kubernetes)              |
+| 框架用途           | 框架名称                                                     | 主要功能                                                     |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 消息中间件         | [Kafka](https://github.com/apache/kafka)                     | LinkedIn用Scala语言实现，支持hadoop数据并行加载              |
+| 数据存储           | [Hive](https://github.com/apache/hive)                       | 基于MR的数据仓库工具                                         |
+| 离线和实时计算框架 | [Flink](https://github.com/apache/flink)                     | 基于Flink，一站式解决批流处理问题                            |
+| 分析数据库         | [Kylin](https://github.com/apache/kylin)                     | 开源的、分布式的分析型数据仓库                               |
+| 任务调度           | [DolphinScheduler](https://github.com/apache/incubator-dolphinscheduler) | 可视化DAG工作流任务调度系统                                  |
+| 元数据管理         | [Atlas](http://atlas.apache.org/)                            | 包括 数据分类、集中策略引擎、数据血缘、安全和生命周期管理在内的元数据治理核心能力 |
+| 容器部署           | [K8S](https://github.com/kubernetes/kubernetes)              | 部署容器化的应用简单并且高效                                 |
 
 
 
