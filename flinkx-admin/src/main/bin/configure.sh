@@ -2,7 +2,7 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 SHELL_LOG="${DIR}/console.out"
-SERVER_NAME="datax-admin"
+SERVER_NAME="flinkx-admin"
 USER=`whoami`
 SAFE_MODE=true
 SUDO_USER=false

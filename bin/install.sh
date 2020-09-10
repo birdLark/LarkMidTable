@@ -7,7 +7,7 @@ export BASE_DATA_DIR=""
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 SHELL_LOG="${DIR}/console.out"
 
-export SQL_SOURCE_PATH="${DIR}/db/datax_web.sql"
+export SQL_SOURCE_PATH="${DIR}/db/flinkx_web.sql"
 
 MODULES_DIR="${DIR}/../modules"
 PACKAGE_DIR="${DIR}/../packages"
