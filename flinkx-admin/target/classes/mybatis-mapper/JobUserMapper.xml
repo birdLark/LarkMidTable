@@ -104,6 +104,9 @@
         <if test="password != null and password != ''">
             password = #{password},
         </if>
+        <if test="username != null and username != ''">
+            username = #{username},
+        </if>
         role = #{role},
         permission = #{permission}
         WHERE id = #{id}
