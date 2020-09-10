@@ -9,7 +9,7 @@
         <version>2.1.2</version>
     </parent>
 
-    <artifactId>datax-rpc</artifactId>
+    <artifactId>flinkx-rpc</artifactId>
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
