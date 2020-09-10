@@ -1,6 +1,6 @@
 #!/bin/bash
 
-START_MODULES=("datax-admin"  "datax-executor" )
+START_MODULES=("flinkx-admin"  "flinkx-executor" )
 
 function LOG(){
   currentTime=`date "+%Y-%m-%d %H:%M:%S.%3N"`
