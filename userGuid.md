@@ -144,7 +144,7 @@
 
 ### 1.本地idea开发环境
 
-- 1.运行datax_admin下 DataXAdminApplication
+- 1.运行flinkx_admin下 DataXAdminApplication
 
 ## 4、启动成功
 
