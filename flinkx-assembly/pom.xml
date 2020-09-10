@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wugui</groupId>
-    <artifactId>datax-assembly</artifactId>
+    <artifactId>flinkx-assembly</artifactId>
 
     <build>
         <plugins>
