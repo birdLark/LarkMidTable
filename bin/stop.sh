@@ -2,7 +2,7 @@
 
 
 MODULE_NAME=""
-MODULE_DEFAULT_PREFIX="datax-"
+MODULE_DEFAULT_PREFIX="flinkx-"
 usage(){
   echo "Usage is [-m module will be stoped]"
 }

@@ -2,7 +2,7 @@
 #
 
 FRIEND_NAME=DATAX-EXEXUTOR
-MAIN_CLASS=com.wugui.datax.executor.DataXExecutorApplication
+MAIN_CLASS=com.guoliang.flinkx.executor.DataXExecutorApplication
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"
 fi
