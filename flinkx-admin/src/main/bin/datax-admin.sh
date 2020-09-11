@@ -2,7 +2,7 @@
 #
 
 FRIEND_NAME=DATAX-ADMIN
-MAIN_CLASS=com.wugui.datax.admin.DataXAdminApplication
+MAIN_CLASS=com.guoliang.flinkx.admin.DataXAdminApplication
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"
 fi

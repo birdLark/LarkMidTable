@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-STOP_MODULES=("datax-admin"  "datax-executor" )
+STOP_MODULES=("flinkx-admin"  "flinkx-executor" )
 
 
 function LOG(){
