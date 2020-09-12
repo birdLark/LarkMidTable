@@ -59,9 +59,9 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 执行器管理【完成】  	Linux安装部署【完成】	  数据源管理【完成】
 
+[开发日志](https://github.com/wxgzgl/Lark/tree/master/docs/notes/202009.md) 
 
-
-[开发日志](https://github.com/wxgzgl/Lark/tree/master/docs/notes/202009.md)   		[唯品会开发规范](https://vipshop.github.io/vjtools/#/standard/)
+[唯品会开发规范](https://vipshop.github.io/vjtools/#/standard/)
 
 
 
