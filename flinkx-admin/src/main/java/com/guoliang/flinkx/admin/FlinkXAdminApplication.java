@@ -14,12 +14,12 @@ import java.net.UnknownHostException;
 
 @EnableSwagger2
 @SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
-public class DataXAdminApplication {
+public class FlinkXAdminApplication {
 
-    private static Logger logger = LoggerFactory.getLogger(DataXAdminApplication.class);
+    private static Logger logger = LoggerFactory.getLogger(FlinkXAdminApplication.class);
 
     public static void main(String[] args) throws UnknownHostException {
-        Environment env = new SpringApplication(DataXAdminApplication.class).run(args).getEnvironment();
+        Environment env = new SpringApplication(FlinkXAdminApplication.class).run(args).getEnvironment();
         String envPort = env.getProperty("server.port");
         String envContext = env.getProperty("server.contextPath");
         String port = envPort == null ? "8080" : envPort;
