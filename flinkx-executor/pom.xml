@@ -39,8 +39,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.wugui</groupId>
-            <artifactId>datax-core</artifactId>
+            <groupId>com.guoliang.cn</groupId>
+            <artifactId>flinkx-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
