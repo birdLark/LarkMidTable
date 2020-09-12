@@ -21,3 +21,7 @@ packages/*.tar.gz
 flinkx-admin/*.jar
 flinkx-assembly/*.iml
 flinkx-assembly/*.iml
+flinkx-core/target/*
+flinkx-admin/target/*
+build/*
+flinkx-web.iml
