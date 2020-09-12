@@ -25,3 +25,4 @@ flinkx-core/target/*
 flinkx-admin/target/*
 build/*
 flinkx-web.iml
+flinkx-admin/target/*
