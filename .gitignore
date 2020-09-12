@@ -3,5 +3,5 @@
 */*.iml
 *.iml
 */target/*
-data/applogs/executor/jobhandler/datax-executor.log
+data/*
 */*.tar.gz
