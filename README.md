@@ -39,7 +39,11 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # **快速开始**
 
-请点击[快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
+请点击     [快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
+
+资源库     [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
+
+数据中台 [ 数据中台文章](https://github.com/wxgzgl/flinkx-web/tree/master/docs/midtable/midtable.md)
 
 
 
@@ -48,8 +52,6 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 待完成：
 
 任务管理、日志管理、资源监控
-
-
 
 已完成：
 
@@ -63,16 +65,8 @@ Linux安装部署【完成】
 
 
 
-# 学习资源库
-
- [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
-
-[ 数据中台文章](https://github.com/wxgzgl/flinkx-web/tree/master/docs/midtable/midtable.md)
-
-
-
 # **技术交流**
 
-搜索QQ群号[678097205]或者扫描下面的二维码进入LarkMidTable 社区的QQ群，目前正是开源的初期阶段，群里达到60人
+搜索QQ群号[678097205]或者扫描下面的二维码进入LarkMidTable 社区的QQ群，目前正是开源的初期阶段，群里达到70人
 
 **![QQ群](https://img2020.cnblogs.com/blog/622382/202009/622382-20200907124358049-997953244.png)**
