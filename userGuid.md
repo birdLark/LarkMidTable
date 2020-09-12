@@ -123,6 +123,8 @@
 
 ## 2.Flinkx-web的安装
 
+[linux环境安装](https://github.com/wxgzgl/Lark/tree/master/docs/linuxInstall.md)
+
 ### 2.1 创建数据库
 
 #### 执行bin/db下面的datax_web.sql文件(数据库版本5.1.0版本)
