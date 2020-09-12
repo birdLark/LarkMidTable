@@ -45,8 +45,6 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 开发规范  [唯品会开发规范](https://vipshop.github.io/vjtools/#/standard/)
 
-数据中台  [ 数据中台文章](https://github.com/wxgzgl/flinkx-web/tree/master/docs/midtable/midtable.md)
-
 
 
 # **开发计划**
