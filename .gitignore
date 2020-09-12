@@ -1,23 +1,7 @@
 
 .idea/*
-*\*.iml
-/flinkx-rpc/target/
-com.flinkxweb.cn.iml
-flinkx-admin/flinkx-admin.iml
-flinkx-admin/target/*
-flinkx-rpc/*.iml
-flinkx-executor/target/
-flinkx-executor/datax-executor.iml
-flinkx-core/target/datax-core-2.1.2.jar
-flinkx-core/flinkx-core.iml
-flinkx-assembly/target/*
+*/*.iml
+*.iml
+*/target/*
 data/applogs/executor/jobhandler/datax-executor.log
-flinkx-executor/*.iml
-flinkx-assembly/target/*
-packages/*.tar.gz
-flinkx-admin/*.jar
-flinkx-assembly/*.iml
-flinkx-core/target/*
-flinkx-admin/target/*
-build/*
-flinkx-web.iml
+*/*.tar.gz
