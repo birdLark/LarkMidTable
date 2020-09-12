@@ -2,7 +2,7 @@
 #
 
 FRIEND_NAME=DATAX-EXEXUTOR
-MAIN_CLASS=com.guoliang.flinkx.executor.DataXExecutorApplication
+MAIN_CLASS=com.guoliang.flinkx.executor.FlinkXExecutorApplication
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"
 fi

@@ -2,7 +2,7 @@
 #
 
 FRIEND_NAME=DATAX-ADMIN
-MAIN_CLASS=com.guoliang.flinkx.admin.DataXAdminApplication
+MAIN_CLASS=com.guoliang.flinkx.admin.FlinkXAdminApplication
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"
 fi
