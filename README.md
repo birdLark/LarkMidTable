@@ -14,7 +14,7 @@ LarkMidTable is a one-stop open source data center that realizes metadata manage
 
 1. Meet many small businesses and provide one-stop solutions.
 
-2. Make world-class products comparable to BAT manufacturers.
+2. Make world-class products comparable to Google、Microsoft、Apple manufacturers.
 
 3. Create value, generate value, and make the world a better place.
 
@@ -22,7 +22,7 @@ LarkMidTable is a one-stop open source data center that realizes metadata manage
 
 # Technology selection
 
-| 框架名称                                                     | 框架用途                                  | 主要功能                                                     |
+| Frame name                                                   | Frame use                                 | The main function                                            |
 | ------------------------------------------------------------ | ----------------------------------------- | ------------------------------------------------------------ |
 | [Atlas](http://atlas.apache.org/)                            | Metadata management                       | Core capabilities of metadata governance including data classification, centralized policy engine, data blood relationship, security and lifecycle management |
 | [Dolphin](https://github.com/apache/incubator-dolphinscheduler) | Task scheduling                           | Visual DAG workflow task scheduling system                   |
