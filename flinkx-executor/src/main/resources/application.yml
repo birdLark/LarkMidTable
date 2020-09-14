@@ -16,7 +16,7 @@ datax:
       addresses: http://127.0.0.1:8080
 #      addresses: http://127.0.0.1:${datax.admin.port}
     executor:
-      appname: datax-executor
+      appname: flinkx-executor
       ip:
       port: 9999
 #      port: ${executor.port:9999}
@@ -29,8 +29,8 @@ datax:
     accessToken:
 
   executor:
-    jsonpath: D:\\temp\\executor\\json\\
+    jsonpath: /home/hadoop/flinkx-1.8_release/job/
 #    jsonpath: ${json.path}
 
-  pypath: E:\source\DataX\target\datax\datax\bin\datax.py
+  pypath: /home/hadoop/flinkx-1.8_release/start.sh
 #  pypath: ${python.path}
