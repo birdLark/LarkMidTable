@@ -85,7 +85,7 @@ mybatis-plus:
 logging:
   level:
     com.wugui.datax.admin.mapper: info
-    path: ./data/applogs/admin
+    path: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-admin
 #  level:
 #    com.wugui.datax.admin.mapper: error
 #    path: ${data.path}/applogs/admin

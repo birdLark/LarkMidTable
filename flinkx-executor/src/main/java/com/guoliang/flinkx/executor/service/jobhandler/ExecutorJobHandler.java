@@ -51,14 +51,14 @@ public class ExecutorJobHandler extends IJobHandler {
         tmpFilePath = generateTemJsonFile(trigger.getJobJson());
 
         try {
-			System.out.println("----");
+			System.out.println("我进来拉----");
             String[] cmdarrayFinal = buildDataXExecutorCmd(trigger, tmpFilePath,dataXPyPath);
             for (String cmd :cmdarrayFinal) {
 				System.out.println(cmd);
 			}
-            final Process process = Runtime.getRuntime().exec(cmdarrayFinal);
+            final Process process = Runtime.getRuntime().exec("sh /home/hadoop/flinkx-1.8_release/start.sh");
             String prcsId = ProcessUtil.getProcessId(process);
-            JobLogger.log("------------------DataX process id: " + prcsId);
+            JobLogger.log("hahha------------------DataX process id: " + prcsId);
             jobTmpFiles.put(prcsId, tmpFilePath);
             //update datax process id
             HandleProcessCallbackParam prcs = new HandleProcessCallbackParam(trigger.getLogId(), trigger.getLogDateTime(), prcsId);
