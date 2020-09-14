@@ -37,7 +37,7 @@ public class TriggerCallbackThread {
 
     public static void pushCallBack(HandleCallbackParam callback) {
         getInstance().callBackQueue.add(callback);
-        logger.debug(">>>>>>>>>>> datax-web, push callback request, logId:{}", callback.getLogId());
+        logger.debug(">>>>>>>>>>> flinkx-web, push callback request, logId:{}", callback.getLogId());
     }
 
     /**
@@ -51,7 +51,7 @@ public class TriggerCallbackThread {
 
         // valid
         if (JobExecutor.getAdminBizList() == null) {
-            logger.warn(">>>>>>>>>>> datax-web, executor callback config fail, adminAddresses is null.");
+            logger.warn(">>>>>>>>>>> flinkx-web, executor callback config fail, adminAddresses is null.");
             return;
         }
 
@@ -91,11 +91,11 @@ public class TriggerCallbackThread {
                     logger.error(e.getMessage(), e);
                 }
             }
-            logger.info(">>>>>>>>>>> datax-web, executor callback thread destory.");
+            logger.info(">>>>>>>>>>> flinkx-web, executor callback thread destory.");
 
         });
         triggerCallbackThread.setDaemon(true);
-        triggerCallbackThread.setName("datax-web, executor TriggerCallbackThread");
+        triggerCallbackThread.setName("flinkx-web, executor TriggerCallbackThread");
         triggerCallbackThread.start();
 
 
@@ -118,7 +118,7 @@ public class TriggerCallbackThread {
                     }
                 }
             }
-            logger.info(">>>>>>>>>>> datax-web, executor retry callback thread destory.");
+            logger.info(">>>>>>>>>>> flinkx-web, executor retry callback thread destory.");
         });
         triggerRetryCallbackThread.setDaemon(true);
         triggerRetryCallbackThread.start();
@@ -161,14 +161,14 @@ public class TriggerCallbackThread {
             try {
                 ReturnT<String> callbackResult = adminBiz.callback(callbackParamList);
                 if (callbackResult != null && ReturnT.SUCCESS_CODE == callbackResult.getCode()) {
-                    callbackLog(callbackParamList, "<br>----------- datax-web job callback finish.");
+                    callbackLog(callbackParamList, "<br>----------- flinkx-web job callback finish.");
                     callbackRet = true;
                     break;
                 } else {
-                    callbackLog(callbackParamList, "<br>----------- datax-web job callback fail, callbackResult:" + callbackResult);
+                    callbackLog(callbackParamList, "<br>----------- flinkx-web job callback fail, callbackResult:" + callbackResult);
                 }
             } catch (Exception e) {
-                callbackLog(callbackParamList, "<br>----------- datax-web job callback error, errorMsg:" + e.getMessage());
+                callbackLog(callbackParamList, "<br>----------- flinkx-web job callback error, errorMsg:" + e.getMessage());
             }
         }
         if (!callbackRet) {
@@ -191,7 +191,7 @@ public class TriggerCallbackThread {
     // ---------------------- fail-callback file ----------------------
 
     private static String failCallbackFilePath = JobFileAppender.getLogPath().concat(File.separator).concat("callbacklog").concat(File.separator);
-    private static String failCallbackFileName = failCallbackFilePath.concat("datax-web-callback-{x}").concat(".log");
+    private static String failCallbackFileName = failCallbackFilePath.concat("flinkx-web-callback-{x}").concat(".log");
 
     private void appendFailCallbackFile(List<HandleCallbackParam> callbackParamList) {
         // valid

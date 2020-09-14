@@ -2,6 +2,7 @@ package com.guoliang.flinkx.admin.tool.datax.writer;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
+import com.guoliang.flinkx.admin.util.AESUtil;
 import com.wugui.datatx.core.util.Constants;
 import com.guoliang.flinkx.admin.entity.JobDatasource;
 import com.guoliang.flinkx.admin.tool.datax.BaseDataxPlugin;
@@ -32,8 +33,8 @@ public abstract class BaseWriterPlugin extends BaseDataxPlugin {
         Map<String, Object> parameterObj = Maps.newLinkedHashMap();
 //        parameterObj.put("writeMode", "insert");
         JobDatasource jobDatasource = plugin.getJobDatasource();
-        parameterObj.put("username", jobDatasource.getJdbcUsername());
-        parameterObj.put("password", jobDatasource.getJdbcPassword());
+        parameterObj.put("username", AESUtil.decrypt(jobDatasource.getJdbcUsername()));
+        parameterObj.put("password", AESUtil.decrypt(jobDatasource.getJdbcPassword()));
         parameterObj.put("column", plugin.getRdbmsColumns());
         parameterObj.put("preSql", splitSql(plugin.getPreSql()));
         parameterObj.put("postSql", splitSql(plugin.getPostSql()));

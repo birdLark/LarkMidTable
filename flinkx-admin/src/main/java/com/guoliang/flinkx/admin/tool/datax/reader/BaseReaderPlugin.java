@@ -9,6 +9,7 @@ import com.guoliang.flinkx.admin.tool.pojo.DataxHbasePojo;
 import com.guoliang.flinkx.admin.tool.pojo.DataxHivePojo;
 import com.guoliang.flinkx.admin.tool.pojo.DataxMongoDBPojo;
 import com.guoliang.flinkx.admin.tool.pojo.DataxRdbmsPojo;
+import com.guoliang.flinkx.admin.util.AESUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
@@ -33,8 +34,9 @@ public abstract class BaseReaderPlugin extends BaseDataxPlugin {
         Map<String, Object> connectionObj = Maps.newLinkedHashMap();
 
         JobDatasource jobDatasource = plugin.getJobDatasource();
-        parameterObj.put("username", jobDatasource.getJdbcUsername());
-        parameterObj.put("password", jobDatasource.getJdbcPassword());
+        //将用户名和密码进行解密
+        parameterObj.put("username", AESUtil.decrypt(jobDatasource.getJdbcUsername()));
+        parameterObj.put("password", AESUtil.decrypt(jobDatasource.getJdbcPassword()));
 
         //判断是否是 querySql
         if (StrUtil.isNotBlank(plugin.getQuerySql())) {

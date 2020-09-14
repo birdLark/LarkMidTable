@@ -7,7 +7,7 @@ import com.guoliang.flinkx.admin.entity.JobTemplate;
 import java.util.Map;
 
 /**
- * core job action for datax-web
+ * core job action for flinkx-web
  * 
  * @author xuxueli 2016-5-28 15:30:33
  */

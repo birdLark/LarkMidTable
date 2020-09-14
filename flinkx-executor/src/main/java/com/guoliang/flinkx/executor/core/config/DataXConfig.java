@@ -44,7 +44,7 @@ public class DataXConfig {
 
     @Bean
     public JobSpringExecutor JobExecutor() {
-        logger.info(">>>>>>>>>>> datax-web config init.");
+        logger.info(">>>>>>>>>>> flinkx-web config init.");
         JobSpringExecutor jobSpringExecutor = new JobSpringExecutor();
         jobSpringExecutor.setAdminAddresses(adminAddresses);
         jobSpringExecutor.setAppName(appName);
