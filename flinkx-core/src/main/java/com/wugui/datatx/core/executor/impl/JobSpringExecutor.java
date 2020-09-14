@@ -61,7 +61,7 @@ public class JobSpringExecutor extends JobExecutor implements ApplicationContext
                     String name = serviceBean.getClass().getAnnotation(JobHandler.class).value();
                     IJobHandler handler = (IJobHandler) serviceBean;
                     if (loadJobHandler(name) != null) {
-                        throw new RuntimeException("datax-web jobhandler[" + name + "] naming conflicts.");
+                        throw new RuntimeException("flinkx-web jobhandler[" + name + "] naming conflicts.");
                     }
                     registJobHandler(name, handler);
                 }

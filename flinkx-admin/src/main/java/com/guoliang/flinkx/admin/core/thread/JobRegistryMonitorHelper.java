@@ -76,21 +76,21 @@ public class JobRegistryMonitorHelper {
 					}
 				} catch (Exception e) {
 					if (!toStop) {
-						logger.error(">>>>>>>>>>> datax-web, job registry monitor thread error:{}", e);
+						logger.error(">>>>>>>>>>> flinkx-web, job registry monitor thread error:{}", e);
 					}
 				}
 				try {
 					TimeUnit.SECONDS.sleep(RegistryConfig.BEAT_TIMEOUT);
 				} catch (InterruptedException e) {
 					if (!toStop) {
-						logger.error(">>>>>>>>>>> datax-web, job registry monitor thread error:{}", e);
+						logger.error(">>>>>>>>>>> flinkx-web, job registry monitor thread error:{}", e);
 					}
 				}
 			}
-			logger.info(">>>>>>>>>>> datax-web, job registry monitor thread stop");
+			logger.info(">>>>>>>>>>> flinkx-web, job registry monitor thread stop");
 		});
 		registryThread.setDaemon(true);
-		registryThread.setName("datax-web, admin JobRegistryMonitorHelper");
+		registryThread.setName("flinkx-web, admin JobRegistryMonitorHelper");
 		registryThread.start();
 	}
 

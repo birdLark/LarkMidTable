@@ -28,11 +28,11 @@ public class ExecutorRegistryThread {
 
         // valid
         if (appName==null || appName.trim().length()==0) {
-            logger.warn(">>>>>>>>>>> datax-web, executor registry config fail, appName is null.");
+            logger.warn(">>>>>>>>>>> flinkx-web, executor registry config fail, appName is null.");
             return;
         }
         if (JobExecutor.getAdminBizList() == null) {
-            logger.warn(">>>>>>>>>>> datax-web, executor registry config fail, adminAddresses is null.");
+            logger.warn(">>>>>>>>>>> flinkx-web, executor registry config fail, adminAddresses is null.");
             return;
         }
 
@@ -47,13 +47,13 @@ public class ExecutorRegistryThread {
                             ReturnT<String> registryResult = adminBiz.registry(registryParam);
                             if (registryResult!=null && ReturnT.SUCCESS_CODE == registryResult.getCode()) {
                                 registryResult = ReturnT.SUCCESS;
-                                logger.debug(">>>>>>>>>>> datax-web registry success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+                                logger.debug(">>>>>>>>>>> flinkx-web registry success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
                                 break;
                             } else {
-                                logger.info(">>>>>>>>>>> datax-web registry fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+                                logger.info(">>>>>>>>>>> flinkx-web registry fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
                             }
                         } catch (Exception e) {
-                            logger.info(">>>>>>>>>>> datax-web registry error, registryParam:{}", registryParam, e);
+                            logger.info(">>>>>>>>>>> flinkx-web registry error, registryParam:{}", registryParam, e);
                         }
 
                     }
@@ -70,7 +70,7 @@ public class ExecutorRegistryThread {
                     }
                 } catch (InterruptedException e) {
                     if (!toStop) {
-                        logger.warn(">>>>>>>>>>> datax-web, executor registry thread interrupted, error msg:{}", e.getMessage());
+                        logger.warn(">>>>>>>>>>> flinkx-web, executor registry thread interrupted, error msg:{}", e.getMessage());
                     }
                 }
             }
@@ -83,14 +83,14 @@ public class ExecutorRegistryThread {
                         ReturnT<String> registryResult = adminBiz.registryRemove(registryParam);
                         if (registryResult!=null && ReturnT.SUCCESS_CODE == registryResult.getCode()) {
                             registryResult = ReturnT.SUCCESS;
-                            logger.info(">>>>>>>>>>> datax-web registry-remove success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+                            logger.info(">>>>>>>>>>> flinkx-web registry-remove success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
                             break;
                         } else {
-                            logger.info(">>>>>>>>>>> datax-web registry-remove fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+                            logger.info(">>>>>>>>>>> flinkx-web registry-remove fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
                         }
                     } catch (Exception e) {
                         if (!toStop) {
-                            logger.info(">>>>>>>>>>> datax-web registry-remove error, registryParam:{}", registryParam, e);
+                            logger.info(">>>>>>>>>>> flinkx-web registry-remove error, registryParam:{}", registryParam, e);
                         }
 
                     }
@@ -101,11 +101,11 @@ public class ExecutorRegistryThread {
                     logger.error(e.getMessage(), e);
                 }
             }
-            logger.info(">>>>>>>>>>> datax-web, executor registry thread destory.");
+            logger.info(">>>>>>>>>>> flinkx-web, executor registry thread destory.");
 
         });
         registryThread.setDaemon(true);
-        registryThread.setName("datax-web, executor ExecutorRegistryThread");
+        registryThread.setName("flinkx-web, executor ExecutorRegistryThread");
         registryThread.start();
     }
 

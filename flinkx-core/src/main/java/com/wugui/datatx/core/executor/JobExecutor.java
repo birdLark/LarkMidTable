@@ -105,7 +105,7 @@ public class JobExecutor {
                     try {
                         oldJobThread.join();
                     } catch (InterruptedException e) {
-                        logger.error(">>>>>>>>>>> datax-web, JobThread destroy(join) error, jobId:{}", item.getKey(), e);
+                        logger.error(">>>>>>>>>>> flinkx-web, JobThread destroy(join) error, jobId:{}", item.getKey(), e);
                     }
                 }
             }
@@ -235,7 +235,7 @@ public class JobExecutor {
     private static ConcurrentMap<String, IJobHandler> jobHandlerRepository = new ConcurrentHashMap<String, IJobHandler>();
 
     public static IJobHandler registJobHandler(String name, IJobHandler jobHandler) {
-        logger.info(">>>>>>>>>>> datax-web register jobhandler success, name:{}, jobHandler:{}", name, jobHandler);
+        logger.info(">>>>>>>>>>> flinkx-web register jobhandler success, name:{}, jobHandler:{}", name, jobHandler);
         return jobHandlerRepository.put(name, jobHandler);
     }
 
@@ -250,7 +250,7 @@ public class JobExecutor {
     public static JobThread registJobThread(int jobId, IJobHandler handler, String removeOldReason) {
         JobThread newJobThread = new JobThread(jobId, handler);
         newJobThread.start();
-        logger.info(">>>>>>>>>>> datax-web regist JobThread success, jobId:{}, handler:{}", new Object[]{jobId, handler});
+        logger.info(">>>>>>>>>>> flinkx-web regist JobThread success, jobId:{}, handler:{}", new Object[]{jobId, handler});
 
         JobThread oldJobThread = jobThreadRepository.put(jobId, newJobThread);    // putIfAbsent | oh my god, map's put method return the old value!!!
         if (oldJobThread != null) {

@@ -27,12 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 构建 com.wugui.datax json的工具类
- *
- * @author jingwk
- * @ClassName DataxJsonHelper
- * @Version 2.1.1
- * @since 2020/03/14 08:24
+ * JSON的构建类
  */
 @Data
 public class DataxJsonHelper implements DataxJsonInterface {
@@ -221,10 +216,17 @@ public class DataxJsonHelper implements DataxJsonInterface {
         Map<String, Object> res = Maps.newLinkedHashMap();
         Map<String, Object> speedMap = Maps.newLinkedHashMap();
         Map<String, Object> errorLimitMap = Maps.newLinkedHashMap();
-        speedMap.putAll(ImmutableMap.of("channel", 3, "byte", 1048576));
-        errorLimitMap.putAll(ImmutableMap.of("record", 0, "percentage", 0.02));
+
+		Map<String, Object> restoreMap = Maps.newLinkedHashMap();
+		Map<String, Object> logMap = Maps.newLinkedHashMap();
+        speedMap.putAll(ImmutableMap.of("channel", 1, "bytes", 0));
+        errorLimitMap.putAll(ImmutableMap.of("record", 100));
+		restoreMap.putAll(ImmutableMap.of("maxRowNumForCheckpoint", 0,"isRestore",false,"restoreColumnName","","restoreColumnIndex",0));
+		logMap.putAll(ImmutableMap.of("isLogger", false,"level","debug","path","","pattern",""));
         res.put("speed", speedMap);
         res.put("errorLimit", errorLimitMap);
+        res.put("restore",restoreMap);
+		res.put("log",logMap);
         return res;
     }
 
