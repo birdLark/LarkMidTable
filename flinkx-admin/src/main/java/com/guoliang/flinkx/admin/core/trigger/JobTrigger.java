@@ -51,7 +51,7 @@ public class JobTrigger {
             return;
         }
         if (GlueTypeEnum.BEAN.getDesc().equals(jobInfo.getGlueType())) {
-            //解密账密
+        	//解密账密
             String json = JSONUtils.changeJson(jobInfo.getJobJson(), JSONUtils.decrypt);
             jobInfo.setJobJson(json);
         }
@@ -81,6 +81,7 @@ public class JobTrigger {
             if (shardingParam == null) {
                 shardingParam = new int[]{0, 1};
             }
+			System.out.println("processTrigger");
             processTrigger(group, jobInfo, finalFailRetryCount, triggerType, shardingParam[0], shardingParam[1]);
         }
 
