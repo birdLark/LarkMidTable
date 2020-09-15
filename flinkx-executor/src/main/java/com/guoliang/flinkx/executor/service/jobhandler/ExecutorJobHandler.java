@@ -56,9 +56,9 @@ public class ExecutorJobHandler extends IJobHandler {
             for (String cmd :cmdarrayFinal) {
 				System.out.println(cmd);
 			}
-            final Process process = Runtime.getRuntime().exec("sh /home/hadoop/flinkx-1.8_release/start.sh");
+            final Process process = Runtime.getRuntime().exec(cmdarrayFinal);
             String prcsId = ProcessUtil.getProcessId(process);
-            JobLogger.log("hahha------------------DataX process id: " + prcsId);
+            JobLogger.log("------------------DataX process id: " + prcsId);
             jobTmpFiles.put(prcsId, tmpFilePath);
             //update datax process id
             HandleProcessCallbackParam prcs = new HandleProcessCallbackParam(trigger.getLogId(), trigger.getLogDateTime(), prcsId);

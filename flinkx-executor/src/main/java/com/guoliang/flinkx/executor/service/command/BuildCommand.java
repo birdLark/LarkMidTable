@@ -36,7 +36,7 @@ public class BuildCommand {
         // command process
         //"--loglevel=debug"
         List<String> cmdArr = new ArrayList<>();
-        cmdArr.add("python");
+        cmdArr.add("sh");
         String dataXHomePath = SystemUtils.getDataXHomePath();
         if (StringUtils.isNotEmpty(dataXHomePath)) {
             dataXPyPath = dataXHomePath.contains("bin") ? dataXHomePath + DataXConstant.DEFAULT_DATAX_PY : dataXHomePath + "bin" + File.separator + DataXConstant.DEFAULT_DATAX_PY;
