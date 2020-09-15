@@ -33,11 +33,11 @@ public class SystemUtils {
         if (StringUtils.isNotEmpty(DATAX_HOME)) return DATAX_HOME;
         String dataXHome = System.getenv("DATAX_HOME");
         if (StringUtils.isBlank(dataXHome)) {
-            //LOGGER.warn("DATAX_HOME 环境变量为NULL");
+            LOGGER.warn("DATAX_HOME 环境变量为NULL");
             return null;
         }
         DATAX_HOME = dataXHome.endsWith(File.separator) ? dataXHome : dataXHome.concat(File.separator);
-        //LOGGER.info("DATAX_HOME:{}", DATAX_HOME);
+        LOGGER.info("DATAX_HOME:{}", DATAX_HOME);
         return DATAX_HOME;
     }
 
