@@ -51,7 +51,7 @@ public class ExecutorJobHandler extends IJobHandler {
         tmpFilePath = generateTemJsonFile(trigger.getJobJson());
 
         try {
-			System.out.println("我进来拉----");
+			JobLogger.log("我进来拉----");
             String[] cmdarrayFinal = buildDataXExecutorCmd(trigger, tmpFilePath,dataXPyPath);
             for (String cmd :cmdarrayFinal) {
 				System.out.println(cmd);
