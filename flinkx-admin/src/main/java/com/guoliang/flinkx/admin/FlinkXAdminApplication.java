@@ -33,6 +33,4 @@ public class FlinkXAdminApplication {
                         + "web-URL: \t\thttp://127.0.0.1:{}/index.html\n\t----------------------------------------------------------",
                 path, externalAPI, path, port);
     }
-
-
 }
