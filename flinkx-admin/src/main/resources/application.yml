@@ -84,11 +84,8 @@ mybatis-plus:
 # 配置mybatis-plus打印sql日志
 logging:
   level:
-    com.wugui.flinkx.admin.mapper: info
+    com.guoliang.flinkx.admin.mapper: info
     path: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-admin
-#  level:
-#    com.wugui.flinkx.admin.mapper: error
-#    path: ${data.path}/applogs/admin
 
 
 

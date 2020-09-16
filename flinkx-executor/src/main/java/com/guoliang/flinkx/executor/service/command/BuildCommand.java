@@ -6,8 +6,11 @@ import com.guoliang.flinkx.core.enums.IncrementTypeEnum;
 import com.guoliang.flinkx.core.log.JobLogger;
 import com.guoliang.flinkx.core.util.Constants;
 import com.guoliang.flinkx.core.util.DateUtil;
+import com.guoliang.flinkx.executor.service.jobhandler.ExecutorJobHandler;
 import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -25,7 +28,9 @@ import static com.guoliang.flinkx.core.util.Constants.SPLIT_COMMA;
  */
 public class BuildCommand {
 
-    /**
+	private static final Logger LOGGER = LoggerFactory.getLogger(BuildCommand.class);
+
+	/**
      * DataX command build
      * @param tgParam
      * @param tmpFilePath
@@ -37,16 +42,9 @@ public class BuildCommand {
         //"--loglevel=debug"
         List<String> cmdArr = new ArrayList<>();
         cmdArr.add("sh");
-        String dataXHomePath = SystemUtils.getDataXHomePath();
-        if (StringUtils.isNotEmpty(dataXHomePath)) {
-            dataXPyPath = dataXHomePath.contains("bin") ? dataXHomePath + DataXConstant.DEFAULT_DATAX_PY : dataXHomePath + "bin" + File.separator + DataXConstant.DEFAULT_DATAX_PY;
-        }
         cmdArr.add(dataXPyPath);
-        String doc = buildDataXParam(tgParam);
-        if (StringUtils.isNotBlank(doc)) {
-            cmdArr.add(doc.replaceAll(DataXConstant.SPLIT_SPACE, DataXConstant.TRANSFORM_SPLIT_SPACE));
-        }
         cmdArr.add(tmpFilePath);
+		LOGGER.info(cmdArr+" "+dataXPyPath+" "+tmpFilePath);
         return cmdArr.toArray(new String[cmdArr.size()]);
     }
 
