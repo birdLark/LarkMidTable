@@ -133,7 +133,7 @@ install_modules(){
 }
 
 scan_to_install_modules(){
-  echo "Scan modules directory: [$1] to find server under dataxweb"
+  echo "Scan modules directory: [$1] to find server under flinkxweb"
   let c=0
   ls_out=`ls $1`
   for dir in ${ls_out}

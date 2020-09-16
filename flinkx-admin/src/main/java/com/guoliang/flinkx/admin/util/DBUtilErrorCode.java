@@ -43,7 +43,7 @@ public enum DBUtilErrorCode implements ErrorCode {
     ORACLE_DELETE_ERROR("ORACLEErrCode-12","数据库没有Delete权限，请联系DBA"),
 
     JDBC_NULL("DBUtilErrorCode-20","JDBC URL为空，请检查配置"),
-    JDBC_OB10_ADDRESS_ERROR("DBUtilErrorCode-OB10-01","JDBC OB10格式错误，请联系askdatax"),
+    JDBC_OB10_ADDRESS_ERROR("DBUtilErrorCode-OB10-01","JDBC OB10格式错误，请联系askflinkx"),
     CONF_ERROR("DBUtilErrorCode-00", "您的配置错误."),
     CONN_DB_ERROR("DBUtilErrorCode-10", "连接数据库失败. 请检查您的 账号、密码、数据库名称、IP、Port或者向 DBA 寻求帮助(注意网络环境)."),
     GET_COLUMN_INFO_FAILED("DBUtilErrorCode-01", "获取表字段相关信息失败."),

@@ -30,7 +30,7 @@ import java.util.Map;
 public class DataxJsonHelper implements DataxJsonInterface {
 
     /**
-     * 读取的表，根据datax示例，支持多个表（先不考虑，后面再去实现， 这里先用list保存吧）
+     * 读取的表，根据flinkx示例，支持多个表（先不考虑，后面再去实现， 这里先用list保存吧）
      * <p>
      * 目的表的表名称。支持写入一个或者多个表。当配置为多张表时，必须确保所有表结构保持一致
      */

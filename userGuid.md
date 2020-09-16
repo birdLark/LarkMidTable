@@ -127,18 +127,18 @@
 
 ### 2.1 创建数据库
 
-#### 执行bin/db下面的datax_web.sql文件(数据库版本5.1.0版本)
+#### 执行bin/db下面的flinkx_web.sql文件(数据库版本5.1.0版本)
 
 ### 2.2 修改项目配置
 
-### 1.修改datax_admin下resources/application.yml文件
+### 1.修改flinkx_admin下resources/application.yml文件
 
 ```
 #数据源
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/datax_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/flinkx_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
 ```
 

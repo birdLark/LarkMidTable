@@ -17,7 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * datax writer base
+ * flinkx writer base
  *
  * @author zhouhongfa@gz-yibo.com
  * @ClassName BaseWriterPlugin
