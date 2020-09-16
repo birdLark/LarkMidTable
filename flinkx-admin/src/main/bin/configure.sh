@@ -118,7 +118,7 @@ if [ $? == 0 ]; then
 fi
 
 BIN=`abs_path`
-SERVER_NAME_SIMPLE=${SERVER_NAME/datax-/}
+SERVER_NAME_SIMPLE=${SERVER_NAME/flinkx-/}
 
 LOG_PATH=${BIN}/../logs
 if [ "x${BASE_LOG_DIR}" != "x" ]; then

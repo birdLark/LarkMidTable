@@ -25,7 +25,7 @@ public class SystemUtils {
     }
 
     /**
-     * 获取环境变量中的Datax路径
+     * 获取环境变量中的Flinkx路径
      *
      * @return
      */

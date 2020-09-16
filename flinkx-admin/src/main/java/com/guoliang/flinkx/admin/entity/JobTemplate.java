@@ -75,7 +75,7 @@ public class JobTemplate {
 	@ApiModelProperty("下次调度时间")
 	private long triggerNextTime;
 
-	@ApiModelProperty("datax运行json")
+	@ApiModelProperty("flinkx运行json")
 	private String jobJson;
 
 	@ApiModelProperty("jvm参数")

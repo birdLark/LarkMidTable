@@ -1,9 +1,9 @@
 /*
-package com.wugui.datax.rpc.registry.impl;
+package com.wugui.flinkx.rpc.registry.impl;
 
-import com.wugui.datax.registry.XxlRegistryClient;
-import com.wugui.datax.registry.model.XxlRegistryDataParamVO;
-import com.wugui.datax.rpc.registry.ServiceRegistry;
+import com.wugui.flinkx.registry.XxlRegistryClient;
+import com.wugui.flinkx.registry.model.XxlRegistryDataParamVO;
+import com.wugui.flinkx.rpc.registry.ServiceRegistry;
 
 import java.util.*;
 

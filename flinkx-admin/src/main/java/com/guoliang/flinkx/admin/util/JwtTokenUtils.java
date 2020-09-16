@@ -21,7 +21,7 @@ public class JwtTokenUtils {
     public static final String TOKEN_HEADER = "Authorization";
     public static final String TOKEN_PREFIX = "Bearer ";
 
-    private static final String SECRET = "datax_admin";
+    private static final String SECRET = "flinkx_admin";
     private static final String ISS = "admin";
 
     // 角色的key
