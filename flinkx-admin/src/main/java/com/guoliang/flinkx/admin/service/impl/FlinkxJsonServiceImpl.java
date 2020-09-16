@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * com.wugui.flinkx json构建实现类
+ * com.guoliang.flinkx json构建实现类
  *
  * @author jingwk
  * @ClassName FlinkxJsonServiceImpl
