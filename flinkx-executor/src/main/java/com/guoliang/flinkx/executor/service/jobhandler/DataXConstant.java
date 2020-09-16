@@ -23,7 +23,7 @@ public class DataXConstant {
 
     public static final String DEFAULT_JSON = "jsons";
 
-    public static final String DEFAULT_DATAX_PY = "datax.py";
+    public static final String DEFAULT_DATAX_PY = "flinkx.py";
 
     public static final String TASK_START_TIME_SUFFIX = "任务启动时刻";
     public static final String TASK_END_TIME_SUFFIX = "任务结束时刻";

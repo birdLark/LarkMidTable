@@ -1,11 +1,11 @@
 package com.guoliang.flinkx.admin.service.impl;
 
 import com.guoliang.flinkx.admin.dto.DataXBatchJsonBuildDto;
-import com.guoliang.flinkx.admin.dto.DataXJsonBuildDto;
+import com.guoliang.flinkx.admin.dto.FlinkXJsonBuildDto;
 import com.guoliang.flinkx.admin.entity.JobTemplate;
 import com.guoliang.flinkx.admin.mapper.*;
 import com.guoliang.flinkx.admin.service.DatasourceQueryService;
-import com.guoliang.flinkx.admin.service.DataxJsonService;
+import com.guoliang.flinkx.admin.service.FlinkxJsonService;
 import com.guoliang.flinkx.admin.service.JobService;
 import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.core.enums.ExecutorBlockStrategyEnum;
@@ -55,7 +55,7 @@ public class JobServiceImpl implements JobService {
     @Resource
     private JobTemplateMapper jobTemplateMapper;
     @Resource
-    private DataxJsonService dataxJsonService;
+    private FlinkxJsonService flinkxJsonService;
 
     @Override
     public Map<String, Object> pageList(int start, int length, int jobGroup, int triggerStatus, String jobDesc, String glueType, int userId, Integer[] projectIds) {
@@ -421,7 +421,7 @@ public class JobServiceImpl implements JobService {
             return new ReturnT<>(ReturnT.FAIL_CODE, I18nUtil.getString("json_build_inconsistent_number_r_w_tables"));
         }
 
-        DataXJsonBuildDto jsonBuild = new DataXJsonBuildDto();
+        FlinkXJsonBuildDto jsonBuild = new FlinkXJsonBuildDto();
 
         List<String> rColumns;
         List<String> wColumns;
@@ -446,7 +446,7 @@ public class JobServiceImpl implements JobService {
             wdTable.add(wrTables.get(i));
             jsonBuild.setWriterTables(wdTable);
 
-            String json = dataxJsonService.buildJobJson(jsonBuild);
+            String json = flinkxJsonService.buildJobJson(jsonBuild);
 
             JobTemplate jobTemplate = jobTemplateMapper.loadById(dto.getTemplateId());
             JobInfo jobInfo = new JobInfo();

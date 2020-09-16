@@ -50,22 +50,22 @@ public class JobAdminConfig implements InitializingBean, DisposableBean {
     // ---------------------- XxlJobScheduler ----------------------
 
     // conf
-    @Value("${datax.job.i18n}")
+    @Value("${flinkx.job.i18n}")
     private String i18n;
 
-    @Value("${datax.job.accessToken}")
+    @Value("${flinkx.job.accessToken}")
     private String accessToken;
 
     @Value("${spring.mail.username}")
     private String emailUserName;
 
-    @Value("${datax.job.triggerpool.fast.max}")
+    @Value("${flinkx.job.triggerpool.fast.max}")
     private int triggerPoolFastMax;
 
-    @Value("${datax.job.triggerpool.slow.max}")
+    @Value("${flinkx.job.triggerpool.slow.max}")
     private int triggerPoolSlowMax;
 
-    @Value("${datax.job.logretentiondays}")
+    @Value("${flinkx.job.logretentiondays}")
     private int logretentiondays;
 
     @Value("${datasource.aes.key}")

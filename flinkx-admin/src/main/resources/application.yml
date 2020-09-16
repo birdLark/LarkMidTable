@@ -84,7 +84,7 @@ mybatis-plus:
 # 配置mybatis-plus打印sql日志
 logging:
   level:
-    com.wugui.datax.admin.mapper: info
+    com.wugui.flinkx.admin.mapper: info
     path: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-admin
 #  level:
 #    com.wugui.flinkx.admin.mapper: error
@@ -93,7 +93,7 @@ logging:
 
 
 #flinkx-job, access token
-datax:
+flinkx:
   job:
     accessToken:
     #i18n (default empty as chinese, "en" as english)

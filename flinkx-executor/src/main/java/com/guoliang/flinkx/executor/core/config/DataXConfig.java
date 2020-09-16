@@ -20,25 +20,25 @@ public class DataXConfig {
 
     private static final String DEFAULT_LOG_PATH = "log/executor/jobhandler";
 
-    @Value("${datax.job.admin.addresses}")
+    @Value("${flinkx.job.admin.addresses}")
     private String adminAddresses;
 
-    @Value("${datax.job.executor.appname}")
+    @Value("${flinkx.job.executor.appname}")
     private String appName;
 
-    @Value("${datax.job.executor.ip}")
+    @Value("${flinkx.job.executor.ip}")
     private String ip;
 
-    @Value("${datax.job.executor.port}")
+    @Value("${flinkx.job.executor.port}")
     private int port;
 
-    @Value("${datax.job.accessToken}")
+    @Value("${flinkx.job.accessToken}")
     private String accessToken;
 
-    @Value("${datax.job.executor.logpath}")
+    @Value("${flinkx.job.executor.logpath}")
     private String logPath;
 
-    @Value("${datax.job.executor.logretentiondays}")
+    @Value("${flinkx.job.executor.logretentiondays}")
     private int logRetentionDays;
 
 

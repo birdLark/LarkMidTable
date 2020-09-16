@@ -29,10 +29,10 @@ import static com.guoliang.flinkx.executor.service.logparse.AnalysisStatistics.a
 @Component
 public class ExecutorJobHandler extends IJobHandler {
 
-	@Value("${datax.executor.jsonpath}")
+	@Value("${flinkx.executor.jsonpath}")
 	private String jsonPath;
 
-	@Value("${datax.pypath}")
+	@Value("${flinkx.pypath}")
 	private String dataXPyPath;
 
 
@@ -52,7 +52,7 @@ public class ExecutorJobHandler extends IJobHandler {
 			String prcsId = ProcessUtil.getProcessId(process);
 			JobLogger.log("------------------FlinkX process id: " + prcsId);
 			jobTmpFiles.put(prcsId, tmpFilePath);
-			// update datax process id
+			// update flinkx process id
 			HandleProcessCallbackParam prcs = new HandleProcessCallbackParam(trigger.getLogId(),
 					trigger.getLogDateTime(), prcsId);
 			ProcessCallbackThread.pushCallBack(prcs);
