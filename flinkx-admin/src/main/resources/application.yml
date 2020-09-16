@@ -9,7 +9,7 @@ spring:
     url: jdbc:mysql://192.168.1.204:3306/flinkx_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
 #    password: ${DB_PASSWORD:password}
 #    username: ${DB_USERNAME:username}
-#    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_DATABASE:dataxweb}?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+#    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_DATABASE:flinkxweb}?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
 
 
@@ -26,7 +26,7 @@ spring:
       ##此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
       max-lifetime: 1800000
 
-  # datax-web email
+  # flinkx-web email
   mail:
     host: smtp.qq.com
     port: 25
@@ -87,12 +87,12 @@ logging:
     com.wugui.datax.admin.mapper: info
     path: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-admin
 #  level:
-#    com.wugui.datax.admin.mapper: error
+#    com.wugui.flinkx.admin.mapper: error
 #    path: ${data.path}/applogs/admin
 
 
 
-#datax-job, access token
+#flinkx-job, access token
 datax:
   job:
     accessToken:

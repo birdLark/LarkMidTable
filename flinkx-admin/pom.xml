@@ -195,7 +195,7 @@
             <version>${mysql-connector.version}</version>
         </dependency>
 
-        <!-- datax-core -->
+        <!-- flinkx-core -->
         <dependency>
             <groupId>com.guoliang.cn</groupId>
             <artifactId>flinkx-core</artifactId>
