@@ -17,8 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by xuxueli on 17/5/10.
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @RestController
 @RequestMapping("/api")
 public class JobApiController {

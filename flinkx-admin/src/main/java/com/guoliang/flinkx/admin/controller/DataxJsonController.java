@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by jingwk on 2020/05/05
- */
-
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @RestController
 @RequestMapping("api/dataxJson")
 @Api(tags = "组装datax  json的控制器")

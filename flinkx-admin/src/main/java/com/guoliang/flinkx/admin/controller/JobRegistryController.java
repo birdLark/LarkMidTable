@@ -19,8 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 /**
- * Created by jingwk on 2019/11/17
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @RestController
 @RequestMapping("/api/jobRegistry")
 @Api(tags = "执行器资源监控")

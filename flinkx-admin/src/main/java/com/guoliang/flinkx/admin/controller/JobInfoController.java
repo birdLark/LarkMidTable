@@ -25,10 +25,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * index controller
  *
- * @author xuxueli 2015-12-19 16:13:16
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: index controller
+ **/
 @Api(tags = "任务配置接口")
 @RestController
 @RequestMapping("/api/job")

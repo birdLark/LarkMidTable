@@ -19,8 +19,11 @@ import java.util.Date;
 import static com.guoliang.flinkx.core.biz.model.ReturnT.FAIL_CODE;
 
 /**
- * Created by jingwk on 2019/11/17
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @RestController
 @RequestMapping("/jobcode")
 @Api(tags = "任务状态接口")

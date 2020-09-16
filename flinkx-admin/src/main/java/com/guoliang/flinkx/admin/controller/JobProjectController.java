@@ -16,10 +16,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * project manage controller
  *
- * @author jingwk 2020-05-24 16:13:16
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: project manage controller
+ **/
 @RestController
 @RequestMapping("/api/jobProject")
 @Api(tags = "项目管理模块")
