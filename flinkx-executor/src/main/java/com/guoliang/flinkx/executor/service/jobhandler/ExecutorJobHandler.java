@@ -13,6 +13,8 @@ import com.guoliang.flinkx.core.thread.ProcessCallbackThread;
 import com.guoliang.flinkx.core.util.ProcessUtil;
 import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,7 @@ public class ExecutorJobHandler extends IJobHandler {
 	@Value("${flinkx.pypath}")
 	private String dataXPyPath;
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ExecutorJobHandler.class);
 
 	@Override
 	public ReturnT<String> execute(TriggerParam trigger) {
@@ -48,7 +51,12 @@ public class ExecutorJobHandler extends IJobHandler {
 
 		try {
 			String[] cmdarrayFinal = buildDataXExecutorCmd(trigger, tmpFilePath, dataXPyPath);
-			final Process process = Runtime.getRuntime().exec(cmdarrayFinal);
+			String cmdstr = "";
+			for (int i =0;i<cmdarrayFinal.length;i++) {
+				cmdstr+=cmdarrayFinal[i]+ " ";
+			}
+
+			final Process process = Runtime.getRuntime().exec(cmdstr);
 			String prcsId = ProcessUtil.getProcessId(process);
 			JobLogger.log("------------------FlinkX process id: " + prcsId);
 			jobTmpFiles.put(prcsId, tmpFilePath);
