@@ -27,9 +27,7 @@ import java.util.Map;
 
 import static com.guoliang.flinkx.core.util.Constants.SPLIT_COMMA;
 
-/**
- * Created by jingwk on 2019/11/17
- */
+
 @Slf4j
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
