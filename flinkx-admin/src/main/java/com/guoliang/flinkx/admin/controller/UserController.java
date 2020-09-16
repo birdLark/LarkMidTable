@@ -18,7 +18,12 @@ import java.util.Map;
 
 import static com.guoliang.flinkx.core.biz.model.ReturnT.FAIL_CODE;
 
-
+/**
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @RestController
 @RequestMapping("/api/user")
 @Api(tags = "用户信息接口")

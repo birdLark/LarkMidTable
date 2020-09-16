@@ -10,8 +10,11 @@ import java.util.Enumeration;
 import static com.guoliang.flinkx.core.util.Constants.STRING_BLANK;
 
 /**
- * base controller
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: base controller
+ **/
 public class BaseController extends ApiController {
 
     public Integer getCurrentUserId(HttpServletRequest request) {

@@ -24,8 +24,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by jingwk on 2019/11/17
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @RestController
 @RequestMapping("/api/log")
 @Api(tags = "任务运行日志接口")

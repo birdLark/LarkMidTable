@@ -14,14 +14,10 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Swagger2API文档的配置
- * Created by jwk on 2019/07/05.
- */
-/**
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description:
+ * @Description: Swagger2API文档的配置
  **/
 @Configuration
 @EnableSwagger2

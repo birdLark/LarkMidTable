@@ -17,8 +17,11 @@ import javax.annotation.Resource;
 import java.util.*;
 
 /**
- * Created by jingwk on 2019/11/17
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @RestController
 @RequestMapping("/api/jobGroup")
 @Api(tags = "执行器管理接口")

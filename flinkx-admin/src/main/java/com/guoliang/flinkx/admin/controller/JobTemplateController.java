@@ -19,11 +19,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+
 /**
- * template controller
  *
- * @author jingwk 2019-12-22 16:13:16
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: template controller
+ **/
 @Api(tags = "任务配置接口")
 @RestController
 @RequestMapping("/api/jobTemplate")
