@@ -2,7 +2,7 @@ package com.guoliang.flinkx.admin.controller;
 
 import cn.hutool.core.util.StrUtil;
 import com.guoliang.flinkx.admin.mapper.JobUserMapper;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
 import com.guoliang.flinkx.admin.entity.JobUser;
 import io.swagger.annotations.Api;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.wugui.datatx.core.biz.model.ReturnT.FAIL_CODE;
+import static com.guoliang.flinkx.core.biz.model.ReturnT.FAIL_CODE;
 
 
 @RestController

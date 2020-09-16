@@ -2,7 +2,7 @@ package com.guoliang.flinkx.admin.service;
 
 
 import com.guoliang.flinkx.admin.dto.DataXBatchJsonBuildDto;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.admin.entity.JobInfo;
 
 import java.io.IOException;

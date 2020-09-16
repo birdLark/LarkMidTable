@@ -1,7 +1,7 @@
 package com.guoliang.flinkx.admin.tool.datax.reader;
 
 import com.google.common.collect.Maps;
-import com.wugui.datatx.core.util.Constants;
+import com.guoliang.flinkx.core.util.Constants;
 import com.guoliang.flinkx.admin.entity.JobDatasource;
 import com.guoliang.flinkx.admin.tool.pojo.DataxMongoDBPojo;
 

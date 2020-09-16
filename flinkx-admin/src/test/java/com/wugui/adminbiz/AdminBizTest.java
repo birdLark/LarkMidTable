@@ -1,11 +1,11 @@
 package com.wugui.adminbiz;
 
-import com.wugui.datatx.core.biz.AdminBiz;
-import com.wugui.datatx.core.biz.client.AdminBizClient;
-import com.wugui.datatx.core.biz.model.HandleCallbackParam;
-import com.wugui.datatx.core.biz.model.RegistryParam;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.enums.RegistryConfig;
+import com.guoliang.flinkx.core.biz.AdminBiz;
+import com.guoliang.flinkx.core.biz.client.AdminBizClient;
+import com.guoliang.flinkx.core.biz.model.HandleCallbackParam;
+import com.guoliang.flinkx.core.biz.model.RegistryParam;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.enums.RegistryConfig;
 import org.junit.Assert;
 import org.junit.Test;
 

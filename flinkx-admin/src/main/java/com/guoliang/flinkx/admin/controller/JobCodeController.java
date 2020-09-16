@@ -2,7 +2,7 @@ package com.guoliang.flinkx.admin.controller;
 
 import com.guoliang.flinkx.admin.mapper.JobInfoMapper;
 import com.guoliang.flinkx.admin.mapper.JobLogGlueMapper;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
 import com.guoliang.flinkx.admin.entity.JobInfo;
 import com.guoliang.flinkx.admin.entity.JobLogGlue;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.Date;
 
-import static com.wugui.datatx.core.biz.model.ReturnT.FAIL_CODE;
+import static com.guoliang.flinkx.core.biz.model.ReturnT.FAIL_CODE;
 
 /**
  * Created by jingwk on 2019/11/17

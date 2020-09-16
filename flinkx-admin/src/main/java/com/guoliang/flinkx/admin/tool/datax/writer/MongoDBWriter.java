@@ -2,7 +2,7 @@ package com.guoliang.flinkx.admin.tool.datax.writer;
 
 import com.google.common.collect.Maps;
 import com.guoliang.flinkx.admin.dto.UpsertInfo;
-import com.wugui.datatx.core.util.Constants;
+import com.guoliang.flinkx.core.util.Constants;
 import com.guoliang.flinkx.admin.entity.JobDatasource;
 import com.guoliang.flinkx.admin.tool.pojo.DataxMongoDBPojo;
 

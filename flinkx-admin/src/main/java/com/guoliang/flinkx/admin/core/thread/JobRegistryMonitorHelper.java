@@ -3,7 +3,7 @@ package com.guoliang.flinkx.admin.core.thread;
 import com.guoliang.flinkx.admin.core.conf.JobAdminConfig;
 import com.guoliang.flinkx.admin.entity.JobGroup;
 import com.guoliang.flinkx.admin.entity.JobRegistry;
-import com.wugui.datatx.core.enums.RegistryConfig;
+import com.guoliang.flinkx.core.enums.RegistryConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
