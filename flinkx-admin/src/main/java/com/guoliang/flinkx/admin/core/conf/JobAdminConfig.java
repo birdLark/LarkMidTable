@@ -12,12 +12,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-/**
- * xxl-job config
- *
- * @author xuxueli 2017-04-28
- */
 
+/**
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: xxl-job config
+ **/
 @Component
 public class JobAdminConfig implements InitializingBean, DisposableBean {
 
