@@ -1,11 +1,11 @@
 package com.guoliang.flinkx.executor.service.command;
 
 import com.guoliang.flinkx.executor.service.jobhandler.DataXConstant;
-import com.wugui.datatx.core.biz.model.TriggerParam;
-import com.wugui.datatx.core.enums.IncrementTypeEnum;
-import com.wugui.datatx.core.log.JobLogger;
-import com.wugui.datatx.core.util.Constants;
-import com.wugui.datatx.core.util.DateUtil;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.enums.IncrementTypeEnum;
+import com.guoliang.flinkx.core.log.JobLogger;
+import com.guoliang.flinkx.core.util.Constants;
+import com.guoliang.flinkx.core.util.DateUtil;
 import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import static com.wugui.datatx.core.util.Constants.SPLIT_COMMA;
+import static com.guoliang.flinkx.core.util.Constants.SPLIT_COMMA;
 
 /**
  * DataX command build

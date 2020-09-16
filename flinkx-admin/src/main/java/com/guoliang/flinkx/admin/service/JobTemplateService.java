@@ -1,7 +1,7 @@
 package com.guoliang.flinkx.admin.service;
 
 
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.admin.entity.JobTemplate;
 
 import java.util.Map;

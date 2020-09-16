@@ -1,16 +1,16 @@
 package com.wugui.executor;
 
-import com.wugui.datatx.core.biz.ExecutorBiz;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.biz.model.TriggerParam;
-import com.wugui.datatx.core.enums.ExecutorBlockStrategyEnum;
-import com.wugui.datatx.core.glue.GlueTypeEnum;
-import com.wugui.datax.rpc.remoting.invoker.XxlRpcInvokerFactory;
-import com.wugui.datax.rpc.remoting.invoker.call.CallType;
-import com.wugui.datax.rpc.remoting.invoker.reference.XxlRpcReferenceBean;
-import com.wugui.datax.rpc.remoting.invoker.route.LoadBalance;
-import com.wugui.datax.rpc.remoting.net.impl.netty_http.client.NettyHttpClient;
-import com.wugui.datax.rpc.serialize.impl.HessianSerializer;
+import com.guoliang.flinkx.core.biz.ExecutorBiz;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.enums.ExecutorBlockStrategyEnum;
+import com.guoliang.flinkx.core.glue.GlueTypeEnum;
+import com.guoliang.flinkx.rpc.remoting.invoker.XxlRpcInvokerFactory;
+import com.guoliang.flinkx.rpc.remoting.invoker.call.CallType;
+import com.guoliang.flinkx.rpc.remoting.invoker.reference.XxlRpcReferenceBean;
+import com.guoliang.flinkx.rpc.remoting.invoker.route.LoadBalance;
+import com.guoliang.flinkx.rpc.remoting.net.impl.netty_http.client.NettyHttpClient;
+import com.guoliang.flinkx.rpc.serialize.impl.HessianSerializer;
 
 /**
  * executor-api client, test

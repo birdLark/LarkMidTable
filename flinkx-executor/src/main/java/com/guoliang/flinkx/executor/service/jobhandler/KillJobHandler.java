@@ -2,11 +2,11 @@ package com.guoliang.flinkx.executor.service.jobhandler;
 
 
 import cn.hutool.core.io.FileUtil;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.biz.model.TriggerParam;
-import com.wugui.datatx.core.handler.IJobHandler;
-import com.wugui.datatx.core.handler.annotation.JobHandler;
-import com.wugui.datatx.core.util.ProcessUtil;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.handler.IJobHandler;
+import com.guoliang.flinkx.core.handler.annotation.JobHandler;
+import com.guoliang.flinkx.core.util.ProcessUtil;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 

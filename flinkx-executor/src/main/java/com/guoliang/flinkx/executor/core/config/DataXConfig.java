@@ -1,6 +1,6 @@
 package com.guoliang.flinkx.executor.core.config;
 
-import com.wugui.datatx.core.executor.impl.JobSpringExecutor;
+import com.guoliang.flinkx.core.executor.impl.JobSpringExecutor;
 import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

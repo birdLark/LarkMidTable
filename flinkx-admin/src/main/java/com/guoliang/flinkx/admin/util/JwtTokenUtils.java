@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.wugui.datatx.core.util.Constants.SPLIT_COMMA;
+import static com.guoliang.flinkx.core.util.Constants.SPLIT_COMMA;
 
 /**
  * Created by jingwk on 2019/12/01

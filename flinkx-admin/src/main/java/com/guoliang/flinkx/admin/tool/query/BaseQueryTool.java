@@ -3,7 +3,7 @@ package com.guoliang.flinkx.admin.tool.query;
 import cn.hutool.core.util.StrUtil;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import com.wugui.datatx.core.util.Constants;
+import com.guoliang.flinkx.core.util.Constants;
 import com.guoliang.flinkx.admin.core.util.LocalCacheUtil;
 import com.guoliang.flinkx.admin.entity.JobDatasource;
 import com.guoliang.flinkx.admin.tool.database.ColumnInfo;

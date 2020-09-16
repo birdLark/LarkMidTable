@@ -7,7 +7,7 @@ import com.guoliang.flinkx.admin.util.JwtTokenUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
-import static com.wugui.datatx.core.util.Constants.STRING_BLANK;
+import static com.guoliang.flinkx.core.util.Constants.STRING_BLANK;
 
 /**
  * base controller

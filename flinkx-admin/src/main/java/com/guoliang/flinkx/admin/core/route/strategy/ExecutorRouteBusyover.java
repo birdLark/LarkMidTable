@@ -1,8 +1,8 @@
 package com.guoliang.flinkx.admin.core.route.strategy;
 
-import com.wugui.datatx.core.biz.ExecutorBiz;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.biz.ExecutorBiz;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
 import com.guoliang.flinkx.admin.core.route.ExecutorRouter;
 import com.guoliang.flinkx.admin.core.scheduler.JobScheduler;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;

@@ -6,7 +6,7 @@ import com.guoliang.flinkx.admin.core.util.I18nUtil;
 import com.guoliang.flinkx.admin.entity.JobGroup;
 import com.guoliang.flinkx.admin.entity.JobInfo;
 import com.guoliang.flinkx.admin.entity.JobLog;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.MimeMessageHelper;

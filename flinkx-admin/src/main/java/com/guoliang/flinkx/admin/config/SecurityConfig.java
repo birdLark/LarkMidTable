@@ -4,7 +4,7 @@ package com.guoliang.flinkx.admin.config;
 import com.guoliang.flinkx.admin.filter.JWTAuthenticationFilter;
 import com.guoliang.flinkx.admin.filter.JWTAuthorizationFilter;
 import com.guoliang.flinkx.admin.service.impl.UserDetailsServiceImpl;
-import com.wugui.datatx.core.util.Constants;
+import com.guoliang.flinkx.core.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

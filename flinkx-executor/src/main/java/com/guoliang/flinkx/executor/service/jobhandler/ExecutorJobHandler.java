@@ -3,14 +3,14 @@ package com.guoliang.flinkx.executor.service.jobhandler;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
 import com.guoliang.flinkx.executor.service.logparse.LogStatistics;
-import com.wugui.datatx.core.biz.model.HandleProcessCallbackParam;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.biz.model.TriggerParam;
-import com.wugui.datatx.core.handler.IJobHandler;
-import com.wugui.datatx.core.handler.annotation.JobHandler;
-import com.wugui.datatx.core.log.JobLogger;
-import com.wugui.datatx.core.thread.ProcessCallbackThread;
-import com.wugui.datatx.core.util.ProcessUtil;
+import com.guoliang.flinkx.core.biz.model.HandleProcessCallbackParam;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.handler.IJobHandler;
+import com.guoliang.flinkx.core.handler.annotation.JobHandler;
+import com.guoliang.flinkx.core.log.JobLogger;
+import com.guoliang.flinkx.core.thread.ProcessCallbackThread;
+import com.guoliang.flinkx.core.util.ProcessUtil;
 import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -51,14 +51,10 @@ public class ExecutorJobHandler extends IJobHandler {
         tmpFilePath = generateTemJsonFile(trigger.getJobJson());
 
         try {
-			JobLogger.log("我进来拉----");
             String[] cmdarrayFinal = buildDataXExecutorCmd(trigger, tmpFilePath,dataXPyPath);
-            for (String cmd :cmdarrayFinal) {
-				System.out.println(cmd);
-			}
             final Process process = Runtime.getRuntime().exec(cmdarrayFinal);
             String prcsId = ProcessUtil.getProcessId(process);
-            JobLogger.log("------------------DataX process id: " + prcsId);
+            JobLogger.log("------------------FlinkX process id: " + prcsId);
             jobTmpFiles.put(prcsId, tmpFilePath);
             //update datax process id
             HandleProcessCallbackParam prcs = new HandleProcessCallbackParam(trigger.getLogId(), trigger.getLogDateTime(), prcsId);

@@ -1,7 +1,7 @@
 package com.guoliang.flinkx.admin.controller;
 
 import com.guoliang.flinkx.admin.service.JobService;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
