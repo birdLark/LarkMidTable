@@ -6,7 +6,7 @@
 
 ## 2.通过注解的方式配置bean
 
-[2.通过注解的方式配置bean]()
+[2.通过注解的方式配置bean](https://github.com/wxgzgl/Lark/tree/master/docs/spring/spring2.md)
 
 # Flinkx系列
 
