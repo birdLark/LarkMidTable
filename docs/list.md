@@ -4,7 +4,9 @@
 
 [1.spring的IOC和DI基础入门](https://github.com/wxgzgl/Lark/tree/master/docs/spring/spring.md)
 
+## 2.通过注解的方式配置bean
 
+[2.通过注解的方式配置bean]()
 
 # Flinkx系列
 
