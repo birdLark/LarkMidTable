@@ -81,6 +81,12 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
+## 特别鸣谢
+
+本项目[datax-web](https://github.com/WeiYe-Jing/datax-web)的整体代码结构进行二次重构开发，在此特别感谢datax-web团队。
+
+
+
 # **技术交流**
 
 搜索QQ群号[678097205]或者扫描下面的二维码进入LarkMidTable 社区的QQ群，目前正是开源的初期阶段，群里达到82人
