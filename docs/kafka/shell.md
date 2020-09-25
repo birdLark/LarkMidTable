@@ -22,6 +22,10 @@ do
 done`
 ```
 
+```
+vi  kafka-server-stop.sh 
 
+PIDS=$(jps -lm | grep -i 'kafka.Kafka' | awk '{print $1}')
+```
 
 可以添加首页QQ群获取脚本。
