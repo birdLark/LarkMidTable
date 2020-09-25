@@ -46,7 +46,7 @@
 
 ## 2.如何配置kafka集群的启动脚本和停止脚本以及查看状态脚本?
 
-[kafka脚本]()
+[kafka脚本](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/kafka/shell.md)
 
 
 
