@@ -95,7 +95,7 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         // reader 插件
         String datasource = readerDatasource.getDatasource();
 
-        this.readerColumns = convertKeywordsColumns(datasource, this.readerColumns);
+//        this.readerColumns = convertKeywordsColumns(datasource, this.readerColumns);
         if (JdbcConstants.MYSQL.equals(datasource)) {
             readerPlugin = new MysqlReader();
             buildReader = buildReader();
@@ -133,7 +133,7 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         this.mongoDBWriterDto = flinkxJsonDto.getMongoDBWriter();
         // writer
         String datasource = readerDatasource.getDatasource();
-        this.writerColumns = convertKeywordsColumns(datasource, this.writerColumns);
+//        this.writerColumns = convertKeywordsColumns(datasource, this.writerColumns);
         if (JdbcConstants.MYSQL.equals(datasource)) {
             writerPlugin = new MysqlWriter();
             buildWriter = this.buildWriter();

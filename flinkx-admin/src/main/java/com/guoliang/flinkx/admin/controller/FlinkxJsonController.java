@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  **/
 @RestController
-@RequestMapping("api/dataxJson")
+@RequestMapping("api/flinkxJson")
 @Api(tags = "组装flinkx  json的控制器")
 public class FlinkxJsonController extends BaseController {
 

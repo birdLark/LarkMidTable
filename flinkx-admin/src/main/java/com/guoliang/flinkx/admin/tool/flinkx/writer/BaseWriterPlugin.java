@@ -35,7 +35,9 @@ public abstract class BaseWriterPlugin extends BaseFlinkxPlugin {
         JobDatasource jobDatasource = plugin.getJobDatasource();
         parameterObj.put("username", AESUtil.decrypt(jobDatasource.getJdbcUsername()));
         parameterObj.put("password", AESUtil.decrypt(jobDatasource.getJdbcPassword()));
-        parameterObj.put("column", plugin.getRdbmsColumns());
+		//类型
+        parameterObj.put("writeMode", "insert");
+		parameterObj.put("column", plugin.getRdbmsColumns());
         parameterObj.put("preSql", splitSql(plugin.getPreSql()));
         parameterObj.put("postSql", splitSql(plugin.getPostSql()));
 
