@@ -35,7 +35,9 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 [LarkMidTableUI前端代码](https://github.com/wxgzgl/LarkMidTableUI)
 
-# 产品的用途
+
+
+# 产品用途
 
 ![架构图](https://img2020.cnblogs.com/blog/622382/202009/622382-20200909200342233-1231297773.png)
 
@@ -67,21 +69,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
-# **开发计划**
-
-已完成：
-
-登陆功能【完成】     	项目管理【完成】            	 用户管理【完成】	   JSON格式化【完成】  
-
-执行器管理【完成】  	Linux安装部署【完成】	  数据源管理【完成】   任务管理【完成】
-
-日志管理【完成】   资源监控【完成】
-
-[开发日志](https://github.com/wxgzgl/Lark/tree/master/docs/notes/202009.md) 
-
-
-
-## 特别鸣谢
+# 特别鸣谢
 
 本项目[datax-web](https://github.com/WeiYe-Jing/datax-web)的整体代码结构进行二次重构开发，在此特别感谢datax-web团队。
 
