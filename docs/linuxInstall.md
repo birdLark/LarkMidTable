@@ -24,12 +24,21 @@ tar -zxvf flinkx-web-2.1.2.tar.gz
 
 ```
  tar -zxvf flinkx-admin_2.1.2_1.tar.gz 
+ tar -zxvf flinkx-executor_2.1.2_1.tar.gz
 ```
 
-3.进入flinkx-web-2.1.2/packages/flinkx-admin/bin
+3.启动程序
+
+进入flinkx-web-2.1.2/packages/flinkx-admin/bin
 
 ```
 sh flinkx-admin.sh start
+```
+
+进入flinkx-web-2.1.2/packages/flinkx-executor/bin
+
+```
+sh flinkx-executor.sh start
 ```
 
 4.访问首页
