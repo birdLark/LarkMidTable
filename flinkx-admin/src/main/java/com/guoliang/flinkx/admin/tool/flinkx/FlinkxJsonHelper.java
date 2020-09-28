@@ -370,7 +370,7 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         flinkxMongoDBPojo.setColumns(columns);
         flinkxMongoDBPojo.setAddress(writerDatasource.getJdbcUrl());
         flinkxMongoDBPojo.setDbName(writerDatasource.getDatabaseName());
-        flinkxMongoDBPojo.setWriterTable(readerTables.get(0));
+        flinkxMongoDBPojo.setWriterTable(writerTables.get(0));
         flinkxMongoDBPojo.setUpsertInfo(mongoDBWriterDto.getUpsertInfo());
         return writerPlugin.buildMongoDB(flinkxMongoDBPojo);
     }
