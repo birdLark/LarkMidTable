@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-FRIEND_NAME=DATAX-EXEXUTOR
+FRIEND_NAME=FLINKX-EXEXUTOR
 MAIN_CLASS=com.guoliang.flinkx.executor.FlinkXExecutorApplication
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"

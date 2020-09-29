@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-FRIEND_NAME=DATAX-ADMIN
+FRIEND_NAME=FLINKX-ADMIN
 MAIN_CLASS=com.guoliang.flinkx.admin.FlinkXAdminApplication
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"
