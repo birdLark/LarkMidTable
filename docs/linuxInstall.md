@@ -20,28 +20,16 @@ build/flinkx-web-{VERSION}.tar.gz
 tar -zxvf flinkx-web-2.1.2.tar.gz 
 ```
 
-2.解压后进入flinkx-web-2.1.2/packages目录
+2.解压部署包
 
 ```
- tar -zxvf flinkx-admin_2.1.2_1.tar.gz 
- tar -zxvf flinkx-executor_2.1.2_1.tar.gz
+cd flinkx-web-2.1.2/bin/
+sh install.sh 
 ```
 
-3.启动程序
 
-进入flinkx-web-2.1.2/packages/flinkx-admin/bin
 
-```
-sh flinkx-admin.sh start
-```
-
-进入flinkx-web-2.1.2/packages/flinkx-executor/bin
-
-```
-sh flinkx-executor.sh start
-```
-
-# 3.安装配置
+## 3.安装配置
 
 ### 3.1创建数据库
 
@@ -118,6 +106,19 @@ jsonpath: /home/hadoop/flinkx-1.8_release/job/
 
 
 
-# 4.访问首页
+
+
+**其中start.sh脚本和flinkx-1.8_release压缩包，可以添加群获得**
+
+# 4.启动程序
+
+```
+cd flinkx-web-2.1.2/bin/
+sh start-all.sh 
+```
+
+
+
+# 5.访问首页
 
 http://host:8080/index.html
