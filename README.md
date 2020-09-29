@@ -33,14 +33,6 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 | [K8S](https://github.com/kubernetes/kubernetes)              | 容器部署           | 部署容器化的应用简单并且高效                                 |
 | [Zookeeper](https://github.com/apache/zookeeper)             | 分布式协调服务     | 统一命名服务、配置管理、集群管理、队列管理                   |
 
-[LarkMidTableUI前端代码](https://github.com/wxgzgl/LarkMidTableUI)
-
-
-
-# 产品用途
-
-![架构图](https://img2020.cnblogs.com/blog/622382/202009/622382-20200909200342233-1231297773.png)
-
 
 
 # 产品架构图
@@ -65,7 +57,9 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # **快速开始**
 
-请点击     [快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
+请点击      [快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
+
+前端代码  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
 
 资源库      [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
