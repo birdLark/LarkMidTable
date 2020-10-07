@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: project manage controller
+ * @Description: 项目管理模块
  **/
 @RestController
 @RequestMapping("/api/jobProject")

@@ -26,7 +26,7 @@
     </dependencyManagement>
 
     <dependencies>
-
+        <!--SpringBoot集成Web模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -49,6 +49,7 @@
             <version>${spring-boot.version}</version>
         </dependency>
 
+        <!--SpringBoot集成Junit-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -66,7 +67,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!-- starter-actuator -->
+        <!-- 用于监控和管理应用 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>

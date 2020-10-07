@@ -28,7 +28,7 @@ import java.util.Map;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: index controller
+ * @Description: 任务配置接口
  **/
 @Api(tags = "任务配置接口")
 @RestController

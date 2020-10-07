@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description:
+ * @Description: 组装flinkx的json的控制器
  **/
 @RestController
 @RequestMapping("api/flinkxJson")
