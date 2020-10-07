@@ -22,7 +22,7 @@ import java.util.Map;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description:
+ * @Description: 首页接口
  **/
 @RestController
 @Api(tags = "首页接口")

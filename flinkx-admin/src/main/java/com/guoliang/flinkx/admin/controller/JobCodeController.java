@@ -22,7 +22,7 @@ import static com.guoliang.flinkx.core.biz.model.ReturnT.FAIL_CODE;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description:
+ * @Description: 任务状态接口
  **/
 @RestController
 @RequestMapping("/jobcode")

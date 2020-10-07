@@ -24,11 +24,11 @@ import java.util.Map;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: template controller
+ * @Description: 任务模板
  **/
-@Api(tags = "任务配置接口")
 @RestController
 @RequestMapping("/api/jobTemplate")
+@Api(tags = "任务配置接口")
 public class JobTemplateController extends BaseController{
 
     @Resource
