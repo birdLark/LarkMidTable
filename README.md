@@ -49,9 +49,9 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 | Mongodb    | 支持     | 支持     |
 | SqlServer  |          |          |
 | ClickHouse |          |          |
-| Hive       |          |          |
+| Hive       |          | 支持     |
 | Hbase      |          |          |
-| Hdfs       |          |          |
+| Hdfs       |          | 支持     |
 
 
 
