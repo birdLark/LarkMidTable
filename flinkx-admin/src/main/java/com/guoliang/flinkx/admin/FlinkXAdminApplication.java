@@ -1,5 +1,6 @@
 package com.guoliang.flinkx.admin;
 
+import com.guoliang.flinkx.admin.entity.Common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -20,9 +21,9 @@ public class FlinkXAdminApplication {
 
     public static void main(String[] args) throws UnknownHostException {
         Environment env = new SpringApplication(FlinkXAdminApplication.class).run(args).getEnvironment();
-        String envPort = env.getProperty("server.port");
-        String envContext = env.getProperty("server.contextPath");
-        String port = envPort == null ? "8080" : envPort;
+        String envPort = env.getProperty(Common.SERVERPORT);
+        String envContext = env.getProperty(Common.SERVERCONTEXTPATH);
+        String port = envPort == null ? Common.PORT : envPort;
         String context = envContext == null ? "" : envContext;
         String path = port + "" + context + "/doc.html";
         String externalAPI = InetAddress.getLocalHost().getHostAddress();
