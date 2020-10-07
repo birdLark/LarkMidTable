@@ -10,10 +10,11 @@ import com.guoliang.flinkx.rpc.serialize.impl.HessianSerializer;
 import java.lang.annotation.*;
 
 /**
- * rpc service annotation, skeleton of stub ("@Inherited" allow service use "Transactional")
  *
- * @author 2015-10-29 19:44:33
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: rpc service annotation, skeleton of stub ("@Inherited" allow service use "Transactional")
+ **/
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited

@@ -8,10 +8,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * service registry for "local"
  *
- * @author xuxueli 2018-10-17
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: service registry for "local"
+ **/
 public class LocalServiceRegistry extends ServiceRegistry {
 
     /**

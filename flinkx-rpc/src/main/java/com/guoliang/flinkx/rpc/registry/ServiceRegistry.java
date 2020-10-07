@@ -6,15 +6,16 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * service registry
  *
- *  /xxl-rpc/dev/
- *              - key01(service01)
- *                  - value01 (ip:port01)
- *                  - value02 (ip:port02)
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: service registry
  *
- * @author xuxueli 2018-10-17
- */
+ *    /xxl-rpc/dev/
+ *                - key01(service01)
+ *                   - value01 (ip:port01)
+ *                   - value02 (ip:port02)
+ **/
 public abstract class ServiceRegistry {
 
     /**
