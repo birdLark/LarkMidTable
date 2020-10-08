@@ -1,8 +1,8 @@
 package com.guoliang.flinkx.executor.service.logparse;
 
 import com.guoliang.flinkx.executor.service.jobhandler.DataXConstant;
-import com.wugui.datatx.core.log.JobLogger;
-import com.wugui.datatx.core.util.Constants;
+import com.guoliang.flinkx.core.log.JobLogger;
+import com.guoliang.flinkx.core.util.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;

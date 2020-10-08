@@ -3,7 +3,7 @@ package com.guoliang.flinkx.admin.core.thread;
 import com.guoliang.flinkx.admin.core.conf.JobAdminConfig;
 import com.guoliang.flinkx.admin.entity.JobGroup;
 import com.guoliang.flinkx.admin.entity.JobRegistry;
-import com.wugui.datatx.core.enums.RegistryConfig;
+import com.guoliang.flinkx.core.enums.RegistryConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,21 +76,21 @@ public class JobRegistryMonitorHelper {
 					}
 				} catch (Exception e) {
 					if (!toStop) {
-						logger.error(">>>>>>>>>>> datax-web, job registry monitor thread error:{}", e);
+						logger.error(">>>>>>>>>>> flinkx-web, job registry monitor thread error:{}", e);
 					}
 				}
 				try {
 					TimeUnit.SECONDS.sleep(RegistryConfig.BEAT_TIMEOUT);
 				} catch (InterruptedException e) {
 					if (!toStop) {
-						logger.error(">>>>>>>>>>> datax-web, job registry monitor thread error:{}", e);
+						logger.error(">>>>>>>>>>> flinkx-web, job registry monitor thread error:{}", e);
 					}
 				}
 			}
-			logger.info(">>>>>>>>>>> datax-web, job registry monitor thread stop");
+			logger.info(">>>>>>>>>>> flinkx-web, job registry monitor thread stop");
 		});
 		registryThread.setDaemon(true);
-		registryThread.setName("datax-web, admin JobRegistryMonitorHelper");
+		registryThread.setName("flinkx-web, admin JobRegistryMonitorHelper");
 		registryThread.start();
 	}
 

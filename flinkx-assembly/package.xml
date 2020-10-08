@@ -10,7 +10,7 @@
         <fileSet>
             <directory>../packages</directory>
             <includes>
-                <include>datax-*</include>
+                <include>flinkx-*</include>
             </includes>
             <outputDirectory>packages</outputDirectory>
         </fileSet>

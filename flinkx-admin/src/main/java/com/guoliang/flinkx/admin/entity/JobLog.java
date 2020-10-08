@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * datax-web log, used to track trigger process
+ * flinkx-web log, used to track trigger process
  *
  * @author jingwk  2019-11-17 22:08:11
  */

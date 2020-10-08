@@ -1,11 +1,11 @@
 package com.guoliang.flinkx.admin.controller;
 
-import com.wugui.datatx.core.biz.AdminBiz;
-import com.wugui.datatx.core.biz.model.HandleCallbackParam;
-import com.wugui.datatx.core.biz.model.HandleProcessCallbackParam;
-import com.wugui.datatx.core.biz.model.RegistryParam;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.util.JobRemotingUtil;
+import com.guoliang.flinkx.core.biz.AdminBiz;
+import com.guoliang.flinkx.core.biz.model.HandleCallbackParam;
+import com.guoliang.flinkx.core.biz.model.HandleProcessCallbackParam;
+import com.guoliang.flinkx.core.biz.model.RegistryParam;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.util.JobRemotingUtil;
 import com.guoliang.flinkx.admin.core.conf.JobAdminConfig;
 import com.guoliang.flinkx.admin.core.util.JacksonUtil;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by xuxueli on 17/5/10.
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:  API的接口
+ **/
 @RestController
 @RequestMapping("/api")
 public class JobApiController {

@@ -11,14 +11,14 @@ import com.guoliang.flinkx.admin.entity.JobLog;
 import com.guoliang.flinkx.admin.tool.query.BaseQueryTool;
 import com.guoliang.flinkx.admin.tool.query.QueryToolFactory;
 import com.guoliang.flinkx.admin.util.JSONUtils;
-import com.wugui.datatx.core.biz.ExecutorBiz;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.biz.model.TriggerParam;
-import com.wugui.datatx.core.enums.ExecutorBlockStrategyEnum;
-import com.wugui.datatx.core.enums.IncrementTypeEnum;
-import com.wugui.datatx.core.glue.GlueTypeEnum;
-import com.wugui.datax.rpc.util.IpUtil;
-import com.wugui.datax.rpc.util.ThrowableUtil;
+import com.guoliang.flinkx.core.biz.ExecutorBiz;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.enums.ExecutorBlockStrategyEnum;
+import com.guoliang.flinkx.core.enums.IncrementTypeEnum;
+import com.guoliang.flinkx.core.glue.GlueTypeEnum;
+import com.guoliang.flinkx.rpc.util.IpUtil;
+import com.guoliang.flinkx.rpc.util.ThrowableUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +51,7 @@ public class JobTrigger {
             return;
         }
         if (GlueTypeEnum.BEAN.getDesc().equals(jobInfo.getGlueType())) {
-            //解密账密
+        	//解密账密
             String json = JSONUtils.changeJson(jobInfo.getJobJson(), JSONUtils.decrypt);
             jobInfo.setJobJson(json);
         }
@@ -81,6 +81,7 @@ public class JobTrigger {
             if (shardingParam == null) {
                 shardingParam = new int[]{0, 1};
             }
+			System.out.println("processTrigger");
             processTrigger(group, jobInfo, finalFailRetryCount, triggerType, shardingParam[0], shardingParam[1]);
         }
 
@@ -124,7 +125,7 @@ public class JobTrigger {
         jobLog.setJobDesc(jobInfo.getJobDesc());
 
         JobAdminConfig.getAdminConfig().getJobLogMapper().save(jobLog);
-        logger.debug(">>>>>>>>>>> datax-web trigger start, jobId:{}", jobLog.getId());
+        logger.debug(">>>>>>>>>>> flinkx-web trigger start, jobId:{}", jobLog.getId());
 
         // 2、init trigger-param
         triggerParam.setJobId(jobInfo.getId());
@@ -218,7 +219,7 @@ public class JobTrigger {
         jobLog.setTriggerMsg(triggerMsgSb.toString());
         JobAdminConfig.getAdminConfig().getJobLogMapper().updateTriggerInfo(jobLog);
 
-        logger.debug(">>>>>>>>>>> datax-web trigger end, jobId:{}", jobLog.getId());
+        logger.debug(">>>>>>>>>>> flinkx-web trigger end, jobId:{}", jobLog.getId());
     }
 
     private static long getMaxId(JobInfo jobInfo) {
@@ -240,7 +241,7 @@ public class JobTrigger {
             ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(address);
             runResult = executorBiz.run(triggerParam);
         } catch (Exception e) {
-            logger.error(">>>>>>>>>>> datax-web trigger error, please check if the executor[{}] is running.", address, e);
+            logger.error(">>>>>>>>>>> flinkx-web trigger error, please check if the executor[{}] is running.", address, e);
             runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.toString(e));
         }
 

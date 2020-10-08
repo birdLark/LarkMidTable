@@ -10,7 +10,7 @@
         <version>2.1.2</version>
     </parent>
 
-    <artifactId>datax-core</artifactId>
+    <artifactId>flinkx-core</artifactId>
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
@@ -19,8 +19,8 @@
 
         <!-- xxl-rpc-core -->
         <dependency>
-            <groupId>com.wugui</groupId>
-            <artifactId>datax-rpc</artifactId>
+            <groupId>com.guoliang.cn</groupId>
+            <artifactId>flinkx-rpc</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <!-- groovy-all -->

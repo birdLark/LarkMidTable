@@ -1,7 +1,7 @@
 package com.guoliang.flinkx.admin.core.route.strategy;
 
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
 import com.guoliang.flinkx.admin.core.route.ExecutorRouter;
 
 import java.util.List;

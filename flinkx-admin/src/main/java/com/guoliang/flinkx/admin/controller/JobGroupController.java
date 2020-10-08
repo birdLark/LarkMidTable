@@ -3,8 +3,8 @@ package com.guoliang.flinkx.admin.controller;
 import com.guoliang.flinkx.admin.mapper.JobGroupMapper;
 import com.guoliang.flinkx.admin.mapper.JobInfoMapper;
 import com.guoliang.flinkx.admin.mapper.JobRegistryMapper;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.enums.RegistryConfig;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.enums.RegistryConfig;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
 import com.guoliang.flinkx.admin.entity.JobGroup;
 import com.guoliang.flinkx.admin.entity.JobRegistry;
@@ -17,8 +17,11 @@ import javax.annotation.Resource;
 import java.util.*;
 
 /**
- * Created by jingwk on 2019/11/17
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 执行器管理接口
+ **/
 @RestController
 @RequestMapping("/api/jobGroup")
 @Api(tags = "执行器管理接口")

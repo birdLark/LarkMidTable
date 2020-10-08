@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.wugui</groupId>
+    <groupId>com.guoliang.cn</groupId>
     <artifactId>flinkx-assembly</artifactId>
 
     <build>
