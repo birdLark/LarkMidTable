@@ -3,8 +3,8 @@ package com.guoliang.flinkx.admin.controller;
 
 import com.guoliang.flinkx.admin.entity.JobTemplate;
 import com.guoliang.flinkx.admin.service.JobTemplateService;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.util.DateUtil;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.util.DateUtil;
 import com.guoliang.flinkx.admin.core.cron.CronExpression;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
 import io.swagger.annotations.Api;
@@ -19,14 +19,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+
 /**
- * template controller
  *
- * @author jingwk 2019-12-22 16:13:16
- */
-@Api(tags = "任务配置接口")
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 任务模板
+ **/
 @RestController
 @RequestMapping("/api/jobTemplate")
+@Api(tags = "任务配置接口")
 public class JobTemplateController extends BaseController{
 
     @Resource

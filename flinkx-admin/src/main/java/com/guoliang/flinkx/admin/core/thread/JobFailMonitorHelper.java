@@ -6,7 +6,7 @@ import com.guoliang.flinkx.admin.core.util.I18nUtil;
 import com.guoliang.flinkx.admin.entity.JobGroup;
 import com.guoliang.flinkx.admin.entity.JobInfo;
 import com.guoliang.flinkx.admin.entity.JobLog;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -87,7 +87,7 @@ public class JobFailMonitorHelper {
 
 					} catch (Exception e) {
 						if (!toStop) {
-							logger.error(">>>>>>>>>>> datax-web, job fail monitor thread error:{0}", e);
+							logger.error(">>>>>>>>>>> flinkx-web, job fail monitor thread error:{0}", e);
 						}
 					}
 
@@ -101,12 +101,12 @@ public class JobFailMonitorHelper {
 
                 }
 
-				logger.info(">>>>>>>>>>> datax-web, job fail monitor thread stop");
+				logger.info(">>>>>>>>>>> flinkx-web, job fail monitor thread stop");
 
 			}
 		});
 		monitorThread.setDaemon(true);
-		monitorThread.setName("datax-web, admin JobFailMonitorHelper");
+		monitorThread.setName("flinkx-web, admin JobFailMonitorHelper");
 		monitorThread.start();
 	}
 
@@ -192,7 +192,7 @@ public class JobFailMonitorHelper {
 
 					JobAdminConfig.getAdminConfig().getMailSender().send(mimeMessage);
 				} catch (Exception e) {
-					logger.error(">>>>>>>>>>> datax-web, job fail alarm email send error, JobLogId:{}", jobLog.getId(), e);
+					logger.error(">>>>>>>>>>> flinkx-web, job fail alarm email send error, JobLogId:{}", jobLog.getId(), e);
 
 					alarmResult = false;
 				}

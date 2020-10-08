@@ -18,12 +18,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * jdbc数据源配置控制器层
  *
- * @author zhouhongfa@gz-yibo.com
- * @version v1.0
- * @since 2019-07-30
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: jdbc数据源配置控制器层
+ **/
 @RestController
 @RequestMapping("/api/jobJdbcDatasource")
 @Api(tags = "jdbc数据源配置接口")

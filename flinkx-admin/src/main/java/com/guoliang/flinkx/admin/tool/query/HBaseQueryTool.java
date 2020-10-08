@@ -2,7 +2,7 @@ package com.guoliang.flinkx.admin.tool.query;
 
 
 import com.guoliang.flinkx.admin.entity.JobDatasource;
-import com.wugui.datatx.core.util.Constants;
+import com.guoliang.flinkx.core.util.Constants;
 import com.guoliang.flinkx.admin.core.util.LocalCacheUtil;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;

@@ -1,6 +1,6 @@
 package com.guoliang.flinkx.admin.util;
 
-import com.wugui.datatx.core.util.Constants;
+import com.guoliang.flinkx.core.util.Constants;
 
 /**
  * RdbmsException

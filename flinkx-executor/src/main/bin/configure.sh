@@ -3,7 +3,7 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 SHELL_LOG="${DIR}/console.out"
-SERVER_NAME="datax-executor"
+SERVER_NAME="flinkx-executor"
 USER=`whoami`
 SAFE_MODE=true
 SUDO_USER=false
@@ -11,7 +11,7 @@ ENV_FILE_PATH="${DIR}/env.properties"
 
 usage(){
   printf "Configure usage:\n"
-  printf "\t%-10s  %-10s  %-2s \n" --server "server-name" "Name of datax-executor server"
+  printf "\t%-10s  %-10s  %-2s \n" --server "server-name" "Name of flinkx-executor server"
   printf "\t%-10s  %-10s  %-2s \n" --unsafe "unsafe mode" "Will clean the directory existed"
   printf "\t%-10s  %-10s  %-2s \n" --safe "safe mode" "Will not modify the directory existed (Default)"
   printf "\t%-10s  %-10s  %-2s \n" "-h|--help" "usage" "List help document"
@@ -106,7 +106,7 @@ if [ $? == 0 ]; then
 fi
 
 BIN=`abs_path`
-SERVER_NAME_SIMPLE=${SERVER_NAME/datax-/}
+SERVER_NAME_SIMPLE=${SERVER_NAME/flinkx-/}
 
 LOG_PATH=${BIN}/../logs
 if [ "x${BASE_LOG_DIR}" != "x" ]; then

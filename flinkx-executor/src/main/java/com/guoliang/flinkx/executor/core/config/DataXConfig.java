@@ -1,6 +1,6 @@
 package com.guoliang.flinkx.executor.core.config;
 
-import com.wugui.datatx.core.executor.impl.JobSpringExecutor;
+import com.guoliang.flinkx.core.executor.impl.JobSpringExecutor;
 import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -20,31 +20,31 @@ public class DataXConfig {
 
     private static final String DEFAULT_LOG_PATH = "log/executor/jobhandler";
 
-    @Value("${datax.job.admin.addresses}")
+    @Value("${flinkx.job.admin.addresses}")
     private String adminAddresses;
 
-    @Value("${datax.job.executor.appname}")
+    @Value("${flinkx.job.executor.appname}")
     private String appName;
 
-    @Value("${datax.job.executor.ip}")
+    @Value("${flinkx.job.executor.ip}")
     private String ip;
 
-    @Value("${datax.job.executor.port}")
+    @Value("${flinkx.job.executor.port}")
     private int port;
 
-    @Value("${datax.job.accessToken}")
+    @Value("${flinkx.job.accessToken}")
     private String accessToken;
 
-    @Value("${datax.job.executor.logpath}")
+    @Value("${flinkx.job.executor.logpath}")
     private String logPath;
 
-    @Value("${datax.job.executor.logretentiondays}")
+    @Value("${flinkx.job.executor.logretentiondays}")
     private int logRetentionDays;
 
 
     @Bean
     public JobSpringExecutor JobExecutor() {
-        logger.info(">>>>>>>>>>> datax-web config init.");
+        logger.info(">>>>>>>>>>> flinkx-web config init.");
         JobSpringExecutor jobSpringExecutor = new JobSpringExecutor();
         jobSpringExecutor.setAdminAddresses(adminAddresses);
         jobSpringExecutor.setAppName(appName);

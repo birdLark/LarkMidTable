@@ -54,7 +54,7 @@ public class JobTemplate {
 	@ApiModelProperty("失败重试次数")
 	private int executorFailRetryCount;
 
-	@ApiModelProperty("GLUE类型\t#com.wugui.datatx.core.glue.GlueTypeEnum")
+	@ApiModelProperty("GLUE类型\t#com.guoliang.flinkx.core.glue.GlueTypeEnum")
 	private String glueType;
 
 	@ApiModelProperty("GLUE源代码")
@@ -75,7 +75,7 @@ public class JobTemplate {
 	@ApiModelProperty("下次调度时间")
 	private long triggerNextTime;
 
-	@ApiModelProperty("datax运行json")
+	@ApiModelProperty("flinkx运行json")
 	private String jobJson;
 
 	@ApiModelProperty("jvm参数")

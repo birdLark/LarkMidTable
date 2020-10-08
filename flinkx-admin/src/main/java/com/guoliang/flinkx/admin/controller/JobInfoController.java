@@ -4,8 +4,8 @@ package com.guoliang.flinkx.admin.controller;
 import com.guoliang.flinkx.admin.dto.DataXBatchJsonBuildDto;
 import com.guoliang.flinkx.admin.dto.TriggerJobDto;
 import com.guoliang.flinkx.admin.service.JobService;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.util.DateUtil;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.util.DateUtil;
 import com.guoliang.flinkx.admin.core.cron.CronExpression;
 import com.guoliang.flinkx.admin.core.thread.JobTriggerPoolHelper;
 import com.guoliang.flinkx.admin.core.trigger.TriggerTypeEnum;
@@ -25,10 +25,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * index controller
  *
- * @author xuxueli 2015-12-19 16:13:16
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 任务配置接口
+ **/
 @Api(tags = "任务配置接口")
 @RestController
 @RequestMapping("/api/job")

@@ -21,8 +21,11 @@ import java.util.*;
 import static com.google.common.collect.Maps.newTreeMap;
 
 /**
- * application configuration
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @Component(value = "ServiceModelToSwagger2Mapper")
 @Primary
 @ConditionalOnWebApplication

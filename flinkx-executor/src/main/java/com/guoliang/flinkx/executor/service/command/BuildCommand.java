@@ -1,13 +1,16 @@
 package com.guoliang.flinkx.executor.service.command;
 
 import com.guoliang.flinkx.executor.service.jobhandler.DataXConstant;
-import com.wugui.datatx.core.biz.model.TriggerParam;
-import com.wugui.datatx.core.enums.IncrementTypeEnum;
-import com.wugui.datatx.core.log.JobLogger;
-import com.wugui.datatx.core.util.Constants;
-import com.wugui.datatx.core.util.DateUtil;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.enums.IncrementTypeEnum;
+import com.guoliang.flinkx.core.log.JobLogger;
+import com.guoliang.flinkx.core.util.Constants;
+import com.guoliang.flinkx.core.util.DateUtil;
+import com.guoliang.flinkx.executor.service.jobhandler.ExecutorJobHandler;
 import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -16,7 +19,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import static com.wugui.datatx.core.util.Constants.SPLIT_COMMA;
+import static com.guoliang.flinkx.core.util.Constants.SPLIT_COMMA;
 
 /**
  * DataX command build
@@ -25,7 +28,9 @@ import static com.wugui.datatx.core.util.Constants.SPLIT_COMMA;
  */
 public class BuildCommand {
 
-    /**
+	private static final Logger LOGGER = LoggerFactory.getLogger(BuildCommand.class);
+
+	/**
      * DataX command build
      * @param tgParam
      * @param tmpFilePath
@@ -36,17 +41,10 @@ public class BuildCommand {
         // command process
         //"--loglevel=debug"
         List<String> cmdArr = new ArrayList<>();
-        cmdArr.add("python");
-        String dataXHomePath = SystemUtils.getDataXHomePath();
-        if (StringUtils.isNotEmpty(dataXHomePath)) {
-            dataXPyPath = dataXHomePath.contains("bin") ? dataXHomePath + DataXConstant.DEFAULT_DATAX_PY : dataXHomePath + "bin" + File.separator + DataXConstant.DEFAULT_DATAX_PY;
-        }
+        cmdArr.add("sh");
         cmdArr.add(dataXPyPath);
-        String doc = buildDataXParam(tgParam);
-        if (StringUtils.isNotBlank(doc)) {
-            cmdArr.add(doc.replaceAll(DataXConstant.SPLIT_SPACE, DataXConstant.TRANSFORM_SPLIT_SPACE));
-        }
         cmdArr.add(tmpFilePath);
+		LOGGER.info(cmdArr+" "+dataXPyPath+" "+tmpFilePath);
         return cmdArr.toArray(new String[cmdArr.size()]);
     }
 
