@@ -10,13 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * com.guoliang.flinkx json构建实现类
  *
- * @author jingwk
- * @ClassName FlinkxJsonServiceImpl
- * @Version 2.0
- * @since 2020/01/11 17:15
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:  JSON构建实现类
+ **/
 @Service
 public class FlinkxJsonServiceImpl implements FlinkxJsonService {
 
@@ -28,8 +26,8 @@ public class FlinkxJsonServiceImpl implements FlinkxJsonService {
         FlinkxJsonHelper flinkxJsonHelper = new FlinkxJsonHelper();
         // reader
         JobDatasource readerDatasource = jobJdbcDatasourceService.getById(dataXJsonBuildDto.getReaderDatasourceId());
-        // reader plugin init
         flinkxJsonHelper.initReader(dataXJsonBuildDto, readerDatasource);
+        // writer
         JobDatasource writerDatasource = jobJdbcDatasourceService.getById(dataXJsonBuildDto.getWriterDatasourceId());
         flinkxJsonHelper.initWriter(dataXJsonBuildDto, writerDatasource);
 
