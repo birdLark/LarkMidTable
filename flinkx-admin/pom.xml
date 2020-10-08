@@ -163,6 +163,12 @@
             <scope>system</scope>
             <systemPath>${basedir}/src/main/lib/ojdbc6-11.2.0.3.jar</systemPath>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.jtds/jtds -->
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>1.3.1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
