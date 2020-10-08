@@ -54,7 +54,7 @@ public class JobInfo {
 	@ApiModelProperty("失败重试次数")
 	private int executorFailRetryCount;
 
-	@ApiModelProperty("GLUE类型\t#com.wugui.datatx.core.glue.GlueTypeEnum")
+	@ApiModelProperty("GLUE类型\t#com.guoliang.flinkx.core.glue.GlueTypeEnum")
 	private String glueType;
 
 	@ApiModelProperty("GLUE源代码")
@@ -78,7 +78,7 @@ public class JobInfo {
 	@ApiModelProperty("下次调度时间")
 	private long triggerNextTime;
 
-	@ApiModelProperty("datax运行json")
+	@ApiModelProperty("flinkx运行json")
 	private String jobJson;
 
 	@ApiModelProperty("脚本动态参数")
@@ -111,7 +111,7 @@ public class JobInfo {
 	@ApiModelProperty("增量方式")
 	private int incrementType;
 
-	@ApiModelProperty("datax的读表")
+	@ApiModelProperty("flinkx的读表")
 	private  String readerTable;
 
 	@ApiModelProperty("数据源id")

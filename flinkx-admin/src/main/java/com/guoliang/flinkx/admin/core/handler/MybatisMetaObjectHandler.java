@@ -10,10 +10,11 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * 通用的字段填充，如createBy createDate这些字段的自动填充
  *
- * @author huzekang
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 通用的字段填充，如createBy createDate这些字段的自动填充
+ **/
 @Component
 @Slf4j
 public class MybatisMetaObjectHandler implements MetaObjectHandler {

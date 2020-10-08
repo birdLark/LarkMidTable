@@ -1,7 +1,7 @@
 package com.guoliang.flinkx.admin.controller;
 
 import com.guoliang.flinkx.admin.service.JobService;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -18,6 +18,12 @@ import java.util.Map;
  *
  * @author jingwk 2019-12-22 16:13:16
  */
+/**
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 首页接口
+ **/
 @RestController
 @Api(tags = "首页接口")
 @RequestMapping("/api")

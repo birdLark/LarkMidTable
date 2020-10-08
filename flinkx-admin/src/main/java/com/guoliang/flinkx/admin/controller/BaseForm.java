@@ -17,12 +17,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 基础参数辅助类
  *
- * @author zhouhongfa@gz-yibo.com
- * @version 1.0
- * @since 2019/5/15
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 基础参数辅助类
+ **/
 @Slf4j
 public class BaseForm {
     /**

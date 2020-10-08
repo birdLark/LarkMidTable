@@ -2,7 +2,7 @@ package com.guoliang.flinkx.admin.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
 import com.guoliang.flinkx.admin.entity.JwtUser;
 import com.guoliang.flinkx.admin.entity.LoginUser;
@@ -25,11 +25,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.wugui.datatx.core.util.Constants.SPLIT_COMMA;
+import static com.guoliang.flinkx.core.util.Constants.SPLIT_COMMA;
 
-/**
- * Created by jingwk on 2019/11/17
- */
+
 @Slf4j
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 

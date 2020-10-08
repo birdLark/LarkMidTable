@@ -1,15 +1,15 @@
 package com.guoliang.flinkx.admin.core.kill;
 
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.biz.model.TriggerParam;
-import com.wugui.datatx.core.enums.ExecutorBlockStrategyEnum;
-import com.wugui.datatx.core.glue.GlueTypeEnum;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.TriggerParam;
+import com.guoliang.flinkx.core.enums.ExecutorBlockStrategyEnum;
+import com.guoliang.flinkx.core.glue.GlueTypeEnum;
 import com.guoliang.flinkx.admin.core.trigger.JobTrigger;
 
 import java.util.Date;
 
 /**
- * datax-job trigger
+ * flinkx-job trigger
  * Created by jingwk on 2019/12/15.
  */
 public class KillJob {

@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 50725
  Source Host           : localhost:3306
- Source Schema         : datax_web
+ Source Schema         : flinkx_web
 
  Target Server Type    : MySQL
  Target Server Version : 50725
@@ -34,7 +34,7 @@ CREATE TABLE `job_group`  (
 -- ----------------------------
 -- Records of job_group
 -- ----------------------------
-INSERT INTO `job_group` VALUES (1, 'datax-executor', 'datax执行器', 1, 0, NULL);
+INSERT INTO `job_group` VALUES (1, 'flinkx-executor', 'flinkx执行器', 1, 0, NULL);
 
 -- ----------------------------
 -- Table structure for job_info
@@ -63,7 +63,7 @@ CREATE TABLE `job_info`  (
   `trigger_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '调度状态：0-停止，1-运行',
   `trigger_last_time` bigint(13) NOT NULL DEFAULT 0 COMMENT '上次调度时间',
   `trigger_next_time` bigint(13) NOT NULL DEFAULT 0 COMMENT '下次调度时间',
-  `job_json` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'datax运行脚本',
+  `job_json` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'flinkx运行脚本',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -125,7 +125,7 @@ CREATE TABLE `job_log`  (
   `handle_code` int(11) NOT NULL COMMENT '执行-状态',
   `handle_msg` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '执行-日志',
   `alarm_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '告警状态：0-默认、1-无需告警、2-告警成功、3-告警失败',
-  `process_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'datax进程Id',
+  `process_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'flinkx进程Id',
   `max_id` bigint(20) NULL DEFAULT NULL COMMENT '增量表max id',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `I_trigger_time`(`trigger_time`) USING BTREE,
@@ -250,7 +250,7 @@ CREATE TABLE `job_template`  (
   `child_jobid` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '子任务ID，多个逗号分隔',
   `trigger_last_time` bigint(13) NOT NULL DEFAULT 0 COMMENT '上次调度时间',
   `trigger_next_time` bigint(13) NOT NULL DEFAULT 0 COMMENT '下次调度时间',
-  `job_json` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'datax运行脚本',
+  `job_json` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'flinkx运行脚本',
   `jvm_param` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'jvm参数',
   `project_id` int(11) NULL DEFAULT NULL COMMENT '所属项目Id',
   PRIMARY KEY (`id`) USING BTREE

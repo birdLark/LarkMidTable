@@ -12,9 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author water
- * @date 20-03-17  下午5:38
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @MappedTypes({String.class})
 public class AESEncryptHandler extends BaseTypeHandler<String> {
 

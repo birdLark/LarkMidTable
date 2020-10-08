@@ -9,10 +9,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * MybatisPlus配置类 Spring boot方式
  *
- * @author huzekang
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 @EnableTransactionManagement
 @Configuration
 @MapperScan("com.guoliang.flinkx.admin.mapper")
