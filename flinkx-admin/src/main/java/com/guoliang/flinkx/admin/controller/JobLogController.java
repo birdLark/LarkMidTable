@@ -3,10 +3,10 @@ package com.guoliang.flinkx.admin.controller;
 import com.guoliang.flinkx.admin.entity.JobLog;
 import com.guoliang.flinkx.admin.mapper.JobInfoMapper;
 import com.guoliang.flinkx.admin.mapper.JobLogMapper;
-import com.wugui.datatx.core.biz.ExecutorBiz;
-import com.wugui.datatx.core.biz.model.LogResult;
-import com.wugui.datatx.core.biz.model.ReturnT;
-import com.wugui.datatx.core.util.DateUtil;
+import com.guoliang.flinkx.core.biz.ExecutorBiz;
+import com.guoliang.flinkx.core.biz.model.LogResult;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.util.DateUtil;
 import com.guoliang.flinkx.admin.core.kill.KillJob;
 import com.guoliang.flinkx.admin.core.scheduler.JobScheduler;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
@@ -24,8 +24,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by jingwk on 2019/11/17
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 任务运行日志接口
+ **/
 @RestController
 @RequestMapping("/api/log")
 @Api(tags = "任务运行日志接口")

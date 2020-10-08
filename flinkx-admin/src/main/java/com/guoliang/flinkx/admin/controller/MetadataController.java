@@ -12,13 +12,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * 查询数据库表名，字段的控制器
  *
- * @author jingwk
- * @ClassName MetadataController
- * @Version 2.1.2
- * @since 2020/05/31 20:48
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 查询数据库表名，字段的控制器
+ **/
 @RestController
 @RequestMapping("api/metadata")
 @Api(tags = "jdbc数据库查询控制器")

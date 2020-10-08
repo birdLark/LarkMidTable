@@ -2,7 +2,7 @@ package com.guoliang.flinkx.admin.service;
 
 
 import com.guoliang.flinkx.admin.dto.DataXBatchJsonBuildDto;
-import com.wugui.datatx.core.biz.model.ReturnT;
+import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.admin.entity.JobInfo;
 
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * core job action for datax-web
+ * core job action for flinkx-web
  *
  * @author xuxueli 2016-5-28 15:30:33
  */

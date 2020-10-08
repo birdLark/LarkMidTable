@@ -9,7 +9,7 @@
     <dependencySets>
         <dependencySet>
             <useProjectArtifact>true</useProjectArtifact>
-            <outputDirectory>datax-admin/lib</outputDirectory>
+            <outputDirectory>flinkx-admin/lib</outputDirectory>
             <scope>runtime</scope>
         </dependencySet>
     </dependencySets>
@@ -17,7 +17,7 @@
         <fileSet>
             <lineEnding>unix</lineEnding>
             <directory>./src/main/bin</directory>
-            <outputDirectory>datax-admin/bin</outputDirectory>
+            <outputDirectory>flinkx-admin/bin</outputDirectory>
             <includes>
                 <include>**/*</include>
             </includes>
@@ -25,7 +25,7 @@
         </fileSet>
         <fileSet>
             <directory>./src/main/logs</directory>
-            <outputDirectory>datax-admin/logs</outputDirectory>
+            <outputDirectory>flinkx-admin/logs</outputDirectory>
         </fileSet>
         <fileSet>
             <directory>./src/main/resources</directory>
@@ -37,11 +37,11 @@
                 <include>i18n/**</include>
                 <include>static/**</include>
             </includes>
-            <outputDirectory>datax-admin/conf</outputDirectory>
+            <outputDirectory>flinkx-admin/conf</outputDirectory>
         </fileSet>
         <fileSet>
             <directory>src/main/lib</directory>
-            <outputDirectory>datax-admin/lib</outputDirectory>
+            <outputDirectory>flinkx-admin/lib</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>

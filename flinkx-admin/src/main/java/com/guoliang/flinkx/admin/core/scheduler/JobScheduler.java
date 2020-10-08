@@ -3,14 +3,13 @@ package com.guoliang.flinkx.admin.core.scheduler;
 import com.guoliang.flinkx.admin.core.conf.JobAdminConfig;
 import com.guoliang.flinkx.admin.core.thread.*;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
-import com.wugui.datatx.core.biz.ExecutorBiz;
-import com.wugui.datatx.core.enums.ExecutorBlockStrategyEnum;
-import com.guoliang.flinkx.admin.core.thread.*;
-import com.wugui.datax.rpc.remoting.invoker.call.CallType;
-import com.wugui.datax.rpc.remoting.invoker.reference.XxlRpcReferenceBean;
-import com.wugui.datax.rpc.remoting.invoker.route.LoadBalance;
-import com.wugui.datax.rpc.remoting.net.impl.netty_http.client.NettyHttpClient;
-import com.wugui.datax.rpc.serialize.impl.HessianSerializer;
+import com.guoliang.flinkx.core.biz.ExecutorBiz;
+import com.guoliang.flinkx.core.enums.ExecutorBlockStrategyEnum;
+import com.guoliang.flinkx.rpc.remoting.invoker.call.CallType;
+import com.guoliang.flinkx.rpc.remoting.invoker.reference.XxlRpcReferenceBean;
+import com.guoliang.flinkx.rpc.remoting.invoker.route.LoadBalance;
+import com.guoliang.flinkx.rpc.remoting.net.impl.netty_http.client.NettyHttpClient;
+import com.guoliang.flinkx.rpc.serialize.impl.HessianSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +43,7 @@ public class JobScheduler {
         // start-schedule
         JobScheduleHelper.getInstance().start();
 
-        logger.info(">>>>>>>>> init datax-web admin success.");
+        logger.info(">>>>>>>>> init flinkx-web admin success.");
     }
 
 
