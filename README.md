@@ -51,7 +51,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 | ClickHouse |          |          |
 | Hive       |          | 支持     |
 | Hbase      |          |          |
-| Hdfs       |          | 支持     |
+| Hdfs       | 支持     | 支持     |
 
 
 

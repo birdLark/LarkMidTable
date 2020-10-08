@@ -259,7 +259,8 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         List<Map<String, Object>> columns = Lists.newArrayList();
         readerColumns.forEach(c -> {
             Map<String, Object> column = Maps.newLinkedHashMap();
-            column.put("index", c.split(Constants.SPLIT_SCOLON)[0]);
+			column.put("name", c.split(Constants.SPLIT_SCOLON)[1]);
+            column.put("index", Integer.parseInt(c.split(Constants.SPLIT_SCOLON)[0]));
             column.put("type", c.split(Constants.SPLIT_SCOLON)[2]);
             columns.add(column);
         });
