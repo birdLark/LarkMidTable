@@ -53,11 +53,7 @@ sh install.sh
 
 ### 2.4安装配置
 
-#### 2.4.1创建数据库
-
-#### 执行bin/db下面的flinkx_web.sql文件(数据库版本5.1.0版本)
-
-#### 2.4.2修改项目配置
+#### 修改项目配置
 
 ##### 1.修改flinkx_admin下conf/application.yml文件
 
