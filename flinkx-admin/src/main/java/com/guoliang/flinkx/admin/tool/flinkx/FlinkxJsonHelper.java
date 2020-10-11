@@ -9,12 +9,9 @@ import com.guoliang.flinkx.admin.dto.*;
 import com.guoliang.flinkx.admin.entity.JobDatasource;
 import com.guoliang.flinkx.admin.tool.flinkx.reader.*;
 import com.guoliang.flinkx.admin.tool.flinkx.writer.*;
+import com.guoliang.flinkx.admin.tool.pojo.*;
 import com.guoliang.flinkx.admin.util.JdbcConstants;
 import com.guoliang.flinkx.core.util.Constants;
-import com.guoliang.flinkx.admin.tool.pojo.FlinkxHbasePojo;
-import com.guoliang.flinkx.admin.tool.pojo.FlinkxHivePojo;
-import com.guoliang.flinkx.admin.tool.pojo.FlinkxMongoDBPojo;
-import com.guoliang.flinkx.admin.tool.pojo.FlinkxRdbmsPojo;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
@@ -80,6 +77,10 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
 
     private MongoDBWriterDto mongoDBWriterDto;
 
+    private ClickhouseReaderDto clickhouseReaderDto;
+
+    private ClickhouseWriterDto clickhouseWriterDto;
+
 
     //用于保存额外参数
     private Map<String, Object> extraParams = Maps.newHashMap();
@@ -92,6 +93,7 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         this.hiveReaderDto = flinkxJsonDto.getHiveReader();
         this.rdbmsReaderDto = flinkxJsonDto.getRdbmsReader();
         this.hbaseReaderDto = flinkxJsonDto.getHbaseReader();
+        this.clickhouseReaderDto = flinkxJsonDto.getClickhouseReader();
         // reader 插件
         String datasource = readerDatasource.getDatasource();
 
