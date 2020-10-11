@@ -10,6 +10,8 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
+[![Stargazers over time](https://starchart.cc/wxgzgl/larkMidTable.svg)](https://starchart.cc/wxgzgl/larkMidTable)
+
 # **产品愿景**
 
 1.满足许多的小企业，提供一站式的解决方案。
