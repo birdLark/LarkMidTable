@@ -69,12 +69,6 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 请点击      [快速开始](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
 
-前端代码  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
-
-资源库      [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
-
-开发规范  [唯品会开发规范](https://vipshop.github.io/vjtools/#/standard/)
-
 
 
 # 特别鸣谢
@@ -86,5 +80,9 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 # **技术交流**
 
 搜索QQ群号[678097205]或者扫描下面的二维码进入LarkMidTable 社区的QQ群，目前正是开源的初期阶段，群里达到91人
+
+前端代码  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
+
+资源库      [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
 **![QQ群](https://img2020.cnblogs.com/blog/622382/202009/622382-20200907124358049-997953244.png)**
