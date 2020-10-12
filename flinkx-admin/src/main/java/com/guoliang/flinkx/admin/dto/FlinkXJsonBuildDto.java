@@ -43,4 +43,8 @@ public class FlinkXJsonBuildDto implements Serializable {
     private MongoDBReaderDto mongoDBReader;
 
     private MongoDBWriterDto mongoDBWriter;
+
+    private ClickhouseReaderDto clickhouseReader;
+
+    private ClickhouseWriterDto clickhouseWriter;
 }
