@@ -3,8 +3,11 @@ package com.guoliang.flinkx.rpc.util;
 import java.util.HashMap;
 
 /**
- * @author xuxueli 2019-02-19
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: Class的工具类
+ **/
 public class ClassUtil {
 
     private static final HashMap<String, Class<?>> primClasses = new HashMap<>();

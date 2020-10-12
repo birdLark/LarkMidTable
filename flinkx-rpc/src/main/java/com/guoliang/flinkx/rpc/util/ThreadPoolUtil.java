@@ -3,16 +3,13 @@ package com.guoliang.flinkx.rpc.util;
 import java.util.concurrent.*;
 
 /**
- * @author xuxueli 2019-02-18
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 自定义线程池
+ **/
 public class ThreadPoolUtil {
 
-    /**
-     * make server thread pool
-     *
-     * @param serverType
-     * @return
-     */
     public static ThreadPoolExecutor makeServerThreadPool(final String serverType, int corePoolSize, int maxPoolSize) {
         ThreadPoolExecutor serverHandlerPool = new ThreadPoolExecutor(
                 corePoolSize,

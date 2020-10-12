@@ -7,20 +7,20 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 /**
- * net util
  *
- * @author xuxueli 2017-11-29 17:00:25
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 端口的工具类
+ **/
 public class NetUtil {
     private static Logger logger = LoggerFactory.getLogger(NetUtil.class);
 
-    /**
-     * find avaliable port
-     *
-     * @param defaultPort
-     * @return
-     */
-    public static int findAvailablePort(int defaultPort) {
+	/**
+	 *
+	 * @param defaultPort
+	 * @return  可用的端口
+	 */
+	public static int findAvailablePort(int defaultPort) {
         int portTmp = defaultPort;
         while (portTmp < 65535) {
             if (!isPortUsed(portTmp)) {
@@ -40,13 +40,12 @@ public class NetUtil {
         throw new XxlRpcException("no available port.");
     }
 
-    /**
-     * check port used
-     *
-     * @param port
-     * @return
-     */
-    public static boolean isPortUsed(int port) {
+	/**
+	 *
+	 * @param port
+	 * @return 可用返回true,否则返回false
+	 */
+	public static boolean isPortUsed(int port) {
         boolean used;
         ServerSocket serverSocket = null;
         try {
