@@ -24,6 +24,12 @@ public class ClassUtil {
         primClasses.put("void", void.class);
     }
 
+	/**
+	 *
+	 * @param className 类名
+	 * @return 反射得到类的Class
+	 * @throws ClassNotFoundException
+	 */
     public static Class<?> resolveClass(String className) throws ClassNotFoundException {
         try {
             return Class.forName(className);

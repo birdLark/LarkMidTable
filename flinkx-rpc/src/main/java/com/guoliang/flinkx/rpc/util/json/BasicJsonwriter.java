@@ -189,6 +189,4 @@ public class BasicJsonwriter {
             field.setAccessible(false);
         }
     }
-
-
 }
