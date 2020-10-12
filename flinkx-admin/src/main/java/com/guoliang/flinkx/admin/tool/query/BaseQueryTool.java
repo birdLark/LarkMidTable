@@ -15,11 +15,13 @@ import com.guoliang.flinkx.admin.util.AESUtil;
 import com.guoliang.flinkx.admin.util.JdbcConstants;
 import com.guoliang.flinkx.admin.util.JdbcUtils;
 import com.zaxxer.hikari.HikariDataSource;
+import net.sourceforge.jtds.jdbcx.JtdsDataSource;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
+import java.net.URI;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -61,9 +63,17 @@ public abstract class BaseQueryTool implements QueryToolInterface {
             getDataSource(jobDatasource);
         } else {
             this.connection = (Connection) LocalCacheUtil.get(jobDatasource.getDatasourceName());
-            if (!this.connection.isValid(500)) {
-                LocalCacheUtil.remove(jobDatasource.getDatasourceName());
-                getDataSource(jobDatasource);
+            String jdbcUrl = jobDatasource.getJdbcUrl();
+            if (jdbcUrl != null && jdbcUrl.startsWith("jdbc:jtds")) {
+                if (connection == null) {
+                    LocalCacheUtil.remove(jobDatasource.getDatasourceName());
+                    getDataSource(jobDatasource);
+                }
+            } else {
+                if (!this.connection.isValid(500)) {
+                    LocalCacheUtil.remove(jobDatasource.getDatasourceName());
+                    getDataSource(jobDatasource);
+                }
             }
         }
         sqlBuilder = DatabaseMetaFactory.getByDbType(jobDatasource.getDatasource());
@@ -74,18 +84,40 @@ public abstract class BaseQueryTool implements QueryToolInterface {
 
     private void getDataSource(JobDatasource jobDatasource) throws SQLException {
         String userName = AESUtil.decrypt(jobDatasource.getJdbcUsername());
+        String password = AESUtil.decrypt(jobDatasource.getJdbcPassword());
+        String jdbcUrl = jobDatasource.getJdbcUrl();
+        if (jdbcUrl != null && jdbcUrl.startsWith("jdbc:jtds")) {
+            JtdsDataSource jtdsDataSource = new JtdsDataSource();
+            String cleanURI = jdbcUrl.substring(10);//"jdbc:jtds:".length()
+            URI uri = URI.create(cleanURI);
+            String serverName = uri.getHost();
+            int port = uri.getPort();
+            String path = uri.getPath();
+            String a[] = path.split("/");
+            String dbName = a[1];
+            jtdsDataSource.setServerName(serverName);
+            jtdsDataSource.setPortNumber(port);
+            jtdsDataSource.setDatabaseName(dbName);
+//            jtdsDataSource.setServerName(jobDatasource.g);
+            jtdsDataSource.setUser(userName);
+            jtdsDataSource.setPassword(password);
+            this.datasource = jtdsDataSource;
+            this.connection = this.datasource.getConnection();
 
-        //这里默认使用 hikari 数据源
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setUsername(userName);
-        dataSource.setPassword(AESUtil.decrypt(jobDatasource.getJdbcPassword()));
-        dataSource.setJdbcUrl(jobDatasource.getJdbcUrl());
-        dataSource.setDriverClassName(jobDatasource.getJdbcDriverClass());
-        dataSource.setMaximumPoolSize(1);
-        dataSource.setMinimumIdle(0);
-        dataSource.setConnectionTimeout(30000);
-        this.datasource = dataSource;
-        this.connection = this.datasource.getConnection();
+        } else {
+            //这里默认使用 hikari 数据源
+            HikariDataSource dataSource = new HikariDataSource();
+            dataSource.setUsername(userName);
+            dataSource.setPassword(AESUtil.decrypt(jobDatasource.getJdbcPassword()));
+            dataSource.setJdbcUrl(jobDatasource.getJdbcUrl());
+            dataSource.setDriverClassName(jobDatasource.getJdbcDriverClass());
+            dataSource.setMaximumPoolSize(1);
+            dataSource.setMinimumIdle(0);
+            dataSource.setConnectionTestQuery("SELECT 1 ");
+            dataSource.setConnectionTimeout(30000);
+            this.datasource = dataSource;
+            this.connection = this.datasource.getConnection();
+        }
     }
 
     //根据connection获取schema
