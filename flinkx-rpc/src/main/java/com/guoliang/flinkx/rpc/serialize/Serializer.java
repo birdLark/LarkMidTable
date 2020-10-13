@@ -10,8 +10,9 @@ package com.guoliang.flinkx.rpc.serialize;
  * @author xuxueli 2015-10-30 21:02:55
  */
 public abstract class Serializer {
-	
+
 	public abstract <T> byte[] serialize(T obj);
+
 	public abstract <T> Object deserialize(byte[] bytes, Class<T> clazz);
 
 	/*public enum SerializeEnum {
