@@ -37,6 +37,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 |            | Mongodb        | 支持     | 支持     |
 |            | SqlServer      | 支持     | 支持     |
 |            | Oracle         |          |          |
+|            | SAP Hana       |          |          |
 |            | ClickHouse     | 支持     | 支持     |
 |            | Hive           |          | 支持     |
 |            | Hbase          | 支持     | 支持     |
