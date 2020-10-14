@@ -6,3 +6,5 @@
 data/*
 */*.tar.gz
 */*/test/*.java
+build/*/*
+packages/*/*
