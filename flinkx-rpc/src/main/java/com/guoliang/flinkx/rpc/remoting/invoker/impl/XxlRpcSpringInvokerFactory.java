@@ -21,10 +21,15 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * xxl-rpc invoker factory, init service-registry and spring-bean by annotation (for spring)
  *
  * @author xuxueli 2018-10-19
  */
+/**
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 public class XxlRpcSpringInvokerFactory extends InstantiationAwareBeanPostProcessorAdapter implements InitializingBean, DisposableBean, BeanFactoryAware {
     private Logger logger = LoggerFactory.getLogger(XxlRpcSpringInvokerFactory.class);
 

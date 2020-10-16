@@ -10,8 +10,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author xuxueli 2018-10-22 18:31:42
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 public class XxlRpcInvokeFuture implements Future {
 
 

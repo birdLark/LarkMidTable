@@ -1,8 +1,11 @@
 package com.guoliang.flinkx.rpc.remoting.invoker.generic;
 
 /**
- * @author xuxueli 2018-12-04
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 public interface XxlRpcGenericService {
 
     /**
