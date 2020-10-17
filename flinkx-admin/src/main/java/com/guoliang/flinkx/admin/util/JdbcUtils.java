@@ -393,6 +393,8 @@ public final class JdbcUtils implements  JdbcConstants {
             return MARIADB;
         } else if (rawUrl.startsWith("jdbc:oracle:") || rawUrl.startsWith("jdbc:log4jdbc:oracle:")) {
             return ORACLE;
+        }else if (rawUrl.startsWith("jdbc:hana:") || rawUrl.startsWith("jdbc:log4jdbc:hana:")) {
+            return HANA;
         } else if (rawUrl.startsWith("jdbc:alibaba:oracle:")) {
             return ALI_ORACLE;
         } else if (rawUrl.startsWith("jdbc:microsoft:") || rawUrl.startsWith("jdbc:log4jdbc:microsoft:")) {
