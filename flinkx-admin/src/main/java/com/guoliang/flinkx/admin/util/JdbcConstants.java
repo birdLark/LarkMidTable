@@ -51,6 +51,10 @@ public interface JdbcConstants {
     String MARIADB                    = "mariadb";
     String MARIADB_DRIVER             = "org.mariadb.jdbc.Driver";
 
+    String HANA                    = "hana";
+    String HANA_DRIVER             = "com.sap.db.jdbc.Driver";
+
+
     String DERBY                      = "derby";
 
     String HBASE                      = "hbase";

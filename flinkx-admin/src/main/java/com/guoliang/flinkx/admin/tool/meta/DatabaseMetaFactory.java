@@ -28,6 +28,8 @@ public class DatabaseMetaFactory {
             return ClickHouseDataBaseMeta.getInstance();
         } else if(JdbcConstants.HBASE20XSQL.equals(dbType)) {
             return Hbase20xsqlMeta.getInstance();
+        } else if(JdbcConstants.HANA.equals(dbType)) {
+            return HanaDatabaseMeta.getInstance();
         } else {
             throw new UnsupportedOperationException("暂不支持的类型：".concat(dbType));
         }
