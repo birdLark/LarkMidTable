@@ -32,20 +32,20 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 |            | 数据库类型     | 读取类型 | 写入类型 |
 | ---------- | :------------- | -------- | -------- |
-| 批处理同步 | Mysql          | 支持     | 支持     |
+| 批处理同步 | Mysql            | 支持     | 支持   |
 |            | PostgreSql     | 支持     | 支持     |
 |            | Mongodb        | 支持     | 支持     |
 |            | SqlServer      | 支持     | 支持     |
-|            | Oracle         |          |          |
-|            | SAP Hana       |          |          |
+|            | Oracle         | 支持     | 支持     |
+|            | SAPHana        | 支持     | 支持     |
 |            | ClickHouse     | 支持     | 支持     |
-|            | Hive           |          | 支持     |
+|            | Hive           |         | 支持     |
 |            | Hbase          | 支持     | 支持     |
 |            | Hdfs           | 支持     | 支持     |
 |            | ElasticSearch  |          |          |
 |            | Kudu           |          |          |
 |            | Redis          |          |          |
-| 流处理同步 | Kafka          |          |          |
+| 流处理同步 | Kafka            |          |          |
 |            | MySQL Binlog   |          |          |
 |            | MongoDB Oplog  |          |          |
 |            | PostgreSQL WAL |          |          |
