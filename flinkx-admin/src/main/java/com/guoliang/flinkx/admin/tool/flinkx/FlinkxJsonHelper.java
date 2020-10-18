@@ -104,6 +104,9 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         } else if (JdbcConstants.ORACLE.equals(datasource)) {
             readerPlugin = new OracleReader();
             buildReader = buildReader();
+        }else if (JdbcConstants.HANA.equals(datasource)) {
+            readerPlugin = new HanaReader();
+            buildReader = buildReader();
         } else if (JdbcConstants.SQL_SERVER.equals(datasource)) {
             readerPlugin = new SqlServerReader();
             buildReader = buildReader();
@@ -141,6 +144,9 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
             buildWriter = this.buildWriter();
         } else if (JdbcConstants.ORACLE.equals(datasource)) {
             writerPlugin = new OraclelWriter();
+            buildWriter = this.buildWriter();
+        } else if (JdbcConstants.HANA.equals(datasource)) {
+            writerPlugin = new HanaWriter();
             buildWriter = this.buildWriter();
         } else if (JdbcConstants.SQL_SERVER.equals(datasource)) {
             writerPlugin = new SqlServerlWriter();
@@ -195,6 +201,8 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
             case JdbcConstants.POSTGRESQL:
             case JdbcConstants.ORACLE:
                 return String.format("\"%s\"", column);
+            case JdbcConstants.HANA:
+                return String.format("\"%s\"", column);
             default:
                 return column;
         }
@@ -216,16 +224,16 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         Map<String, Object> speedMap = Maps.newLinkedHashMap();
         Map<String, Object> errorLimitMap = Maps.newLinkedHashMap();
 
-		Map<String, Object> restoreMap = Maps.newLinkedHashMap();
-		Map<String, Object> logMap = Maps.newLinkedHashMap();
+        Map<String, Object> restoreMap = Maps.newLinkedHashMap();
+        Map<String, Object> logMap = Maps.newLinkedHashMap();
         speedMap.putAll(ImmutableMap.of("channel", 1, "bytes", 0));
         errorLimitMap.putAll(ImmutableMap.of("record", 100));
-		restoreMap.putAll(ImmutableMap.of("maxRowNumForCheckpoint", 0,"isRestore",false,"restoreColumnName","","restoreColumnIndex",0));
-		logMap.putAll(ImmutableMap.of("isLogger", false,"level","debug","path","","pattern",""));
+        restoreMap.putAll(ImmutableMap.of("maxRowNumForCheckpoint", 0,"isRestore",false,"restoreColumnName","","restoreColumnIndex",0));
+        logMap.putAll(ImmutableMap.of("isLogger", false,"level","debug","path","","pattern",""));
         res.put("speed", speedMap);
         res.put("errorLimit", errorLimitMap);
         res.put("restore",restoreMap);
-		res.put("log",logMap);
+        res.put("log",logMap);
         return res;
     }
 
@@ -261,7 +269,7 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         List<Map<String, Object>> columns = Lists.newArrayList();
         readerColumns.forEach(c -> {
             Map<String, Object> column = Maps.newLinkedHashMap();
-			column.put("name", c.split(Constants.SPLIT_SCOLON)[1]);
+            column.put("name", c.split(Constants.SPLIT_SCOLON)[1]);
             column.put("index", Integer.parseInt(c.split(Constants.SPLIT_SCOLON)[0]));
             column.put("type", c.split(Constants.SPLIT_SCOLON)[2]);
             columns.add(column);

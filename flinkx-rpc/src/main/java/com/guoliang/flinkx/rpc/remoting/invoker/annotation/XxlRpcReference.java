@@ -20,23 +20,23 @@ import java.lang.annotation.*;
 @Inherited
 public @interface XxlRpcReference {
 
-    Class<? extends Client> client() default NettyClient.class;
+	Class<? extends Client> client() default NettyClient.class;
 
-    Class<? extends Serializer> serializer() default HessianSerializer.class;
+	Class<? extends Serializer> serializer() default HessianSerializer.class;
 
-    CallType callType() default CallType.SYNC;
+	CallType callType() default CallType.SYNC;
 
-    LoadBalance loadBalance() default LoadBalance.ROUND;
+	LoadBalance loadBalance() default LoadBalance.ROUND;
 
-    //Class<?> iface;
-    String version() default "";
+	//Class<?> iface;
+	String version() default "";
 
-    long timeout() default 1000;
+	long timeout() default 1000;
 
-    String address() default "";
+	String address() default "";
 
-    String accessToken() default "";
+	String accessToken() default "";
 
-    //XxlRpcInvokeCallback invokeCallback() ;
+	//XxlRpcInvokeCallback invokeCallback() ;
 
 }

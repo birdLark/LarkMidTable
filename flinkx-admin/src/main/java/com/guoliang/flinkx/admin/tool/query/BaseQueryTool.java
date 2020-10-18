@@ -59,6 +59,7 @@ public abstract class BaseQueryTool implements QueryToolInterface {
      * @param jobDatasource
      */
     BaseQueryTool(JobDatasource jobDatasource) throws SQLException {
+        System.out.println("#####################"+jobDatasource.getDatasourceName());
         if (LocalCacheUtil.get(jobDatasource.getDatasourceName()) == null) {
             getDataSource(jobDatasource);
         } else {
@@ -86,6 +87,7 @@ public abstract class BaseQueryTool implements QueryToolInterface {
         String userName = AESUtil.decrypt(jobDatasource.getJdbcUsername());
         String password = AESUtil.decrypt(jobDatasource.getJdbcPassword());
         String jdbcUrl = jobDatasource.getJdbcUrl();
+        String DBtype = jobDatasource.getDatasourceName();
         if (jdbcUrl != null && jdbcUrl.startsWith("jdbc:jtds")) {
             JtdsDataSource jtdsDataSource = new JtdsDataSource();
             String cleanURI = jdbcUrl.substring(10);//"jdbc:jtds:".length()
@@ -107,13 +109,24 @@ public abstract class BaseQueryTool implements QueryToolInterface {
         } else {
             //这里默认使用 hikari 数据源
             HikariDataSource dataSource = new HikariDataSource();
+            System.out.println(userName);
+            System.out.println(password);
+            System.out.println(jdbcUrl);
+            System.out.println(jobDatasource.getJdbcDriverClass());
+
             dataSource.setUsername(userName);
-            dataSource.setPassword(AESUtil.decrypt(jobDatasource.getJdbcPassword()));
-            dataSource.setJdbcUrl(jobDatasource.getJdbcUrl());
+            dataSource.setPassword(password);
+            dataSource.setJdbcUrl(jdbcUrl);
             dataSource.setDriverClassName(jobDatasource.getJdbcDriverClass());
             dataSource.setMaximumPoolSize(1);
             dataSource.setMinimumIdle(0);
-            dataSource.setConnectionTestQuery("SELECT 1 ");
+            String testSQL ="SELECT 1";
+            if("hana".equals(DBtype)){
+                testSQL ="SELECT 1 from tables LIMIT 1";
+            }else if("oracle".equals(DBtype)){
+                testSQL ="select 1 from dual";
+            }
+            dataSource.setConnectionTestQuery(testSQL );
             dataSource.setConnectionTimeout(30000);
             this.datasource = dataSource;
             this.connection = this.datasource.getConnection();

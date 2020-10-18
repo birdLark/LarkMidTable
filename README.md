@@ -24,7 +24,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # 产品架构图
 
-![系统架构图](https://img2020.cnblogs.com/blog/622382/202009/622382-20200930001500385-1504321257.jpg)
+![系统架构图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201017115357355-475634068.jpg)
 
 
 
@@ -32,20 +32,20 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 |            | 数据库类型     | 读取类型 | 写入类型 |
 | ---------- | :------------- | -------- | -------- |
-| 批处理同步 | Mysql          | 支持     | 支持     |
+| 批处理同步 | Mysql            | 支持     | 支持   |
 |            | PostgreSql     | 支持     | 支持     |
 |            | Mongodb        | 支持     | 支持     |
 |            | SqlServer      | 支持     | 支持     |
 |            | Oracle         | 支持     | 支持     |
-|            | SAP Hana       |          |          |
+|            | SAPHana        | 支持     | 支持     |
 |            | ClickHouse     | 支持     | 支持     |
-|            | Hive           |          | 支持     |
+|            | Hive           |         | 支持     |
 |            | Hbase          | 支持     | 支持     |
 |            | Hdfs           | 支持     | 支持     |
 |            | ElasticSearch  |          |          |
 |            | Kudu           |          |          |
 |            | Redis          |          |          |
-| 流处理同步 | Kafka          |          |          |
+| 流处理同步 | Kafka            |          |          |
 |            | MySQL Binlog   |          |          |
 |            | MongoDB Oplog  |          |          |
 |            | PostgreSQL WAL |          |          |
@@ -66,10 +66,11 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # **技术交流**
 
-**搜索微信[wxgzgl] 或者 扫描下面的二维码加我微信，拉你到Lark的数据中台开源社区，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术。**
+**搜索微信号码[wxgzgl]加我微信 或者 扫描下面的QQ二维码加入Lark的数据中台开源社区，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术。**
 
 前端代码:  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
 
 资源库:      [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
 
-![联系方式](https://img2020.cnblogs.com/blog/622382/202010/622382-20201013130935948-883444619.png)
+![QQ群：](https://img2020.cnblogs.com/blog/622382/202009/622382-20200907124358049-997953244.png)
+
