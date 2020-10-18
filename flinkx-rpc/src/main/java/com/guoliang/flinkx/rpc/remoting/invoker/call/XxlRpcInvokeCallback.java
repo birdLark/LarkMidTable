@@ -2,8 +2,11 @@ package com.guoliang.flinkx.rpc.remoting.invoker.call;
 
 
 /**
- * @author xuxueli 2018-10-23
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description:
+ **/
 public abstract class XxlRpcInvokeCallback<T> {
 
     public abstract void onSuccess(T result);

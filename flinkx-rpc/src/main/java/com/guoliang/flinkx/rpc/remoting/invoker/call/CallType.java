@@ -1,29 +1,30 @@
 package com.guoliang.flinkx.rpc.remoting.invoker.call;
 
 /**
- * rpc call type
  *
- * @author xuxueli 2018-10-19
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 远程调用的类型
+ **/
 public enum CallType {
 
 
-    SYNC,
+	SYNC,
 
-    FUTURE,
+	FUTURE,
 
-    CALLBACK,
+	CALLBACK,
 
-    ONEWAY;
+	ONEWAY;
 
 
-    public static CallType match(String name, CallType defaultCallType){
-        for (CallType item : CallType.values()) {
-            if (item.name().equals(name)) {
-                return item;
-            }
-        }
-        return defaultCallType;
-    }
+	public static CallType match(String name, CallType defaultCallType) {
+		for (CallType item : CallType.values()) {
+			if (item.name().equals(name)) {
+				return item;
+			}
+		}
+		return defaultCallType;
+	}
 
 }
