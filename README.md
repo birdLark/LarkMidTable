@@ -75,7 +75,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 * [LarkMidTable集团股份有限公司](), 大数据开发应用平台组
 
-<img src=" https://img2020.cnblogs.com/blog/622382/202009/622382-20200908225545579-407596654.png " height="120" width="160" >
+<img src="https://img2020.cnblogs.com/blog/622382/202009/622382-20200908225545579-407596654.png" height="120" width="160" >
 
 有效解决集团中数据孤岛问题，更好地应对快速变化的前端业务变化。
 
