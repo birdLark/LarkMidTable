@@ -67,9 +67,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 插件开发手册      [插件开发手册](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/PluginDev.md)
 
-# 特别鸣谢
 
-本项目在[datax-web](https://github.com/WeiYe-Jing/datax-web)代码的基础上进行二次重构开发，在此特别感谢datax-web团队。
 
 # 应用案例
 
@@ -81,7 +79,15 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
-*  其他公司 ... 期待您的加入，请联系微信: wxgzgl
+* 其他公司 ... 期待您的加入，请联系微信: wxgzgl
+
+  
+
+# 特别鸣谢
+
+本项目在[datax-web](https://github.com/WeiYe-Jing/datax-web)代码的基础上进行二次重构开发，在此特别感谢datax-web团队。
+
+
 
 # 技术交流
 
