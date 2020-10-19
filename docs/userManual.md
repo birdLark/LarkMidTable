@@ -83,7 +83,7 @@ http://ip:8080/index.htm
 
 ## 6.任务管理
 
-### 6.1创建Datax任务模板
+### 6.1创建Flinkx任务模板
 
 ![1602912849775](https://img-blog.csdnimg.cn/20201018145928644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzEyNDczMg==,size_16,color_FFFFFF,t_70#pic_center)
 
