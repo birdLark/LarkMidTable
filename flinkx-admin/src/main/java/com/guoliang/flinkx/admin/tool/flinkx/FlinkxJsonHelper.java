@@ -104,7 +104,7 @@ public class FlinkxJsonHelper implements FlinkxJsonInterface {
         } else if (JdbcConstants.ORACLE.equals(datasource)) {
             readerPlugin = new OracleReader();
             buildReader = buildReader();
-        }else if (JdbcConstants.HANA.equals(datasource)) {
+        } else if (JdbcConstants.HANA.equals(datasource)) {
             readerPlugin = new HanaReader();
             buildReader = buildReader();
         } else if (JdbcConstants.SQL_SERVER.equals(datasource)) {
