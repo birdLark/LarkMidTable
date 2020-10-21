@@ -1,11 +1,11 @@
 package com.guoliang.flinkx.executor.service.jobhandler;
 
 /**
- * DataX启动参数
+ * FlinkX启动参数
  *
  * @author jingwk 2019-12-15
  */
-public class DataXConstant {
+public class FlinkXConstant {
 
     public static final String SPLIT_SPACE = " ";
 
@@ -23,7 +23,7 @@ public class DataXConstant {
 
     public static final String DEFAULT_JSON = "jsons";
 
-    public static final String DEFAULT_DATAX_PY = "flinkx.py";
+    public static final String DEFAULT_FLINKX_SH = "flinkx";
 
     public static final String TASK_START_TIME_SUFFIX = "任务启动时刻";
     public static final String TASK_END_TIME_SUFFIX = "任务结束时刻";

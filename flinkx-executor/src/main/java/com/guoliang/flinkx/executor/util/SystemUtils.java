@@ -19,7 +19,7 @@ public class SystemUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemUtils.class);
 
-    private static String DATAX_HOME;
+    private static String FLINKX_HOME;
 
     private SystemUtils() {
     }
@@ -29,16 +29,16 @@ public class SystemUtils {
      *
      * @return
      */
-    public static String getDataXHomePath() {
-        if (StringUtils.isNotEmpty(DATAX_HOME)) return DATAX_HOME;
-        String dataXHome = System.getenv("DATAX_HOME");
-        if (StringUtils.isBlank(dataXHome)) {
-            LOGGER.warn("DATAX_HOME 环境变量为NULL");
+    public static String getFlinkxHomePath() {
+        if (StringUtils.isNotEmpty(FLINKX_HOME)) return FLINKX_HOME;
+        String FlinkXHome = System.getenv("FLINKX_HOME");
+        if (StringUtils.isBlank(FlinkXHome)) {
+            LOGGER.warn("FLINKX_HOME 环境变量为NULL");
             return null;
         }
-        DATAX_HOME = dataXHome.endsWith(File.separator) ? dataXHome : dataXHome.concat(File.separator);
-        LOGGER.info("DATAX_HOME:{}", DATAX_HOME);
-        return DATAX_HOME;
+        FLINKX_HOME = FlinkXHome.endsWith(File.separator) ? FlinkXHome : FlinkXHome.concat(File.separator);
+        LOGGER.info("FLINKX_HOME:{}", FLINKX_HOME);
+        return FLINKX_HOME;
     }
 
     public static  void executeShell(String command) {

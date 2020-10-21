@@ -1,7 +1,7 @@
 package com.guoliang.flinkx.admin.controller;
 
 
-import com.guoliang.flinkx.admin.dto.DataXBatchJsonBuildDto;
+import com.guoliang.flinkx.admin.dto.FlinkXBatchJsonBuildDto;
 import com.guoliang.flinkx.admin.dto.TriggerJobDto;
 import com.guoliang.flinkx.admin.service.JobService;
 import com.guoliang.flinkx.core.biz.model.ReturnT;
@@ -123,7 +123,7 @@ public class JobInfoController extends BaseController{
 
     @PostMapping("/batchAdd")
     @ApiOperation("批量创建任务")
-    public ReturnT<String> batchAdd(@RequestBody DataXBatchJsonBuildDto dto) throws IOException {
+    public ReturnT<String> batchAdd(@RequestBody FlinkXBatchJsonBuildDto dto) throws IOException {
         if (dto.getTemplateId() ==0) {
             return new ReturnT<>(ReturnT.FAIL_CODE, (I18nUtil.getString("system_please_choose") + I18nUtil.getString("jobinfo_field_temp")));
         }

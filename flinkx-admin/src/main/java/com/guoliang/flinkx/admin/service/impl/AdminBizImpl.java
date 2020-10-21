@@ -116,7 +116,7 @@ public class AdminBizImpl implements AdminBiz {
             }
         }
 
-        //kill execution timeout DataX process
+        //kill execution timeout FlinkX process
         if (!StringUtils.isEmpty(log.getProcessId()) && IJobHandler.FAIL_TIMEOUT.getCode() == resultCode) {
             KillJob.trigger(log.getId(), log.getTriggerTime(), log.getExecutorAddress(), log.getProcessId());
         }

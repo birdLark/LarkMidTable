@@ -13,7 +13,7 @@ import org.springframework.util.CollectionUtils;
 import java.io.File;
 
 /**
- * DataX任务终止
+ * FlinkX任务终止
  *
  * @author jingwk 2019-12-16
  */

@@ -21,8 +21,8 @@ import org.springframework.stereotype.Component;
 import java.io.*;
 import java.util.concurrent.FutureTask;
 
-import static com.guoliang.flinkx.executor.service.command.BuildCommand.buildDataXExecutorCmd;
-import static com.guoliang.flinkx.executor.service.jobhandler.DataXConstant.DEFAULT_JSON;
+import static com.guoliang.flinkx.executor.service.command.BuildCommand.buildFlinkXExecutorCmd;
+import static com.guoliang.flinkx.executor.service.jobhandler.FlinkXConstant.DEFAULT_JSON;
 import static com.guoliang.flinkx.executor.service.logparse.AnalysisStatistics.analysisStatisticsLog;
 
 
@@ -34,8 +34,8 @@ public class ExecutorJobHandler extends IJobHandler {
 	@Value("${flinkx.executor.jsonpath}")
 	private String jsonPath;
 
-	@Value("${flinkx.pypath}")
-	private String dataXPyPath;
+	@Value("${flinkx.shell.path}")
+	private String flinkXShPath;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ExecutorJobHandler.class);
 
@@ -50,7 +50,7 @@ public class ExecutorJobHandler extends IJobHandler {
 		tmpFilePath = generateTemJsonFile(trigger.getJobJson());
 
 		try {
-			String[] cmdarrayFinal = buildDataXExecutorCmd(trigger, tmpFilePath, dataXPyPath);
+			String[] cmdarrayFinal = buildFlinkXExecutorCmd(trigger, tmpFilePath, flinkXShPath);
 			String cmdstr = "";
 			for (int i =0;i<cmdarrayFinal.length;i++) {
 				cmdstr+=cmdarrayFinal[i]+ " ";
@@ -106,9 +106,9 @@ public class ExecutorJobHandler extends IJobHandler {
 
 	private String generateTemJsonFile(String jobJson) {
 		String tmpFilePath;
-		String dataXHomePath = SystemUtils.getDataXHomePath();
-		if (StringUtils.isNotEmpty(dataXHomePath)) {
-			jsonPath = dataXHomePath + DEFAULT_JSON;
+		String FlinkXHomePath = SystemUtils.getFlinkxHomePath();
+		if (StringUtils.isNotEmpty(FlinkXHomePath)) {
+			jsonPath = FlinkXHomePath + DEFAULT_JSON;
 		}
 		if (!FileUtil.exist(jsonPath)) {
 			FileUtil.mkdir(jsonPath);
