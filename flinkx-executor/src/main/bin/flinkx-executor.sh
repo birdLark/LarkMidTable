@@ -85,10 +85,6 @@ if [[ ! ${PYTHON_PATH} ]]; then
    PYTHON_PATH=${PYTHON_PATH}
 fi
 
-if [[ ! ${SERVER_PORT} ]]; then
-   SERVER_PORT=9004
-fi
-
 if [[ ! ${EXECUTOR_PORT} ]]; then
    EXECUTOR_PORT=9999
 fi
@@ -120,7 +116,7 @@ if [ ${REMOTE_DEBUG_SWITCH} == true ]; then
 fi
 JAVA_OPTS=${JAVA_OPTS}" -XX:HeapDumpPath="${SERVICE_LOG_PATH}" -Dlog.path="${SERVICE_LOG_PATH}
 JAVA_OPTS=${JAVA_OPTS}" -Duser.dir="${USER_DIR}
-JAVA_OPTS=${JAVA_OPTS}" -Dserver.port="${SERVER_PORT}" -Ddata.path="${DATA_PATH}" -Dexecutor.port="${EXECUTOR_PORT}" -Djson.path="${JSON_PATH}" -Dpython.path="${PYTHON_PATH}" -Dflinkx.admin.port="${DATAX_ADMIN_PORT}
+JAVA_OPTS=${JAVA_OPTS}" -Ddata.path="${DATA_PATH}" -Dexecutor.port="${EXECUTOR_PORT}" -Djson.path="${JSON_PATH}" -Dpython.path="${PYTHON_PATH}" -Dflinkx.admin.port="${DATAX_ADMIN_PORT}
 if [ "x"${PID_FILE_PATH} != "x" ]; then
   JAVA_OPTS=${JAVA_OPTS}" -Dpid.file="${PID_FILE_PATH}
 fi
