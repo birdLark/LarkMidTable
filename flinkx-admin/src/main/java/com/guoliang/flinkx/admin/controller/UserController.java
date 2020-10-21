@@ -38,9 +38,9 @@ public class UserController {
 
     @GetMapping("/pageList")
     @ApiOperation("用户列表")
-    public ReturnT<Map<String, Object>> pageList(@RequestParam(required = false, defaultValue = "1") int current,
-                                                 @RequestParam(required = false, defaultValue = "10") int size,
-                                                 String username) {
+    public ReturnT<Map<String, Object>> pageList(@RequestParam(value = "current", required = false, defaultValue = "1") int current,
+                                                 @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                                                 @RequestParam(value = "username", required = false) String username) {
 
         // page list
         List<JobUser> list = jobUserMapper.pageList((current - 1) * size, size, username);
