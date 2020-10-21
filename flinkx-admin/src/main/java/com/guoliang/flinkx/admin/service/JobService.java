@@ -1,7 +1,7 @@
 package com.guoliang.flinkx.admin.service;
 
 
-import com.guoliang.flinkx.admin.dto.DataXBatchJsonBuildDto;
+import com.guoliang.flinkx.admin.dto.FlinkXBatchJsonBuildDto;
 import com.guoliang.flinkx.core.biz.model.ReturnT;
 import com.guoliang.flinkx.admin.entity.JobInfo;
 
@@ -91,5 +91,5 @@ public interface JobService {
      * @param dto
      * @return
      */
-    ReturnT<String> batchAdd(DataXBatchJsonBuildDto dto) throws IOException;
+    ReturnT<String> batchAdd(FlinkXBatchJsonBuildDto dto) throws IOException;
 }

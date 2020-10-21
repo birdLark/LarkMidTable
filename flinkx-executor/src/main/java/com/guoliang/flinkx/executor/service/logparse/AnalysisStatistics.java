@@ -1,6 +1,6 @@
 package com.guoliang.flinkx.executor.service.logparse;
 
-import com.guoliang.flinkx.executor.service.jobhandler.DataXConstant;
+import com.guoliang.flinkx.executor.service.jobhandler.FlinkXConstant;
 import com.guoliang.flinkx.core.log.JobLogger;
 import com.guoliang.flinkx.core.util.Constants;
 import org.apache.commons.lang3.StringUtils;
@@ -34,19 +34,19 @@ public class AnalysisStatistics {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.contains(DataXConstant.TASK_START_TIME_SUFFIX)) {
+                if (line.contains(FlinkXConstant.TASK_START_TIME_SUFFIX)) {
                     logStatistics.setTaskStartTime(subResult(line));
-                } else if (line.contains(DataXConstant.TASK_END_TIME_SUFFIX)) {
+                } else if (line.contains(FlinkXConstant.TASK_END_TIME_SUFFIX)) {
                     logStatistics.setTaskEndTime(subResult(line));
-                } else if (line.contains(DataXConstant.TASK_TOTAL_TIME_SUFFIX)) {
+                } else if (line.contains(FlinkXConstant.TASK_TOTAL_TIME_SUFFIX)) {
                     logStatistics.setTaskTotalTime(subResult(line));
-                } else if (line.contains(DataXConstant.TASK_AVERAGE_FLOW_SUFFIX)) {
+                } else if (line.contains(FlinkXConstant.TASK_AVERAGE_FLOW_SUFFIX)) {
                     logStatistics.setTaskAverageFlow(subResult(line));
-                } else if (line.contains(DataXConstant.TASK_RECORD_WRITING_SPEED_SUFFIX)) {
+                } else if (line.contains(FlinkXConstant.TASK_RECORD_WRITING_SPEED_SUFFIX)) {
                     logStatistics.setTaskRecordWritingSpeed(subResult(line));
-                } else if (line.contains(DataXConstant.TASK_RECORD_READER_NUM_SUFFIX)) {
+                } else if (line.contains(FlinkXConstant.TASK_RECORD_READER_NUM_SUFFIX)) {
                     logStatistics.setTaskRecordReaderNum(Integer.parseInt(subResult(line)));
-                } else if (line.contains(DataXConstant.TASK_RECORD_WRITING_NUM_SUFFIX)) {
+                } else if (line.contains(FlinkXConstant.TASK_RECORD_WRITING_NUM_SUFFIX)) {
                     logStatistics.setTaskRecordWriteFailNum(Integer.parseInt(subResult(line)));
                 }
                 JobLogger.log(line);

@@ -9,12 +9,12 @@ import java.util.List;
  * 构建json dto
  *
  * @author jingwk
- * @ClassName DataXJsonDto
+ * @ClassName FlinkXJsonDto
  * @Version 2.1.2
  * @since 2020/05/05 17:15
  */
 @Data
-public class DataXBatchJsonBuildDto implements Serializable {
+public class FlinkXBatchJsonBuildDto implements Serializable {
 
     private Long readerDatasourceId;
 

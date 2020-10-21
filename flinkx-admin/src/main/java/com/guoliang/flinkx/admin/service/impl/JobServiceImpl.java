@@ -1,6 +1,6 @@
 package com.guoliang.flinkx.admin.service.impl;
 
-import com.guoliang.flinkx.admin.dto.DataXBatchJsonBuildDto;
+import com.guoliang.flinkx.admin.dto.FlinkXBatchJsonBuildDto;
 import com.guoliang.flinkx.admin.dto.FlinkXJsonBuildDto;
 import com.guoliang.flinkx.admin.entity.JobTemplate;
 import com.guoliang.flinkx.admin.mapper.*;
@@ -406,7 +406,7 @@ public class JobServiceImpl implements JobService {
 
 
     @Override
-    public ReturnT<String> batchAdd(DataXBatchJsonBuildDto dto) throws IOException {
+    public ReturnT<String> batchAdd(FlinkXBatchJsonBuildDto dto) throws IOException {
 
         String key = "system_please_choose";
         List<String> rdTables = dto.getReaderTables();

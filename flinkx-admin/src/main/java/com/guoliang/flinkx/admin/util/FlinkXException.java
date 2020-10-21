@@ -4,39 +4,39 @@ package com.guoliang.flinkx.admin.util;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-public class DataXException extends RuntimeException {
+public class FlinkXException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
     private ErrorCode errorCode;
 
-    public DataXException(ErrorCode errorCode, String errorMessage) {
+    public FlinkXException(ErrorCode errorCode, String errorMessage) {
         super(errorCode.toString() + " - " + errorMessage);
         this.errorCode = errorCode;
     }
 
-    private DataXException(ErrorCode errorCode, String errorMessage, Throwable cause) {
+    private FlinkXException(ErrorCode errorCode, String errorMessage, Throwable cause) {
         super(errorCode.toString() + " - " + getMessage(errorMessage) + " - " + getMessage(cause), cause);
 
         this.errorCode = errorCode;
     }
 
-    public static DataXException asDataXException(ErrorCode errorCode, String message) {
-        return new DataXException(errorCode, message);
+    public static FlinkXException asFlinkXException(ErrorCode errorCode, String message) {
+        return new FlinkXException(errorCode, message);
     }
 
-    public static DataXException asDataXException(ErrorCode errorCode, String message, Throwable cause) {
-        if (cause instanceof DataXException) {
-            return (DataXException) cause;
+    public static FlinkXException asFlinkXException(ErrorCode errorCode, String message, Throwable cause) {
+        if (cause instanceof FlinkXException) {
+            return (FlinkXException) cause;
         }
-        return new DataXException(errorCode, message, cause);
+        return new FlinkXException(errorCode, message, cause);
     }
 
-    public static DataXException asDataXException(ErrorCode errorCode, Throwable cause) {
-        if (cause instanceof DataXException) {
-            return (DataXException) cause;
+    public static FlinkXException asFlinkXException(ErrorCode errorCode, Throwable cause) {
+        if (cause instanceof FlinkXException) {
+            return (FlinkXException) cause;
         }
-        return new DataXException(errorCode, getMessage(cause), cause);
+        return new FlinkXException(errorCode, getMessage(cause), cause);
     }
 
     public ErrorCode getErrorCode() {
