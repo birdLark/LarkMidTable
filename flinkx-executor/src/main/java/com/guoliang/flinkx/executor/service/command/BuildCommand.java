@@ -1,18 +1,15 @@
 package com.guoliang.flinkx.executor.service.command;
 
-import com.guoliang.flinkx.executor.service.jobhandler.DataXConstant;
+import com.guoliang.flinkx.executor.service.jobhandler.FlinkXConstant;
 import com.guoliang.flinkx.core.biz.model.TriggerParam;
 import com.guoliang.flinkx.core.enums.IncrementTypeEnum;
 import com.guoliang.flinkx.core.log.JobLogger;
 import com.guoliang.flinkx.core.util.Constants;
 import com.guoliang.flinkx.core.util.DateUtil;
-import com.guoliang.flinkx.executor.service.jobhandler.ExecutorJobHandler;
-import com.guoliang.flinkx.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +19,7 @@ import java.util.List;
 import static com.guoliang.flinkx.core.util.Constants.SPLIT_COMMA;
 
 /**
- * DataX command build
+ * FlinkX command build
  *
  * @author jingwk 2020-06-07
  */
@@ -31,30 +28,30 @@ public class BuildCommand {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BuildCommand.class);
 
 	/**
-     * DataX command build
+     * FlinkX command build
      * @param tgParam
      * @param tmpFilePath
-     * @param dataXPyPath
+     * @param flinkXShPath
      * @return
      */
-    public static String[] buildDataXExecutorCmd(TriggerParam tgParam, String tmpFilePath, String dataXPyPath) {
+    public static String[] buildFlinkXExecutorCmd(TriggerParam tgParam, String tmpFilePath, String flinkXShPath) {
         // command process
         //"--loglevel=debug"
         List<String> cmdArr = new ArrayList<>();
         cmdArr.add("sh");
-        cmdArr.add(dataXPyPath);
+        cmdArr.add(flinkXShPath);
         cmdArr.add(tmpFilePath);
-		LOGGER.info(cmdArr+" "+dataXPyPath+" "+tmpFilePath);
+		LOGGER.info(cmdArr+" "+flinkXShPath+" "+tmpFilePath);
         return cmdArr.toArray(new String[cmdArr.size()]);
     }
 
-    private static String buildDataXParam(TriggerParam tgParam) {
+    private static String buildFlinkXParam(TriggerParam tgParam) {
         StringBuilder doc = new StringBuilder();
         String jvmParam = StringUtils.isNotBlank(tgParam.getJvmParam()) ? tgParam.getJvmParam().trim() : tgParam.getJvmParam();
         String partitionStr = tgParam.getPartitionInfo();
         if (StringUtils.isNotBlank(jvmParam)) {
-            doc.append(DataXConstant.JVM_CM).append(DataXConstant.TRANSFORM_QUOTES).append(jvmParam).append(
-					DataXConstant.TRANSFORM_QUOTES);
+            doc.append(FlinkXConstant.JVM_CM).append(FlinkXConstant.TRANSFORM_QUOTES).append(jvmParam).append(
+					FlinkXConstant.TRANSFORM_QUOTES);
         }
 
         Integer incrementType = tgParam.getIncrementType();
@@ -63,38 +60,38 @@ public class BuildCommand {
         if (incrementType != null && replaceParam != null) {
 
             if (IncrementTypeEnum.TIME.getCode() == incrementType) {
-                if (doc.length() > 0) doc.append(DataXConstant.SPLIT_SPACE);
+                if (doc.length() > 0) doc.append(FlinkXConstant.SPLIT_SPACE);
                 String replaceParamType = tgParam.getReplaceParamType();
 
                 if (StringUtils.isBlank(replaceParamType) || replaceParamType.equals("Timestamp")) {
                     long startTime = tgParam.getStartTime().getTime() / 1000;
                     long endTime = tgParam.getTriggerTime().getTime() / 1000;
-                    doc.append(DataXConstant.PARAMS_CM).append(DataXConstant.TRANSFORM_QUOTES).append(String.format(replaceParam, startTime, endTime));
+                    doc.append(FlinkXConstant.PARAMS_CM).append(FlinkXConstant.TRANSFORM_QUOTES).append(String.format(replaceParam, startTime, endTime));
                 } else {
                     SimpleDateFormat sdf = new SimpleDateFormat(replaceParamType);
-                    String endTime = sdf.format(tgParam.getTriggerTime()).replaceAll(DataXConstant.SPLIT_SPACE, DataXConstant.PERCENT);
-                    String startTime = sdf.format(tgParam.getStartTime()).replaceAll(DataXConstant.SPLIT_SPACE, DataXConstant.PERCENT);
-                    doc.append(DataXConstant.PARAMS_CM).append(DataXConstant.TRANSFORM_QUOTES).append(String.format(replaceParam, startTime, endTime));
+                    String endTime = sdf.format(tgParam.getTriggerTime()).replaceAll(FlinkXConstant.SPLIT_SPACE, FlinkXConstant.PERCENT);
+                    String startTime = sdf.format(tgParam.getStartTime()).replaceAll(FlinkXConstant.SPLIT_SPACE, FlinkXConstant.PERCENT);
+                    doc.append(FlinkXConstant.PARAMS_CM).append(FlinkXConstant.TRANSFORM_QUOTES).append(String.format(replaceParam, startTime, endTime));
                 }
                 //buildPartitionCM(doc, partitionStr);
-                doc.append(DataXConstant.TRANSFORM_QUOTES);
+                doc.append(FlinkXConstant.TRANSFORM_QUOTES);
 
             } else if (IncrementTypeEnum.ID.getCode() == incrementType) {
                 long startId = tgParam.getStartId();
                 long endId = tgParam.getEndId();
-                if (doc.length() > 0) doc.append(DataXConstant.SPLIT_SPACE);
-                doc.append(DataXConstant.PARAMS_CM).append(DataXConstant.TRANSFORM_QUOTES).append(String.format(replaceParam, startId, endId));
-                doc.append(DataXConstant.TRANSFORM_QUOTES);
+                if (doc.length() > 0) doc.append(FlinkXConstant.SPLIT_SPACE);
+                doc.append(FlinkXConstant.PARAMS_CM).append(FlinkXConstant.TRANSFORM_QUOTES).append(String.format(replaceParam, startId, endId));
+                doc.append(FlinkXConstant.TRANSFORM_QUOTES);
             }
         }
 
         if (incrementType != null && IncrementTypeEnum.PARTITION.getCode() == incrementType) {
             if (StringUtils.isNotBlank(partitionStr)) {
                 List<String> partitionInfo = Arrays.asList(partitionStr.split(SPLIT_COMMA));
-                if (doc.length() > 0) doc.append(DataXConstant.SPLIT_SPACE);
-                doc.append(DataXConstant.PARAMS_CM).append(DataXConstant.TRANSFORM_QUOTES).append(String.format(
-						DataXConstant.PARAMS_CM_V_PT, buildPartition(partitionInfo))).append(
-						DataXConstant.TRANSFORM_QUOTES);
+                if (doc.length() > 0) doc.append(FlinkXConstant.SPLIT_SPACE);
+                doc.append(FlinkXConstant.PARAMS_CM).append(FlinkXConstant.TRANSFORM_QUOTES).append(String.format(
+						FlinkXConstant.PARAMS_CM_V_PT, buildPartition(partitionInfo))).append(
+						FlinkXConstant.TRANSFORM_QUOTES);
             }
         }
 
@@ -105,9 +102,9 @@ public class BuildCommand {
 
     private void buildPartitionCM(StringBuilder doc, String partitionStr) {
         if (StringUtils.isNotBlank(partitionStr)) {
-            doc.append(DataXConstant.SPLIT_SPACE);
+            doc.append(FlinkXConstant.SPLIT_SPACE);
             List<String> partitionInfo = Arrays.asList(partitionStr.split(SPLIT_COMMA));
-            doc.append(String.format(DataXConstant.PARAMS_CM_V_PT, buildPartition(partitionInfo)));
+            doc.append(String.format(FlinkXConstant.PARAMS_CM_V_PT, buildPartition(partitionInfo)));
         }
     }
 
