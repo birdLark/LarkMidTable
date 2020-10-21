@@ -36,9 +36,11 @@ public class JobTemplateController extends BaseController{
 
     @GetMapping("/pageList")
     @ApiOperation("任务模板列表")
-    public ReturnT<Map<String, Object>> pageList(@RequestParam(required = false, defaultValue = "0") int current,
-                                        @RequestParam(required = false, defaultValue = "10") int size,
-                                        int jobGroup, String jobDesc, String executorHandler, int userId,Integer[] projectIds) {
+    public ReturnT<Map<String, Object>> pageList(@RequestParam(value = "current", required = false, defaultValue = "0") int current,
+                                        @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                                                 @RequestParam(value = "jobGroup") int jobGroup, @RequestParam(value = "jobDesc") String jobDesc,
+                                                 @RequestParam(value = "executorHandler") String executorHandler,
+                                                 @RequestParam(value = "userId") int userId, @RequestParam(value = "projectIds") Integer[] projectIds) {
 
         return new ReturnT<>(jobTemplateService.pageList((current-1)*size, size, jobGroup, jobDesc, executorHandler, userId, projectIds));
     }

@@ -43,9 +43,10 @@ public class JobLogController {
     @GetMapping("/pageList")
     @ApiOperation("运行日志列表")
     public ReturnT<Map<String, Object>> pageList(
-            @RequestParam(required = false, defaultValue = "0") int current,
-            @RequestParam(required = false, defaultValue = "10") int size,
-            int jobGroup, int jobId, int logStatus, String filterTime) {
+            @RequestParam(value = "current", required = false, defaultValue = "0") int current,
+            @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+            @RequestParam(value = "jobGroup") int jobGroup, @RequestParam(value = "jobId") int jobId,
+            @RequestParam(value = "logStatus") int logStatus, @RequestParam(value = "filterTime") String filterTime) {
 
         // valid permission
         //JobInfoController.validPermission(request, jobGroup);	// 仅管理员支持查询全部；普通用户仅支持查询有权限的 jobGroup
