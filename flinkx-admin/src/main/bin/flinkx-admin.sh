@@ -85,9 +85,6 @@ if [[ ! ${MAIL_PASSWORD} ]]; then
     MAIL_PASSWORD="123456"
 fi
 
-if [[ ! ${SERVER_PORT} ]]; then
-   SERVER_PORT=9004
-fi
 
 if [[ ! ${JAVA_OPTS} ]]; then
     JAVA_OPTS=" -Xms2g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
@@ -110,7 +107,7 @@ if [ ${REMOTE_DEBUG_SWITCH} == true ]; then
 fi
 JAVA_OPTS=${JAVA_OPTS}" -XX:HeapDumpPath="${SERVICE_LOG_PATH}" -Dlog.path="${SERVICE_LOG_PATH}
 JAVA_OPTS=${JAVA_OPTS}" -Duser.dir="${USER_DIR}
-JAVA_OPTS=${JAVA_OPTS}" -Dserver.port="${SERVER_PORT}" -Ddata.path="${DATA_PATH}"  -Dmail.username="${MAIL_USERNAME}" -Dmail.password="${MAIL_PASSWORD}
+JAVA_OPTS=${JAVA_OPTS}" -Ddata.path="${DATA_PATH}"  -Dmail.username="${MAIL_USERNAME}" -Dmail.password="${MAIL_PASSWORD}
 if [ "x"${PID_FILE_PATH} != "x" ]; then
   JAVA_OPTS=${JAVA_OPTS}" -Dpid.file="${PID_FILE_PATH}
 fi
