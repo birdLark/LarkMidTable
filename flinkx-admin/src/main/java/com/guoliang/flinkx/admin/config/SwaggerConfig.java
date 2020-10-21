@@ -33,7 +33,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("DataX Web Api Docs").description("DataX Web Api Docs")
+        return new ApiInfoBuilder().title("FlinkX Web Api Docs").description("FlinkX Web Api Docs")
                 .build();
     }
 

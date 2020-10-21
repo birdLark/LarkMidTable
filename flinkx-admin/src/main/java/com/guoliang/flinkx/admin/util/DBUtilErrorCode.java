@@ -47,15 +47,15 @@ public enum DBUtilErrorCode implements ErrorCode {
     CONF_ERROR("DBUtilErrorCode-00", "您的配置错误."),
     CONN_DB_ERROR("DBUtilErrorCode-10", "连接数据库失败. 请检查您的 账号、密码、数据库名称、IP、Port或者向 DBA 寻求帮助(注意网络环境)."),
     GET_COLUMN_INFO_FAILED("DBUtilErrorCode-01", "获取表字段相关信息失败."),
-    UNSUPPORTED_TYPE("DBUtilErrorCode-12", "不支持的数据库类型. 请注意查看 DataX 已经支持的数据库类型以及数据库版本."),
+    UNSUPPORTED_TYPE("DBUtilErrorCode-12", "不支持的数据库类型. 请注意查看 FlinkX 已经支持的数据库类型以及数据库版本."),
     COLUMN_SPLIT_ERROR("DBUtilErrorCode-13", "根据主键进行切分失败."),
     SET_SESSION_ERROR("DBUtilErrorCode-14", "设置 session 失败."),
     RS_ASYNC_ERROR("DBUtilErrorCode-15", "异步获取ResultSet next失败."),
 
     REQUIRED_VALUE("DBUtilErrorCode-03", "您缺失了必须填写的参数值."),
     ILLEGAL_VALUE("DBUtilErrorCode-02", "您填写的参数值不合法."),
-    ILLEGAL_SPLIT_PK("DBUtilErrorCode-04", "您填写的主键列不合法, DataX 仅支持切分主键为一个,并且类型为整数或者字符串类型."),
-    SPLIT_FAILED_ILLEGAL_SQL("DBUtilErrorCode-15", "DataX尝试切分表时, 执行数据库 Sql 失败. 请检查您的配置 table/splitPk/where 并作出修改."),
+    ILLEGAL_SPLIT_PK("DBUtilErrorCode-04", "您填写的主键列不合法, FlinkX 仅支持切分主键为一个,并且类型为整数或者字符串类型."),
+    SPLIT_FAILED_ILLEGAL_SQL("DBUtilErrorCode-15", "FlinkX尝试切分表时, 执行数据库 Sql 失败. 请检查您的配置 table/splitPk/where 并作出修改."),
     SQL_EXECUTE_FAIL("DBUtilErrorCode-06", "执行数据库 Sql 失败, 请检查您的配置的 column/table/where/querySql或者向 DBA 寻求帮助."),
 
     // only for reader

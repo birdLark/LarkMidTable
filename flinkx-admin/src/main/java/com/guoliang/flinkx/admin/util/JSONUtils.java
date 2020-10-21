@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * DataX JSON 用户名密码解密
+ * FlinkX JSON 用户名密码解密
  *
  * @author zhouhongfa@gz-yibo.com
  * @ClassName JSONUtils

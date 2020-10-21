@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Configuration;
  * @author xuxueli 2017-04-28
  */
 @Configuration
-public class DataXConfig {
-    private Logger logger = LoggerFactory.getLogger(DataXConfig.class);
+public class FlinkXConfig {
+    private Logger logger = LoggerFactory.getLogger(FlinkXConfig.class);
 
     private static final String DEFAULT_LOG_PATH = "log/executor/jobhandler";
 
@@ -51,9 +51,9 @@ public class DataXConfig {
         jobSpringExecutor.setIp(ip);
         jobSpringExecutor.setPort(port);
         jobSpringExecutor.setAccessToken(accessToken);
-        String dataXHomePath = SystemUtils.getDataXHomePath();
+        String flinkXHomePath = SystemUtils.getFlinkxHomePath();
         if (StringUtils.isEmpty(logPath)) {
-            logPath = dataXHomePath + DEFAULT_LOG_PATH;
+            logPath = flinkXHomePath + DEFAULT_LOG_PATH;
         }
         jobSpringExecutor.setLogPath(logPath);
         jobSpringExecutor.setLogRetentionDays(logRetentionDays);

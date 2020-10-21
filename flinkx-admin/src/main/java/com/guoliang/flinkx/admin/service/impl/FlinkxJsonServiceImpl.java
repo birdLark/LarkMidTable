@@ -22,14 +22,14 @@ public class FlinkxJsonServiceImpl implements FlinkxJsonService {
     private JobDatasourceService jobJdbcDatasourceService;
 
     @Override
-    public String buildJobJson(FlinkXJsonBuildDto dataXJsonBuildDto) {
+    public String buildJobJson(FlinkXJsonBuildDto FlinkXJsonBuildDto) {
         FlinkxJsonHelper flinkxJsonHelper = new FlinkxJsonHelper();
         // reader
-        JobDatasource readerDatasource = jobJdbcDatasourceService.getById(dataXJsonBuildDto.getReaderDatasourceId());
-        flinkxJsonHelper.initReader(dataXJsonBuildDto, readerDatasource);
+        JobDatasource readerDatasource = jobJdbcDatasourceService.getById(FlinkXJsonBuildDto.getReaderDatasourceId());
+        flinkxJsonHelper.initReader(FlinkXJsonBuildDto, readerDatasource);
         // writer
-        JobDatasource writerDatasource = jobJdbcDatasourceService.getById(dataXJsonBuildDto.getWriterDatasourceId());
-        flinkxJsonHelper.initWriter(dataXJsonBuildDto, writerDatasource);
+        JobDatasource writerDatasource = jobJdbcDatasourceService.getById(FlinkXJsonBuildDto.getWriterDatasourceId());
+        flinkxJsonHelper.initWriter(FlinkXJsonBuildDto, writerDatasource);
 
         return JSON.toJSONString(flinkxJsonHelper.buildJob());
     }
