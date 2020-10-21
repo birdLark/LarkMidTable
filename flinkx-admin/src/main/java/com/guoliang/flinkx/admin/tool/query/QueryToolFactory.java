@@ -27,13 +27,13 @@ public class QueryToolFactory {
             return getPostgresqlQueryToolInstance(jobDatasource);
         } else if (JdbcConstants.SQL_SERVER.equals(datasource)) {
             return getSqlserverQueryToolInstance(jobDatasource);
-        }else if (JdbcConstants.HIVE.equals(datasource)) {
+        } else if (JdbcConstants.HIVE.equals(datasource)) {
             return getHiveQueryToolInstance(jobDatasource);
         } else if (JdbcConstants.CLICKHOUSE.equals(datasource)) {
             return getClickHouseQueryToolInstance(jobDatasource);
-        }else if (JdbcConstants.HBASE20XSQL.equals(datasource)) {
+        } else if (JdbcConstants.HBASE20XSQL.equals(datasource)) {
             return getHbase20XsqlQueryToolQueryToolInstance(jobDatasource);
-        }else if (JdbcConstants.HANA.equals(datasource)) {
+        } else if (JdbcConstants.HANA.equals(datasource)) {
             return getHanaQueryToolInstance(jobDatasource);
         }
         throw new UnsupportedOperationException("找不到该类型: ".concat(datasource));

@@ -109,11 +109,6 @@ public abstract class BaseQueryTool implements QueryToolInterface {
         } else {
             //这里默认使用 hikari 数据源
             HikariDataSource dataSource = new HikariDataSource();
-            System.out.println(userName);
-            System.out.println(password);
-            System.out.println(jdbcUrl);
-            System.out.println(jobDatasource.getJdbcDriverClass());
-
             dataSource.setUsername(userName);
             dataSource.setPassword(password);
             dataSource.setJdbcUrl(jdbcUrl);
