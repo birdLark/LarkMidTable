@@ -30,6 +30,8 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # 产品功能
 
+![页面效果图](https://img-blog.csdnimg.cn/20201024131153700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTI5MTQ1NjY=,size_16,color_FFFFFF,t_70#pic_center)
+
 | **功能**     | **功能特性**   | **数据库类型** | **读取类型** | **写入类型** |
 | ------------ | :------------- | -------------- | ------------ | ------------ |
 | **数据集成** | 批处理同步     | Mysql          | 支持         | 支持         |
