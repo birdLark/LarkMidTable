@@ -22,6 +22,12 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
+# 产品效果图
+
+![页面效果图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201024132815743-808911491.png)
+
+
+
 # 产品架构图
 
 ![系统架构图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201019215540747-440767668.jpg ) 
@@ -56,6 +62,8 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 | **数据开发** | 可视化任务开发 |                |              |              |
 | **数据服务** | 可视化API构建  |                |              |              |
 
+
+
 # **快速开始**
 
 安装手册      [安装手册](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
@@ -64,9 +72,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 插件开发手册      [插件开发手册](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/PluginDev.md)
 
-# 页面效果图
 
-![页面效果图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201024132815743-808911491.png)
 
 # 应用案例
 
@@ -97,6 +103,8 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 # 特别鸣谢
 
 本项目在[datax-web](https://github.com/WeiYe-Jing/datax-web)代码的基础上进行二次重构开发，在此特别感谢datax-web团队。
+
+
 
 # 技术交流
 
