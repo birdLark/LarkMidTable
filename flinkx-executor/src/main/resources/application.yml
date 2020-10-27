@@ -32,5 +32,6 @@ flinkx:
     jsonpath: /home/hadoop/flinkx-1.8_release/job/
 #    jsonpath: ${json.path}
 
-  pypath: /home/hadoop/flinkx-1.8_release/start.sh
+  shell:
+    path: /home/hadoop/flinkx-1.8_release/start.sh
 #  pypath: ${python.path}
