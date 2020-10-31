@@ -74,27 +74,17 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
+# LarkMidTable家族
+
+[LarkDesigner 毕业设计](https://github.com/wxgzgl/LarkDesigner)
+
+专业提供毕业设计的开源项目
+
+[LarkMarketPlace 外包项目](https://github.com/wxgzgl/LarkMarketPlace)
+
+专业提供外包的开源项目
+
 # 应用案例
-
-* [LarkMidTable集团股份有限公司](), 大数据开发应用平台组
-
-<img src="https://img2020.cnblogs.com/blog/622382/202009/622382-20200908225545579-407596654.png" height="120" width="160" >
-
-有效解决集团中数据孤岛问题，更好地应对快速变化的前端业务变化。
-
-* [LarkMidTable 跨境B2B电商网站](), 大数据运营中台部门
-
-<img src="https://img2020.cnblogs.com/blog/622382/202009/622382-20200908225545579-407596654.png" height="120" width="160" >
-
-有效解决点击流，用户留存率，商品的推荐 等等，每天有30多个离线任务，以及20多个实时流处理任务，提供运营部门精确运营
-
-* [LarkMidTable 金融商务P2P平台 ](), 数据技术开发部
-
-<img src="https://img2020.cnblogs.com/blog/622382/202009/622382-20200908225545579-407596654.png" height="120" width="160" >
-
-任务及时构建，需求的快速响应，有效的解决快速的需求迭代和开发，构建金融领域数据中台，数据安全可靠。
-
-
 
 * 其他公司 ... 期待您的加入，请联系微信: wxgzgl
 
