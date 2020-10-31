@@ -86,7 +86,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 [LarkVoice](https://github.com/wxgzgl/LarkVoice)
 
-专业提供互联网解决问题和解决方案
+专业提供互联网解决方案
 
 
 
