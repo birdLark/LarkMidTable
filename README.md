@@ -84,6 +84,10 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 专业提供外包的开源项目
 
+[LarkVoice 雀鸣](https://github.com/wxgzgl/LarkVoice)
+
+专业提供互联网解决问题和解决方案
+
 # 应用案例
 
 * 其他公司 ... 期待您的加入，请联系微信: wxgzgl
