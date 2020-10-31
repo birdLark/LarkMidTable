@@ -76,15 +76,15 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # LarkMidTable家族
 
-[LarkDesigner 毕业设计](https://github.com/wxgzgl/LarkDesigner)
+[LarkDesigner](https://github.com/wxgzgl/LarkDesigner)
 
 专业提供毕业设计的开源项目
 
-[LarkMarketPlace 外包项目](https://github.com/wxgzgl/LarkMarketPlace)
+[LarkMarketPlace](https://github.com/wxgzgl/LarkMarketPlace)
 
 专业提供外包的开源项目
 
-[LarkVoice 雀鸣](https://github.com/wxgzgl/LarkVoice)
+[LarkVoice](https://github.com/wxgzgl/LarkVoice)
 
 专业提供互联网解决问题和解决方案
 
