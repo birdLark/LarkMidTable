@@ -79,7 +79,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 [LarkMarketPlace](https://github.com/wxgzgl/LarkMarketPlace)
 
-专业提供**毕业设计**,**外包**的服务
+专业提供**毕业设计**,**外包架构**
 
 [LarkNotes](https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md)
 
