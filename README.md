@@ -81,7 +81,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 专业提供**毕业设计**,**外包架构**
 
-[LarkNotes](https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md)
+[LarkNotes](https://github.com/wxgzgl/LarkNotes)
 
 专业提供大厂**面试技巧**，**面试题目**，**学习资料**
 
