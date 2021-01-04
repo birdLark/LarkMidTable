@@ -10,4 +10,5 @@ public class Common {
 	public static String PORT ="8080";
 	public static String SERVERPORT ="server.port";
 	public static String SERVERCONTEXTPATH ="server.contextPath";
+	public static String DOCPATH="/doc.html";
 }

@@ -13,19 +13,21 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+/**
+ * Engine是flinkx-web入口类，该类负责数据的初始化
+ */
 @EnableSwagger2
 @SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
-public class FlinkXAdminApplication {
+public class Engine {
 
-    private static Logger logger = LoggerFactory.getLogger(FlinkXAdminApplication.class);
+    private static Logger logger = LoggerFactory.getLogger(Engine.class);
 
     public static void main(String[] args) throws UnknownHostException {
-        Environment env = new SpringApplication(FlinkXAdminApplication.class).run(args).getEnvironment();
-        String envPort = env.getProperty(Common.SERVERPORT);
-        String envContext = env.getProperty(Common.SERVERCONTEXTPATH);
-        String port = envPort == null ? Common.PORT : envPort;
-        String context = envContext == null ? "" : envContext;
-        String path = port + "" + context + "/doc.html";
+        Environment env = new SpringApplication(Engine.class).run(args).getEnvironment();
+        String port = env.getProperty(Common.SERVERPORT)== null ? Common.PORT : env.getProperty(Common.SERVERPORT);
+        String context = env.getProperty(Common.SERVERCONTEXTPATH)== null ? Common.PORT : env.getProperty(Common.SERVERCONTEXTPATH);
+        String docPath = Common.DOCPATH;
+        String path = port + "" + context + docPath;
         String externalAPI = InetAddress.getLocalHost().getHostAddress();
         logger.info(
                 "Access URLs:\n----------------------------------------------------------\n\t"
