@@ -15,13 +15,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Map;
 
 /**
- * Reader
  *
- * @author zhouhongfa@gz-yibo.com
- * @ClassName BaseReaderPlugin
- * @Version 1.0
- * @since 2019/8/2 16:27
- */
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: 读插件
+ **/
 public abstract class BaseReaderPlugin extends BaseFlinkxPlugin {
 
 
