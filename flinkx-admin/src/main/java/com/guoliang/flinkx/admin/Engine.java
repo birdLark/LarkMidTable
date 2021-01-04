@@ -15,8 +15,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * Engine是入口类，该类负责数据的初始化
- */
+ *
+ * @Author: LarkMidTable
+ * @Date: 2020/9/16 11:14
+ * @Description: Engine是入口类，该类负责数据的初始化
+ **/
 @EnableSwagger2
 @SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
 public class Engine {
