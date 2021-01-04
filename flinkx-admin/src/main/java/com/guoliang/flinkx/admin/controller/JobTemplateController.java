@@ -1,6 +1,7 @@
 package com.guoliang.flinkx.admin.controller;
 
 
+import com.guoliang.flinkx.admin.base.BaseController;
 import com.guoliang.flinkx.admin.entity.JobTemplate;
 import com.guoliang.flinkx.admin.service.JobTemplateService;
 import com.guoliang.flinkx.core.biz.model.ReturnT;
@@ -29,7 +30,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/jobTemplate")
 @Api(tags = "任务配置接口")
-public class JobTemplateController extends BaseController{
+public class JobTemplateController extends BaseController {
 
     @Resource
     private JobTemplateService jobTemplateService;

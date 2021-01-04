@@ -1,6 +1,7 @@
 package com.guoliang.flinkx.admin.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
+import com.guoliang.flinkx.admin.base.BaseController;
 import com.guoliang.flinkx.admin.dto.FlinkXJsonBuildDto;
 import com.guoliang.flinkx.admin.service.FlinkxJsonService;
 import com.guoliang.flinkx.admin.core.util.I18nUtil;
