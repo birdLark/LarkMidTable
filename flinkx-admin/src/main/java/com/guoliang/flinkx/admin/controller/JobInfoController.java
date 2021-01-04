@@ -1,6 +1,7 @@
 package com.guoliang.flinkx.admin.controller;
 
 
+import com.guoliang.flinkx.admin.base.BaseController;
 import com.guoliang.flinkx.admin.dto.FlinkXBatchJsonBuildDto;
 import com.guoliang.flinkx.admin.dto.TriggerJobDto;
 import com.guoliang.flinkx.admin.service.JobService;
@@ -33,7 +34,7 @@ import java.util.Map;
 @Api(tags = "任务配置接口")
 @RestController
 @RequestMapping("/api/job")
-public class JobInfoController extends BaseController{
+public class JobInfoController extends BaseController {
 
     @Resource
     private JobService jobService;

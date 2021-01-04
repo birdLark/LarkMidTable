@@ -1,6 +1,7 @@
 package com.guoliang.flinkx.admin.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
+import com.guoliang.flinkx.admin.base.BaseController;
 import com.guoliang.flinkx.admin.service.DatasourceQueryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

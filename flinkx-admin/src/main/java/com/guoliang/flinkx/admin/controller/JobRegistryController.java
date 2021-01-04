@@ -4,6 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
+import com.guoliang.flinkx.admin.base.BaseController;
+import com.guoliang.flinkx.admin.base.BaseForm;
 import com.guoliang.flinkx.admin.service.JobRegistryService;
 import com.guoliang.flinkx.admin.entity.JobRegistry;
 import com.guoliang.flinkx.admin.util.PageUtils;

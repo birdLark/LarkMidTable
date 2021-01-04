@@ -3,6 +3,7 @@ package com.guoliang.flinkx.admin.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
+import com.guoliang.flinkx.admin.base.BaseController;
 import com.guoliang.flinkx.admin.service.JobProjectService;
 import com.guoliang.flinkx.admin.entity.JobProject;
 import io.swagger.annotations.Api;
