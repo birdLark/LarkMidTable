@@ -217,7 +217,7 @@ public class BaseForm {
      * @param map
      * @return
      */
-    protected QueryWrapper<?> pageQueryWrapperCustom(Map<String, Object> map, QueryWrapper<?> queryWrapper) {
+    public QueryWrapper<?> pageQueryWrapperCustom(Map<String, Object> map, QueryWrapper<?> queryWrapper) {
         // mybatis plus 分页相关的参数
         Map<String, Object> pageParams = PageUtils.filterPageParams(map);
         //过滤空值，分页查询相关的参数
