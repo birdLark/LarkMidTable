@@ -1,6 +1,6 @@
 server:
   port: 8080
-#  port: ${server.port}
+
 spring:
   #数据源
   datasource:
