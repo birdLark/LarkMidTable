@@ -6,9 +6,9 @@ executor="executor"
 RENT_DIR=$(cd $(dirname $0);cd ..; pwd)
 
 if [ "$p" == "$admin" ];then
-pid=$(ps -ef | grep "FlinkXAdminApplication" | grep -v grep | awk '{print $2}')
+pid=$(ps -ef | grep "Engine" | grep -v grep | awk '{print $2}')
 kill -15 $pid
-echo "FlinkXAdminApplication的进程已经停止!!!!"
+echo "Engine的进程已经停止!!!!"
 elif [ "$p" == "$executor" ];then
 pid=$(ps -ef | grep "FlinkXExecutorApplication" | grep -v grep | awk '{print $2}')
 kill -15 $pid
