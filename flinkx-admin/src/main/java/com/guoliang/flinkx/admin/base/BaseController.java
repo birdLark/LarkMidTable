@@ -1,4 +1,4 @@
-package com.guoliang.flinkx.admin.controller;
+package com.guoliang.flinkx.admin.base;
 
 
 import com.baomidou.mybatisplus.extension.api.ApiController;

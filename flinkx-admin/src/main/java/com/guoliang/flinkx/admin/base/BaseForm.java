@@ -1,4 +1,4 @@
-package com.guoliang.flinkx.admin.controller;
+package com.guoliang.flinkx.admin.base;
 
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.NumberUtil;
