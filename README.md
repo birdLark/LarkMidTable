@@ -77,11 +77,11 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # LarkMidTable家族
 
-[LarkMarketPlace](https://github.com/wxgzgl/LarkMarketPlace)
+[LarkMidTable](https://github.com/wxgzgl/LarkMidTable)
 
 专业提供**毕业设计**,**外包架构**
 
-[LarkNotes](https://github.com/wxgzgl/LarkNotes)
+[LarkMidTableWebUI](https://github.com/wxgzgl/LarkMidTableWebUI)
 
 专业提供大厂**面试技巧**，**面试题目**，**学习资料**
 
