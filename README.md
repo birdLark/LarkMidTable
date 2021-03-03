@@ -79,11 +79,11 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 [LarkMidTable](https://github.com/wxgzgl/LarkMidTable)
 
-专业提供**毕业设计**,**外包架构**
+**基于flink的分布式实时处理引擎**
 
 [LarkMidTableWebUI](https://github.com/wxgzgl/LarkMidTableWebUI)
 
-专业提供大厂**面试技巧**，**面试题目**，**学习资料**
+**基于flink的分布式数据分析页面**
 
 
 
