@@ -95,7 +95,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 QQ群1群【678097205】已满
 
-**微信公众号 【LarkMidTable】**
+微信公众号 【LarkMidTable】
 
 
 
