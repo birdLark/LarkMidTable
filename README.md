@@ -75,17 +75,6 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 前端代码:  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
 
 
-# LarkMidTable家族
-
-[LarkMidTable](https://github.com/wxgzgl/LarkMidTable)
-
-**基于flink的分布式实时处理引擎**
-
-[LarkMidTableWebUI](https://github.com/wxgzgl/LarkMidTableWebUI)
-
-**基于flink的分布式数据分析页面**
-
-
 
 # 技术交流
 
@@ -98,9 +87,4 @@ QQ群1群【678097205】已满
 **微信公众号 【LarkMidTable】**
 
 关注官方微信公众号，回复加群，会发送社区微信群二维码，扫描二维码可加入群聊！
-
-
-# 特别鸣谢
-
-本项目在[datax-web](https://github.com/WeiYe-Jing/datax-web)代码的基础上进行二次重构开发，在此特别感谢datax-web团队。
 
