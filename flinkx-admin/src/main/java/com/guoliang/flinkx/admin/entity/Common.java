@@ -14,4 +14,5 @@ public class Common {
 	public static String CONTEXTPATH ="";
 	public static String SERVERCONTEXTPATH ="server.contextPath";
 	public static String DOCPATH="/doc.html";
+	public static String IndexPATH="/index.html";
 }
