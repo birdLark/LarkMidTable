@@ -35,7 +35,7 @@
     "qs": "^6.9.1",
     "screenfull": "^5.0.0",
     "sortablejs": "^1.10.1",
-    "ua-parser-js": "^0.7.20",
+    "ua-parser-js": "^0.7.24",
     "uuid": "^7.0.2",
     "v-charts": "^1.19.0",
     "vue": "^2.6.11",
