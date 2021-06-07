@@ -33,15 +33,15 @@ public class Engine {
         String context = env.getProperty(Common.SERVERCONTEXTPATH)== null ? Common.CONTEXTPATH : env.getProperty(Common.SERVERCONTEXTPATH);
 		String hostAddress = InetAddress.getLocalHost().getHostAddress();
 		//拼凑路径
-		String localAPIPath = StringUtils.join(Common.PREFEX,Common.LOCALADDRESS,port,context,Common.DOCPATH);
-		String externalAPIPath = StringUtils.join(Common.PREFEX,hostAddress,port,context,Common.DOCPATH);
-		String webURLPath = StringUtils.join(Common.PREFEX,Common.LOCALADDRESS,port,context,Common.DOCPATH);
+		String localAPIPath = StringUtils.join(Common.PREFEX,Common.LOCALADDRESS,":",port,context,Common.IndexPATH);
+		String externalAPIPath = StringUtils.join(Common.PREFEX,hostAddress,":",port,context,Common.DOCPATH);
+		String webURLPath = StringUtils.join(Common.PREFEX,hostAddress,":",port,context,Common.IndexPATH);
 		//打印日志
 		logger.info(
                 "Access URLs:\n----------------------------------------------------------\n\t"
                         + "Local-API: \t\t{}\n\t"
                         + "External-API: \t\t{}\n\t"
-                        + "web-URL: \t\thttp://127.0.0.1:{}/index.html\n\t"
+                        + "web-URL: \t\t{}\n\t"
 						+ "----------------------------------------------------------",
 				localAPIPath, externalAPIPath, webURLPath);
     }

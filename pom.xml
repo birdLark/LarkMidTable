@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.guoliang.cn</groupId>
-    <artifactId>flinkx-web</artifactId>
+    <artifactId>LarkMidTable</artifactId>
     <version>2.1.2</version>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
@@ -15,6 +15,7 @@
         <module>flinkx-executor</module>
         <module>flinkx-rpc</module>
         <module>flinkx-assembly</module>
+        <module>flinkx-sql</module>
     </modules>
 
     <properties>
