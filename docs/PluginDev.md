@@ -57,8 +57,8 @@ public class SomeReader extends Reader {
         public void init() {
         }
 		
-		@Override
-		public void prepare() {
+	@Override
+	public void prepare() {
         }
 
         @Override
@@ -82,8 +82,8 @@ public class SomeReader extends Reader {
         public void init() {
         }
 		
-		@Override
-		public void prepare() {
+	@Override
+	public void prepare() {
         }
 
         @Override
