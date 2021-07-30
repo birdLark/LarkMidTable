@@ -87,7 +87,7 @@ public abstract class BaseQueryTool implements QueryToolInterface {
         String userName = AESUtil.decrypt(jobDatasource.getJdbcUsername());
         String password = AESUtil.decrypt(jobDatasource.getJdbcPassword());
         String jdbcUrl = jobDatasource.getJdbcUrl();
-        String DBtype = jobDatasource.getDatasourceName();
+        String DBtype = jobDatasource.getDatasource();
         if (jdbcUrl != null && jdbcUrl.startsWith("jdbc:jtds")) {
             JtdsDataSource jtdsDataSource = new JtdsDataSource();
             String cleanURI = jdbcUrl.substring(10);//"jdbc:jtds:".length()
