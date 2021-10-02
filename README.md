@@ -74,3 +74,11 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 前端代码:  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
 
+# 技术交流
+
+**一个人走的很快，一群人走的更远。**
+
+**关注LarkMidTable的数据中台开源社区，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
+
+
+**微信公众号 【LarkMidTable】**
