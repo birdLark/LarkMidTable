@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <flink.version>1.9.0</flink.version>
+        <flink.version>1.10.0</flink.version>
     </properties>
 
     <dependencies>
@@ -48,7 +48,6 @@
             <version>${flink.version}</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -86,6 +85,16 @@
                                     <mainClass>com.github.wuchong.sqlsubmit.SqlSubmit</mainClass>
                                 </transformer>
                             </transformers>
+                            <filters>
+                                 <filter>  
+                                    <artifact>*:*</artifact>  
+                                    <excludes>  
+                                        <exclude>META-INF/*.SF</exclude>  
+                                        <exclude>META-INF/*.DSA</exclude>  
+                                        <exclude>META-INF/*.RSA</exclude>  
+                                    </excludes>  
+                                </filter> 
+                            </filters>
                         </configuration>
                     </execution>
                 </executions>
