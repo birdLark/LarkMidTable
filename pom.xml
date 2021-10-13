@@ -17,7 +17,8 @@
         <module>flinkx-assembly</module>
         <!--<module>flinkx-sql</module>-->
 		<module>SparkRealTime</module>
-	</modules>
+        <module>flinkRealTime</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
