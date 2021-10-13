@@ -11,3 +11,4 @@ packages/*/*
 flinkx-admin/src/main/resources/*.yml
 *.yml
 packages.rar
+flinkRealTime_temp/*
