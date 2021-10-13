@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-RENT_DIR=$(cd $(dirname $0);cd ..; pwd)
+export RENT_DIR=$(cd $(dirname $0);cd ..; pwd)
 echo "flinkx-admin starting ..."
 sh $RENT_DIR/packages/flinkx-admin/bin/flinkx-admin.sh start
 echo "flinkx-executor starting ..."
