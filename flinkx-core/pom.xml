@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.guoliang.cn</groupId>
-        <artifactId>LarkMidTable</artifactId>
+        <artifactId>flinkx-web</artifactId>
         <version>2.1.2</version>
     </parent>
 
