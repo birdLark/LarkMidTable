@@ -20,7 +20,7 @@
 p="$1"
 admin="admin"
 executor="executor"
-RENT_DIR=$(cd $(dirname $0);cd ..; pwd)
+export RENT_DIR=$(cd $(dirname $0);cd ..; pwd)
 
 if [ "$p" == "$admin" ];then
 pid=$(ps -ef | grep "Engine" | grep -v grep | awk '{print $2}')
