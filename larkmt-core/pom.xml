@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.guoliang.cn</groupId>
+        <groupId>com.larkmt.cn</groupId>
         <artifactId>LarkMidTable</artifactId>
         <version>2.1.2</version>
     </parent>
@@ -19,8 +19,8 @@
 
         <!-- xxl-rpc-core -->
         <dependency>
-            <groupId>com.guoliang.cn</groupId>
-            <artifactId>flinkx-rpc</artifactId>
+            <groupId>com.larkmt.cn</groupId>
+            <artifactId>larkmt-rpc</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <!-- groovy-all -->

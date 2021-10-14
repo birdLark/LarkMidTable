@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guoliang.flinkx.admin.mapper.JobLogMapper">
+<mapper namespace="com.larkmt.cn.admin.mapper.JobLogMapper">
 	
-	<resultMap id="JobLog" type="com.guoliang.flinkx.admin.entity.JobLog" >
+	<resultMap id="JobLog" type="com.larkmt.cn.admin.entity.JobLog" >
 		<result column="id" property="id" />
 
 		<result column="job_group" property="jobGroup" />
@@ -127,7 +127,7 @@
 	</select>
 
 	
-	<insert id="save" parameterType="com.guoliang.flinkx.admin.entity.JobLog" useGeneratedKeys="true" keyProperty="id" >
+	<insert id="save" parameterType="com.larkmt.cn.admin.entity.JobLog" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO job_log (
 			`job_group`,
 			`job_id`,

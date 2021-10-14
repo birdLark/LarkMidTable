@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guoliang.flinkx.admin.mapper.JobLogReportMapper">
+<mapper namespace="com.larkmt.cn.admin.mapper.JobLogReportMapper">
 	
-	<resultMap id="JobLogReport" type="com.guoliang.flinkx.admin.entity.JobLogReport" >
+	<resultMap id="JobLogReport" type="com.larkmt.cn.admin.entity.JobLogReport" >
 		<result column="id" property="id" />
 	    <result column="trigger_day" property="triggerDay" />
 		<result column="running_count" property="runningCount" />
@@ -19,7 +19,7 @@
 		t.fail_count
 	</sql>
 	
-	<insert id="save" parameterType="com.guoliang.flinkx.admin.entity.JobLogReport" useGeneratedKeys="true" keyProperty="id" >
+	<insert id="save" parameterType="com.larkmt.cn.admin.entity.JobLogReport" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO job_log_report (
 			`trigger_day`,
 			`running_count`,

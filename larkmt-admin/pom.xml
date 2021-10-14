@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.guoliang.cn</groupId>
+        <groupId>com.larkmt.cn</groupId>
         <artifactId>LarkMidTable</artifactId>
         <version>2.1.2</version>
     </parent>
@@ -216,8 +216,8 @@
 
         <!-- flinkx-core -->
         <dependency>
-            <groupId>com.guoliang.cn</groupId>
-            <artifactId>flinkx-core</artifactId>
+            <groupId>com.larkmt.cn</groupId>
+            <artifactId>larkmt-core</artifactId>
             <version>${project.parent.version}</version>
             <exclusions>
                 <exclusion>
