@@ -16,8 +16,8 @@
         <module>flinkx-rpc</module>
         <module>flinkx-assembly</module>
         <!--<module>flinkx-sql</module>-->
-		<module>SparkRealTime</module>
-        <module>flinkRealTime</module>
+		<!--<module>SparkRealTime</module>
+        <module>flinkRealTime</module>-->
     </modules>
 
 
