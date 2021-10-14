@@ -15,16 +15,11 @@
         <module>flinkx-executor</module>
         <module>flinkx-rpc</module>
         <module>flinkx-assembly</module>
-<<<<<<< HEAD
-        <!--<module>flink-sql</module>-->
-		<module>SparkRealTime</module>
-	</modules>
-=======
         <!--<module>flinkx-sql</module>-->
 		<module>SparkRealTime</module>
         <module>flinkRealTime</module>
     </modules>
->>>>>>> 2d0f67aaaa2223aab94be0c4a695594eb5cb20e2
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
