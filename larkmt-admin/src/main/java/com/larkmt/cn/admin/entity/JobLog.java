@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * flinkx-web log, used to track trigger process
+ * LarkMidTable log, used to track trigger process
  *
  * @author jingwk  2019-11-17 22:08:11
  */

@@ -90,7 +90,7 @@ public class JobLogReportHelper {
 
                     } catch (Exception e) {
                         if (!toStop) {
-                            logger.error(">>>>>>>>>>> flinkx-web, job log report thread error:{}", e);
+                            logger.error(">>>>>>>>>>> LarkMidTable, job log report thread error:{}", e);
                         }
                     }
 
@@ -130,12 +130,12 @@ public class JobLogReportHelper {
 
                 }
 
-                logger.info(">>>>>>>>>>> flinkx-web, job log report thread stop");
+                logger.info(">>>>>>>>>>> LarkMidTable, job log report thread stop");
 
             }
         });
         logrThread.setDaemon(true);
-        logrThread.setName("flinkx-web, admin JobLogReportHelper");
+        logrThread.setName("LarkMidTable, admin JobLogReportHelper");
         logrThread.start();
     }
 

@@ -90,11 +90,11 @@ public class JobLogFileCleanThread {
                     }
                 }
             }
-            logger.info(">>>>>>>>>>> flinkx-web, executor JobLogFileCleanThread thread destory.");
+            logger.info(">>>>>>>>>>> LarkMidTable, executor JobLogFileCleanThread thread destory.");
 
         });
         localThread.setDaemon(true);
-        localThread.setName("flinkx-web, executor JobLogFileCleanThread");
+        localThread.setName("LarkMidTable, executor JobLogFileCleanThread");
         localThread.start();
     }
 

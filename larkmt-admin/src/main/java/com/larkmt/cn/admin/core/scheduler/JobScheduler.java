@@ -48,7 +48,7 @@ public class JobScheduler {
         // start-schedule
         JobScheduleHelper.getInstance().start();
 
-        logger.info(">>>>>>>>> init flinkx-web admin success.");
+        logger.info(">>>>>>>>> init LarkMidTable admin success.");
     }
 
 

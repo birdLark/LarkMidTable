@@ -37,7 +37,7 @@ public class ProcessCallbackThread {
 
     public static void pushCallBack(HandleProcessCallbackParam callback) {
         getInstance().callBackQueue.add(callback);
-        logger.debug(">>>>>>>>>>> flinkx-web, push process callback request, logId:{}", callback.getLogId());
+        logger.debug(">>>>>>>>>>> LarkMidTable, push process callback request, logId:{}", callback.getLogId());
     }
 
     /**
@@ -51,7 +51,7 @@ public class ProcessCallbackThread {
 
         // valid
         if (JobExecutor.getAdminBizList() == null) {
-            logger.warn(">>>>>>>>>>> flinkx-web, executor callback config fail, adminAddresses is null.");
+            logger.warn(">>>>>>>>>>> LarkMidTable, executor callback config fail, adminAddresses is null.");
             return;
         }
 
@@ -91,11 +91,11 @@ public class ProcessCallbackThread {
                     logger.error(e.getMessage(), e);
                 }
             }
-            logger.info(">>>>>>>>>>> flinkx-web, executor callback thread destory.");
+            logger.info(">>>>>>>>>>> LarkMidTable, executor callback thread destory.");
 
         });
         processCallbackThread.setDaemon(true);
-        processCallbackThread.setName("flinkx-web, executor TriggerCallbackThread");
+        processCallbackThread.setName("LarkMidTable, executor TriggerCallbackThread");
         processCallbackThread.start();
 
 
@@ -118,7 +118,7 @@ public class ProcessCallbackThread {
                     }
                 }
             }
-            logger.info(">>>>>>>>>>> flinkx-web, executor retry callback thread destory.");
+            logger.info(">>>>>>>>>>> LarkMidTable, executor retry callback thread destory.");
         });
         processRetryCallbackThread.setDaemon(true);
         processRetryCallbackThread.start();
@@ -161,14 +161,14 @@ public class ProcessCallbackThread {
             try {
                 ReturnT<String> callbackResult = adminBiz.processCallback(callbackParamList);
                 if (callbackResult != null && ReturnT.SUCCESS_CODE == callbackResult.getCode()) {
-                    callbackLog(callbackParamList, "<br>----------- flinkx-web job callback finish.");
+                    callbackLog(callbackParamList, "<br>----------- LarkMidTable job callback finish.");
                     callbackRet = true;
                     break;
                 } else {
-                    callbackLog(callbackParamList, "<br>----------- flinkx-web job callback fail, callbackResult:" + callbackResult);
+                    callbackLog(callbackParamList, "<br>----------- LarkMidTable job callback fail, callbackResult:" + callbackResult);
                 }
             } catch (Exception e) {
-                callbackLog(callbackParamList, "<br>----------- flinkx-web job callback error, errorMsg:" + e.getMessage());
+                callbackLog(callbackParamList, "<br>----------- LarkMidTable job callback error, errorMsg:" + e.getMessage());
             }
         }
         if (!callbackRet) {
@@ -191,7 +191,7 @@ public class ProcessCallbackThread {
     // ---------------------- fail-callback file ----------------------
 
     private static String failCallbackFilePath = JobFileAppender.getLogPath().concat(File.separator).concat("processcallbacklog").concat(File.separator);
-    private static String failCallbackFileName = failCallbackFilePath.concat("flinkx-web-processcallback-{x}").concat(".log");
+    private static String failCallbackFileName = failCallbackFilePath.concat("larkmt-processcallback-{x}").concat(".log");
 
     private void appendFailCallbackFile(List<HandleProcessCallbackParam> handleProcessCallbackParams) {
         // valid

@@ -7,7 +7,7 @@ import com.larkmt.cn.admin.entity.JobTemplate;
 import java.util.Map;
 
 /**
- * core job action for flinkx-web
+ * core job action for LarkMidTable
  * 
  * @author xuxueli 2016-5-28 15:30:33
  */

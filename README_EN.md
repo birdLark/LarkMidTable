@@ -47,9 +47,9 @@ LarkMidTable is a one-stop open source data center that realizes metadata manage
 
 # **Quick Start**
 
-Please click [Quick Start](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
+Please click [Quick Start](https://github.com/wxgzgl/LarkMidTable/blob/master/userGuid.md)
 
-Resource Library [R&D Resource Library]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md)
+Resource Library [R&D Resource Library]( https://github.com/wxgzgl/LarkMidTable/blob/master/docs/list.md)
 
 Development Specification [Vipshop Development Specification](https://vipshop.github.io/vjtools/#/standard/)
 

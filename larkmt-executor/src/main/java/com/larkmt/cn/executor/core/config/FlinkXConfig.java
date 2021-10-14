@@ -20,31 +20,31 @@ public class FlinkXConfig {
 
     private static final String DEFAULT_LOG_PATH = "log/executor/jobhandler";
 
-    @Value("${flinkx.job.admin.addresses}")
+    @Value("${larkmt.job.admin.addresses}")
     private String adminAddresses;
 
-    @Value("${flinkx.job.executor.appname}")
+    @Value("${larkmt.job.executor.appname}")
     private String appName;
 
-    @Value("${flinkx.job.executor.ip}")
+    @Value("${larkmt.job.executor.ip}")
     private String ip;
 
-    @Value("${flinkx.job.executor.port}")
+    @Value("${larkmt.job.executor.port}")
     private int port;
 
-    @Value("${flinkx.job.accessToken}")
+    @Value("${larkmt.job.accessToken}")
     private String accessToken;
 
-    @Value("${flinkx.job.executor.logpath}")
+    @Value("${larkmt.job.executor.logpath}")
     private String logPath;
 
-    @Value("${flinkx.job.executor.logretentiondays}")
+    @Value("${larkmt.job.executor.logretentiondays}")
     private int logRetentionDays;
 
 
     @Bean
     public JobSpringExecutor JobExecutor() {
-        logger.info(">>>>>>>>>>> flinkx-web config init.");
+        logger.info(">>>>>>>>>>> larkmt-web config init.");
         JobSpringExecutor jobSpringExecutor = new JobSpringExecutor();
         jobSpringExecutor.setAdminAddresses(adminAddresses);
         jobSpringExecutor.setAppName(appName);

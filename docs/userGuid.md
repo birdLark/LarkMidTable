@@ -15,7 +15,7 @@
 [Flinkx的安装](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/InstallFlinkx.md)
 
 **flinkx-1.8_release压缩包，可以添加群获得**  
-**larkmt-1.10_release压缩包，可以添加群获得**
+**flinkx-1.10_release压缩包，可以添加群获得**
 
 ## 2.Flinkx-web的安装
 
