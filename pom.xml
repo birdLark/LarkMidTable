@@ -10,12 +10,12 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>flinkx-admin</module>
-        <module>flinkx-core</module>
-        <module>flinkx-executor</module>
-        <module>flinkx-rpc</module>
-        <module>flinkx-assembly</module>
-        <!--<module>flinkx-sql</module>-->
+        <module>larkmt-admin</module>
+        <module>larkmt-core</module>
+        <module>larkmt-executor</module>
+        <module>larkmt-rpc</module>
+        <module>larkmt-assembly</module>
+        <!--<module>larkmt-sql</module>-->
 		<!--<module>SparkRealTime</module>
         <module>flinkRealTime</module>-->
     </modules>
