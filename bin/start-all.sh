@@ -18,7 +18,7 @@
 #
 
 export RENT_DIR=$(cd $(dirname $0);cd ..; pwd)
-echo "flinkx-admin starting ..."
-sh $RENT_DIR/packages/flinkx-admin/bin/flinkx-admin.sh start
-echo "flinkx-executor starting ..."
-sh $RENT_DIR/packages/flinkx-executor/bin/flinkx-executor.sh start
+echo "larkmt-admin starting ..."
+sh $RENT_DIR/packages/larkmt-admin/bin/larkmt-admin.sh start
+echo "larkmt-executor starting ..."
+sh $RENT_DIR/packages/larkmt-executor/bin/larkmt-executor.sh start

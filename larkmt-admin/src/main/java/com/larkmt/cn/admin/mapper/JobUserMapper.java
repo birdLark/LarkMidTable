@@ -11,7 +11,6 @@ import java.util.List;
  * @author xuxueli 2019-05-04 16:44:59
  */
 @Mapper
-@Repository
 public interface JobUserMapper {
 
     List<JobUser> pageList(@Param("offset") int offset,

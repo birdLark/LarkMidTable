@@ -2,7 +2,7 @@
 #
 
 FRIEND_NAME=FLINKX-ADMIN
-MAIN_CLASS=com.guoliang.flinkx.admin.Engine
+MAIN_CLASS=com.larkmt.cn.admin.Engine
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"
 fi

@@ -9,6 +9,8 @@ import com.larkmt.cn.admin.entity.JobProject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * JobProjectServiceImpl
  * @author jingwk
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service("jobProjectService")
 public class JobProjectServiceImpl extends ServiceImpl<JobProjectMapper, JobProject> implements JobProjectService {
 
-    @Autowired
+    @Resource
     private JobProjectMapper jobProjectMapper;
 
     @Override

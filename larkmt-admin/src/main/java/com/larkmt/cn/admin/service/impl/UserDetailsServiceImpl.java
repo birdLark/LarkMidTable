@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * UserDetailsServiceImpl
  * @author jingwk
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
+    @Resource
     private JobUserMapper jobUserMapper;
 
     @Override

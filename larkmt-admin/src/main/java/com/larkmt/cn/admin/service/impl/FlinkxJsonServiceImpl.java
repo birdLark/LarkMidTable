@@ -9,6 +9,8 @@ import com.larkmt.cn.admin.tool.flinkx.FlinkxJsonHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  *
  * @Author: LarkMidTable
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FlinkxJsonServiceImpl implements FlinkxJsonService {
 
-    @Autowired
+    @Resource
     private JobDatasourceService jobJdbcDatasourceService;
 
     @Override

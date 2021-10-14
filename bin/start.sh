@@ -23,9 +23,9 @@ executor="executor"
 RENT_DIR=$(cd $(dirname $0);cd ..; pwd)
 
 if [ "$p" == "$admin" ];then
-sh $RENT_DIR/packages/flinkx-admin/bin/flinkx-admin.sh start
+sh $RENT_DIR/packages/larkmt-admin/bin/flinkx-admin.sh start
 elif [ "$p" == "$executor" ];then
-sh $RENT_DIR/packages/flinkx-executor/bin/flinkx-executor.sh start
+sh $RENT_DIR/packages/larkmt-executor/bin/flinkx-executor.sh start
 else
  echo "需要添加参数可选值 {admin,executor}"
  echo "如可以输入: sh start.sh admin"
