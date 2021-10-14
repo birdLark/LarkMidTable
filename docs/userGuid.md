@@ -15,13 +15,13 @@
 [Flinkx的安装](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/InstallFlinkx.md)
 
 **flinkx-1.8_release压缩包，可以添加群获得**  
-**flinkx-1.10_release压缩包，可以添加群获得**
+**larkmt-1.10_release压缩包，可以添加群获得**
 
 ## 2.Flinkx-web的安装
 
 ### 2.1 创建数据库
 
-执行bin/db下面的flinkx_web.sql文件(数据库版本5.1.0版本)
+执行bin/db下面的larkmt_web.sql文件(数据库版本5.1.0版本)
 
 ### 2.2编译打包
 
@@ -34,7 +34,7 @@ mvn clean install
 2.执行成功后将会在工程的build目录下生成安装包
 
 ```
-build/flinkx-web-{VERSION}.tar.gz
+build/LarkMidTable-{VERSION}.tar.gz
 ```
 
 ### 2.3解压部署
@@ -42,13 +42,13 @@ build/flinkx-web-{VERSION}.tar.gz
 1.解压安装包
 
 ```
-tar -zxvf flinkx-web-2.1.2.tar.gz 
+tar -zxvf LarkMidTable-2.1.2.tar.gz 
 ```
 
 2.解压部署包
 
 ```
-cd flinkx-web-2.1.2/bin/
+cd LarkMidTable-2.1.2/bin/
 sh install.sh 
 ```
 
@@ -56,20 +56,20 @@ sh install.sh
 
 #### 修改项目配置
 
-##### 1.修改flinkx_admin下conf/application.yml文件
+##### 1.修改larkmt_admin下conf/application.yml文件
 
 ```
 #数据源
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/flinkx_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/larkmt_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
 ```
 
 将localhost修改为数据库的地址
 
-##### 2.修改flinkx-executor下conf/application.yml文件
+##### 2.修改larkmt-executor下conf/application.yml文件
 
 ```
 # web port
@@ -81,21 +81,21 @@ server:
 logging:
   config: classpath:logback.xml
 #  path: ${data.path}/applogs/executor/jobhandler
-  path: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-executor
+  path: /home/hadoop/data/LarkMidTable-2.1.2/packages/larkmt-executor
 
-flinkx:
+larkmt:
   job:
     admin:
-      ## flinkx admin address list, such as "http://address" or "http://address01,http://address02"
+      ## larkmt admin address list, such as "http://address" or "http://address01,http://address02"
       addresses: http://localhost:8080
-#      addresses: http://127.0.0.1:${flinkx.admin.port}
+#      addresses: http://127.0.0.1:${larkmt.admin.port}
     executor:
-      appname: flinkx-executor
+      appname: larkmt-executor
       ip:
       port: 9999
 #      port: ${executor.port:9999}
       ### job log path
-      logpath: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-executor/
+      logpath: /home/hadoop/data/LarkMidTable-2.1.2/packages/larkmt-executor/
 #      logpath: ${data.path}/applogs/executor/jobhandler
       ### job log retention days
       logretentiondays: 30
@@ -111,15 +111,15 @@ flinkx:
   
 ```
 
-**flinkx-executor的日志的路径:**
+**larkmt-executor的日志的路径:**
 
- /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-executor
+ /home/hadoop/data/LarkMidTable-2.1.2/packages/larkmt-executor
 
-**flinkx的job目录的路径:**
+**larkmt的job目录的路径:**
 
 jsonpath: /home/hadoop/flinkx-1.8_release/job/
 
-**flinkx的启动脚本的路径:**
+**larkmt的启动脚本的路径:**
 
  pypath: /home/hadoop/flinkx-1.8_release/start.sh
 
@@ -130,7 +130,7 @@ jsonpath: /home/hadoop/flinkx-1.8_release/job/
 ### 2.5启动程序
 
 ```
-cd flinkx-web-2.1.2/bin/
+cd LarkMidTable-2.1.2/bin/
 sh start-all.sh 
 ```
 
