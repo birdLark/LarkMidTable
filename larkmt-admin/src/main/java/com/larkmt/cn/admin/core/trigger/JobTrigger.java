@@ -238,8 +238,8 @@ public class JobTrigger {
     public static ReturnT<String> runExecutor(TriggerParam triggerParam, String address) {
         ReturnT<String> runResult = null;
         try {
-            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(address);
-            runResult = executorBiz.run(triggerParam);
+//            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(address);
+//            runResult = executorBiz.run(triggerParam);
         } catch (Exception e) {
             logger.error(">>>>>>>>>>> LarkMidTable trigger error, please check if the executor[{}] is running.", address, e);
             runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.toString(e));

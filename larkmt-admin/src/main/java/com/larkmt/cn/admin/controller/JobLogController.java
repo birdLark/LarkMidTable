@@ -74,27 +74,27 @@ public class JobLogController {
         return new ReturnT<>(maps);
     }
 
-    @RequestMapping(value = "/logDetailCat", method = RequestMethod.GET)
-    @ApiOperation("运行日志详情")
-    public ReturnT<LogResult> logDetailCat(String executorAddress, long triggerTime, long logId, int fromLineNum) {
-        try {
-            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(executorAddress);
-            ReturnT<LogResult> logResult = executorBiz.log(triggerTime, logId, fromLineNum);
-
-            // is end
-            if (logResult.getContent() != null && fromLineNum > logResult.getContent().getToLineNum()) {
-                JobLog jobLog = jobLogMapper.load(logId);
-                if (jobLog.getHandleCode() > 0) {
-                    logResult.getContent().setEnd(true);
-                }
-            }
-
-            return logResult;
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-            return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
-        }
-    }
+//    @RequestMapping(value = "/logDetailCat", method = RequestMethod.GET)
+//    @ApiOperation("运行日志详情")
+//    public ReturnT<LogResult> logDetailCat(String executorAddress, long triggerTime, long logId, int fromLineNum) {
+//        try {
+//            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(executorAddress);
+//            ReturnT<LogResult> logResult = executorBiz.log(triggerTime, logId, fromLineNum);
+//
+//            // is end
+//            if (logResult.getContent() != null && fromLineNum > logResult.getContent().getToLineNum()) {
+//                JobLog jobLog = jobLogMapper.load(logId);
+//                if (jobLog.getHandleCode() > 0) {
+//                    logResult.getContent().setEnd(true);
+//                }
+//            }
+//
+//            return logResult;
+//        } catch (Exception e) {
+//            logger.error(e.getMessage(), e);
+//            return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
+//        }
+//    }
 
     @RequestMapping(value = "/logKill", method = RequestMethod.POST)
     @ApiOperation("kill任务")
@@ -112,22 +112,23 @@ public class JobLogController {
         // request of kill
         ReturnT<String> runResult;
         try {
-            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(log.getExecutorAddress());
-            runResult = executorBiz.kill(jobInfo.getId());
+//            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(log.getExecutorAddress());
+//            runResult = executorBiz.kill(jobInfo.getId());
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             runResult = new ReturnT<>(500, e.getMessage());
         }
 
-        if (ReturnT.SUCCESS_CODE == runResult.getCode()) {
-            log.setHandleCode(ReturnT.FAIL_CODE);
-            log.setHandleMsg(I18nUtil.getString("joblog_kill_log_byman") + ":" + (runResult.getMsg() != null ? runResult.getMsg() : ""));
-            log.setHandleTime(new Date());
-            jobLogMapper.updateHandleInfo(log);
-            return new ReturnT<>(runResult.getMsg());
-        } else {
-            return new ReturnT<>(500, runResult.getMsg());
-        }
+//        if (ReturnT.SUCCESS_CODE == runResult.getCode()) {
+//            log.setHandleCode(ReturnT.FAIL_CODE);
+//            log.setHandleMsg(I18nUtil.getString("joblog_kill_log_byman") + ":" + (runResult.getMsg() != null ? runResult.getMsg() : ""));
+//            log.setHandleTime(new Date());
+//            jobLogMapper.updateHandleInfo(log);
+//            return new ReturnT<>(runResult.getMsg());
+//        } else {
+//            return new ReturnT<>(500, runResult.getMsg());
+//        }
+        return null;
     }
 
     @PostMapping("/clearLog")
