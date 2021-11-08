@@ -1,5 +1,6 @@
 开发日志:
-1108 整合代码
+1108 整合admin和executor代码，方便部署和应用。
+
 
 # LarkMidTable
 
