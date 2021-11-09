@@ -41,7 +41,7 @@ public class JobTemplateController extends BaseController {
                                         @RequestParam(value = "size", required = false, defaultValue = "10") int size,
                                                  @RequestParam(value = "jobGroup") int jobGroup, @RequestParam(value = "jobDesc") String jobDesc,
                                                  @RequestParam(value = "executorHandler") String executorHandler,
-                                                 @RequestParam(value = "userId") int userId, @RequestParam(value = "projectIds") Integer[] projectIds) {
+                                                 @RequestParam(value = "userId") int userId, @RequestParam(value = "projectIds",required = false) Integer[] projectIds) {
 
         return new ReturnT<>(jobTemplateService.pageList((current-1)*size, size, jobGroup, jobDesc, executorHandler, userId, projectIds));
     }
