@@ -8,8 +8,11 @@ import com.larkmt.cn.core.handler.IJobHandler;
 import com.larkmt.cn.core.log.JobFileAppender;
 import com.larkmt.cn.core.log.JobLogger;
 import com.larkmt.cn.core.util.ShardingUtil;
+import com.larkmt.cn.executor.service.jobhandler.ExecutorJobHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -32,6 +35,7 @@ public class JobThread extends Thread {
     private static Logger logger = LoggerFactory.getLogger(JobThread.class);
 
     private int jobId;
+    @Autowired
     private IJobHandler handler;
     private LinkedBlockingQueue<TriggerParam> triggerQueue;
     private Set<Long> triggerLogIdSet;        // avoid repeat trigger for the same TRIGGER_LOG_ID
@@ -41,7 +45,6 @@ public class JobThread extends Thread {
 
     private boolean running = false;    // if running job
     private int idleTimes = 0;            // idel times
-
 
     public JobThread(int jobId, IJobHandler handler) {
         this.jobId = jobId;
@@ -99,13 +102,6 @@ public class JobThread extends Thread {
     @Override
     public void run() {
 
-        // init
-        try {
-            handler.init();
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
-        }
-
         // execute
         while (!toStop) {
             running = false;
@@ -114,6 +110,7 @@ public class JobThread extends Thread {
             TriggerParam tgParam = null;
             ReturnT<String> executeResult = null;
             try {
+                handler= new ExecutorJobHandler();
                 // to check toStop signal, we need cycle, so wo cannot use queue.take(), instand of poll(timeout)
                 tgParam = triggerQueue.poll(3L, TimeUnit.SECONDS);
                 if (tgParam != null) {
@@ -127,7 +124,7 @@ public class JobThread extends Thread {
                     ShardingUtil.setShardingVo(new ShardingUtil.ShardingVO(tgParam.getBroadcastIndex(), tgParam.getBroadcastTotal()));
 
                     // execute
-                    JobLogger.log("<br>----------- LarkMidTable job execute start -----------<br>----------- Param:" + tgParam.getExecutorParams());
+//                    JobLogger.log("<br>----------- LarkMidTable job execute start -----------<br>----------- Param:" + tgParam.getExecutorParams());
 
                     if (tgParam.getExecutorTimeout() > 0) {
                         // limit timeout
@@ -149,6 +146,7 @@ public class JobThread extends Thread {
                             futureThread.interrupt();
                         }
                     } else {
+
                         // just execute
                         executeResult = handler.execute(tgParam);
                     }

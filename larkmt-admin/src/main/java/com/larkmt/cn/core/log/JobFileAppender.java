@@ -4,7 +4,13 @@ import com.larkmt.cn.core.biz.model.LogResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,7 +39,7 @@ public class JobFileAppender {
 	 * 	---/2017-12-25/821.log
 	 *
 	 */
-	private static String logBasePath = "/data/applogs/executor/jobhandler";
+	private static String logBasePath = "E:\\test";
 	private static String glueSrcPath = logBasePath.concat("/gluesource");
 	public static void initLogPath(String logPath){
 		// init
@@ -101,6 +107,7 @@ public class JobFileAppender {
 
 		if (!logFile.exists()) {
 			try {
+				System.out.println("logFileName："+logFileName);
 				logFile.createNewFile();
 			} catch (IOException e) {
 				logger.error(e.getMessage(), e);

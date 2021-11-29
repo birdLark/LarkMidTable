@@ -1,7 +1,7 @@
 package com.larkmt.cn.core.glue.impl;
 
-import com.larkmt.cn.core.glue.GlueFactory;
 import com.larkmt.cn.core.executor.impl.JobSpringExecutor;
+import com.larkmt.cn.core.glue.GlueFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

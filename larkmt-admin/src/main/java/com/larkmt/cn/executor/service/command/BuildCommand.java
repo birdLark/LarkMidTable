@@ -39,7 +39,7 @@ public class BuildCommand {
         //"--loglevel=debug"
         List<String> cmdArr = new ArrayList<>();
         cmdArr.add("sh");
-        cmdArr.add(flinkXShPath);
+        cmdArr.add(flinkXShPath.concat("/run.sh"));
         cmdArr.add(tmpFilePath);
 		LOGGER.info(cmdArr+" "+flinkXShPath+" "+tmpFilePath);
         return cmdArr.toArray(new String[cmdArr.size()]);

@@ -12,13 +12,13 @@ import com.larkmt.cn.admin.tool.query.BaseQueryTool;
 import com.larkmt.cn.admin.tool.query.QueryToolFactory;
 import com.larkmt.cn.admin.util.JSONUtils;
 import com.larkmt.cn.core.biz.ExecutorBiz;
+import com.larkmt.cn.core.biz.impl.ExecutorBizImpl;
 import com.larkmt.cn.core.biz.model.ReturnT;
 import com.larkmt.cn.core.biz.model.TriggerParam;
 import com.larkmt.cn.core.enums.ExecutorBlockStrategyEnum;
 import com.larkmt.cn.core.enums.IncrementTypeEnum;
 import com.larkmt.cn.core.glue.GlueTypeEnum;
-import com.larkmt.cn.rpc.util.IpUtil;
-import com.larkmt.cn.rpc.util.ThrowableUtil;
+import io.netty.util.internal.ThrowableUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -185,16 +185,13 @@ public class JobTrigger {
 
         // 4、trigger remote executor
         ReturnT<String> triggerResult = null;
-        if (address != null) {
-            triggerResult = runExecutor(triggerParam, address);
-        } else {
-            triggerResult = new ReturnT<String>(ReturnT.FAIL_CODE, null);
-        }
+        triggerResult = runExecutor(triggerParam, address);
+
 
         // 5、collection trigger info
         StringBuffer triggerMsgSb = new StringBuffer();
         triggerMsgSb.append(I18nUtil.getString("jobconf_trigger_type")).append("：").append(triggerType.getTitle());
-        triggerMsgSb.append("<br>").append(I18nUtil.getString("jobconf_trigger_admin_adress")).append("：").append(IpUtil.getIp());
+//        triggerMsgSb.append("<br>").append(I18nUtil.getString("jobconf_trigger_admin_adress")).append("：").append(IpUtil.getIp());
         triggerMsgSb.append("<br>").append(I18nUtil.getString("jobconf_trigger_exe_regtype")).append("：")
                 .append((group.getAddressType() == 0) ? I18nUtil.getString("jobgroup_field_addressType_0") : I18nUtil.getString("jobgroup_field_addressType_1"));
         triggerMsgSb.append("<br>").append(I18nUtil.getString("jobconf_trigger_exe_regaddress")).append("：").append(group.getRegistryList());
@@ -206,8 +203,8 @@ public class JobTrigger {
         triggerMsgSb.append("<br>").append(I18nUtil.getString("jobinfo_field_timeout")).append("：").append(jobInfo.getExecutorTimeout());
         triggerMsgSb.append("<br>").append(I18nUtil.getString("jobinfo_field_executorFailRetryCount")).append("：").append(finalFailRetryCount);
 
-        triggerMsgSb.append("<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>" + I18nUtil.getString("jobconf_trigger_run") + "<<<<<<<<<<< </span><br>")
-                .append((routeAddressResult != null && routeAddressResult.getMsg() != null) ? routeAddressResult.getMsg() + "<br><br>" : "").append(triggerResult.getMsg() != null ? triggerResult.getMsg() : "");
+//        triggerMsgSb.append("<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>" + I18nUtil.getString("jobconf_trigger_run") + "<<<<<<<<<<< </span><br>")
+//                .append((routeAddressResult != null && routeAddressResult.getMsg() != null) ? routeAddressResult.getMsg() + "<br><br>" : "").append(triggerResult.getMsg() != null ? triggerResult.getMsg() : "");
 
         // 6、save log trigger-info
         jobLog.setExecutorAddress(address);
@@ -215,7 +212,7 @@ public class JobTrigger {
         jobLog.setExecutorParam(jobInfo.getExecutorParam());
         jobLog.setExecutorShardingParam(shardingParam);
         jobLog.setExecutorFailRetryCount(finalFailRetryCount);
-        jobLog.setTriggerCode(triggerResult.getCode());
+//        jobLog.setTriggerCode(triggerResult.getCode());
         jobLog.setTriggerMsg(triggerMsgSb.toString());
         JobAdminConfig.getAdminConfig().getJobLogMapper().updateTriggerInfo(jobLog);
 
@@ -238,19 +235,20 @@ public class JobTrigger {
     public static ReturnT<String> runExecutor(TriggerParam triggerParam, String address) {
         ReturnT<String> runResult = null;
         try {
-//            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(address);
-//            runResult = executorBiz.run(triggerParam);
+            // 进行任务的触发
+            ExecutorBiz executorBiz = new ExecutorBizImpl();
+            executorBiz.run(triggerParam);
         } catch (Exception e) {
             logger.error(">>>>>>>>>>> LarkMidTable trigger error, please check if the executor[{}] is running.", address, e);
-            runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.toString(e));
+            runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.stackTraceToString(e));
         }
 
         StringBuffer runResultSB = new StringBuffer(I18nUtil.getString("jobconf_trigger_run") + "：");
         runResultSB.append("<br>address：").append(address);
-        runResultSB.append("<br>code：").append(runResult.getCode());
-        runResultSB.append("<br>msg：").append(runResult.getMsg());
+//        runResultSB.append("<br>code：").append(runResult.getCode());
+//        runResultSB.append("<br>msg：").append(runResult.getMsg());
 
-        runResult.setMsg(runResultSB.toString());
+//        runResult.setMsg(runResultSB.toString());
         return runResult;
     }
 

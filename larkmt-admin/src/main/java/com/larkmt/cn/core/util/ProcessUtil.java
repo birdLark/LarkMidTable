@@ -1,8 +1,8 @@
 package com.larkmt.cn.core.util;
 
+import com.larkmt.cn.core.log.JobLogger;
 import com.larkmt.cn.core.thread.JobThread;
 import com.sun.jna.Platform;
-import com.larkmt.cn.core.log.JobLogger;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

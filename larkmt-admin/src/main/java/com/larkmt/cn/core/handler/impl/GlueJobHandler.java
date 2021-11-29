@@ -2,8 +2,8 @@ package com.larkmt.cn.core.handler.impl;
 
 import com.larkmt.cn.core.biz.model.ReturnT;
 import com.larkmt.cn.core.biz.model.TriggerParam;
-import com.larkmt.cn.core.log.JobLogger;
 import com.larkmt.cn.core.handler.IJobHandler;
+import com.larkmt.cn.core.log.JobLogger;
 
 /**
  * glue job handler

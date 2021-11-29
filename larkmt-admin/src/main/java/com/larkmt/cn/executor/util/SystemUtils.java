@@ -19,6 +19,7 @@ public class SystemUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemUtils.class);
 
+
     private static String FLINKX_HOME;
 
     private SystemUtils() {
@@ -31,7 +32,18 @@ public class SystemUtils {
      */
     public static String getFlinkxHomePath() {
         if (StringUtils.isNotEmpty(FLINKX_HOME)) return FLINKX_HOME;
-        String FlinkXHome = System.getenv("FLINKX_HOME");
+        //获取当前路径
+		File directory = new File("job");
+		String FlinkXHome="";
+		try{
+			if( ! directory.exists()) {
+				directory.mkdir();
+			}
+			System.out.println(directory.getCanonicalPath());//获取标准的路径
+			System.out.println(directory.getAbsolutePath());//获取绝对路径
+			FlinkXHome = directory.getAbsolutePath();
+		}catch(Exception e){}
+
         if (StringUtils.isBlank(FlinkXHome)) {
             LOGGER.warn("FLINKX_HOME 环境变量为NULL");
             return null;
