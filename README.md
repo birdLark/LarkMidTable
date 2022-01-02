@@ -87,7 +87,15 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # **参考和查阅的GitHub项目**
 wuchong https://github.com/wuchong/flink-sql-demo 
+
 WeiYe https://github.com/WeiYe-Jing/datax-web 
+
 zhp8341 https://github.com/zhp8341/flink-streaming-platform-web 
+
 Alibaba https://github.com/alibaba/DataX 
- 
+
+edp https://github.com/edp963/davinci
+
+Apache https://github.com/apache/dolphinscheduler
+
+Apache https://github.com/apache/atlas
