@@ -1,6 +1,5 @@
 package com.larkmt.cn.core.glue;
 
-import com.larkmt.cn.core.glue.impl.SpringGlueFactory;
 import com.larkmt.cn.core.handler.IJobHandler;
 import groovy.lang.GroovyClassLoader;
 
@@ -27,7 +26,7 @@ public class GlueFactory {
         if (type == 0) {
             glueFactory = new GlueFactory();
         } else if (type == 1) {
-            glueFactory = new SpringGlueFactory();
+//            glueFactory = new SpringGlueFactory();
         }
     }
 

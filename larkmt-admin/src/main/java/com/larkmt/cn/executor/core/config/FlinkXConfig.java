@@ -1,6 +1,5 @@
 package com.larkmt.cn.executor.core.config;
 
-import com.larkmt.cn.core.executor.impl.JobSpringExecutor;
 import com.larkmt.cn.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -42,22 +41,5 @@ public class FlinkXConfig {
     private int logRetentionDays;
 
 
-    @Bean
-    public JobSpringExecutor JobExecutor() {
-        logger.info(">>>>>>>>>>> larkmt-web config init.");
-        JobSpringExecutor jobSpringExecutor = new JobSpringExecutor();
-        jobSpringExecutor.setAdminAddresses(adminAddresses);
-        jobSpringExecutor.setAppName(appName);
-        jobSpringExecutor.setIp(ip);
-        jobSpringExecutor.setPort(port);
-        jobSpringExecutor.setAccessToken(accessToken);
-        String flinkXHomePath = SystemUtils.getFlinkxHomePath();
-        if (StringUtils.isEmpty(logPath)) {
-            logPath = flinkXHomePath + DEFAULT_LOG_PATH;
-        }
-        jobSpringExecutor.setLogPath(logPath);
-        jobSpringExecutor.setLogRetentionDays(logRetentionDays);
 
-        return jobSpringExecutor;
-    }
 }

@@ -8,7 +8,6 @@ import com.larkmt.cn.core.biz.model.TriggerParam;
 import com.larkmt.cn.core.handler.IJobHandler;
 import com.larkmt.cn.core.handler.annotation.JobHandler;
 import com.larkmt.cn.core.log.JobLogger;
-import com.larkmt.cn.core.thread.ProcessCallbackThread;
 import com.larkmt.cn.core.util.ProcessUtil;
 import com.larkmt.cn.executor.service.command.BuildCommand;
 import com.larkmt.cn.executor.service.logparse.AnalysisStatistics;
@@ -52,7 +51,7 @@ public class ExecutorJobHandler extends IJobHandler {
 			// update flinkx process id
 			HandleProcessCallbackParam prcs = new HandleProcessCallbackParam(trigger.getLogId(),
 					trigger.getLogDateTime(), prcsId);
-			ProcessCallbackThread.pushCallBack(prcs);
+//			ProcessCallbackThread.pushCallBack(prcs);
 			// log-thread
 			Thread futureThread = null;
 			FutureTask<LogStatistics> futureTask = new FutureTask<>(

@@ -31,10 +31,10 @@ public class ExecutorRegistryThread {
             logger.warn(">>>>>>>>>>> LarkMidTable, executor registry config fail, appName is null.");
             return;
         }
-        if (JobExecutor.getAdminBizList() == null) {
-            logger.warn(">>>>>>>>>>> LarkMidTable, executor registry config fail, adminAddresses is null.");
-            return;
-        }
+//        if (JobExecutor.getAdminBizList() == null) {
+//            logger.warn(">>>>>>>>>>> LarkMidTable, executor registry config fail, adminAddresses is null.");
+//            return;
+//        }
 
         registryThread = new Thread(() -> {
 
@@ -42,21 +42,21 @@ public class ExecutorRegistryThread {
             while (!toStop) {
                 try {
                     RegistryParam registryParam = new RegistryParam(RegistryConfig.RegistType.EXECUTOR.name(), appName, address, OSUtils.cpuUsage(),OSUtils.memoryUsage(),OSUtils.loadAverage());
-                    for (AdminBiz adminBiz: JobExecutor.getAdminBizList()) {
-                        try {
-                            ReturnT<String> registryResult = adminBiz.registry(registryParam);
-                            if (registryResult!=null && ReturnT.SUCCESS_CODE == registryResult.getCode()) {
-                                registryResult = ReturnT.SUCCESS;
-                                logger.debug(">>>>>>>>>>> LarkMidTable registry success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
-                                break;
-                            } else {
-                                logger.info(">>>>>>>>>>> LarkMidTable registry fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
-                            }
-                        } catch (Exception e) {
-                            logger.info(">>>>>>>>>>> LarkMidTable registry error, registryParam:{}", registryParam, e);
-                        }
-
-                    }
+//                    for (AdminBiz adminBiz: JobExecutor.getAdminBizList()) {
+//                        try {
+//                            ReturnT<String> registryResult = adminBiz.registry(registryParam);
+//                            if (registryResult!=null && ReturnT.SUCCESS_CODE == registryResult.getCode()) {
+//                                registryResult = ReturnT.SUCCESS;
+//                                logger.debug(">>>>>>>>>>> LarkMidTable registry success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+//                                break;
+//                            } else {
+//                                logger.info(">>>>>>>>>>> LarkMidTable registry fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+//                            }
+//                        } catch (Exception e) {
+//                            logger.info(">>>>>>>>>>> LarkMidTable registry error, registryParam:{}", registryParam, e);
+//                        }
+//
+//                    }
                 } catch (Exception e) {
                     if (!toStop) {
                         logger.error(e.getMessage(), e);
@@ -78,24 +78,24 @@ public class ExecutorRegistryThread {
             // registry remove
             try {
                 RegistryParam registryParam = new RegistryParam(RegistryConfig.RegistType.EXECUTOR.name(), appName, address);
-                for (AdminBiz adminBiz: JobExecutor.getAdminBizList()) {
-                    try {
-                        ReturnT<String> registryResult = adminBiz.registryRemove(registryParam);
-                        if (registryResult!=null && ReturnT.SUCCESS_CODE == registryResult.getCode()) {
-                            registryResult = ReturnT.SUCCESS;
-                            logger.info(">>>>>>>>>>> LarkMidTable registry-remove success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
-                            break;
-                        } else {
-                            logger.info(">>>>>>>>>>> LarkMidTable registry-remove fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
-                        }
-                    } catch (Exception e) {
-                        if (!toStop) {
-                            logger.info(">>>>>>>>>>> LarkMidTable registry-remove error, registryParam:{}", registryParam, e);
-                        }
-
-                    }
-
-                }
+//                for (AdminBiz adminBiz: JobExecutor.getAdminBizList()) {
+				////                    try {
+				////                        ReturnT<String> registryResult = adminBiz.registryRemove(registryParam);
+				////                        if (registryResult!=null && ReturnT.SUCCESS_CODE == registryResult.getCode()) {
+				////                            registryResult = ReturnT.SUCCESS;
+				////                            logger.info(">>>>>>>>>>> LarkMidTable registry-remove success, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+				////                            break;
+				////                        } else {
+				////                            logger.info(">>>>>>>>>>> LarkMidTable registry-remove fail, registryParam:{}, registryResult:{}", new Object[]{registryParam, registryResult});
+				////                        }
+				////                    } catch (Exception e) {
+				////                        if (!toStop) {
+				////                            logger.info(">>>>>>>>>>> LarkMidTable registry-remove error, registryParam:{}", registryParam, e);
+				////                        }
+				////
+				////                    }
+				////
+				////                }
             } catch (Exception e) {
                 if (!toStop) {
                     logger.error(e.getMessage(), e);
