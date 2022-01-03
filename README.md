@@ -74,31 +74,10 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
-# LarkMidTable家族
-
-[LarkMarketPlace](https://github.com/wxgzgl/LarkMarketPlace)
-
-专业提供**毕业设计**/**外包**的服务
-
-[LarkVoice](https://github.com/wxgzgl/LarkVoice)
-
-专业提供互联网解决方案
-
-
-
 # 技术交流
 
-**搜索微信号码[wxgzgl]加我微信 或者 扫描下面的QQ二维码加入Lark的数据中台开源社区，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
+**一个人走的很快，一群人走的更远。**
 
-前端代码:  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
+**关注LarkMidTable的数据中台开源社区，并回复【LarkMidTable】，拉入QQ群聊，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
 
-资源库:      [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
-
-![QQ群：](https://img2020.cnblogs.com/blog/622382/202009/622382-20200907124358049-997953244.png)
-
-
-
-# 特别鸣谢
-
-本项目在[datax-web](https://github.com/WeiYe-Jing/datax-web)代码的基础上进行二次重构开发，在此特别感谢datax-web团队。
-
+**微信公众号 【LarkMidTable】**
