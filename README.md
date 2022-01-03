@@ -4,7 +4,7 @@
 
 中文 | [English](README_EN.md)
 
-LarkMidTable 中文名称 云雀，云代表大数据，雀代表平凡和自由。
+Lark中文名称 云雀，云代表大数据，雀代表平凡和自由。
 
 LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据仓库开发，数据质量管理，数据的可视化，实现高效赋能数据前台并提供数据服务的产品。
 
@@ -66,36 +66,39 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # **快速开始**
 
-安装手册      [安装手册](https://github.com/wxgzgl/larkmt-web/blob/master/userGuid.md)
+安装手册      [安装手册](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
 
 操作手册  	[操作手册](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/userManual.md)
 
 插件开发手册      [插件开发手册](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/PluginDev.md)
 
-前端代码:  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
 
-<!--
+
+# LarkMidTable家族
+
+[LarkMarketPlace](https://github.com/wxgzgl/LarkMarketPlace)
+
+专业提供**毕业设计**/**外包**的服务
+
+[LarkVoice](https://github.com/wxgzgl/LarkVoice)
+
+专业提供互联网解决方案
+
+
+
 # 技术交流
 
-**一个人走的很快，一群人走的更远。**
+**搜索微信号码[wxgzgl]加我微信 或者 扫描下面的QQ二维码加入Lark的数据中台开源社区，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
 
-**关注LarkMidTable的数据中台开源社区，并回复【LarkMidTable】，拉入QQ群聊，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
+前端代码:  [前端代码](https://github.com/wxgzgl/LarkMidTableUI)
+
+资源库:      [研发资源库]( https://github.com/wxgzgl/flinkx-web/blob/master/docs/list.md )
+
+![QQ群：](https://img2020.cnblogs.com/blog/622382/202009/622382-20200907124358049-997953244.png)
 
 
-**微信公众号 【LarkMidTable】**
--->
 
-# **参考和查阅的GitHub项目**
-wuchong https://github.com/wuchong/flink-sql-demo 
+# 特别鸣谢
 
-WeiYe https://github.com/WeiYe-Jing/datax-web 
+本项目在[datax-web](https://github.com/WeiYe-Jing/datax-web)代码的基础上进行二次重构开发，在此特别感谢datax-web团队。
 
-zhp8341 https://github.com/zhp8341/flink-streaming-platform-web 
-
-Alibaba https://github.com/alibaba/DataX 
-
-edp https://github.com/edp963/davinci
-
-Apache https://github.com/apache/dolphinscheduler
-
-Apache https://github.com/apache/atlas

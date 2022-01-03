@@ -3,17 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.larkmt.cn</groupId>
-    <artifactId>LarkMidTable</artifactId>
+    <groupId>com.guoliang.cn</groupId>
+    <artifactId>flinkx-web</artifactId>
     <version>2.1.2</version>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
 
     <modules>
-        <module>larkmt-admin</module>
-        <module>larkmt-assembly</module>
+        <module>flinkx-admin</module>
+        <module>flinkx-core</module>
+        <module>flinkx-executor</module>
+        <module>flinkx-rpc</module>
+        <module>flinkx-assembly</module>
     </modules>
-
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
