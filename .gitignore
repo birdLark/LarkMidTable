@@ -8,5 +8,3 @@ data/*
 */*/test/*.java
 build/*/*
 packages/*/*
-flinkx-admin/src/main/resources/*.yml
-*.yml
