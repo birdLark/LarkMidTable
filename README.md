@@ -1,13 +1,3 @@
-# 收获
-
-2022年1月5日
-
-1.统一通信方式，之前团队建设一部分微信，另一部分QQ，导致社区的人员很分散，以后统一微信
-
-2.职权分配，每一个人负责一个模块，做到没有我，开源项目一样能够运行下来，前端项目已经转给负责前端的开源伙伴
-
-
-
 # LarkMidTable
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
