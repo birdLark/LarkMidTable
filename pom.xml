@@ -55,6 +55,7 @@
         <oshi.core.version>3.5.0</oshi.core.version>
 
         <phoenix.version>5.0.0-HBase-2.0</phoenix.version>
+        <flink.version>1.10.0</flink.version>
     </properties>
 
 </project>
