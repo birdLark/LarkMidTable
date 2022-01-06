@@ -56,7 +56,7 @@ sh install.sh
 
 #### 修改项目配置
 
-##### 1.修改flinkx_admin下conf/application.yml文件
+##### 1.修改flinkx_admin下resources/application.yml文件
 
 ```
 #数据源
@@ -69,7 +69,7 @@ sh install.sh
 
 将localhost修改为数据库的地址
 
-##### 2.修改flinkx-executor下conf/application.yml文件
+##### 2.修改flinkx-executor下resources/application.yml文件
 
 ```
 # web port
