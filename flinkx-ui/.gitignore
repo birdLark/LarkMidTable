@@ -1,13 +1,3 @@
-
-.idea/*
-*/*.iml
-*.iml
-*/target/*
-data/*
-*/*.tar.gz
-*/*/test/*.java
-build/*/*
-packages/*/*
 .DS_Store
 node_modules/
 dist/
