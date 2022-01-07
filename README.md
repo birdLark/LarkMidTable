@@ -78,6 +78,4 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 **一个人走的很快，一群人走的更远。**
 
-**关注LarkMidTable的数据中台开源社区，并回复【LarkMidTable】，拉入QQ群聊，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
-
-**微信公众号 【LarkMidTable】**
+**关注微信公众号 【LarkMidTable】，并回复【LarkMidTable】，加我微信，然后拉入微信群，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
