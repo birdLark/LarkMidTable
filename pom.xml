@@ -16,6 +16,7 @@
         <module>flinkx-rpc</module>
         <module>flinkx-assembly</module>
         <module>flink-sql</module>
+        <module>flink-example</module>
     </modules>
 
     <properties>
