@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lark.cn</groupId>
-    <artifactId>flink-example</artifactId>
+    <artifactId>lark-example</artifactId>
     <version>2.1.2</version>
 
 
