@@ -80,10 +80,64 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/admin/index'),
         name: 'Dashboard',
-        meta: {title: '运行报表', icon: 'dashboard', affix: true}
+        meta: { title: '运行报表', icon: 'dashboard', affix: true }
       }
     ]
-  }
+  },
+  {
+    path: '/datax/Infrastructure',
+    component: Layout,
+    redirect: '/datax/Infrastructure',
+    name: 'Infrastructure',
+    meta: { title: '基础建设', icon: 'work' },
+    children: [
+      {
+        path: 'subscriber',
+        name: 'subscriber',
+        component: () => import('@/views/datax/subscriber/index'),
+        meta: { title: '用户管理', icon: 'project' }
+      },
+      {
+        path: 'resources',
+        name: 'resources',
+        component: () => import('@/views/datax/resources/index'),
+        meta: { title: '资源监控', icon: 'cfg-datasouce' }
+      }
+    ]
+  },
+  {
+    path: '/datax/Database',
+    component: Layout,
+    redirect: '/datax/DatabaseSync',
+    name: 'DatabaseSync',
+    meta: { title: '数据治理', icon: 'work' },
+    children: [
+      {
+        path: 'metadataManagement',
+        name: 'MetadataManagement',
+        component: () => import('@/views/datax/metadataManagement/index'),
+        meta: { title: '元数据管理', icon: 'project' }
+      },
+      {
+        path: 'dataDirectory',
+        name: 'dataDirectory',
+        component: () => import('@/views/datax/dataDirectory/index'),
+        meta: { title: '数据目录', icon: 'cfg-datasouce' }
+      },
+      {
+        path: 'dataRelated',
+        name: 'dataRelated',
+        component: () => import('@/views/datax/dataRelated/index'),
+        meta: { title: '数据血缘', icon: 'cfg-datasouce' }
+      },
+      {
+        path: 'dataQualityTest',
+        name: 'dataQualityTest',
+        component: () => import('@/views/datax/dataQualityTest/index'),
+        meta: { title: '数据质量检测', icon: 'cfg-datasouce' }
+      }
+    ]
+  },
 ]
 
 /**
@@ -101,7 +155,7 @@ export const asyncRoutes = [
         path: 'index',
         component: () => import('@/views/profile/index'),
         name: 'Profile',
-        meta: {title: 'Profile', icon: 'user', noCache: true}
+        meta: { title: 'Profile', icon: 'user', noCache: true }
       }
     ]
   },
@@ -120,13 +174,13 @@ export const asyncRoutes = [
         path: '401',
         component: () => import('@/views/error-page/401'),
         name: 'Page401',
-        meta: {title: '401', noCache: true}
+        meta: { title: '401', noCache: true }
       },
       {
         path: '404',
         component: () => import('@/views/error-page/404'),
         name: 'Page404',
-        meta: {title: '404', noCache: true}
+        meta: { title: '404', noCache: true }
       }
     ]
   },
@@ -134,96 +188,150 @@ export const asyncRoutes = [
     path: '/data/log',
     hidden: true,
     component: () => import('@/views/datax/jobLog/log'),
-    meta: {title: '任务日志', icon: 'work'}
+    meta: { title: '任务日志', icon: 'work' }
   },
   {
     path: '/datax/DatabaseSync',
     component: Layout,
     redirect: '/datax/DatabaseSync',
     name: 'DatabaseSync',
-    meta: {title: '数据集成', icon: 'work'},
+    meta: { title: '数据集成', icon: 'work' },
     children: [
       {
-        path: 'jobProject',
+        path: 'JobProject',
         name: 'JobProject',
         component: () => import('@/views/datax/jobProject/index'),
-        meta: {title: '项目管理', icon: 'project'}
+        meta: { title: '项目管理', icon: 'project' }
       },
       {
-        path: 'jdbcDatasource',
-        name: 'JdbcDatasource',
-        component: () => import('@/views/datax/jdbc-datasource/index'),
-        meta: {title: '数据源管理', icon: 'cfg-datasouce'}
+        path: 'actuatorManagement',
+        name: 'actuatorManagement',
+        component: () => import('@/views/datax/actuatorManagement/index'),
+        meta: { title: '执行器管理', icon: 'project' }
+      },
+      {
+        path: 'dataManagement',
+        name: 'dataManagement',
+        component: () => import('@/views/datax/dataManagement/index'),
+        meta: { title: '数据源管理', icon: 'cfg-datasouce' }
       },
       {
         path: '/datax/DatabaseSync/job/jobTemplate',
         name: 'JobTemplate',
         component: () => import('@/views/datax/jobTemplate/index'),
-        meta: {title: '任务模板', icon: 'task-tmp'}
+        meta: { title: '任务模板', icon: 'task-tmp' }
       },
       {
         path: '/datax/DatabaseSync/job/jsonBuild',
         name: 'JsonBuild',
         component: () => import('@/views/datax/json-build/index'),
-        meta: {title: '任务构建', icon: 'guide', noCache: false}
+        meta: { title: '任务构建', icon: 'guide', noCache: false }
       },
       {
         path: '/datax/DatabaseSync/job/jsonBuildBatch',
         name: 'JsonBuildBatch',
         component: () => import('@/views/datax/json-build-batch/index'),
-        meta: {title: '任务批量构建', icon: 'batch-create', noCache: false}
+        meta: { title: '任务批量构建', icon: 'batch-create', noCache: false }
       },
       {
         path: '/datax/DatabaseSync/job/jobInfo',
         name: 'JobInfo',
         component: () => import('@/views/datax/jobInfo/index'),
-        meta: {title: '实例管理', icon: 'task-cfg'}
+        meta: { title: '实例管理', icon: 'task-cfg' }
+      },
+      // {
+      //   path: 'jobLog',
+      //   name: 'JobLog',
+      //   component: () => import('@/views/datax/jobLog/index'),
+      //   meta: { title: '日志管理', icon: 'log' }
+      // }
+    ]
+  },
+  {
+    path: '/datax/dataDevelopment',
+    component: Layout,
+    redirect: '/datax/dataDevelopment',
+    name: 'DatabaseSync',
+    meta: { title: '数据开发', icon: 'work' },
+    children: [
+      {
+        path: 'flinkSQLDevelopment',
+        name: 'flinkSQLDevelopment',
+        component: () => import('@/views/datax/flinkSQLDevelopment/index'),
+        meta: { title: 'FlinkSQL开发', icon: 'project' }
       },
       {
-        path: 'jobLog',
-        name: 'JobLog',
-        component: () => import('@/views/datax/jobLog/index'),
-        meta: {title: '日志管理', icon: 'log'}
+        path: 'sparkSQLDevelopment',
+        name: 'sparkSQLDevelopment',
+        component: () => import('@/views/datax/sparkSQLDevelopment/index'),
+        meta: { title: 'SparkSQL开发', icon: 'project' }
+      },
+      {
+        path: 'flinkCDCDevelopment',
+        name: 'flinkCDCDevelopment',
+        component: () => import('@/views/datax/flinkCDCDevelopment/index'),
+        meta: { title: 'FlinkCDC开发', icon: 'cfg-datasouce' }
+      },
+      {
+        path: '/datax/DatabaseSync/job/jobTemplate',
+        name: 'JobTemplate',
+        component: () => import('@/views/datax/jobTemplate/index'),
+        meta: { title: '作业管理', icon: 'task-tmp' }
       }
     ]
   },
   {
-    path: '/datax/user',
+    path: '/datax/Dataservices',
     component: Layout,
-    redirect: '/datax/user',
-    name: 'user',
-    meta: {title: '用户管理', icon: 'peoples', roles: ['ROLE_ADMIN']},
+    redirect: '/datax/Dataservices',
+    name: 'Dataservices',
+    meta: { title: '数据服务', icon: 'work' },
     children: [
       {
-        path: 'user',
-        name: 'User',
-        component: () => import('@/views/datax/user/index'),
-        meta: {title: '用户管理', icon: 'peoples'}
+        path: 'VisualAPI',
+        name: 'VisualAPI',
+        component: () => import('@/views/datax/VisualAPI/index'),
+        meta: { title: '可视化API构建', icon: 'project' }
       }
     ]
   },
-  {
-    path: '/datax/resource',
-    component: Layout,
-    redirect: '/datax/resource',
-    name: 'resource',
-    meta: {title: '资源监控', icon: 'work'},
-    children: [
-      {
-        path: 'resource',
-        name: 'Resource',
-        component: () => import('@/views/datax/resource/index'),
-        meta: {title: '资源监控', icon: 'battery-line'}
-      }
-    ]
-  },
-  {path: '*', redirect: '/404', hidden: true}
+  // {
+  //   path: '/datax/user',
+  //   component: Layout,
+  //   redirect: '/datax/user',
+  //   name: 'user',
+  //   meta: { title: '用户管理', icon: 'peoples', roles: ['ROLE_ADMIN'] },
+  //   children: [
+  //     {
+  //       path: 'user',
+  //       name: 'User',
+  //       component: () => import('@/views/datax/user/index'),
+  //       meta: { title: '用户管理', icon: 'peoples' }
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: '/datax/resource',
+  //   component: Layout,
+  //   redirect: '/datax/resource',
+  //   name: 'resource',
+  //   meta: { title: '资源监控', icon: 'work' },
+  //   children: [
+  //     {
+  //       path: 'resource',
+  //       name: 'Resource',
+  //       component: () => import('@/views/datax/resource/index'),
+  //       meta: { title: '资源监控', icon: 'battery-line' }
+  //     }
+  //   ]
+  // },
+  { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
-  scrollBehavior: () => ({y: 0}),
-  routes: constantRoutes
+  scrollBehavior: () => ({ y: 0 }),
+  routes: [...asyncRoutes, ...constantRoutes]
 })
 
 const router = createRouter()
