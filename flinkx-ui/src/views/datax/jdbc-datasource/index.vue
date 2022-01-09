@@ -322,9 +322,7 @@
                                 duration: 2000
                             })
                         })
-                    }
-                })
-            },
+                    }})},
             testDataSource() {
                 this.$refs['dataForm'].validate((valid) => {
                     if (valid) {

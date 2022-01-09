@@ -239,12 +239,12 @@ export const asyncRoutes = [
         component: () => import('@/views/datax/jobInfo/index'),
         meta: { title: '实例管理', icon: 'task-cfg' }
       },
-      // {
-      //   path: 'jobLog',
-      //   name: 'JobLog',
-      //   component: () => import('@/views/datax/jobLog/index'),
-      //   meta: { title: '日志管理', icon: 'log' }
-      // }
+      {
+        path: 'jobLog',
+        name: 'JobLog',
+        component: () => import('@/views/datax/jobLog/index'),
+        meta: { title: '日志管理', icon: 'log' }
+      }
     ]
   },
   {
@@ -278,6 +278,28 @@ export const asyncRoutes = [
         component: () => import('@/views/datax/jobTemplate/index'),
         meta: { title: '作业管理', icon: 'task-tmp' }
       }
+    ]
+  },
+  {
+    path: '/datax/Dataservices1',
+    component: Layout,
+    redirect: '/datax/Dataservices',
+    name: 'Dataservices',
+    meta: { title: '监控告警', icon: 'work' },
+    children: [
+      {
+        path: 'warnSet',
+        name: 'warnSet',
+        component: () => import('@/views/datax/warnSet/index'),
+        meta: { title: '告警设置', icon: 'project' }
+      },
+      {
+        path: 'warnLog',
+        name: 'warnLog',
+        component: () => import('@/views/datax/warnLog/index'),
+        meta: { title: '告警日志', icon: 'project' }
+      },
+
     ]
   },
   {
