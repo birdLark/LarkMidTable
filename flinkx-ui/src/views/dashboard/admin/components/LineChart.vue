@@ -104,7 +104,8 @@ export default {
           },
           smooth: true,
           type: 'line',
-          data: failData,
+          // data: failData,
+          data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
           animationDuration: 2800,
           animationEasing: 'cubicInOut'
         },
@@ -124,7 +125,8 @@ export default {
               }
             }
           },
-          data: successData,
+          // data: successData,
+          data: [3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7],
           animationDuration: 2800,
           animationEasing: 'quadraticOut'
         }]

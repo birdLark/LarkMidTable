@@ -92,17 +92,17 @@ export const constantRoutes = [
     meta: { title: '基础建设', icon: 'work' },
     children: [
       {
-        path: 'subscriber',
-        name: 'subscriber',
-        component: () => import('@/views/datax/subscriber/index'),
-        meta: { title: '用户管理', icon: 'project' }
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/datax/user/index'),
+        meta: { title: '用户管理', icon: 'peoples' }
       },
       {
-        path: 'resources',
-        name: 'resources',
-        component: () => import('@/views/datax/resources/index'),
-        meta: { title: '资源监控', icon: 'cfg-datasouce' }
-      }
+        path: 'resource',
+        name: 'Resource',
+        component: () => import('@/views/datax/resource/index'),
+        meta: { title: '资源监控', icon: 'battery-line' }
+      },
     ]
   },
   {
@@ -204,15 +204,15 @@ export const asyncRoutes = [
         meta: { title: '项目管理', icon: 'project' }
       },
       {
-        path: 'actuatorManagement',
-        name: 'actuatorManagement',
-        component: () => import('@/views/datax/actuatorManagement/index'),
-        meta: { title: '执行器管理', icon: 'project' }
+        path: 'executor',
+        name: 'Executor',
+        component: () => import('@/views/datax/executor/index'),
+        meta: { title: '执行器管理', icon: 'exe-cfg' }
       },
       {
-        path: 'dataManagement',
-        name: 'dataManagement',
-        component: () => import('@/views/datax/dataManagement/index'),
+        path: 'jdbcDatasource',
+        name: 'JdbcDatasource',
+        component: () => import('@/views/datax/jdbc-datasource/index'),
         meta: { title: '数据源管理', icon: 'cfg-datasouce' }
       },
       {

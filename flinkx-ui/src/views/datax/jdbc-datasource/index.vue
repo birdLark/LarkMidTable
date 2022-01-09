@@ -240,7 +240,8 @@
                     { value: 'hive', label: 'hive' },
                     { value: 'hbase', label: 'hbase' },
                     { value: 'mongodb', label: 'mongodb' },
-                    { value: 'clickhouse', label: 'clickhouse' }
+                    { value: 'clickhouse', label: 'clickhouse' },
+                    { value: 'es', label: 'es' },
                 ],
                 jdbc: true,
                 hbase: false,

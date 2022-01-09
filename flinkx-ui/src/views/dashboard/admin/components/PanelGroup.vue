@@ -3,39 +3,36 @@
     <el-col :xs="16" :sm="16" :lg="8" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('chartInfo')">
         <div class="card-panel-icon-wrapper icon-people">
-          <svg-icon icon-class="success" class-name="card-panel-icon" />
+          <svg-icon icon-class="success" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">
-            成功
-          </div>
-          <count-to :start-val="0" :end-val="successCount" :duration="2600" class="card-panel-num" />
+          <div class="card-panel-text">成功</div>
+          <!-- <count-to :start-val="0" :end-val="successCount" :duration="2600" class="card-panel-num" /> -->
+          <count-to :start-val="0" :end-val="123456" :duration="2600" class="card-panel-num"/>
         </div>
       </div>
     </el-col>
     <el-col :xs="16" :sm="16" :lg="8" class="card-panel-col">
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-message">
-          <svg-icon icon-class="fail" class-name="card-panel-icon" />
+          <svg-icon icon-class="fail" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">
-            失败
-          </div>
-          <count-to :start-val="0" :end-val="failCount" :duration="3000" class="card-panel-num" />
+          <div class="card-panel-text">失败</div>
+          <!-- <count-to :start-val="0" :end-val="failCount" :duration="3000" class="card-panel-num"/> -->
+          <count-to :start-val="0" :end-val="0" :duration="3000" class="card-panel-num"/>
         </div>
       </div>
     </el-col>
     <el-col :xs="16" :sm="16" :lg="8" class="card-panel-col">
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-money">
-          <svg-icon icon-class="running" class-name="card-panel-icon" />
+          <svg-icon icon-class="running" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">
-            执行中
-          </div>
-          <count-to :start-val="0" :end-val="runningCount" :duration="3200" class="card-panel-num" />
+          <div class="card-panel-text">执行中</div>
+          <!-- <count-to :start-val="0" :end-val="runningCount" :duration="3200" class="card-panel-num"/> -->
+          <count-to :start-val="0" :end-val="369" :duration="3200" class="card-panel-num"/>
         </div>
       </div>
     </el-col>
@@ -43,7 +40,7 @@
 </template>
 
 <script>
-import CountTo from 'vue-count-to'
+import CountTo from "vue-count-to";
 
 export default {
   components: {
@@ -51,17 +48,17 @@ export default {
   },
   data() {
     return {
-      successCount: parseInt(localStorage.getItem('countSucTotal')),
-      failCount: parseInt(localStorage.getItem('countFailTotal')),
-      runningCount: parseInt(localStorage.getItem('countRunningTotal'))
-    }
+      successCount: parseInt(localStorage.getItem("countSucTotal")),
+      failCount: parseInt(localStorage.getItem("countFailTotal")),
+      runningCount: parseInt(localStorage.getItem("countRunningTotal"))
+    };
   },
   methods: {
     handleSetLineChartData(type) {
-      this.$emit('handleSetLineChartData', type)
+      this.$emit("handleSetLineChartData", type);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -80,8 +77,8 @@ export default {
     overflow: hidden;
     color: #666;
     background: #fff;
-    box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
-    border-color: rgba(0, 0, 0, .05);
+    box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.05);
 
     &:hover {
       .card-panel-icon-wrapper {
@@ -101,7 +98,7 @@ export default {
       }
 
       .icon-shopping {
-        background: #34bfa3
+        background: #34bfa3;
       }
     }
 
@@ -118,7 +115,7 @@ export default {
     }
 
     .icon-shopping {
-      color: #34bfa3
+      color: #34bfa3;
     }
 
     .card-panel-icon-wrapper {
@@ -154,7 +151,7 @@ export default {
   }
 }
 
-@media (max-width:550px) {
+@media (max-width: 550px) {
   .card-panel-description {
     display: none;
   }
