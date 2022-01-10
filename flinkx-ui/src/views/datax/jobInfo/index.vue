@@ -535,6 +535,8 @@
                 this.listLoading = true
                 if (this.projectIds) {
                     this.listQuery.projectIds = this.projectIds.toString()
+                } else {
+                    this.listQuery.projectIds = ''
                 }
 
                 job.getList(this.listQuery).then(response => {
