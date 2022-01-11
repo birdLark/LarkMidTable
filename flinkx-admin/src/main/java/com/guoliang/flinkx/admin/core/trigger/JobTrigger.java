@@ -164,24 +164,24 @@ public class JobTrigger {
         triggerParam.setJvmParam(jobInfo.getJvmParam());
 
         // 3、init address
-        String address = null;
+        String address = group.getAddressList();
         ReturnT<String> routeAddressResult = null;
-        if (group.getRegistryList() != null && !group.getRegistryList().isEmpty()) {
-            if (ExecutorRouteStrategyEnum.SHARDING_BROADCAST == executorRouteStrategyEnum) {
-                if (index < group.getRegistryList().size()) {
-                    address = group.getRegistryList().get(index);
-                } else {
-                    address = group.getRegistryList().get(0);
-                }
-            } else {
-                routeAddressResult = executorRouteStrategyEnum.getRouter().route(triggerParam, group.getRegistryList());
-                if (routeAddressResult.getCode() == ReturnT.SUCCESS_CODE) {
-                    address = routeAddressResult.getContent();
-                }
-            }
-        } else {
-            routeAddressResult = new ReturnT<String>(ReturnT.FAIL_CODE, I18nUtil.getString("jobconf_trigger_address_empty"));
-        }
+//        if (group.getRegistryList() != null && !group.getRegistryList().isEmpty()) {
+//            if (ExecutorRouteStrategyEnum.SHARDING_BROADCAST == executorRouteStrategyEnum) {
+//                if (index < group.getRegistryList().size()) {
+//                    address = group.getRegistryList().get(index);
+//                } else {
+//                    address = group.getRegistryList().get(0);
+//                }
+//            } else {
+//                routeAddressResult = executorRouteStrategyEnum.getRouter().route(triggerParam, group.getRegistryList());
+//                if (routeAddressResult.getCode() == ReturnT.SUCCESS_CODE) {
+//                    address = routeAddressResult.getContent();
+//                }
+//            }
+//        } else {
+//            routeAddressResult = new ReturnT<String>(ReturnT.FAIL_CODE, I18nUtil.getString("jobconf_trigger_address_empty"));
+//        }
 
         // 4、trigger remote executor
         ReturnT<String> triggerResult = null;

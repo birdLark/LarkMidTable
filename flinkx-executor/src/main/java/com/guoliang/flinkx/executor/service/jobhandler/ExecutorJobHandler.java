@@ -106,14 +106,14 @@ public class ExecutorJobHandler extends IJobHandler {
 
 	private String generateTemJsonFile(String jobJson) {
 		String tmpFilePath;
-		String FlinkXHomePath = SystemUtils.getFlinkxHomePath();
-		if (StringUtils.isNotEmpty(FlinkXHomePath)) {
-			jsonPath = FlinkXHomePath + DEFAULT_JSON;
-		}
+//		String FlinkXHomePath = SystemUtils.getFlinkxHomePath();
+//		if (StringUtils.isNotEmpty(FlinkXHomePath)) {
+//			jsonPath = FlinkXHomePath + DEFAULT_JSON;
+//		}
 		if (!FileUtil.exist(jsonPath)) {
 			FileUtil.mkdir(jsonPath);
 		}
-		tmpFilePath = jsonPath + "jobTmp-" + IdUtil.simpleUUID() + ".conf";
+		tmpFilePath = jsonPath + "jobTmp-" + IdUtil.simpleUUID() + ".json";
 		// 根据json写入到临时本地文件
 		try (PrintWriter writer = new PrintWriter(tmpFilePath, "UTF-8")) {
 			writer.println(jobJson);
