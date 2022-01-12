@@ -4,6 +4,7 @@ import com.guoliang.flinkx.admin.entity.JobDatasource;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用于传参，构建json
@@ -24,7 +25,7 @@ public class FlinkxRdbmsPojo {
     /**
      * 列名
      */
-    private List<String> rdbmsColumns;
+    private List<Map<String,Object>> rdbmsColumns;
 
     /**
      * 数据源信息
