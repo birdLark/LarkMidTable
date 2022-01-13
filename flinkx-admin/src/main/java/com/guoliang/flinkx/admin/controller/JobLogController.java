@@ -78,8 +78,8 @@ public class JobLogController {
     @ApiOperation("运行日志详情")
     public ReturnT<LogResult> logDetailCat(String executorAddress, long triggerTime, long logId, int fromLineNum) {
         try {
-            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(executorAddress);
-            ReturnT<LogResult> logResult = executorBiz.log(triggerTime, logId, fromLineNum);
+        	ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(executorAddress);
+        	ReturnT<LogResult> logResult = executorBiz.log(triggerTime, logId, fromLineNum);
 
             // is end
             if (logResult.getContent() != null && fromLineNum > logResult.getContent().getToLineNum()) {
