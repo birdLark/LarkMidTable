@@ -1,4 +1,4 @@
-package nettyclient;
+package com.guoliang.flinkx.admin.nettyclient;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
  * @Description:
  * @Author: LarkMidTable
  **/
-public class UserClientHandler extends ChannelInboundHandlerAdapter implements Callable {
+public class LogClientHandler extends ChannelInboundHandlerAdapter implements Callable {
 	private ChannelHandlerContext context;
 	private String result;
 	private String para;

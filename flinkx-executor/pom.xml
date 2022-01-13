@@ -43,6 +43,12 @@
             <artifactId>flinkx-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.12.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -75,10 +81,10 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <attach>false</attach>
                     <descriptors>
-                        <descriptor>${basedir}/src/main/assembly/deploy.xml</descriptor>
+                        <descriptor>src/main/assembly/deploy.xml</descriptor>
                     </descriptors>
                     <finalName>${project.artifactId}_${project.version}_1</finalName>
-                    <outputDirectory>${project.parent.basedir}/packages</outputDirectory>
+                    <outputDirectory>../packages</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

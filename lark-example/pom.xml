@@ -14,10 +14,6 @@
     <version>2.1.2</version>
 
     <dependencies>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.12.Final</version>
-        </dependency>
+
     </dependencies>
 </project>

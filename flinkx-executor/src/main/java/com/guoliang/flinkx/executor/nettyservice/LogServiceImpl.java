@@ -1,4 +1,4 @@
-package nettyservice;
+package com.guoliang.flinkx.executor.nettyservice;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -9,6 +9,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 
 /**
  *
@@ -17,11 +22,14 @@ import io.netty.handler.codec.string.StringEncoder;
  * @Description:
  * @Author: LarkMidTable
  **/
-public class UserServiceImpl implements UserService {
+public class LogServiceImpl implements LogService {
 	@Override
-	public String sayHello(String word) {
-		System.out.println("调用成功--参数：" + word);
-		return "调用成功--参数：" + word;
+	public byte[] getExecuteLog(String jobId) {
+		System.out.println(jobId);
+		// 通过流的方式读取
+		byte[] fileContentBytes = getFileContentBytes(
+				"/home/hadoop/larkmidtable/flinkx-web-2.1.2/packages/flinkx-executor/bin/"+jobId);
+		return fileContentBytes;
 	}
 	public static void startServer(String hostName, int port) {
 		try {
@@ -35,12 +43,27 @@ public class UserServiceImpl implements UserService {
 							ChannelPipeline p = ch.pipeline();
 							p.addLast(new StringDecoder());
 							p.addLast(new StringEncoder());
-							p.addLast(new UserServerHandler());
+							p.addLast(new LogServerHandler());
 						}
 					});
 			bootstrap.bind(hostName, port).sync();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private byte[] getFileContentBytes(String filePath) {
+		try (InputStream in = new FileInputStream(filePath);
+				ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+			byte[] buf = new byte[1024];
+			int len;
+			while ((len = in.read(buf)) != -1) {
+				bos.write(buf, 0, len);
+			}
+			return bos.toByteArray();
+		} catch (IOException e) {
+//			logger.error("get file bytes error", e);
+		}
+		return new byte[0];
 	}
 }

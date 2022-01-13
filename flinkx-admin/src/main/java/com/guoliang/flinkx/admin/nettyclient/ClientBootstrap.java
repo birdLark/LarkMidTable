@@ -1,4 +1,4 @@
-package nettyclient;
+package com.guoliang.flinkx.admin.nettyclient;
 
 /**
  *
@@ -13,10 +13,11 @@ public class ClientBootstrap {
 	public static void main(String[] args) throws InterruptedException {
 		RpcConsumer consumer = new RpcConsumer();
 		// 创建一个代理对象
-		UserService service = (UserService) consumer.createProxy(UserService.class, providerName);
-		for (;;) {
-			Thread.sleep(1000);
-			System.out.println(service.sayHello("are you ok ?"));
-		}
+		LogService service = (LogService) consumer.createProxy(LogService.class, providerName);
+//		for (;;) {
+			System.out.println(service.getExecuteLog("userGuid.md"));
+			System.out.println("===========================");
+//			Thread.sleep(30000);
+//		}
 	}
 }

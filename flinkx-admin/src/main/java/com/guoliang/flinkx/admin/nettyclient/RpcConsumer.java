@@ -1,4 +1,4 @@
-package nettyclient;
+package com.guoliang.flinkx.admin.nettyclient;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -25,7 +25,7 @@ import java.util.concurrent.Executors;
 public class RpcConsumer {
 	private static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-	private static UserClientHandler client;
+	private static LogClientHandler client;
 
 	/**
 	 * 创建一个代理对象
@@ -46,7 +46,7 @@ public class RpcConsumer {
 	 * 初始化客户端
 	 */
 	private static void initClient() {
-		client = new UserClientHandler();
+		client = new LogClientHandler();
 		EventLoopGroup group = new NioEventLoopGroup();
 		Bootstrap b = new Bootstrap();
 		b.group(group)
@@ -62,7 +62,7 @@ public class RpcConsumer {
 					}
 				});
 		try {
-			b.connect("localhost", 8990).sync();
+			b.connect("192.168.1.204", 8990).sync();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
