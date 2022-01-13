@@ -15,5 +15,6 @@ public class ClientBootstrap {
 		// 创建一个代理对象
 		LogService service = (LogService) consumer.createProxy(LogService.class, providerName);
 		System.out.println(service.getExecuteLog("userGuid.md"));
+		Runtime.getRuntime().exit(0);
 	}
 }

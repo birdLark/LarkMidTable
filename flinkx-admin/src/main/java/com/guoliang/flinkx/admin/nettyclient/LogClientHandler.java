@@ -27,9 +27,9 @@ public class LogClientHandler extends ChannelInboundHandlerAdapter implements Ca
 	 */
 	@Override
 	public synchronized void channelRead(ChannelHandlerContext ctx, Object msg) {
-//		Log log = (Log)msg;
 		result = msg.toString();
 		notify();
+		ctx.close();
 	}
 
 	/**

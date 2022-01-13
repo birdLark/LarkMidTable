@@ -42,6 +42,7 @@ public class RpcConsumer {
 					client.setPara(providerName + args[0]);
 					return executor.submit(client).get();
 				});
+
 	}
 
 	/**
@@ -68,5 +69,10 @@ public class RpcConsumer {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public void shutdownClient() {
+		executor.shutdownNow();
 	}
 }
