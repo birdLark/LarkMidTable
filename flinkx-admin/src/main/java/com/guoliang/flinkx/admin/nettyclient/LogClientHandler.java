@@ -13,8 +13,9 @@ import java.util.concurrent.Callable;
  * @Author: LarkMidTable
  **/
 public class LogClientHandler extends ChannelInboundHandlerAdapter implements Callable {
+	public static String result;
+	private volatile boolean isComplete = false;
 	private ChannelHandlerContext context;
-	private String result;
 	private String para;
 
 	@Override
@@ -27,9 +28,14 @@ public class LogClientHandler extends ChannelInboundHandlerAdapter implements Ca
 	 */
 	@Override
 	public synchronized void channelRead(ChannelHandlerContext ctx, Object msg) {
-		result = msg.toString();
-		notify();
+		result += msg.toString();
+	}
+
+	@Override
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+		super.channelReadComplete(ctx);
 		ctx.close();
+		isComplete = true;
 	}
 
 	/**
@@ -38,7 +44,9 @@ public class LogClientHandler extends ChannelInboundHandlerAdapter implements Ca
 	@Override
 	public synchronized Object call() throws InterruptedException {
 		context.writeAndFlush(para);
-		wait();
+		while (!isComplete) {
+			wait(1);
+		}
 		return result;
 	}
 

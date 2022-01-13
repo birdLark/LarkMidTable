@@ -16,5 +16,6 @@ public class ClientBootstrap {
 		LogService service = (LogService) consumer.createProxy(LogService.class, providerName);
 		System.out.println(service.getExecuteLog("userGuid.md"));
 		Runtime.getRuntime().exit(0);
+
 	}
 }
