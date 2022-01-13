@@ -10,10 +10,12 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.timeout.IdleStateHandler;
 
 import java.lang.reflect.Proxy;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -62,7 +64,7 @@ public class RpcConsumer {
 					}
 				});
 		try {
-			b.connect("192.168.1.204", 8990).sync();
+			b.connect("localhost", 8990).sync();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

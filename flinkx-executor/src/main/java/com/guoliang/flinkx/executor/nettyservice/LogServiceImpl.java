@@ -6,6 +6,7 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
@@ -28,7 +29,7 @@ public class LogServiceImpl implements LogService {
 		System.out.println(jobId);
 		// 通过流的方式读取
 		byte[] fileContentBytes = getFileContentBytes(
-				"/home/hadoop/larkmidtable/flinkx-web-2.1.2/packages/flinkx-executor/bin/"+jobId);
+				"E:\\larksource\\LarkMidTable\\"+jobId);
 		return fileContentBytes;
 	}
 	public static void startServer(String hostName, int port) {

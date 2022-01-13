@@ -16,8 +16,12 @@ public class LogServerHandler extends ChannelInboundHandlerAdapter {
 	public void channelRead(ChannelHandlerContext ctx, Object msg) {
 		// 如何符合约定，则调用本地方法，返回数据
 		if (msg.toString().startsWith("UserService")) {
-			String result = new String(new LogServiceImpl().getExecuteLog(msg.toString().substring(msg.toString().lastIndexOf("#") + 1)));
-			ctx.writeAndFlush(result);
+			byte[] executeLog = new LogServiceImpl()
+					.getExecuteLog(msg.toString().substring(msg.toString().lastIndexOf("#") + 1));
+			//保存数据到mysql
+			String logstr = new String(executeLog);
+			String mesage="success trigger";
+			ctx.writeAndFlush(mesage);
 		}
 	}
 }
