@@ -14,8 +14,7 @@
 
 [Flinkx的安装](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/InstallFlinkx.md)
 
-**flinkx-1.8_release压缩包，可以添加群获得**  
-**flinkx-1.10_release压缩包，可以添加群获得**
+**flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】**  
 
 ## 2.Flinkx-web的安装
 
@@ -138,7 +137,7 @@ sh start-all.sh
 
 ​    启动成功后打开页面（默认管理员用户名：admin 密码：123456） http://localhost:8080/index.html#/dashboard
 
-![启动成功](https://img2020.cnblogs.com/blog/622382/202008/622382-20200813002251461-1896158188.png)
+![](https://img2020.cnblogs.com/blog/622382/202008/622382-20200813002251461-1896158188.png)
 
 
 
