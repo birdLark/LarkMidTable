@@ -20,8 +20,6 @@ public class LogServerHandler extends ChannelInboundHandlerAdapter {
 					.getExecuteLog(msg.toString().substring(msg.toString().lastIndexOf("#") + 1));
 			//保存数据到mysql
 			String logstr = new String(executeLog);
-
-			String mesage="success trigger";
 			ctx.writeAndFlush(logstr);
 		}
 	}

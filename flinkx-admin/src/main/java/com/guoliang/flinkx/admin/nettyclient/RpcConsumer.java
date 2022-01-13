@@ -70,9 +70,4 @@ public class RpcConsumer {
 			e.printStackTrace();
 		}
 	}
-
-
-	public void shutdownClient() {
-		executor.shutdownNow();
-	}
 }
