@@ -18,7 +18,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
  * @Description:
  * @Author: LarkMidTable
  **/
-public class FlinkCDCTest1 {
+public class FlinkCDCStream {
 
 	public static void main(String[] args) throws Exception {
 		// 1.设置流的环境
