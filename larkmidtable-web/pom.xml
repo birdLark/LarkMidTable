@@ -15,8 +15,6 @@
         <module>flinkx-executor</module>
         <module>flinkx-rpc</module>
         <module>flinkx-assembly</module>
-        <module>flink-sql</module>
-        <module>lark-example</module>
     </modules>
 
     <properties>
