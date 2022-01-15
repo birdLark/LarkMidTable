@@ -68,9 +68,9 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 安装手册      [安装手册](https://github.com/wxgzgl/flinkx-web/blob/master/userGuid.md)
 
-操作手册  	[操作手册](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/userManual.md)
+操作手册  	[操作手册](https://github.com/wxgzgl/LarkMidTable/tree/master/userManual.md)
 
-插件开发手册      [插件开发手册](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/PluginDev.md)
+插件开发手册      [插件开发手册](https://github.com/wxgzgl/LarkMidTable/tree/master/PluginDev.md)
 
 
 
