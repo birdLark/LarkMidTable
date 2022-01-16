@@ -4,17 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.guoliang.cn</groupId>
-    <artifactId>flinkx-web</artifactId>
+    <artifactId>web</artifactId>
     <version>2.1.2</version>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
 
     <modules>
-        <module>flinkx-admin</module>
-        <module>flinkx-core</module>
-        <module>flinkx-executor</module>
-        <module>flinkx-rpc</module>
-        <module>flinkx-assembly</module>
+        <module>admin</module>
+        <module>core</module>
+        <module>executor</module>
+        <module>rpc</module>
+        <module>assembly</module>
     </modules>
 
     <properties>
