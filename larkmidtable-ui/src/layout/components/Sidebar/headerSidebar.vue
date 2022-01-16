@@ -5,10 +5,10 @@
         src="../../../../public/logo.png"
         style="width:30px;height:30px;margin:0px 10px 0px 20px;border-radius:5px;"
       >
-      <span>LarkMidTable</span>
+      <span>LMT 数据中台</span>
     </div>
     <el-menu
-      background-color="rgb(48, 65, 86)"
+      background-color="#000"
       active-text-color="#409EFF"
       text-color="#fff"
       mode="horizontal"
