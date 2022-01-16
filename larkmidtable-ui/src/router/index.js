@@ -251,25 +251,25 @@ export const asyncRoutes = [
     meta: { title: '数据开发', icon: 'work' },
     children: [
       {
-        path: '/datax/Dataservices/flinkSQLDevelopment',
+        path: '/datax/dataDevelopment/flinkSQLDevelopment',
         name: 'flinkSQLDevelopment',
         component: () => import('@/views/datax/flinkSQLDevelopment/index'),
         meta: { title: 'FlinkSQL开发', icon: 'project' }
       },
       {
-        path: '/datax/Dataservices/sparkSQLDevelopment',
+        path: '/datax/dataDevelopment/sparkSQLDevelopment',
         name: 'sparkSQLDevelopment',
         component: () => import('@/views/datax/sparkSQLDevelopment/index'),
         meta: { title: 'SparkSQL开发', icon: 'project' }
       },
       {
-        path: '/datax/Dataservices/flinkCDCDevelopment',
+        path: '/datax/dataDevelopment/flinkCDCDevelopment',
         name: 'flinkCDCDevelopment',
         component: () => import('@/views/datax/flinkCDCDevelopment/index'),
         meta: { title: 'FlinkCDC开发', icon: 'cfg-datasouce' }
       },
       {
-        path: '/datax/DatabaseSync/job/jobTemplate',
+        path: '/datax/dataDevelopment/job/jobTemplate',
         name: 'JobTemplate',
         component: () => import('@/views/datax/jobTemplate/index'),
         meta: { title: '作业管理', icon: 'task-tmp' }
@@ -279,18 +279,18 @@ export const asyncRoutes = [
   {
     path: '/datax/Dataservices1',
     component: Layout,
-    redirect: '/datax/Dataservices',
+    redirect: '/datax/Dataservices1',
     name: 'Dataservices',
     meta: { title: '监控告警', icon: 'work' },
     children: [
       {
-        path: '/datax/Dataservices1warnSet',
+        path: '/datax/Dataservices1/warnSet',
         name: 'warnSet',
         component: () => import('@/views/datax/warnSet/index'),
         meta: { title: '告警设置', icon: 'project' }
       },
       {
-        path: '/datax/Dataservices1warnLog',
+        path: '/datax/Dataservices1/warnLog',
         name: 'warnLog',
         component: () => import('@/views/datax/warnLog/index'),
         meta: { title: '告警日志', icon: 'project' }
