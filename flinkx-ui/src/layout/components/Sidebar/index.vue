@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'has-logo':showLogo}">
+  <div>
     <logo v-if="showLogo" :collapse="isCollapse"/>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
@@ -13,7 +13,7 @@
         mode="vertical"
       >
         <sidebar-item
-          v-for="route in permission_routes"
+          v-for="route in sidebarList"
           :key="route.path"
           :item="route"
           :base-path="route.path"
@@ -27,12 +27,13 @@
 import { mapGetters } from "vuex";
 import Logo from "./Logo";
 import SidebarItem from "./SidebarItem";
+import HeaderSidebar from "./headerSidebar";
 import variables from "@/styles/variables.scss";
 
 export default {
-  components: { SidebarItem, Logo },
+  components: { SidebarItem, Logo, HeaderSidebar },
   computed: {
-    ...mapGetters(["permission_routes", "sidebar"]),
+    ...mapGetters(["permission_routes", "sidebar", "sidebarList"]),
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;

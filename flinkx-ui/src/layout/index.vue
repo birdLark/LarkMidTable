@@ -1,5 +1,6 @@
 <template>
   <div :class="classObj" class="app-wrapper">
+    <header-sidebar/>
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
@@ -16,14 +17,18 @@
 </template>
 
 <script>
+import path from "path";
+import { isExternal } from "@/utils/validate";
 import RightPanel from '@/components/RightPanel'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
-import { mapState } from 'vuex'
+import { mapState ,mapGetters, mapActions} from 'vuex'
+import headerSidebar from './components/Sidebar/headerSidebar.vue'
 
 export default {
   name: 'Layout',
   components: {
+    headerSidebar,
     AppMain,
     Navbar,
     RightPanel,
@@ -32,6 +37,10 @@ export default {
     TagsView
   },
   mixins: [ResizeMixin],
+  data(){
+    return{
+    }
+  },
   computed: {
     ...mapState({
       sidebar: state => state.app.sidebar,

@@ -26,6 +26,12 @@ module.exports = {
   sidebarLogo: false,
 
   /**
+   * @type {Array} [] 
+   * @description menuList
+   */
+  sidebarList: [],
+
+  /**
    * @type {string | array} 'production' | ['production', 'development']
    * @description Need show err logs component.
    * The default is only used in the production env

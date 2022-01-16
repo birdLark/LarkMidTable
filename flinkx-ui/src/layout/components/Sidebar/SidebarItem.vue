@@ -1,5 +1,6 @@
 <template>
   <div v-if="!item.hidden" class="menu-wrapper">
+    {{item}}
     <template
       v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow"
     >
@@ -38,6 +39,7 @@ import Item from "./Item";
 import AppLink from "./Link";
 import FixiOSBug from "./FixiOSBug";
 import { log } from "util";
+import { mapState } from "vuex";
 
 export default {
   name: "SidebarItem",
@@ -69,7 +71,6 @@ export default {
   methods: {
     hasOneShowingChild(children = [], parent) {
       const showingChildren = children.filter(item => {
-        debugger;
         if (item.hidden) {
           return false;
         } else {
@@ -89,7 +90,6 @@ export default {
         this.onlyOneChild = { ...parent, path: "", noShowingChildren: true };
         return true;
       }
-
       return false;
     },
     resolvePath(routePath) {
@@ -99,6 +99,7 @@ export default {
       if (isExternal(this.basePath)) {
         return this.basePath;
       }
+      console.log(path.resolve(this.basePath, routePath));
       return path.resolve(this.basePath, routePath);
     }
   }

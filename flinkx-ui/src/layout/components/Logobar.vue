@@ -1,21 +1,24 @@
 <template>
   <div class="navbar">
-    <hamburger
-      id="hamburger-container"
-      :is-active="sidebar.opened"
-      class="hamburger-container"
-      @toggleClick="toggleSideBar"
-    />
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container"/>
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
-        <!--        <search id="header-search" class="right-menu-item" />-->
-        <error-log class="errLog-container right-menu-item hover-effect"/>
-        <!--        <screenfull id="screenfull" class="right-menu-item hover-effect" />-->
-        <!--        <el-tooltip content="Global Size" effect="dark" placement="bottom">-->
-        <!--          <size-select id="size-select" class="right-menu-item hover-effect" />-->
-        <!--        </el-tooltip>-->
-      </template>
+      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+        <div class="avatar-wrapper">
+          <img src="https://iconfont.alicdn.com/t/ce99661e-151d-4341-9099-833a9fb62f5c.jpg@200h_200w.jpg" class="user-avatar">
+          <i class="el-icon-caret-bottom" />
+          admin
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <!--<router-link to="/profile/index">
+            <el-dropdown-item>Profile</el-dropdown-item>
+          </router-link>-->
+          <router-link to="/">
+            <el-dropdown-item>Dashboard</el-dropdown-item>
+          </router-link>
+          <el-dropdown-item divided>
+            <span style="display:block;" @click="logout">Log Out</span>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </div>
 </template>
@@ -51,8 +54,8 @@ export default {
 .navbar {
   height: 50px;
   overflow: hidden;
-  position: relative;
-  background: #fff;
+  position: absolute;
+  right: 0;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {
@@ -108,14 +111,16 @@ export default {
       margin-right: 30px;
 
       .avatar-wrapper {
+        color: #fff;
         margin-top: 5px;
         position: relative;
 
         .user-avatar {
           cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          margin-top: 15px;
         }
 
         .el-icon-caret-bottom {

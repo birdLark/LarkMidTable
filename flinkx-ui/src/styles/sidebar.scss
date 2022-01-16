@@ -12,13 +12,14 @@
     width: $sideBarWidth !important;
     background-color: $menuBg;
     height: 100%;
-    position: fixed;
+    position: absolute;
     font-size: 0px;
-    top: 0;
+    top: 56px;
     bottom: 0;
     left: 0;
     z-index: 1001;
     overflow: hidden;
+    padding-bottom: 1.25rem;
 
     // reset element-ui css
     .horizontal-collapse-transition {
@@ -206,4 +207,10 @@
       border-radius: 20px;
     }
   }
+}
+.headerStyle{
+  line-height:56px;
+  color: #fff;
+  background-color: rgb(48, 65, 86);
+  display: flex;
 }
