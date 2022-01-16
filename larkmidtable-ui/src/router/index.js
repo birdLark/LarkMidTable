@@ -251,24 +251,6 @@ export const asyncRoutes = [
     meta: { title: '数据开发', icon: 'work' },
     children: [
       {
-        path: '/datax/dataDevelopment/flinkSQLDevelopment',
-        name: 'flinkSQLDevelopment',
-        component: () => import('@/views/datax/flinkSQLDevelopment/index'),
-        meta: { title: 'FlinkSQL开发', icon: 'project' }
-      },
-      {
-        path: '/datax/dataDevelopment/sparkSQLDevelopment',
-        name: 'sparkSQLDevelopment',
-        component: () => import('@/views/datax/sparkSQLDevelopment/index'),
-        meta: { title: 'SparkSQL开发', icon: 'project' }
-      },
-      {
-        path: '/datax/dataDevelopment/flinkCDCDevelopment',
-        name: 'flinkCDCDevelopment',
-        component: () => import('@/views/datax/flinkCDCDevelopment/index'),
-        meta: { title: 'FlinkCDC开发', icon: 'cfg-datasouce' }
-      },
-      {
         path: '/datax/dataDevelopment/UDFlistManageDevelopment',
         name: 'UDFlistManageDevelopment',
         component: () => import('@/views/datax/UDFlistManageDevelopment/index'),
