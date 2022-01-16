@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.lark.cn.cli;
+package com.lark.cn;
 
 import org.apache.commons.cli.*;
 

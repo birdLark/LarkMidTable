@@ -32,4 +32,4 @@ selenium-debug.log
 
 package-lock.json
 yarn.lock
-larkmidtable-flink/cdc/target/classes/com/lark/example/FlinkCDCSQL.class
+*.jar
