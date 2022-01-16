@@ -13,7 +13,7 @@
         mode="vertical"
       >
         <sidebar-item
-          v-for="route in sidebarList"
+          v-for="route in data"
           :key="route.path"
           :item="route"
           :base-path="route.path"
@@ -34,6 +34,28 @@ export default {
   components: { SidebarItem, Logo, HeaderSidebar },
   computed: {
     ...mapGetters(["permission_routes", "sidebar", "sidebarList"]),
+    data() {
+      if (this.sidebarList.length > 0) {
+        return this.sidebarList;
+      } else {
+        return [
+          {
+            path: "/",
+            redirect: "/dashboard",
+            name: "Dashboard",
+            meta: { title: "首页", icon: "dashboard", affix: true },
+            children: [
+              {
+                path: "dashboard",
+                component: () => import("@/views/dashboard/admin/index"),
+                name: "Dashboard",
+                meta: { title: "首页", icon: "dashboard", affix: true }
+              }
+            ]
+          }
+        ];
+      }
+    },
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;

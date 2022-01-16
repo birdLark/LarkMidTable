@@ -1,6 +1,5 @@
 <template>
   <div v-if="!item.hidden" class="menu-wrapper">
-    {{item}}
     <template
       v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow"
     >
@@ -65,11 +64,12 @@ export default {
     // TODO: refactor with render function
     // this.onlyOneChild = null;
     return {
-      onlyOneChild: null
+      onlyOneChild: []
     };
   },
   methods: {
     hasOneShowingChild(children = [], parent) {
+      debugger;
       const showingChildren = children.filter(item => {
         if (item.hidden) {
           return false;

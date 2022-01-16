@@ -9,21 +9,7 @@ const state = {
   tagsView: tagsView,
   fixedHeader: fixedHeader,
   sidebarLogo: sidebarLogo,
-  sidebarList: sidebarList || [{
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    name: 'Dashboard',
-    meta: { title: '运行报表', icon: 'dashboard', affix: true },
-    children: [
-      {
-        path: 'dashboard',
-        component: () => import('@/views/dashboard/admin/index'),
-        name: 'Dashboard',
-        meta: { title: '运行报表', icon: 'dashboard', affix: true }
-      }
-    ]
-  }],
+  sidebarList: sidebarList,
 
 }
 
@@ -34,7 +20,6 @@ const mutations = {
     }
   },
   SET_SIDEBARLIST: (state, data) => {
-    debugger
     state.sidebarList = data
   }
 }
