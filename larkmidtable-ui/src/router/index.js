@@ -269,6 +269,24 @@ export const asyncRoutes = [
         meta: { title: 'FlinkCDC开发', icon: 'cfg-datasouce' }
       },
       {
+        path: '/datax/dataDevelopment/UDFlistManageDevelopment',
+        name: 'UDFlistManageDevelopment',
+        component: () => import('@/views/datax/UDFlistManageDevelopment/index'),
+        meta: { title: 'UDF列表管理', icon: 'cfg-datasouce' }
+      },
+      {
+        path: '/datax/dataDevelopment/SQLlistManageDevelopment',
+        name: 'SQLlistManageDevelopment',
+        component: () => import('@/views/datax/SQLlistManageDevelopment/index'),
+        meta: { title: 'SQL列表管理', icon: 'cfg-datasouce' }
+      },
+      {
+        path: '/datax/dataDevelopment/DevelopmentList',
+        name: 'DevelopmentList',
+        component: () => import('@/views/datax/DevelopmentList/index'),
+        meta: { title: '开发任务列表', icon: 'cfg-datasouce' }
+      },
+      {
         path: '/datax/dataDevelopment/job/jobTemplate',
         name: 'JobTemplate',
         component: () => import('@/views/datax/jobTemplate/index'),
