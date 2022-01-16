@@ -1,3 +1,4 @@
+
 .idea/*
 */*.iml
 *.iml
@@ -15,8 +16,6 @@ yarn-debug.log*
 yarn-error.log*
 **/*.log
 
-*.class
-
 tests/**/coverage/
 tests/e2e/reports
 selenium-debug.log
@@ -32,4 +31,3 @@ selenium-debug.log
 
 package-lock.json
 yarn.lock
-larkmidtable-flink/cdc/target/classes/com/lark/example/FlinkCDCSQL.class
