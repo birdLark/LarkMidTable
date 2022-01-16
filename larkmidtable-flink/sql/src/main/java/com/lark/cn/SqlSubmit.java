@@ -18,9 +18,6 @@
 
 package com.lark.cn;
 
-import com.lark.cn.cli.CliOptions;
-import com.lark.cn.cli.CliOptionsParser;
-import com.lark.cn.cli.SqlCommandParser;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.SqlParserException;
 import org.apache.flink.table.api.TableEnvironment;

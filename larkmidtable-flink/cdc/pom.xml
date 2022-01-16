@@ -13,25 +13,21 @@
     <artifactId>cdc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <flink-version>1.13.0</flink-version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
-            <version>${flink-version}</version>
+            <version>1.13.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_2.12</artifactId>
-            <version>${flink-version}</version>
+            <version>1.13.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients_2.12</artifactId>
-            <version>${flink-version}</version>
+            <version>1.13.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -46,7 +42,7 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner-blink_2.12</artifactId>
-            <version>${flink-version}</version>
+            <version>1.13.0</version>
         </dependency>
         <dependency>
             <groupId>com.ververica</groupId>
