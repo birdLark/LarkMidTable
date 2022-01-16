@@ -277,20 +277,20 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/datax/Dataservices1',
+    path: '/datax/Datawatchservices',
     component: Layout,
-    redirect: '/datax/Dataservices1',
+    redirect: '/datax/Datawatchservices',
     name: 'Dataservices',
     meta: { title: '监控告警', icon: 'work' },
     children: [
       {
-        path: '/datax/Dataservices1/warnSet',
+        path: '/datax/Datawatchservices/warnSet',
         name: 'warnSet',
         component: () => import('@/views/datax/warnSet/index'),
         meta: { title: '告警设置', icon: 'project' }
       },
       {
-        path: '/datax/Dataservices1/warnLog',
+        path: '/datax/Datawatchservices/warnLog',
         name: 'warnLog',
         component: () => import('@/views/datax/warnLog/index'),
         meta: { title: '告警日志', icon: 'project' }
