@@ -20,7 +20,7 @@
         <!-- xxl-rpc-core -->
         <dependency>
             <groupId>com.guoliang.cn</groupId>
-            <artifactId>flinkx-rpc</artifactId>
+            <artifactId>rpc</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <!-- groovy-all -->

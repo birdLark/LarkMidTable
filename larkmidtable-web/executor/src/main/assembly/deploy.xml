@@ -9,7 +9,7 @@
     <dependencySets>
         <dependencySet>
             <useProjectArtifact>true</useProjectArtifact>
-            <outputDirectory>flinkx-executor/lib</outputDirectory>
+            <outputDirectory>executor/lib</outputDirectory>
             <scope>runtime</scope>
         </dependencySet>
     </dependencySets>
@@ -17,7 +17,7 @@
         <fileSet>
             <lineEnding>unix</lineEnding>
             <directory>./src/main/bin</directory>
-            <outputDirectory>flinkx-executor/bin</outputDirectory>
+            <outputDirectory>executor/bin</outputDirectory>
             <includes>
                 <include>**/*</include>
             </includes>
@@ -25,7 +25,7 @@
         </fileSet>
         <fileSet>
             <directory>./src/main/logs</directory>
-            <outputDirectory>flinkx-executor/logs</outputDirectory>
+            <outputDirectory>executor/logs</outputDirectory>
         </fileSet>
         <fileSet>
             <directory>./src/main/resources</directory>
@@ -33,7 +33,7 @@
                 <include>logback.xml</include>
                 <include>application.yml</include>
             </includes>
-            <outputDirectory>flinkx-executor/conf</outputDirectory>
+            <outputDirectory>executor/conf</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>

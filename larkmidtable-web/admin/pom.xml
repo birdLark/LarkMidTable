@@ -214,10 +214,10 @@
             <version>${mysql-connector.version}</version>
         </dependency>
 
-        <!-- flinkx-core -->
+        <!-- core -->
         <dependency>
             <groupId>com.guoliang.cn</groupId>
-            <artifactId>flinkx-core</artifactId>
+            <artifactId>core</artifactId>
             <version>${project.parent.version}</version>
             <exclusions>
                 <exclusion>
