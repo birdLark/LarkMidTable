@@ -5,7 +5,7 @@
         <div class="avatar-wrapper">
           <img src="https://iconfont.alicdn.com/t/ce99661e-151d-4341-9099-833a9fb62f5c.jpg@200h_200w.jpg" class="user-avatar">
           <i class="el-icon-caret-bottom" />
-          admin
+          <span>admin</span>
         </div>
         <el-dropdown-menu slot="dropdown">
           <!--<router-link to="/profile/index">
@@ -120,7 +120,7 @@ export default {
           width: 25px;
           height: 25px;
           border-radius: 50%;
-          margin-top: 15px;
+          vertical-align:middle;
         }
 
         .el-icon-caret-bottom {
