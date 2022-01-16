@@ -24,9 +24,16 @@ export function killJob(data) {
   })
 }
 
-export function viewJobLog(executorAddress, triggerTime, logId, fromLineNum) {
+// export function viewJobLog(executorAddress, triggerTime, logId, fromLineNum) {
+//   return request({
+//     url: '/api/log/logDetailCat?executorAddress=' + executorAddress + '&triggerTime=' + triggerTime + '&logId=' + logId + '&fromLineNum=' + fromLineNum,
+//     method: 'get'
+//   })
+// }
+export function viewJobLog(params) {
   return request({
-    url: '/api/log/logDetailCat?executorAddress=' + executorAddress + '&triggerTime=' + triggerTime + '&logId=' + logId + '&fromLineNum=' + fromLineNum,
-    method: 'get'
+    url: '/api/log/logDetailCat',
+    method: 'get',
+    params
   })
 }

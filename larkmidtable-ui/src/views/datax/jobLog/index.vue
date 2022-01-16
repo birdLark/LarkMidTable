@@ -227,7 +227,7 @@ export default {
       logLoading: false
     }
   },
-  created() {
+  mounted() {
     this.fetchData()
     this.getExecutor()
   },
@@ -284,10 +284,10 @@ export default {
       // window.open(`${str}#/ router的name `)
       this.dialogVisible = true
 
-      this.jobLogQuery.executorAddress = row.executorAddress
-      this.jobLogQuery.id = row.id
-      this.jobLogQuery.triggerTime = Date.parse(row.triggerTime)
-      this.jobLogQuery.fromLineNum = row.fromLineNum
+      this.jobLogQuery.executorAddress = row.executorAddress || ''
+      this.jobLogQuery.logId = row.id || ''
+      this.jobLogQuery.triggerTime = Date.parse(row.triggerTime) || ''
+      this.jobLogQuery.fromLineNum = row.fromLineNum || ''
       if (this.logShow === false) {
         this.logShow = true
       }
@@ -297,8 +297,7 @@ export default {
     // 获取日志
     loadLog() {
       this.logLoading = true
-      log.viewJobLog(this.jobLogQuery.executorAddress, this.jobLogQuery.triggerTime, this.jobLogQuery.id,
-        this.jobLogQuery.fromLineNum).then(response => {
+      log.viewJobLog(this.jobLogQuery).then(response => {
         // 判断是否是 '\n'，如果是表示显示完成，不重新加载
         if (response.content.logContent === '\n') {
           this.jobLogQuery.fromLineNum = response.toLineNum - 20;
