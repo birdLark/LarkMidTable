@@ -287,6 +287,7 @@ export default {
       this.jobLogQuery.executorAddress = row.executorAddress
       this.jobLogQuery.id = row.id
       this.jobLogQuery.triggerTime = Date.parse(row.triggerTime)
+      this.jobLogQuery.fromLineNum = row.fromLineNum
       if (this.logShow === false) {
         this.logShow = true
       }
@@ -300,11 +301,11 @@ export default {
         this.jobLogQuery.fromLineNum).then(response => {
         // 判断是否是 '\n'，如果是表示显示完成，不重新加载
         if (response.content.logContent === '\n') {
-          // this.jobLogQuery.fromLineNum = response.toLineNum - 20;
+          this.jobLogQuery.fromLineNum = response.toLineNum - 20;
           // 重新加载
-          // setTimeout(() => {
-          //   this.loadLog()
-          // }, 2000);
+          setTimeout(() => {
+            this.loadLog()
+          }, 2000);
         } else {
           this.logContent = response.content.logContent
         }
