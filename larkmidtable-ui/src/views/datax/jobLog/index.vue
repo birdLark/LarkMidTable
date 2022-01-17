@@ -297,19 +297,21 @@ export default {
     // 获取日志
     loadLog() {
       this.logLoading = true
-      log.viewJobLog(this.jobLogQuery).then(response => {
-        // 判断是否是 '\n'，如果是表示显示完成，不重新加载
-        if (response.content.logContent === '\n') {
-          this.jobLogQuery.fromLineNum = response.toLineNum - 20;
-          // 重新加载
-          setTimeout(() => {
-            this.loadLog()
-          }, 2000);
-        } else {
-          this.logContent = response.content.logContent
-        }
-        this.logLoading = false
-      })
+      if(this.jobLogQuery.executorAddress && this.jobLogQuery.logId && this.jobLogQuery.triggerTime &&this.jobLogQuery.fromLineNum){
+        log.viewJobLog(this.jobLogQuery).then(response => {
+          // 判断是否是 '\n'，如果是表示显示完成，不重新加载
+          if (response.content.logContent === '\n') {
+            // this.jobLogQuery.fromLineNum = response.toLineNum - 20;
+            // // 重新加载
+            // setTimeout(() => {
+            //   this.loadLog()
+            // }, 2000);
+          } else {
+            this.logContent = response.content.logContent
+          }
+          this.logLoading = false
+        })
+      }
     },
     killRunningJob(row) {
       log.killJob(row).then(response => {
