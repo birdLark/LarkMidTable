@@ -3,6 +3,8 @@ package com.guoliang.flinkx.admin.controller;
 import com.guoliang.flinkx.admin.entity.JobLog;
 import com.guoliang.flinkx.admin.mapper.JobInfoMapper;
 import com.guoliang.flinkx.admin.mapper.JobLogMapper;
+import com.guoliang.flinkx.admin.nettyclient.LogService;
+import com.guoliang.flinkx.admin.nettyclient.RpcConsumer;
 import com.guoliang.flinkx.core.biz.ExecutorBiz;
 import com.guoliang.flinkx.core.biz.model.LogResult;
 import com.guoliang.flinkx.core.biz.model.ReturnT;
@@ -78,19 +80,16 @@ public class JobLogController {
     @ApiOperation("运行日志详情")
     public ReturnT<LogResult> logDetailCat(String executorAddress, long triggerTime, long logId, int fromLineNum) {
         try {
-        	ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(executorAddress);
-        	ReturnT<LogResult> logResult = executorBiz.log(triggerTime, logId, fromLineNum);
-
-            // is end
-            if (logResult.getContent() != null && fromLineNum > logResult.getContent().getToLineNum()) {
-                JobLog jobLog = jobLogMapper.load(logId);
-                if (jobLog.getHandleCode() > 0) {
-                    logResult.getContent().setEnd(true);
-                }
-            }
-
-            return logResult;
-        } catch (Exception e) {
+			RpcConsumer consumer = new RpcConsumer();
+			// 创建一个代理对象
+			LogService service = (LogService) consumer.createProxy(LogService.class, "UserService#sayHello#");
+			String logContent =service.getExecuteLog("nohup.out");
+			Runtime.getRuntime().exit(0);
+			ReturnT<LogResult> returnT = new ReturnT<>(ReturnT.FAIL_CODE,"查询日志成功");
+			LogResult logResult = new LogResult(0,0,logContent,true);
+			returnT.setContent(logResult);
+			return returnT;
+		} catch (Exception e) {
             logger.error(e.getMessage(), e);
             return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
         }

@@ -29,7 +29,7 @@ public class LogServiceImpl implements LogService {
 		System.out.println(jobId);
 		// 通过流的方式读取
 		byte[] fileContentBytes = getFileContentBytes(
-				"E:\\larksource\\LarkMidTable\\"+jobId);
+				"/home/hadoop/flinkx-1.8_release/"+jobId);
 		return fileContentBytes;
 	}
 	public static void startServer(String hostName, int port) {
