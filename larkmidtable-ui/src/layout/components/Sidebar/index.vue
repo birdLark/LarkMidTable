@@ -36,6 +36,7 @@ export default {
     ...mapGetters(["permission_routes", "sidebar", "sidebarList"]),
     data() {
       if (this.sidebarList.length > 0) {
+        this.$router.push({ path: `${this.sidebarList[0].path}` });
         return this.sidebarList;
       } else {
         return [
