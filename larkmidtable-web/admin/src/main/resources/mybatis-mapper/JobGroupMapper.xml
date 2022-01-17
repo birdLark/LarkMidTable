@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guoliang.flinkx.admin.mapper.JobGroupMapper">
+<mapper namespace="com.larkmidtable.admin.mapper.JobGroupMapper">
 
-    <resultMap id="JobGroup" type="com.guoliang.flinkx.admin.entity.JobGroup">
+    <resultMap id="JobGroup" type="com.larkmidtable.admin.entity.JobGroup">
         <result column="id" property="id"/>
         <result column="app_name" property="appName"/>
         <result column="title" property="title"/>
@@ -53,12 +53,12 @@
         ORDER BY t.order ASC
     </select>
 
-    <insert id="save" parameterType="com.guoliang.flinkx.admin.entity.JobGroup" useGeneratedKeys="true" keyProperty="id">
+    <insert id="save" parameterType="com.larkmidtable.admin.entity.JobGroup" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO job_group ( `app_name`, `title`, `order`, `address_type`, `address_list`)
 		values ( #{appName}, #{title}, #{order}, #{addressType}, #{addressList});
 	</insert>
 
-    <update id="update" parameterType="com.guoliang.flinkx.admin.entity.JobGroup">
+    <update id="update" parameterType="com.larkmidtable.admin.entity.JobGroup">
 		UPDATE job_group
 		SET `app_name` = #{appName},
 			`title` = #{title},

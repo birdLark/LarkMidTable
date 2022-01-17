@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guoliang.flinkx.admin.mapper.JobDatasourceMapper">
+<mapper namespace="com.larkmidtable.admin.mapper.JobDatasourceMapper">
 
-    <update id="update" parameterType="com.guoliang.flinkx.admin.entity.JobDatasource">
+    <update id="update" parameterType="com.larkmidtable.admin.entity.JobDatasource">
         UPDATE job_jdbc_datasource
         <set>
             <if test="datasourceName!=null">datasource_name = #{datasourceName},</if>
