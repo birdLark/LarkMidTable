@@ -62,7 +62,7 @@ public class JobSpringExecutor extends JobExecutor
                     String name = serviceBean.getClass().getAnnotation(JobHandler.class).value();
                     IJobHandler handler = (IJobHandler) serviceBean;
                     if (loadJobHandler(name) != null) {
-                        throw new RuntimeException("flinkx-web jobhandler[" + name + "] naming conflicts.");
+                        throw new RuntimeException("web jobhandler[" + name + "] naming conflicts.");
                     }
                     registJobHandler(name, handler);
                 }

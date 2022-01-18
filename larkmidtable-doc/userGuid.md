@@ -1,4 +1,4 @@
-# FlinkX Web用户手册
+# linux部署文档
 
 ### 系统要求
 
@@ -16,11 +16,11 @@
 
 **flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】**  
 
-## 2.Flinkx-web的安装
+## 2.web的安装
 
 ### 2.1 创建数据库
 
-执行bin/db下面的flinkx_web.sql文件(数据库版本5.1.0版本)
+执行bin/db下面的web.sql文件(数据库版本5.1.0版本)
 
 ### 2.2编译打包
 
@@ -33,7 +33,7 @@ mvn clean install
 2.执行成功后将会在工程的build目录下生成安装包
 
 ```
-build/flinkx-web-{VERSION}.tar.gz
+build/web-{VERSION}.tar.gz
 ```
 
 ### 2.3解压部署
@@ -41,13 +41,13 @@ build/flinkx-web-{VERSION}.tar.gz
 1.解压安装包
 
 ```
-tar -zxvf flinkx-web-2.1.2.tar.gz 
+tar -zxvf web-2.1.2.tar.gz 
 ```
 
 2.解压部署包
 
 ```
-cd flinkx-web-2.1.2/bin/
+cd web-2.1.2/bin/
 sh install.sh 
 ```
 
@@ -55,20 +55,20 @@ sh install.sh
 
 #### 修改项目配置
 
-##### 1.修改flinkx_admin下resources/application.yml文件
+1.修改路径web-2.1.2/packages/admin/conf/ 下面的application.yml文件
 
 ```
 #数据源
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/flinkx_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
 ```
 
 将localhost修改为数据库的地址
 
-##### 2.修改flinkx-executor下resources/application.yml文件
+2.修改web-2.1.2/packages/executor/conf 下面的application.yml文件
 
 ```
 # web port
@@ -110,17 +110,17 @@ flinkx:
   
 ```
 
-**flinkx-executor的日志的路径:**
+**executor的日志的路径:**
 
- /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-executor
+ logpath: /home/hadoop/data/web-2.1.2/packages/executor
 
 **flinkx的job目录的路径:**
 
-jsonpath: /home/hadoop/flinkx-1.8_release/job/
+jsonpath:  /home/hadoop/flinkx-1.8_release/job/
 
 **flinkx的启动脚本的路径:**
 
- pypath: /home/hadoop/flinkx-1.8_release/start.sh
+ pypath:  /home/hadoop/flinkx-1.8_release/start.sh
 
 
 
@@ -129,15 +129,24 @@ jsonpath: /home/hadoop/flinkx-1.8_release/job/
 ### 2.5启动程序
 
 ```
-cd flinkx-web-2.1.2/bin/
+cd web-2.1.2/bin/
 sh start-all.sh 
+```
+
+验证是否启动成功
+
+```
+[hadoop@mini4 bin]$ jps
+24931 AdminApplication
+26216 Jps
+26185 ExecutorApplication
 ```
 
 ### 2.6访问首页
 
-​    启动成功后打开页面（默认管理员用户名：admin 密码：123456） http://localhost:8080/index.html#/dashboard
+​    启动成功后打开页面（默认管理员用户名：admin 密码：123456） http://{ip}:8080/index.html#/dashboard
 
-![](https://img2020.cnblogs.com/blog/622382/202008/622382-20200813002251461-1896158188.png)
+**![](https://img2022.cnblogs.com/blog/622382/202201/622382-20220118221928716-62704218.png)**
 
 
 

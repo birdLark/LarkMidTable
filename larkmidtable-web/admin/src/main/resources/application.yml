@@ -6,7 +6,7 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/flinkx_web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
 #    password: ${DB_PASSWORD:password}
 #    username: ${DB_USERNAME:username}
 #    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_DATABASE:flinkxweb}?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
@@ -26,7 +26,7 @@ spring:
       ##此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
       max-lifetime: 1800000
 
-  # flinkx-web email
+  # web email
   mail:
     host: smtp.qq.com
     port: 25
@@ -85,11 +85,11 @@ mybatis-plus:
 logging:
   level:
     com.larkmidtable.admin.mapper: info
-    path: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-admin
+    path: /home/hadoop/data/web-2.1.2/packages/admin
 
 
 
-#flinkx-job, access token
+#job, access token
 flinkx:
   job:
     accessToken:

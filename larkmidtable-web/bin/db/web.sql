@@ -34,7 +34,7 @@ CREATE TABLE `job_group`  (
 -- ----------------------------
 -- Records of job_group
 -- ----------------------------
-INSERT INTO `job_group` VALUES (1, 'flinkx-executor', 'flinkx执行器', 1, 0, NULL);
+INSERT INTO `job_group` VALUES (1, 'executor', 'flinkx执行器', 1, 0, NULL);
 
 -- ----------------------------
 -- Table structure for job_info
