@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.guoliang.cn</groupId>
+        <groupId>com.larkmidtable.cn</groupId>
         <artifactId>web</artifactId>
         <version>2.1.2</version>
     </parent>
@@ -19,7 +19,7 @@
 
         <!-- xxl-rpc-core -->
         <dependency>
-            <groupId>com.guoliang.cn</groupId>
+            <groupId>com.larkmidtable.cn</groupId>
             <artifactId>rpc</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
