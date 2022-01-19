@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.lark.cn;
+package com.lark.cn.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;

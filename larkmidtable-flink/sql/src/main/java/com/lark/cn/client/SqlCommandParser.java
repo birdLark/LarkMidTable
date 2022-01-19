@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.lark.cn;
+package com.lark.cn.client;
 
 import java.util.*;
 import java.util.function.Function;
@@ -92,6 +92,7 @@ public final class SqlCommandParser {
 	 * Supported SQL commands.
 	 */
 	public enum SqlCommand {
+		SELECT("(^SELECT\\s.*)", SINGLE_OPERAND),
 		INSERT_INTO(
 			"(INSERT\\s+INTO.*)",
 			SINGLE_OPERAND),

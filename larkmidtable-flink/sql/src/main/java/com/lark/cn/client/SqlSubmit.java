@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.lark.cn;
+package com.lark.cn.client;
 
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.SqlParserException;
