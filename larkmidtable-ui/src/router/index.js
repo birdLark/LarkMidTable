@@ -104,7 +104,7 @@ export const constantRoutes = [
         name: 'Resource',
         component: () => import('@/views/datax/resource/index'),
         meta: { title: '资源监控', icon: 'battery-line' }
-      },
+      }
     ]
   },
   {
@@ -139,7 +139,7 @@ export const constantRoutes = [
         meta: { title: '数据质量检测', icon: 'cfg-datasouce' }
       }
     ]
-  },
+  }
 ]
 
 /**
@@ -251,6 +251,12 @@ export const asyncRoutes = [
     meta: { title: '数据开发', icon: 'work' },
     children: [
       {
+        path: '/datax/devEnvSetting',
+        name: 'DevEnvSetting',
+        component: () => import('@/views/datax/devEnvSetting/index'),
+        meta: { title: '开发环境配置', icon: 'cfg-datasouce' }
+      },
+      {
         path: '/datax/dataDevelopment/UDFlistManageDevelopment',
         name: 'UDFlistManageDevelopment',
         component: () => import('@/views/datax/UDFlistManageDevelopment/index'),
@@ -294,7 +300,7 @@ export const asyncRoutes = [
         name: 'warnLog',
         component: () => import('@/views/datax/warnLog/index'),
         meta: { title: '告警日志', icon: 'project' }
-      },
+      }
 
     ]
   },
