@@ -8,7 +8,7 @@
       <span>LMT 数据中台</span>
     </div>
     <el-menu
-      background-color="#000"
+      background-color="#2e303a"
       active-text-color="#409EFF"
       text-color="#fff"
       mode="horizontal"

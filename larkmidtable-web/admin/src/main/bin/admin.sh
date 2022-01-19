@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-FRIEND_NAME=FLINKX-ADMIN
+FRIEND_NAME=ADMIN
 MAIN_CLASS=com.larkmidtable.admin.AdminApplication
 if [ ! ${ENV_FILE} ]; then
     ENV_FILE="env.properties"

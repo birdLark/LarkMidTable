@@ -2,7 +2,7 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 SHELL_LOG="${DIR}/console.out"
-SERVER_NAME="flinkx-admin"
+SERVER_NAME="admin"
 USER=`whoami`
 SAFE_MODE=true
 SUDO_USER=false
@@ -10,7 +10,7 @@ ENV_FILE_PATH="${DIR}/env.properties"
 
 usage(){
   printf "Configure usage:\n"
-  printf "\t%-10s  %-10s  %-2s \n" --server "server-name" "Name of flinkx-admin server"
+  printf "\t%-10s  %-10s  %-2s \n" --server "server-name" "Name of admin server"
   printf "\t%-10s  %-10s  %-2s \n" --unsafe "unsafe mode" "Will clean the directory existed"
   printf "\t%-10s  %-10s  %-2s \n" --safe "safe mode" "Will not modify the directory existed (Default)"
   printf "\t%-10s  %-10s  %-2s \n" "-h|--help" "usage" "List help document"

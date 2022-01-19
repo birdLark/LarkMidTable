@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by xuxueli on 17/4/28.
  */
 public class JobLogger {
-    private static Logger logger = LoggerFactory.getLogger("flinkx-web logger");
+    private static Logger logger = LoggerFactory.getLogger("web logger");
 
 
 

@@ -44,7 +44,7 @@ public class FlinkXConfig {
 
     @Bean
     public JobSpringExecutor JobExecutor() {
-        logger.info(">>>>>>>>>>> flinkx-web config init.");
+        logger.info(">>>>>>>>>>> web config init.");
         JobSpringExecutor jobSpringExecutor = new JobSpringExecutor();
         jobSpringExecutor.setAdminAddresses(adminAddresses);
         jobSpringExecutor.setAppName(appName);
