@@ -352,3 +352,15 @@ CHANGE COLUMN `author` `user_id` INT(11) NOT NULL COMMENT '修改用户' ;
 
 ALTER TABLE `job_info`
 CHANGE COLUMN `increment_type` `increment_type` TINYINT(4) NULL DEFAULT 0 COMMENT '增量类型' ;
+
+CREATE TABLE `dev_env_setting` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'key',
+  `name` varchar(100) DEFAULT NULL COMMENT 'property name',
+  `prop_value` varchar(300) DEFAULT NULL COMMENT 'property value',
+  `description` varchar(500) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL COMMENT 'creator id',
+  `flag` tinyint(4) DEFAULT '1' COMMENT '0 not available, 1 available',
+  `create_time` datetime DEFAULT NULL COMMENT 'create time',
+  `update_time` datetime DEFAULT NULL COMMENT 'update time',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC
