@@ -125,7 +125,7 @@ public class JobTrigger {
         jobLog.setJobDesc(jobInfo.getJobDesc());
 
         JobAdminConfig.getAdminConfig().getJobLogMapper().save(jobLog);
-        logger.debug(">>>>>>>>>>> flinkx-web trigger start, jobId:{}", jobLog.getId());
+        logger.debug(">>>>>>>>>>> web trigger start, jobId:{}", jobLog.getId());
 
         // 2、init trigger-param
         triggerParam.setJobId(jobInfo.getId());
@@ -219,7 +219,7 @@ public class JobTrigger {
         jobLog.setTriggerMsg(triggerMsgSb.toString());
         JobAdminConfig.getAdminConfig().getJobLogMapper().updateTriggerInfo(jobLog);
 
-        logger.debug(">>>>>>>>>>> flinkx-web trigger end, jobId:{}", jobLog.getId());
+        logger.debug(">>>>>>>>>>> web trigger end, jobId:{}", jobLog.getId());
     }
 
     private static long getMaxId(JobInfo jobInfo) {
@@ -241,7 +241,7 @@ public class JobTrigger {
             ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(address);
             runResult = executorBiz.run(triggerParam);
         } catch (Exception e) {
-            logger.error(">>>>>>>>>>> flinkx-web trigger error, please check if the executor[{}] is running.", address, e);
+            logger.error(">>>>>>>>>>> web trigger error, please check if the executor[{}] is running.", address, e);
             runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.toString(e));
         }
 

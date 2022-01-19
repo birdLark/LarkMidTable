@@ -9,7 +9,7 @@ import com.larkmidtable.admin.core.trigger.JobTrigger;
 import java.util.Date;
 
 /**
- * flinkx-job trigger
+ * job trigger
  * Created by jingwk on 2019/12/15.
  */
 public class KillJob {

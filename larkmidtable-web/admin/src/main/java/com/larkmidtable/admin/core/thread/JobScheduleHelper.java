@@ -49,7 +49,7 @@ public class JobScheduleHelper {
                         logger.error(e.getMessage(), e);
                     }
                 }
-                logger.info(">>>>>>>>> init flinkx-web admin scheduler success.");
+                logger.info(">>>>>>>>> init web admin scheduler success.");
 
                 // pre-read count: treadpool-size * trigger-qps (each trigger cost 50ms, qps = 1000/50 = 20)
                 int preReadCount = (JobAdminConfig.getAdminConfig().getTriggerPoolFastMax() + JobAdminConfig.getAdminConfig().getTriggerPoolSlowMax()) * 20;
@@ -85,7 +85,7 @@ public class JobScheduleHelper {
                                 // time-ring jump
                                 if (nowTime > jobInfo.getTriggerNextTime() + PRE_READ_MS) {
                                     // 2.1、trigger-expire > 5s：pass && make next-trigger-time
-                                    logger.warn(">>>>>>>>>>> flinkx-web, schedule misfire, jobId = " + jobInfo.getId());
+                                    logger.warn(">>>>>>>>>>> web, schedule misfire, jobId = " + jobInfo.getId());
 
                                     // fresh next
                                     refreshNextValidTime(jobInfo, new Date());
@@ -95,7 +95,7 @@ public class JobScheduleHelper {
 
                                     // 1、trigger
                                     JobTriggerPoolHelper.trigger(jobInfo.getId(), TriggerTypeEnum.CRON, -1, null, null);
-                                    logger.debug(">>>>>>>>>>> flinkx-web, schedule push trigger : jobId = " + jobInfo.getId());
+                                    logger.debug(">>>>>>>>>>> web, schedule push trigger : jobId = " + jobInfo.getId());
 
                                     // 2、fresh next
                                     refreshNextValidTime(jobInfo, new Date());
@@ -144,7 +144,7 @@ public class JobScheduleHelper {
 
                     } catch (Exception e) {
                         if (!scheduleThreadToStop) {
-                            logger.error(">>>>>>>>>>> flinkx-web, JobScheduleHelper#scheduleThread error:{}", e);
+                            logger.error(">>>>>>>>>>> web, JobScheduleHelper#scheduleThread error:{}", e);
                         }
                     } finally {
 
@@ -201,11 +201,11 @@ public class JobScheduleHelper {
 
                 }
 
-                logger.info(">>>>>>>>>>> flinkx-web, JobScheduleHelper#scheduleThread stop");
+                logger.info(">>>>>>>>>>> web, JobScheduleHelper#scheduleThread stop");
             }
         });
         scheduleThread.setDaemon(true);
-        scheduleThread.setName("flinkx-web, admin JobScheduleHelper#scheduleThread");
+        scheduleThread.setName("web, admin JobScheduleHelper#scheduleThread");
         scheduleThread.start();
 
 
@@ -235,7 +235,7 @@ public class JobScheduleHelper {
                     }
 
                     // ring trigger
-                    logger.debug(">>>>>>>>>>> flinkx-web, time-ring beat : " + nowSecond + " = " + Arrays.asList(ringItemData));
+                    logger.debug(">>>>>>>>>>> web, time-ring beat : " + nowSecond + " = " + Arrays.asList(ringItemData));
                     if (ringItemData.size() > 0) {
                         // do trigger
                         for (int jobId : ringItemData) {
@@ -247,7 +247,7 @@ public class JobScheduleHelper {
                     }
                 } catch (Exception e) {
                     if (!ringThreadToStop) {
-                        logger.error(">>>>>>>>>>> flinkx-web, JobScheduleHelper#ringThread error:{}", e);
+                        logger.error(">>>>>>>>>>> web, JobScheduleHelper#ringThread error:{}", e);
                     }
                 }
 
@@ -260,10 +260,10 @@ public class JobScheduleHelper {
                     }
                 }
             }
-            logger.info(">>>>>>>>>>> flinkx-web, JobScheduleHelper#ringThread stop");
+            logger.info(">>>>>>>>>>> web, JobScheduleHelper#ringThread stop");
         });
         ringThread.setDaemon(true);
-        ringThread.setName("flinkx-web, admin JobScheduleHelper#ringThread");
+        ringThread.setName("web, admin JobScheduleHelper#ringThread");
         ringThread.start();
     }
 
@@ -288,7 +288,7 @@ public class JobScheduleHelper {
         }
         ringItemData.add(jobId);
 
-        logger.debug(">>>>>>>>>>> flinkx-web, schedule push time-ring : " + ringSecond + " = " + Arrays.asList(ringItemData));
+        logger.debug(">>>>>>>>>>> web, schedule push time-ring : " + ringSecond + " = " + Arrays.asList(ringItemData));
     }
 
     public void toStop() {
@@ -346,7 +346,7 @@ public class JobScheduleHelper {
             }
         }
 
-        logger.info(">>>>>>>>>>> flinkx-web, JobScheduleHelper stop");
+        logger.info(">>>>>>>>>>> web, JobScheduleHelper stop");
     }
 
 }
