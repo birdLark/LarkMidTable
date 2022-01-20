@@ -12,7 +12,7 @@
 
 ## 1.Flinkx的安装
 
-[Flinkx的安装](https://github.com/wxgzgl/LarkMidTable/tree/master/docs/InstallFlinkx.md)
+[Flinkx的安装](https://github.com/DTStack/flinkx/blob/master/docs/quickstart.md)
 
 **flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】**  
 
