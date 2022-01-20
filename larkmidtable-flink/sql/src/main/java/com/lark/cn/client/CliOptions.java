@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.lark.cn;
+package com.lark.cn.client;
 
 /**
  * Command line options to configure the SQL client. Arguments that have not been specified
