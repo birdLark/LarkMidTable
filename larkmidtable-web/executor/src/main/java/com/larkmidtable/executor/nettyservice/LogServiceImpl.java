@@ -25,7 +25,6 @@ import java.io.InputStream;
 public class LogServiceImpl implements LogService {
 	@Override
 	public byte[] getExecuteLog(String jobId) {
-		System.out.println(jobId);
 		// 通过流的方式读取
 		byte[] fileContentBytes = getFileContentBytes(
 				"/home/hadoop/flinkx-1.8_release/"+jobId);
@@ -60,7 +59,14 @@ public class LogServiceImpl implements LogService {
 			while ((len = in.read(buf)) != -1) {
 				bos.write(buf, 0, len);
 			}
-			return bos.toByteArray();
+			byte[] logdetail = bos.toByteArray();
+			if(bos !=null) {
+				bos.close();
+			}
+			if(in != null) {
+				in.close();
+			}
+			return logdetail;
 		} catch (IOException e) {
 //			logger.error("get file bytes error", e);
 		}

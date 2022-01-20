@@ -45,7 +45,7 @@ public class LogClientHandler extends ChannelInboundHandlerAdapter implements Ca
 	public synchronized Object call() throws InterruptedException {
 		context.writeAndFlush(para);
 		while (!isComplete) {
-			wait(1);
+			wait(1000);
 		}
 		return result;
 	}

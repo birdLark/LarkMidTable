@@ -78,16 +78,16 @@ public class JobLogController {
 
     @RequestMapping(value = "/logDetailCat", method = RequestMethod.GET)
     @ApiOperation("运行日志详情")
-    public ReturnT<LogResult> logDetailCat(String executorAddress, long triggerTime, long logId, int fromLineNum) {
+    public ReturnT<LogResult> logDetailCat(String executorAddress, String triggerTime, String logId, String fromLineNum) {
         try {
 			RpcConsumer consumer = new RpcConsumer();
 			// 创建一个代理对象
 			LogService service = (LogService) consumer.createProxy(LogService.class, "UserService#sayHello#");
 			String logContent =service.getExecuteLog("nohup.out");
-			Runtime.getRuntime().exit(0);
-			ReturnT<LogResult> returnT = new ReturnT<>(ReturnT.FAIL_CODE,"查询日志成功");
+			ReturnT<LogResult> returnT = new ReturnT<>(ReturnT.SUCCESS_CODE,"查询日志成功");
 			LogResult logResult = new LogResult(0,0,logContent,true);
 			returnT.setContent(logResult);
+			System.out.println("======================"+logContent);
 			return returnT;
 		} catch (Exception e) {
             logger.error(e.getMessage(), e);

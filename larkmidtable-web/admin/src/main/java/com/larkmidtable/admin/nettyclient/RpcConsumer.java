@@ -63,7 +63,7 @@ public class RpcConsumer {
 					}
 				});
 		try {
-			b.connect("localhost", 8990).sync();
+			b.connect("192.168.1.204", 8990).sync();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
