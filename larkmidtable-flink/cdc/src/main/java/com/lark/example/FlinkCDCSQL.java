@@ -6,6 +6,7 @@ import com.ververica.cdc.debezium.DebeziumSourceFunction;
 import com.ververica.cdc.debezium.StringDebeziumDeserializationSchema;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.table.api.TableResult;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
@@ -40,7 +41,21 @@ public class FlinkCDCSQL {
 				" 'database-name' = 'test'," +
 				" 'table-name' = 'student'" +
 				")");
-		tableEnv.executeSql("select * from student2").print();
-		env.execute();
+		TableResult tableResult = tableEnv.executeSql("select * from student2");
+		// FlinkSQL
+		tableEnv.executeSql("CREATE TABLE output_kafka (\n"
+				+ " id STRING,\n"
+				+ " name STRING,\n"
+				+ " address STRING\n"
+				+ " )  WITH (\n"
+				+ "  'connector' = 'kafka',\n"
+				+ "  'topic' = 'user_behavior',\n"
+				+ "  'properties.bootstrap.servers' = '192.168.1.204:9092',\n"
+				+ "  'properties.group.id' = 'testGroup',\n"
+				+ "  'scan.startup.mode' = 'earliest-offset',\n"
+				+ "  'value.format' = 'debezium-json'\n"
+				+ ")"
+		);
+		tableEnv.executeSql("insert into output_kafka select * from student2");  //从结果表查数据，转存到输出表
 	}
 }

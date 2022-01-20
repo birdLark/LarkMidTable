@@ -54,6 +54,19 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.75</version>
         </dependency>
+        <!--flink的-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka_2.11</artifactId>
+            <version>1.13.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-json</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
