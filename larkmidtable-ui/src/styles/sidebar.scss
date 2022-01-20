@@ -10,7 +10,7 @@
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
-    background-color: #000;
+    background-color: #42444d;
     height: 100%;
     position: absolute;
     font-size: 0px;
@@ -68,7 +68,7 @@
     .submenu-title-noDropdown,
     .el-submenu__title {
       &:hover {
-        background-color: $menuHover !important;
+        background-color: #2e303a !important;
       }
     }
 
@@ -79,7 +79,7 @@
     & .nest-menu .el-submenu>.el-submenu__title,
     & .el-submenu .el-menu-item {
       min-width: $sideBarWidth !important;
-      background-color: $subMenuBg !important;
+      background-color: #42444d !important;
       &:hover {
         background-color: $subMenuHover !important;
       }
@@ -210,6 +210,6 @@
 .headerStyle{
   line-height:56px;
   color: #fff;
-  background-color: #000;
+  background-color: #2e303a;
   display: flex;
 }
