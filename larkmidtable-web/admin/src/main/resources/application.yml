@@ -103,6 +103,11 @@ flinkx:
         max: 100
       ### log retention days
     logretentiondays: 30
+  executor:
+    flinkxHome: /home/hadoop/flinkx/start.sh
+    jsonPath: /home/hadoop/flinkx/job/
+    logHome: /home/hadoop/flinkx/nohup.out
+
 
 datasource:
   aes:

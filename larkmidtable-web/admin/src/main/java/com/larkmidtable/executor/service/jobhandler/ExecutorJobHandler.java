@@ -2,7 +2,6 @@ package com.larkmidtable.executor.service.jobhandler;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
-import com.larkmidtable.executor.service.logparse.LogStatistics;
 import com.larkmidtable.core.biz.model.HandleProcessCallbackParam;
 import com.larkmidtable.core.biz.model.ReturnT;
 import com.larkmidtable.core.biz.model.TriggerParam;
@@ -11,6 +10,7 @@ import com.larkmidtable.core.handler.annotation.JobHandler;
 import com.larkmidtable.core.log.JobLogger;
 import com.larkmidtable.core.thread.ProcessCallbackThread;
 import com.larkmidtable.core.util.ProcessUtil;
+import com.larkmidtable.executor.service.logparse.LogStatistics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,7 +23,6 @@ import static com.larkmidtable.executor.service.command.BuildCommand.buildFlinkX
 import static com.larkmidtable.executor.service.logparse.AnalysisStatistics.analysisStatisticsLog;
 
 
-
 @JobHandler(value = "executorJobHandler")
 @Component
 public class ExecutorJobHandler extends IJobHandler {
@@ -34,7 +33,8 @@ public class ExecutorJobHandler extends IJobHandler {
 	@Value("${flinkx.shell.path}")
 	private String flinkXShPath;
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ExecutorJobHandler.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(
+			ExecutorJobHandler.class);
 
 	@Override
 	public ReturnT<String> execute(TriggerParam trigger) {

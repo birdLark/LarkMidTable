@@ -282,6 +282,7 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public ReturnT<String> start(int id) {
+		System.out.println("======job start1=====");
         JobInfo xxlJobInfo = jobInfoMapper.loadById(id);
 
         // next trigger time (5s后生效，避开预读周期)

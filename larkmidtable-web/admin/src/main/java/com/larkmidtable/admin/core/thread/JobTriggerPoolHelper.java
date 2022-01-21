@@ -1,11 +1,23 @@
 package com.larkmidtable.admin.core.thread;
 
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.util.IdUtil;
+import com.larkmidtable.admin.core.conf.ExcecutorConfig;
 import com.larkmidtable.admin.core.conf.JobAdminConfig;
-import com.larkmidtable.admin.core.trigger.TriggerTypeEnum;
 import com.larkmidtable.admin.core.trigger.JobTrigger;
+import com.larkmidtable.admin.core.trigger.TriggerTypeEnum;
+import com.larkmidtable.admin.entity.JobInfo;
+import com.larkmidtable.core.log.JobLogger;
+import com.larkmidtable.core.util.ProcessUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -14,120 +26,136 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author xuxueli 2018-07-03 21:08:07
  */
+
 public class JobTriggerPoolHelper {
-    private static Logger logger = LoggerFactory.getLogger(JobTriggerPoolHelper.class);
+	public static final ConcurrentMap<String, String> jobTmpFiles = new ConcurrentHashMap<>();
 
 
-    // ---------------------- trigger pool ----------------------
+	//	private String flinkXShPath;
 
-    // fast/slow thread pool
-    private ThreadPoolExecutor fastTriggerPool = null;
-    private ThreadPoolExecutor slowTriggerPool = null;
+	// ---------------------- trigger pool ----------------------
+	private static Logger logger = LoggerFactory.getLogger(JobTriggerPoolHelper.class);
+	private static JobTriggerPoolHelper helper = new JobTriggerPoolHelper();
+	// fast/slow thread pool
+	private ThreadPoolExecutor fastTriggerPool = null;
+	private ThreadPoolExecutor slowTriggerPool = null;
+	// job timeout count
+	private volatile long minTim = System.currentTimeMillis() / 60000;     // ms > min
+	private volatile ConcurrentMap<Integer, AtomicInteger> jobTimeoutCountMap = new ConcurrentHashMap<>();
 
-    public void start() {
-        fastTriggerPool = new ThreadPoolExecutor(
-                10,
-                JobAdminConfig.getAdminConfig().getTriggerPoolFastMax(),
-                60L,
-                TimeUnit.SECONDS,
-                new LinkedBlockingQueue<Runnable>(1000),
-                new ThreadFactory() {
-                    @Override
-                    public Thread newThread(Runnable r) {
-                        return new Thread(r, "web, admin JobTriggerPoolHelper-fastTriggerPool-" + r.hashCode());
-                    }
-                });
+	public static void toStart() {
+		helper.start();
+	}
 
-        slowTriggerPool = new ThreadPoolExecutor(
-                10,
-                JobAdminConfig.getAdminConfig().getTriggerPoolSlowMax(),
-                60L,
-                TimeUnit.SECONDS,
-                new LinkedBlockingQueue<Runnable>(2000),
-                new ThreadFactory() {
-                    @Override
-                    public Thread newThread(Runnable r) {
-                        return new Thread(r, "web, admin JobTriggerPoolHelper-slowTriggerPool-" + r.hashCode());
-                    }
-                });
-    }
+	public static void toStop() {
+		helper.stop();
+	}
 
 
-    public void stop() {
-        //triggerPool.shutdown();
-        fastTriggerPool.shutdownNow();
-        slowTriggerPool.shutdownNow();
-        logger.info(">>>>>>>>> web trigger thread pool shutdown success.");
-    }
+	// ---------------------- helper ----------------------
 
+	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath) {
+		List<String> cmdArr = new ArrayList<>();
+		String jsonPath = ExcecutorConfig.getExcecutorConfig().getJsonPath();
+		if (System.getProperty("os.name").toLowerCase().contains("linux")) {
+			// linux 系统
+			cmdArr.add("sh");
+		} else {
+			// window或者其他系统
+			cmdArr.add("python");
+		}
+		cmdArr.add(flinkXShPath);
+		cmdArr.add(jsonPath+tmpFilePath);
 
-    // job timeout count
-    private volatile long minTim = System.currentTimeMillis() / 60000;     // ms > min
-    private volatile ConcurrentMap<Integer, AtomicInteger> jobTimeoutCountMap = new ConcurrentHashMap<>();
+		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
+		return cmdArr.toArray(new String[cmdArr.size()]);
+	}
 
+	public static void runJob(int jobId) {
+		try {
 
-    /**
-     * add trigger
-     */
-    public void addTrigger(final int jobId, final TriggerTypeEnum triggerType, final int failRetryCount, final String executorShardingParam, final String executorParam) {
+			JobInfo jobInfo = JobAdminConfig.getAdminConfig().getJobInfoMapper().loadById(jobId);
+			String tmpFilePath = generateTemJsonFile(jobInfo.getJobJson());
+			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
+			String cmdstr = "";
+			String[] cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+			for (int j = 0; j < cmdarrayFinal.length; j++) {
+				cmdstr += cmdarrayFinal[j] + " ";
+			}
+			System.out.println("-------job will run----------");
+			final Process process = Runtime.getRuntime().exec(cmdstr);
+			String prcsId = ProcessUtil.getProcessId(process);
+			JobLogger.log("------------------FlinkX process id: " + prcsId);
+			// 运行完后删除文件
+			if (FileUtil.exist(tmpFilePath)) {
+//				FileUtil.del(new File(tmpFilePath));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-        // choose thread pool
-        ThreadPoolExecutor triggerPool_ = fastTriggerPool;
-        AtomicInteger jobTimeoutCount = jobTimeoutCountMap.get(jobId);
-        if (jobTimeoutCount != null && jobTimeoutCount.get() > 10) {      // job-timeout 10 times in 1 min
-            triggerPool_ = slowTriggerPool;
-        }
-        // trigger
-        triggerPool_.execute(() -> {
-            long start = System.currentTimeMillis();
-            try {
-                // do trigger
-                JobTrigger.trigger(jobId, triggerType, failRetryCount, executorShardingParam, executorParam);
-            } catch (Exception e) {
-                logger.error(e.getMessage(), e);
-            } finally {
-                // check timeout-count-map
-                long minTim_now = System.currentTimeMillis() / 60000;
-                if (minTim != minTim_now) {
-                    minTim = minTim_now;
-                    jobTimeoutCountMap.clear();
-                }
-                // incr timeout-count-map
-                long cost = System.currentTimeMillis() - start;
-                if (cost > 500) {       // ob-timeout threshold 500ms
-                    AtomicInteger timeoutCount = jobTimeoutCountMap.putIfAbsent(jobId, new AtomicInteger(1));
-                    if (timeoutCount != null) {
-                        timeoutCount.incrementAndGet();
-                    }
-                }
-            }
-        });
-    }
+	public static void runJobWithJson(String  jobJson) {
+		try {
+			String tmpFilePath = generateTemJsonFile(jobJson);
+			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
+			String cmdstr = "";
+			String[] cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+			for (int j = 0; j < cmdarrayFinal.length; j++) {
+				cmdstr += cmdarrayFinal[j] + " ";
+			}
+			System.out.println("-------job will run----------");
+			final Process process = Runtime.getRuntime().exec(cmdstr);
+			String prcsId = ProcessUtil.getProcessId(process);
+			JobLogger.log("------------------FlinkX process id: " + prcsId);
+			// 运行完后删除文件
+			if (FileUtil.exist(tmpFilePath)) {
+				FileUtil.del(new File(tmpFilePath));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
+	private static String generateTemJsonFile(String jobJson) {
+		String jsonPath = ExcecutorConfig.getExcecutorConfig().getJsonPath();
+		if (!FileUtil.exist(jsonPath)) {
+			FileUtil.mkdir(jsonPath);
+		}
+		String tmpFilePath = jsonPath + "jobTmp-" + IdUtil.simpleUUID() + ".json";
+		// 根据json写入到临时本地文件
+		try (PrintWriter writer = new PrintWriter(tmpFilePath, "UTF-8")) {
+			writer.println(jobJson);
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			JobLogger.log("JSON 临时文件写入异常：" + e.getMessage());
+		}
+		return tmpFilePath;
+	}
 
-    // ---------------------- helper ----------------------
+	public void start() {
+		fastTriggerPool = new ThreadPoolExecutor(10, JobAdminConfig.getAdminConfig().getTriggerPoolFastMax(), 60L,
+				TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(1000), new ThreadFactory() {
+			@Override
+			public Thread newThread(Runnable r) {
+				return new Thread(r, "web, admin JobTriggerPoolHelper-fastTriggerPool-" + r.hashCode());
+			}
+		});
 
-    private static JobTriggerPoolHelper helper = new JobTriggerPoolHelper();
+		slowTriggerPool = new ThreadPoolExecutor(10, JobAdminConfig.getAdminConfig().getTriggerPoolSlowMax(), 60L,
+				TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(2000), new ThreadFactory() {
+			@Override
+			public Thread newThread(Runnable r) {
+				return new Thread(r, "web, admin JobTriggerPoolHelper-slowTriggerPool-" + r.hashCode());
+			}
+		});
+	}
 
-    public static void toStart() {
-        helper.start();
-    }
+	public void stop() {
+		//triggerPool.shutdown();
+		fastTriggerPool.shutdownNow();
+		slowTriggerPool.shutdownNow();
+		logger.info(">>>>>>>>> web trigger thread pool shutdown success.");
+	}
 
-    public static void toStop() {
-        helper.stop();
-    }
-
-    /**
-     * @param jobId
-     * @param triggerType
-     * @param failRetryCount        >=0: use this param
-     *                              <0: use param from job info config
-     * @param executorShardingParam
-     * @param executorParam         null: use job param
-     *                              not null: cover job param
-     */
-    public static void trigger(int jobId, TriggerTypeEnum triggerType, int failRetryCount, String executorShardingParam, String executorParam) {
-        helper.addTrigger(jobId, triggerType, failRetryCount, executorShardingParam, executorParam);
-    }
 
 }

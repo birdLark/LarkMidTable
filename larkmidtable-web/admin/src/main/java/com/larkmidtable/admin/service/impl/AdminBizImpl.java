@@ -68,6 +68,7 @@ public class AdminBizImpl implements AdminBiz {
 
 
     private ReturnT<String> callback(HandleCallbackParam handleCallbackParam) {
+		JobTriggerPoolHelper jobTriggerPoolHelper = new JobTriggerPoolHelper();
         // valid log item
         JobLog log = jobLogMapper.load(handleCallbackParam.getLogId());
         if (log == null) {
@@ -94,8 +95,7 @@ public class AdminBizImpl implements AdminBiz {
                 for (int i = 0; i < childJobIds.length; i++) {
                     int childJobId = (childJobIds[i] != null && childJobIds[i].trim().length() > 0 && isNumeric(childJobIds[i])) ? Integer.valueOf(childJobIds[i]) : -1;
                     if (childJobId > 0) {
-
-                        JobTriggerPoolHelper.trigger(childJobId, TriggerTypeEnum.PARENT, -1, null, null);
+						JobTriggerPoolHelper.runJob(childJobId);
                         ReturnT<String> triggerChildResult = ReturnT.SUCCESS;
 
                         // add msg

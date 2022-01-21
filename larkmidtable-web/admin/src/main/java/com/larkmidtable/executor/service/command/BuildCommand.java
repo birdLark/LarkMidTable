@@ -1,11 +1,11 @@
 package com.larkmidtable.executor.service.command;
 
-import com.larkmidtable.executor.service.jobhandler.FlinkXConstant;
 import com.larkmidtable.core.biz.model.TriggerParam;
 import com.larkmidtable.core.enums.IncrementTypeEnum;
 import com.larkmidtable.core.log.JobLogger;
 import com.larkmidtable.core.util.Constants;
 import com.larkmidtable.core.util.DateUtil;
+import com.larkmidtable.executor.service.jobhandler.FlinkXConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,8 @@ import static com.larkmidtable.core.util.Constants.SPLIT_COMMA;
  */
 public class BuildCommand {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(BuildCommand.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(
+			BuildCommand.class);
 
 	/**
      * FlinkX command build

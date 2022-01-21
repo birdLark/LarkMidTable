@@ -92,11 +92,16 @@ public class JobInfoController extends BaseController{
     @ApiOperation("触发任务")
     public ReturnT<String> triggerJob(@RequestBody TriggerJobDto dto) {
         // force cover job param
-        String executorParam=dto.getExecutorParam();
-        if (executorParam == null) {
-            executorParam = "";
-        }
-        JobTriggerPoolHelper.trigger(dto.getJobId(), TriggerTypeEnum.MANUAL, -1, null, executorParam);
+		try {
+			String executorParam=dto.getExecutorParam();
+			if (executorParam == null) {
+				executorParam = "";
+			}
+			JobTriggerPoolHelper jobTriggerPoolHelper =  new JobTriggerPoolHelper();
+			jobTriggerPoolHelper.runJob(dto.getJobId());
+		} catch (Exception e) {
+			return ReturnT.FAIL;
+		}
         return ReturnT.SUCCESS;
     }
 

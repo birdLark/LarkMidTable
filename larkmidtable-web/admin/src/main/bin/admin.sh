@@ -212,19 +212,8 @@ stop_m(){
         return 0
     fi
     LOG INFO "Killing ${FRIEND_NAME} (pid ${p}) ..."
-    case "`uname`" in
-        CYCGWIN*) taskkill /PID "${p}" ;;
-        *) kill -SIGTERM "${p}" ;;
-    esac
-    LOG INFO "Waiting ${FRIEND_NAME} to stop complete ..."
-    wait_for_stop 20
-    if [ $? -eq 0 ]; then
-        LOG INFO "${FRIEND_NAME} stop success"
-        return 0
-    else
-        LOG ERROR "${FRIEND_NAME} stop exceeded over 20s" >&2
-        return 1
-    fi
+    kill -9 ${p}
+    LOG INFO "Stop successful..."
 }
 
 shutdown_m(){

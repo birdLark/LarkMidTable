@@ -38,14 +38,12 @@ public class JobFailMonitorHelper {
 	private volatile boolean toStop = false;
 	public void start(){
 		monitorThread = new Thread(new Runnable() {
-
 			@Override
 			public void run() {
-
+				JobTriggerPoolHelper JobTriggerPoolHelper = new JobTriggerPoolHelper();
 				// monitor
 				while (!toStop) {
 					try {
-
 						List<Long> failLogIds = JobAdminConfig.getAdminConfig().getJobLogMapper().findFailJobLogIds(1000);
 						if (failLogIds!=null && !failLogIds.isEmpty()) {
 							for (long failLogId: failLogIds) {
@@ -60,7 +58,7 @@ public class JobFailMonitorHelper {
 
 								// 1、fail retry monitor
 								if (log.getExecutorFailRetryCount() > 0) {
-									JobTriggerPoolHelper.trigger(log.getJobId(), TriggerTypeEnum.RETRY, (log.getExecutorFailRetryCount()-1), log.getExecutorShardingParam(), log.getExecutorParam());
+									JobTriggerPoolHelper.runJob(log.getJobId());
 									String retryMsg = "<br><br><span style=\"color:#F39C12;\" > >>>>>>>>>>>"+ I18nUtil.getString("jobconf_trigger_type_retry") +"<<<<<<<<<<< </span><br>";
 									log.setTriggerMsg(log.getTriggerMsg() + retryMsg);
 									JobAdminConfig.getAdminConfig().getJobLogMapper().updateTriggerInfo(log);

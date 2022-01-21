@@ -1,4 +1,4 @@
-package com.larkmidtable.executor.core.config;
+package com.larkmidtable.executor.config;
 
 import com.larkmidtable.core.executor.impl.JobSpringExecutor;
 import com.larkmidtable.executor.util.SystemUtils;
@@ -14,9 +14,11 @@ import org.springframework.context.annotation.Configuration;
  *
  * @author xuxueli 2017-04-28
  */
+/*
 @Configuration
 public class FlinkXConfig {
-    private Logger logger = LoggerFactory.getLogger(FlinkXConfig.class);
+    */
+/*private Logger logger = LoggerFactory.getLogger(FlinkXConfig.class);
 
     private static final String DEFAULT_LOG_PATH = "log/executor/jobhandler";
 
@@ -61,7 +63,9 @@ public class FlinkXConfig {
         return jobSpringExecutor;
     }
 
-    /**
+    *//*
+*/
+/**
      * 针对多网卡、容器内部署等情况，可借助 "spring-cloud-commons" 提供的 "InetUtils" 组件灵活定制注册IP；
      *
      *      1、引入依赖：
@@ -76,7 +80,9 @@ public class FlinkXConfig {
      *
      *      3、获取IP
      *          String ip_ = inetUtils.findFirstNonLoopbackHostInfo().getIpAddress();
-     */
+     *//*
+
 
 
 }
+*/

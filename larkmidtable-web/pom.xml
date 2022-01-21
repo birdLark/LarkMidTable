@@ -12,7 +12,6 @@
     <modules>
         <module>admin</module>
         <module>core</module>
-        <module>executor</module>
         <module>rpc</module>
         <module>assembly</module>
     </modules>

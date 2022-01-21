@@ -48,7 +48,6 @@ tar -zxvf web-2.1.2.tar.gz
 
 ```
 cd web-2.1.2/bin/
-sh install.sh 
 ```
 
 ### 2.4安装配置
@@ -64,73 +63,39 @@ sh install.sh
     password: root
     url: jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
-```
-
-将localhost修改为数据库的地址
-
-2.修改web-2.1.2/packages/executor/conf 下面的application.yml文件
-
-```
-# web port
-server:
-#  port: ${server.port}
-  port: 8081
-
-# log config
-logging:
-  config: classpath:logback.xml
-#  path: ${data.path}/applogs/executor/jobhandler
-  path: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-executor
-
+  ....
+  ....
+  ....
 flinkx:
   job:
-    admin:
-      ## flinkx admin address list, such as "http://address" or "http://address01,http://address02"
-      addresses: http://localhost:8080
-#      addresses: http://127.0.0.1:${flinkx.admin.port}
-    executor:
-      appname: flinkx-executor
-      ip:
-      port: 9999
-#      port: ${executor.port:9999}
-      ### job log path
-      logpath: /home/hadoop/data/flinkx-web-2.1.2/packages/flinkx-executor/
-#      logpath: ${data.path}/applogs/executor/jobhandler
-      ### job log retention days
-      logretentiondays: 30
-    ### job, access token
     accessToken:
-
+    #i18n (default empty as chinese, "en" as english)
+    i18n:
+    ## triggerpool max size
+    triggerpool:
+      fast:
+        max: 200
+      slow:
+        max: 100
+      ### log retention days
+    logretentiondays: 30
   executor:
-    jsonpath: /home/hadoop/flinkx-1.8_release/job/
-#    jsonpath: ${json.path}
-
-  pypath: /home/hadoop/flinkx-1.8_release/start.sh
-#  pypath: ${python.path}
-  
+    flinkxHome: /home/hadoop/flinkx/start.sh
+    jsonPath: /home/hadoop/flinkx/job/
+    logHome: /home/hadoop/flinkx/nohup.out
 ```
 
-**executor的日志的路径:**
+1.将localhost修改为数据库的地址
 
- logpath: /home/hadoop/data/web-2.1.2/packages/executor
-
-**flinkx的job目录的路径:**
-
-jsonpath:  /home/hadoop/flinkx-1.8_release/job/
-
-**flinkx的启动脚本的路径:**
-
- pypath:  /home/hadoop/flinkx-1.8_release/start.sh
+2.将flinkxHome，jsonPath，logHome 配置的/home/hadoop/flinkx 换成flinkx所在目录
 
 
-
-**其中start.sh脚本和flinkx-1.8_release压缩包，可以添加群获得**
 
 ### 2.5启动程序
 
 ```
-cd web-2.1.2/bin/
-sh start-all.sh 
+[hadoop@mini4 bin]$ cd web-2.1.2/bin/
+[hadoop@mini4 bin]$ sh admin.sh start
 ```
 
 验证是否启动成功
@@ -138,8 +103,6 @@ sh start-all.sh
 ```
 [hadoop@mini4 bin]$ jps
 24931 AdminApplication
-26216 Jps
-26185 ExecutorApplication
 ```
 
 ### 2.6访问首页
