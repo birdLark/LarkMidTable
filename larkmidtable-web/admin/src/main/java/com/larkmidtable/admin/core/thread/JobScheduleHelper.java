@@ -56,7 +56,7 @@ public class JobScheduleHelper {
 					try {
 						conn = JobAdminConfig.getAdminConfig().getDataSource().getConnection();
 						connAutoCommit = conn.getAutoCommit();
-						conn.setAutoCommit(true);
+						conn.setAutoCommit(false);
 						preparedStatement = conn.prepareStatement(
 								"select * from job_lock where lock_name = 'schedule_lock' for update");
 						preparedStatement.execute();
@@ -84,6 +84,13 @@ public class JobScheduleHelper {
 						if (conn != null) {
 							try {
 								conn.commit();
+							} catch (SQLException e) {
+								if (!scheduleThreadToStop) {
+									logger.error(e.getMessage(), e);
+								}
+							}
+							try {
+								conn.setAutoCommit(connAutoCommit);
 							} catch (SQLException e) {
 								if (!scheduleThreadToStop) {
 									logger.error(e.getMessage(), e);
