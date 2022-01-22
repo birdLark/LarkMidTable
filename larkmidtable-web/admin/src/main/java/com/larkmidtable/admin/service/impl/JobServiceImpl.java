@@ -314,6 +314,7 @@ public class JobServiceImpl implements JobService {
         jobInfo.setTriggerStatus(0);
         jobInfo.setTriggerLastTime(0);
         jobInfo.setTriggerNextTime(0);
+        jobInfo.setTriggerStatus(0);
 
         jobInfo.setUpdateTime(new Date());
         jobInfoMapper.update(jobInfo);

@@ -56,21 +56,23 @@ public class JobScheduleHelper {
 					try {
 						conn = JobAdminConfig.getAdminConfig().getDataSource().getConnection();
 						connAutoCommit = conn.getAutoCommit();
-						conn.setAutoCommit(false);
+						conn.setAutoCommit(true);
 						preparedStatement = conn.prepareStatement(
 								"select * from job_lock where lock_name = 'schedule_lock' for update");
 						preparedStatement.execute();
 						long nowTime = System.currentTimeMillis();
 						List<JobInfo> scheduleList = JobAdminConfig.getAdminConfig().getJobInfoMapper()
-								.scheduleJobQuery(nowTime + PRE_READ_MS, preReadCount);
+								.scheduleJobQuery(nowTime , preReadCount);
 						if (scheduleList != null && scheduleList.size() > 0) {
 							for (JobInfo jobInfo : scheduleList) {
 								jobTriggerPoolHelper.runJobWithJson(jobInfo.getJobJson());
 								CronExpression cronExpression = new CronExpression(jobInfo.getJobCron());
 								Date lastTime = new Date();
 								lastTime = cronExpression.getNextValidTimeAfter(lastTime);
-								jobInfo.setTriggerNextTime(lastTime.getTime());
-								JobAdminConfig.getAdminConfig().getJobInfoMapper().scheduleUpdate(jobInfo);
+								//
+								JobInfo jobInfo2 = JobAdminConfig.getAdminConfig().getJobInfoMapper().loadById(jobInfo.getId());
+								jobInfo2.setTriggerNextTime(lastTime.getTime());
+								JobAdminConfig.getAdminConfig().getJobInfoMapper().scheduleUpdate(jobInfo2);
 							}
 						}
 					} catch (Exception e) {
@@ -82,13 +84,6 @@ public class JobScheduleHelper {
 						if (conn != null) {
 							try {
 								conn.commit();
-							} catch (SQLException e) {
-								if (!scheduleThreadToStop) {
-									logger.error(e.getMessage(), e);
-								}
-							}
-							try {
-								conn.setAutoCommit(connAutoCommit);
 							} catch (SQLException e) {
 								if (!scheduleThreadToStop) {
 									logger.error(e.getMessage(), e);

@@ -110,7 +110,7 @@ public class JobTriggerPoolHelper {
 			JobLogger.log("------------------FlinkX process id: " + prcsId);
 			// 运行完后删除文件
 			if (FileUtil.exist(tmpFilePath)) {
-				FileUtil.del(new File(tmpFilePath));
+//				FileUtil.del(new File(tmpFilePath));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
