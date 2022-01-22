@@ -104,9 +104,9 @@ flinkx:
       ### log retention days
     logretentiondays: 30
   executor:
-    flinkxHome: /home/hadoop/flinkx/start.sh
-    jsonPath: /home/hadoop/flinkx/job/
-    logHome: /home/hadoop/flinkx/nohup.out
+    flinkxHome: C:\Users\guoliang\Desktop\flinkx\flinkx.py
+    jsonPath: C:\Users\guoliang\Desktop\flinkx\job\
+    logHome: C:\Users\guoliang\Desktop\flinkx\nohup.out
 
 
 datasource:
