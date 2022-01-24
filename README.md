@@ -16,7 +16,7 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 
 1. Meet many small businesses and provide one-stop solutions.
 
-2. Make world-class products that can rival BAT factories.
+2. Make world-class products that can Google or Apple.
 
 3. Create value, generate value, and make the world a better place.
 
