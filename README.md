@@ -56,11 +56,6 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 |                             |                | MongoDB Oplog         |               |                |
 |                             |                | PostgreSQL WAL        |               |                |
 | **Task logical scheduling** | scheduling     |                       | enable        | enable         |
-| **数据治理**                | 元数据管理     |                       |               |                |
-|                             | 数据质量管理   |                       |               |                |
-|                             | 数据血缘管理   |                       |               |                |
-| **数据开发**                | 可视化任务开发 |                       |               |                |
-| **数据服务**                | 可视化API构建  |                       |               |                |
 
 
 
