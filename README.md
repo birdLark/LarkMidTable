@@ -2,80 +2,80 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-中文 | [English](README_EN.md)
+English | [中文](README_CH.md)
 
-LarkMidTable 中文名称 云雀，云代表大数据，雀代表平凡和自由。
+LarkMidTable Chinese name Skylark, the cloud stands for big data, and the finch stands for the ordinary and freedom.
 
-LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据仓库开发，数据质量管理，数据的可视化，实现高效赋能数据前台并提供数据服务的产品。
+LarkMidTable is a one-stop open source data middle office that implements metadata management, data warehouse development, data quality management, data visualization, and achieves efficient data foreground and provides data services.
 
 
 
 [![Stargazers over time](https://starchart.cc/wxgzgl/larkMidTable.svg)](#)
 
-# **产品愿景**
+# **Product Vision**
 
-1.满足许多的小企业，提供一站式的解决方案。
+1. Meet many small businesses and provide one-stop solutions.
 
-2.做出世界级别，能够媲美BAT大厂的产品。
+2. Make world-class products that can rival BAT factories.
 
-3.创造价值，产生价值，让世界变得更加美好。
+3. Create value, generate value, and make the world a better place.
 
 
 
-# 产品效果图
+# Product Renderings
 
 ![页面效果图](https://img2022.cnblogs.com/blog/622382/202201/622382-20220118221928716-62704218.png)
 
 
 
-# 产品架构图
+# Product Architecture Diagram
 
 ![系统架构图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201019215540747-440767668.jpg ) 
 
 
 
-# 产品功能
+# Product Features
 
-| **功能**     | **功能特性**   | **数据库类型** | **读取类型** | **写入类型** |
-| ------------ | :------------- | -------------- | ------------ | ------------ |
-| **数据集成** | 批处理同步     | Mysql          | 支持         | 支持         |
-|              |                | PostgreSql     | 支持         | 支持         |
-|              |                | Mongodb        | 支持         | 支持         |
-|              |                | SqlServer      | 支持         | 支持         |
-|              |                | Oracle         | 支持         | 支持         |
-|              |                | SAPHana        | 支持         | 支持         |
-|              |                | ClickHouse     | 支持         | 支持         |
-|              |                | Hive           |              | 支持         |
-|              |                | Hbase          | 支持         | 支持         |
-|              |                | Hdfs           | 支持         | 支持         |
-|              |                | ElasticSearch  |              |              |
-|              |                | Kudu           |              |              |
-|              |                | Redis          |              |              |
-|              | 流处理同步     | Kafka          |              |              |
-|              |                | MySQL Binlog   |              |              |
-|              |                | MongoDB Oplog  |              |              |
-|              |                | PostgreSQL WAL |              |              |
-| **任务调度** | 任务逻辑调度   |                | 支持         | 支持         |
-| **数据治理** | 元数据管理     |                |              |              |
-|              | 数据质量管理   |                |              |              |
-|              | 数据血缘管理   |                |              |              |
-| **数据开发** | 可视化任务开发 |                |              |              |
-| **数据服务** | 可视化API构建  |                |              |              |
-
-
-
-# **快速开始**
-
-安装手册      [安装手册](https://github.com/wxgzgl/flinkx-web/blob/master/larkmidtable-doc/userGuid.md)
-
-操作手册  	[操作手册](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/userManual.md)
-
-插件开发手册      [插件开发手册](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/pluginDev.md)
+| **function**                | **Features**   | **The database type** | **Read type** | **Write type** |
+| --------------------------- | :------------- | --------------------- | ------------- | -------------- |
+| **Data Integration**        | Batch          | Mysql                 | enable        | enable         |
+|                             |                | PostgreSql            | enable        | enable         |
+|                             |                | Mongodb               | enable        | enable         |
+|                             |                | SqlServer             | enable        | enable         |
+|                             |                | Oracle                | enable        | enable         |
+|                             |                | SAPHana               | enable        | enable         |
+|                             |                | ClickHouse            | enable        | enable         |
+|                             |                | Hive                  |               | enable         |
+|                             |                | Hbase                 | enable        | enable         |
+|                             |                | Hdfs                  | enable        | enable         |
+|                             |                | ElasticSearch         |               |                |
+|                             |                | Kudu                  |               |                |
+|                             |                | Redis                 |               |                |
+|                             | Real           | Kafka                 |               |                |
+|                             |                | MySQL Binlog          |               |                |
+|                             |                | MongoDB Oplog         |               |                |
+|                             |                | PostgreSQL WAL        |               |                |
+| **Task logical scheduling** | scheduling     |                       | enable        | enable         |
+| **数据治理**                | 元数据管理     |                       |               |                |
+|                             | 数据质量管理   |                       |               |                |
+|                             | 数据血缘管理   |                       |               |                |
+| **数据开发**                | 可视化任务开发 |                       |               |                |
+| **数据服务**                | 可视化API构建  |                       |               |                |
 
 
 
-# 技术交流
+# **Get Started Quickly**
 
-**一个人走的很快，一群人走的更远。**
+Installation manual      [Installation manual](https://github.com/wxgzgl/flinkx-web/blob/master/larkmidtable-doc/userGuid.md)
 
-**关注微信公众号 【LarkMidTable】，并回复【LarkMidTable】，获取微信后，加我拉你到微信群，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
+Operating manual  	[Operating manual](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/userManual.md)
+
+Plugin Development Manual     [Plugin Development Manual](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/pluginDev.md)
+
+
+
+# Technological Exchanges
+
+**One person goes fast, a group of people go farther.**
+
+**Pay attention to the WeChat public number [LarkMidTable], and reply to [LarkMidTable], after getting WeChat, add me to pull you to the WeChat group, and provide you with free services throughout the process, you can also communicate big data technology with other partners, if you think the project is good, you can star attention, LarkMidTable team will be very grateful for your attention!**
