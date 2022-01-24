@@ -105,8 +105,6 @@ public class JobLogController {
 			LogResult logResult = new LogResult(0, 0, logContent, true);
 			returnT.setContent(logResult);
 			return returnT;
-
-
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());

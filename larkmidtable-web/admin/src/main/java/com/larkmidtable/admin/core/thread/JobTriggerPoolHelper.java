@@ -57,13 +57,13 @@ public class JobTriggerPoolHelper {
 	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath) {
 		List<String> cmdArr = new ArrayList<>();
 		String jsonPath = ExcecutorConfig.getExcecutorConfig().getJsonPath();
-		if (System.getProperty("os.name").toLowerCase().contains("linux")) {
-			// linux 系统
-			cmdArr.add("sh");
-		} else {
+//		if (System.getProperty("os.name").toLowerCase().contains("linux")) {
+//			// linux 系统
+//			cmdArr.add("sh");
+//		} else {
 			// window或者其他系统
 			cmdArr.add("python");
-		}
+//		}
 		cmdArr.add(flinkXShPath);
 		cmdArr.add(tmpFilePath);
 

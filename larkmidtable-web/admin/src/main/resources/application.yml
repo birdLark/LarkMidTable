@@ -104,9 +104,9 @@ flinkx:
       ### log retention days
     logretentiondays: 30
   executor:
-    flinkxHome: C:/Users/guoliang/Desktop/flinkx/flinkx.py
-    jsonPath: C:/Users/guoliang/Desktop/flinkx/job/
-    logHome: C:/Users/guoliang/Desktop/flinkx/nohup.out
+    flinkxHome: C:/Users/zhangsan/Desktop/flinkx/flinkx.py
+    jsonPath: C:/Users/zhangsan/Desktop/flinkx/job/
+    logHome: C:/Users/zhangsan/Desktop/flinkx/nohup.out
 
 
 datasource:
