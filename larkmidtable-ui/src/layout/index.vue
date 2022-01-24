@@ -5,7 +5,7 @@
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
-        <navbar />
+        <navbar/>
         <!-- <tags-view v-if="needTagsView" /> -->
       </div>
       <app-main />

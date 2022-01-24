@@ -207,9 +207,14 @@
     }
   }
 }
-.headerStyle{
+.headerStyle,.logoinStyle{
   line-height:56px;
   color: #fff;
   background-color: #2e303a;
   display: flex;
+}
+.logoinStyle{
+  text-align: center;
+  color: #000;
+  background-color: #fff;
 }

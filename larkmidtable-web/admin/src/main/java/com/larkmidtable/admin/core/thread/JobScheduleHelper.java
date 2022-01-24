@@ -90,13 +90,6 @@ public class JobScheduleHelper {
 								}
 							}
 							try {
-								conn.setAutoCommit(connAutoCommit);
-							} catch (SQLException e) {
-								if (!scheduleThreadToStop) {
-									logger.error(e.getMessage(), e);
-								}
-							}
-							try {
 								conn.close();
 							} catch (SQLException e) {
 								if (!scheduleThreadToStop) {

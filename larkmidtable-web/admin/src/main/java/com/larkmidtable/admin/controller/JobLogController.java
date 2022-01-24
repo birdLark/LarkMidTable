@@ -86,10 +86,6 @@ public class JobLogController {
 	public ReturnT<LogResult> logDetailCat(String executorAddress, String triggerTime, String logId,
 			String fromLineNum) {
 		try {
-			//			RpcConsumer consumer = new RpcConsumer();
-			//			// 创建一个代理对象
-			//			LogService service = (LogService) consumer.createProxy(LogService.class, "UserService#sayHello#");
-			//			String logContent =service.getExecuteLog("nohup.out");
 			String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
 			InputStream in = new FileInputStream(logHome);
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();

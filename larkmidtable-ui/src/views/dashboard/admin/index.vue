@@ -1,10 +1,11 @@
 <template>
   <div class="dashboard-editor-container">
+    <keshihua/>
     <!--<github-corner class="github-corner" />-->
-    <panel-group @handleSetLineChartData="handleSetLineChartData"/>
+    <!-- <panel-group @handleSetLineChartData="handleSetLineChartData"/>
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <line-chart :chart-data="lineChartData"/>
-    </el-row>
+    </el-row>-->
     <el-row :gutter="32">
       <!--<el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
@@ -47,6 +48,7 @@ import LineChart from "./components/LineChart";
 // import TodoList from './components/TodoList'
 // import BoxCard from './components/BoxCard'
 import * as dashborad from "@/api/dashborad";
+import keshihua from "./components/keshihua/index.vue";
 
 const lineChartData = {
   chartInfo: {
@@ -61,13 +63,14 @@ export default {
   components: {
     // GithubCorner,
     PanelGroup,
-    LineChart
+    LineChart,
     // RaddarChart,
     // PieChart,
     // BarChart,
     // TransactionTable,
     // TodoList,
-    // BoxCard
+    // BoxCard,
+    keshihua
   },
   data() {
     return {

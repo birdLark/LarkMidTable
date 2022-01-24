@@ -65,7 +65,7 @@ public class JobTriggerPoolHelper {
 			cmdArr.add("python");
 		}
 		cmdArr.add(flinkXShPath);
-		cmdArr.add(jsonPath+tmpFilePath);
+		cmdArr.add(tmpFilePath);
 
 		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
 		return cmdArr.toArray(new String[cmdArr.size()]);
@@ -73,7 +73,6 @@ public class JobTriggerPoolHelper {
 
 	public static void runJob(int jobId) {
 		try {
-
 			JobInfo jobInfo = JobAdminConfig.getAdminConfig().getJobInfoMapper().loadById(jobId);
 			String tmpFilePath = generateTemJsonFile(jobInfo.getJobJson());
 			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
@@ -83,6 +82,8 @@ public class JobTriggerPoolHelper {
 				cmdstr += cmdarrayFinal[j] + " ";
 			}
 			System.out.println("-------job will run----------");
+
+
 			final Process process = Runtime.getRuntime().exec(cmdstr);
 			String prcsId = ProcessUtil.getProcessId(process);
 			JobLogger.log("------------------FlinkX process id: " + prcsId);

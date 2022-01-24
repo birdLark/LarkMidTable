@@ -14,8 +14,10 @@
       mode="horizontal"
       @select="handleSelect"
     >
-      <template v-for=" item in headerMenu">
-        <el-menu-item :index="item.path">{{item.title}}</el-menu-item>
+      <template v-for=" ite in headerMenu">
+        <el-menu-item :index="ite.path">
+          <item :icon="ite.icon" :title="ite.title"/>
+        </el-menu-item>
       </template>
     </el-menu>
     <Logobar/>
@@ -24,11 +26,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import Item from "./Item";
 import Logobar from "../Logobar";
 export default {
   name: "HeaderSidebar",
   components: {
-    Logobar
+    Logobar,
+    Item
   },
   data() {
     return {

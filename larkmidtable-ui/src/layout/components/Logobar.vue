@@ -3,7 +3,7 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img src="https://iconfont.alicdn.com/t/ce99661e-151d-4341-9099-833a9fb62f5c.jpg@200h_200w.jpg" class="user-avatar">
+          <img src="../../../public/user.png" class="user-avatar">
           <i class="el-icon-caret-bottom" />
           <span>admin</span>
         </div>

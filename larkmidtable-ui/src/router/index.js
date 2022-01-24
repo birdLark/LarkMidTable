@@ -76,13 +76,13 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/dashboard',
     name: 'Dashboard',
-    meta: { title: '首页', icon: 'dashboard', affix: true },
+    meta: { title: '数据报表', icon: 'dashboard', affix: true },
     children: [
       {
         path: '/dashboard',
         component: () => import('@/views/dashboard/admin/index'),
         name: 'Dashboard',
-        meta: { title: '首页', icon: 'dashboard', affix: true }
+        meta: { title: '数据报表', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -91,7 +91,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/datax/Infrastructure',
     name: 'Infrastructure',
-    meta: { title: '基础建设', icon: 'work' },
+    meta: { title: '基础建设', icon: 'guide' },
     children: [
       {
         path: '/datax/user',
@@ -103,7 +103,7 @@ export const constantRoutes = [
         path: '/datax/resource',
         name: 'Resource',
         component: () => import('@/views/datax/resource/index'),
-        meta: { title: '资源监控', icon: 'battery-line' }
+        meta: { title: '资源管理', icon: 'battery-line' }
       }
     ]
   },
@@ -112,7 +112,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/datax/DatabaseSync',
     name: 'DatabaseSync',
-    meta: { title: '数据治理', icon: 'work' },
+    meta: { title: '数据治理', icon: 'skill' },
     children: [
       {
         path: '/datax/DatabaseSync/metadataManagement',
@@ -130,13 +130,13 @@ export const constantRoutes = [
         path: '/datax/DatabaseSync/dataRelated',
         name: 'dataRelated',
         component: () => import('@/views/datax/dataRelated/index'),
-        meta: { title: '数据血缘', icon: 'cfg-datasouce' }
+        meta: { title: '数据血缘', icon: 'icon' }
       },
       {
         path: '/datax/DatabaseSync/dataQualityTest',
         name: 'dataQualityTest',
         component: () => import('@/views/datax/dataQualityTest/index'),
-        meta: { title: '数据质量检测', icon: 'cfg-datasouce' }
+        meta: { title: '数据质量检测', icon: 'json' }
       }
     ]
   }
@@ -191,7 +191,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/datax/DatabaseSync',
     name: 'DatabaseSync',
-    meta: { title: '数据集成', icon: 'work' },
+    meta: { title: '数据集成', icon: 'project' },
     children: [
       {
         path: '/datax/DatabaseSync/JobProject',
@@ -199,12 +199,12 @@ export const asyncRoutes = [
         component: () => import('@/views/datax/jobProject/index'),
         meta: { title: '项目管理', icon: 'project' }
       },
-      {
-        path: '/datax/DatabaseSync/executor',
-        name: 'Executor',
-        component: () => import('@/views/datax/executor/index'),
-        meta: { title: '执行器管理', icon: 'exe-cfg' }
-      },
+      // {
+      //   path: '/datax/DatabaseSync/executor',
+      //   name: 'Executor',
+      //   component: () => import('@/views/datax/executor/index'),
+      //   meta: { title: '执行器管理', icon: 'exe-cfg' }
+      // },
       {
         path: '/datax/DatabaseSync/jdbcDatasource',
         name: 'JdbcDatasource',
@@ -248,19 +248,19 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/datax/dataDevelopment',
     name: 'DatabaseSync',
-    meta: { title: '数据开发', icon: 'work' },
+    meta: { title: '数据开发', icon: 'cfg-datasouce' },
     children: [
       {
         path: '/datax/devEnvSetting',
         name: 'DevEnvSetting',
         component: () => import('@/views/datax/devEnvSetting/index'),
-        meta: { title: '开发环境配置', icon: 'cfg-datasouce' }
+        meta: { title: '开发环境配置', icon: 'exe-cfg' }
       },
       {
         path: '/datax/dataDevelopment/UDFlistManageDevelopment',
         name: 'UDFlistManageDevelopment',
         component: () => import('@/views/datax/UDFlistManageDevelopment/index'),
-        meta: { title: 'UDF列表管理', icon: 'cfg-datasouce' }
+        meta: { title: 'UDF列表管理', icon: 'fullscreen' }
       },
       {
         path: '/datax/dataDevelopment/SQLlistManageDevelopment',
@@ -272,7 +272,7 @@ export const asyncRoutes = [
         path: '/datax/dataDevelopment/DevelopmentList',
         name: 'DevelopmentList',
         component: () => import('@/views/datax/DevelopmentList/index'),
-        meta: { title: '开发任务列表', icon: 'cfg-datasouce' }
+        meta: { title: '开发任务列表', icon: 'nested' }
       },
       {
         path: '/datax/dataDevelopment/job/jobTemplate',
@@ -287,8 +287,20 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/datax/Datawatchservices',
     name: 'Dataservices',
-    meta: { title: '监控告警', icon: 'work' },
+    meta: { title: '监控告警', icon: 'task-tmp' },
     children: [
+      {
+        path: '/datax/DatabaseSync/executor',
+        name: 'Executor',
+        component: () => import('@/views/datax/executor/index'),
+        meta: { title: '存储资源', icon: 'tree' }
+      },
+      {
+        path: '/datax/DatabaseSync/executor',
+        name: 'Executor',
+        component: () => import('@/views/datax/executor/index'),
+        meta: { title: '计算资源', icon: 'exe-cfg' }
+      },
       {
         path: '/datax/Datawatchservices/warnSet',
         name: 'warnSet',
@@ -299,7 +311,7 @@ export const asyncRoutes = [
         path: '/datax/Datawatchservices/warnLog',
         name: 'warnLog',
         component: () => import('@/views/datax/warnLog/index'),
-        meta: { title: '告警日志', icon: 'project' }
+        meta: { title: '告警日志', icon: 'bug' }
       }
 
     ]
@@ -309,7 +321,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/datax/Dataservices',
     name: 'Dataservices',
-    meta: { title: '数据服务', icon: 'work' },
+    meta: { title: '数据服务', icon: 'exe-cfg' },
     children: [
       {
         path: '/datax/Dataservices/VisualAPI',
