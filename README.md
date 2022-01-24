@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-English | [中文](README_CH.md)
+ [English](README.md) | [中文](README_CH.md)
 
 LarkMidTable Chinese name Skylark, the cloud stands for big data, and the finch stands for the ordinary and freedom.
 
