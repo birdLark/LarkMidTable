@@ -65,9 +65,9 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 
 # **Get Started Quickly**
 
-Installation manual      [Installation manual](https://github.com/wxgzgl/flinkx-web/blob/master/larkmidtable-doc/userGuid.md)
+Installation manual      [Installation manual](https://github.com/wxgzgl/flinkx-web/blob/dev/larkmidtable-doc/userGuid.md)
 
-Operating manual  	[Operating manual](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/userManual.md)
+Operating manual  	[Operating manual](https://github.com/wxgzgl/LarkMidTable/tree/dev/larkmidtable-doc/userManual.md)
 
 Plugin Development Manual     [Plugin Development Manual](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/pluginDev.md)
 
