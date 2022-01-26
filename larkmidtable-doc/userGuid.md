@@ -6,7 +6,7 @@
 
 * 数据库版本: Mysql5.7
 
-* 运行环境: MacOS, Windows,Linux
+* 运行环境: MacOS, Windows,Linux,python
 
   
 
@@ -14,7 +14,7 @@
 
 [Flinkx的安装](https://github.com/DTStack/flinkx/blob/master/docs/quickstart.md)
 
-**flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】**  
+**如果不想打包编译，获取flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】**  
 
 ## 2.web的安装
 
@@ -33,7 +33,7 @@ mvn clean install
 2.执行成功后将会在工程的build目录下生成安装包
 
 ```
-build/web-{VERSION}.tar.gz
+packages/admin_{VERSION}.tar.gz
 ```
 
 ### 2.3解压部署
@@ -41,20 +41,20 @@ build/web-{VERSION}.tar.gz
 1.解压安装包
 
 ```
-tar -zxvf web-2.1.2.tar.gz 
+tar -zxvf admin_2.1.2_1.tar.gz 
 ```
 
 2.解压部署包
 
 ```
-cd web-2.1.2/bin/
+admin/bin
 ```
 
 ### 2.4安装配置
 
 #### 修改项目配置
 
-1.修改路径web-2.1.2/packages/admin/conf/ 下面的application.yml文件
+1.修改路径admin/conf/ 下面的application.yml文件
 
 ```
 #数据源
@@ -80,7 +80,7 @@ flinkx:
       ### log retention days
     logretentiondays: 30
   executor:
-    flinkxHome: /home/hadoop/flinkx/start.sh
+    flinkxHome: /home/hadoop/flinkx/flinkx-local.py
     jsonPath: /home/hadoop/flinkx/job/
     logHome: /home/hadoop/flinkx/nohup.out
 ```
@@ -89,12 +89,14 @@ flinkx:
 
 2.将flinkxHome，jsonPath，logHome 配置的/home/hadoop/flinkx 换成flinkx所在目录
 
+3.flinkx-local.py文件在项目的bin目录下
+
 
 
 ### 2.5启动程序
 
 ```
-[hadoop@mini4 bin]$ cd web-2.1.2/bin/
+[hadoop@mini4 bin]$ cd admin/bin
 [hadoop@mini4 bin]$ sh admin.sh start
 ```
 
@@ -109,7 +111,7 @@ flinkx:
 
 ​    启动成功后打开页面（默认管理员用户名：admin 密码：123456） http://{ip}:8080/index.html#/dashboard
 
-**![](https://img2022.cnblogs.com/blog/622382/202201/622382-20220118221928716-62704218.png)**
+**![](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162212117-942279447.jpg)**
 
 
 

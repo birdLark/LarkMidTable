@@ -56,7 +56,6 @@ public class JobTriggerPoolHelper {
 
 	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath) {
 		List<String> cmdArr = new ArrayList<>();
-		String jsonPath = ExcecutorConfig.getExcecutorConfig().getJsonPath();
 		cmdArr.add("python");
 		cmdArr.add(flinkXShPath);
 		cmdArr.add(tmpFilePath);
