@@ -13,7 +13,7 @@ import java.util.Date;
 public class Test {
 
 	public static void main(String[] args) throws ParseException, IOException {
-		String command = "C:/Users/guoliang/Desktop/flinkx/flinkx.py";
+		String command = "C:/Users/test2/Desktop/flinkx/flinkx.py";
 		String params = "world";
 		String[] cmd = new String[]{"python",command,params};
 		Process process = Runtime.getRuntime().exec(cmd);
