@@ -10,14 +10,14 @@ import org.apache.flink.table.api.SqlParserException;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 
-import com.lark.cn.client.SqlCommandParser;
-import com.lark.cn.client.SqlCommandParser.SqlCommandCall;
+import com.lark.cn.common.SqlCommandParser;
+import com.lark.cn.common.SqlCommandParser.SqlCommandCall;
 
 /**
  *
  * @author fei
  * @date 2022-01-17
- * 
+ * @version flink 1.10
  **/
 public class StreamJobExecutor {
 
