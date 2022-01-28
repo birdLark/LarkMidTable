@@ -412,3 +412,34 @@ CREATE TABLE `lark_api_auth` (
   `group_id` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 数据开发模块--
+-- ----------------------------
+
+CREATE TABLE `lark_dev_ujar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `describe` varchar(100) DEFAULT NULL,
+  `path` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `lark_dev_sql` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `type` varchar(100) DEFAULT NULL,
+  `sql_text` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `lark_dev_tasklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `tasktype` varchar(100) DEFAULT NULL,
+  `runtype` varchar(100) DEFAULT NULL,
+  `sourceid` varchar(100) DEFAULT NULL,
+  `transformids` varchar(100) DEFAULT NULL,
+  `sinkid` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
