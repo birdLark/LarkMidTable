@@ -5,8 +5,8 @@ package com.lark.cn.sql;
  * @date 2022-01-18
  * 
  **/
-public interface MysqlSampleSql {
-	String mysql_source = "CREATE TABLE city1 ( "
+public interface MysqlDemoSql {
+	String MYSQL_SOURCE = "CREATE TABLE city1 ( "
 			+ "NAME STRING, "
 			+ "ID INT,"
 			+ "COUNTRYCODE STRING,"
@@ -21,9 +21,9 @@ public interface MysqlSampleSql {
 			+ "'connector.password' = '123abc'"
 			+ ")";
 	
-	String mysql_select = "SELECT ID,NAME from city1";
+	String MYSQL_SELECT = "SELECT ID,NAME from city1";
 	
-	String mysql_sink = "CREATE TABLE city2 ( "
+	String MYSQL_SINK = "CREATE TABLE city2 ( "
 			+ "NAME STRING, "
 			+ "ID INT,"
 			+ "COUNTRYCODE STRING,"
@@ -38,7 +38,7 @@ public interface MysqlSampleSql {
 			+ "'connector.password' = '123abc'"
 			+ ")";
 	
-	String msyql_insert = "INSERT INTO city2 select * from city1";
+	String MSYQL_INSERT = "INSERT INTO city2 select * from city1";
 	
 	
 }

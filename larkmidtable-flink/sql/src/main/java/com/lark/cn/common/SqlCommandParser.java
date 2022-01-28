@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.lark.cn.client;
+package com.lark.cn.common;
 
 import java.util.*;
 import java.util.function.Function;

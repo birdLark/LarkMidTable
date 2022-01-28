@@ -18,13 +18,15 @@
 
 package com.lark.cn.client;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.SqlParserException;
 import org.apache.flink.table.api.TableEnvironment;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
+import com.lark.cn.common.SqlCommandParser;
 
 public class SqlSubmit {
 
