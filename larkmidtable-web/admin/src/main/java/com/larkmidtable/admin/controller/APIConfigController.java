@@ -41,7 +41,7 @@ public class APIConfigController extends BaseController {
                                           @RequestParam("pageSize") Integer pageSize,
                                           @RequestParam("pageNo") Integer pageNo) {
 
-        return success(apiConfigService.getDevEnvSettiAPIConfigServicengListPaging(pageSize, pageNo, searchVal));
+        return success(apiConfigService.getDevEnvSettingListPaging(pageSize, pageNo, searchVal));
     }
 
     /**
