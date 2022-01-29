@@ -410,6 +410,7 @@ CREATE TABLE `lark_api_auth` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `token_id` varchar(100) DEFAULT NULL,
   `group_id` varchar(100) DEFAULT NULL,
+  `updatetime` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

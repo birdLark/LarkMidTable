@@ -3,8 +3,9 @@ package com.larkmidtable.admin.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
-import com.larkmidtable.admin.entity.APIConfig;
-import com.larkmidtable.admin.service.APIConfigService;
+import com.larkmidtable.admin.entity.APIAuth;
+import com.larkmidtable.admin.service.APIAuthService;
+import com.larkmidtable.admin.service.APIAuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +23,12 @@ import java.util.List;
  * @Description:
  **/
 @RestController
-@RequestMapping("/api/apiConfig")
-@Api(tags = "OpenAPI的操作")
-public class APIConfigController extends BaseController {
+@RequestMapping("/api/apiAuth")
+@Api(tags = "OpenAPI的权限操作")
+public class APIAuthController extends BaseController {
 
     @Autowired
-    private APIConfigService apiConfigService;
+    private APIAuthService apiAuthService;
 
 
     /**
@@ -37,11 +38,11 @@ public class APIConfigController extends BaseController {
      */
     @GetMapping
     @ApiOperation("分页查询所有数据")
-    public R<IPage<APIConfig>> selectAll(@RequestParam(value = "searchVal", required = false) String searchVal,
+    public R<IPage<APIAuth>> selectAll(@RequestParam(value = "searchVal", required = false) String searchVal,
                                           @RequestParam("pageSize") Integer pageSize,
                                           @RequestParam("pageNo") Integer pageNo) {
 
-        return success(apiConfigService.getDevEnvSettiAPIConfigServicengListPaging(pageSize, pageNo, searchVal));
+        return success(apiAuthService.getDevEnvSettingListPaging(pageSize, pageNo, searchVal));
     }
 
     /**
@@ -51,10 +52,10 @@ public class APIConfigController extends BaseController {
      */
     @ApiOperation("获取所有数据")
     @GetMapping("/list")
-    public R<List<APIConfig>> selectList() {
-        QueryWrapper<APIConfig> query = new QueryWrapper();
+    public R<List<APIAuth>> selectList() {
+        QueryWrapper<APIAuth> query = new QueryWrapper();
         query.eq("flag", true);
-        return success(apiConfigService.list(query));
+        return success(apiAuthService.list(query));
     }
 
     /**
@@ -65,8 +66,8 @@ public class APIConfigController extends BaseController {
      */
     @ApiOperation("通过主键查询单条数据")
     @GetMapping("{id}")
-    public R<APIConfig> selectOne(@PathVariable Serializable id) {
-        return success(this.apiConfigService.getById(id));
+    public R<APIAuth> selectOne(@PathVariable Serializable id) {
+        return success(this.apiAuthService.getById(id));
     }
 
     /**
@@ -77,15 +78,11 @@ public class APIConfigController extends BaseController {
      */
     @ApiOperation("新增数据")
     @PostMapping
-    public R<Boolean> insert(HttpServletRequest request, @RequestBody APIConfig entity) {
-		entity.setName(entity.getName());
-		entity.setParams(entity.getParams());
-		entity.setCreate_time(new Date().toString());
-		entity.setDatasource_id(entity.getDatasource_id());
-		entity.setDescribe(entity.getDescribe());
-		entity.setPath(entity.getPath());
-		entity.setGroup_id(entity.getGroup_id());
-        return success(this.apiConfigService.save(entity));
+    public R<Boolean> insert(HttpServletRequest request, @RequestBody APIAuth entity) {
+        entity.setGroup_id(entity.getGroup_id());
+        entity.setToken_id(entity.getToken_id());
+		entity.setUpdateTime(new Date().toString());
+        return success(this.apiAuthService.save(entity));
     }
 
 
@@ -99,16 +96,12 @@ public class APIConfigController extends BaseController {
      */
     @PutMapping
     @ApiOperation("修改数据")
-    public R<Boolean> update(@RequestBody APIConfig entity) {
-		APIConfig project = apiConfigService.getById(entity.getId());
-        project.setName(entity.getName());
-        project.setParams(entity.getParams());
-        project.setUpdate_time(new Date().toString());
-        project.setDatasource_id(entity.getDatasource_id());
-        project.setDescribe(entity.getDescribe());
-        project.setPath(entity.getPath());
-        project.setGroup_id(entity.getGroup_id());
-        return success(this.apiConfigService.updateById(entity));
+    public R<Boolean> update(@RequestBody APIAuth entity) {
+		APIAuth project = apiAuthService.getById(entity.getId());
+		project.setGroup_id(entity.getGroup_id());
+		project.setToken_id(entity.getToken_id());
+        project.setUpdateTime(new Date().toString());
+        return success(this.apiAuthService.updateById(entity));
     }
 
     /**
@@ -120,6 +113,6 @@ public class APIConfigController extends BaseController {
     @DeleteMapping
     @ApiOperation("删除数据")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.apiConfigService.removeByIds(idList));
+        return success(this.apiAuthService.removeByIds(idList));
     }
 }

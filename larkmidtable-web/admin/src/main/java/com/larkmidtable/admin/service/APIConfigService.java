@@ -5,6 +5,6 @@ import com.larkmidtable.admin.entity.APIConfig;
 import com.larkmidtable.admin.entity.DevEnvSetting;
 
 public interface APIConfigService extends IService<APIConfig>{
-    IPage<APIConfig> getDevEnvSettingListPaging(Integer pageSize, Integer pageNo, String searchName);
+    IPage<APIConfig> getDevEnvSettiAPIConfigServicengListPaging(Integer pageSize, Integer pageNo, String searchName);
 
 }

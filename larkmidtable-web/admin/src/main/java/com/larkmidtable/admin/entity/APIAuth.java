@@ -17,4 +17,8 @@ public class APIAuth {
 
     @ApiModelProperty("请求分组的ID")
     private String group_id;
+
+	@ApiModelProperty("更新时间")
+	private String updateTime;
+
 }
