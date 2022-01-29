@@ -11,6 +11,7 @@
     <modules>
         <module>sql</module>
         <module>cdc</module>
+        <module>iceberg</module>
     </modules>
 
     <build>
