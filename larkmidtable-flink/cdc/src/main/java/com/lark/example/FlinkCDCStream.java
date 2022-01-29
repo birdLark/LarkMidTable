@@ -43,7 +43,7 @@ public class FlinkCDCStream {
 				.databaseList("test")
 				.serverTimeZone("UTC")
 				//                .tableList("cdc_test.user_info")
-				.deserializer(new StringDebeziumDeserializationSchema())
+				.deserializer(new CustomerDeserializationSchema())
 				.startupOptions(StartupOptions.initial())
 				.build();
 		DataStreamSource<String> dataStreamSource = env.addSource(sourceFunction);

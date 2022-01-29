@@ -5,6 +5,5 @@ import com.larkmidtable.admin.entity.APIAuth;
 import com.larkmidtable.admin.entity.APIConfig;
 
 public interface APIAuthService extends IService<APIAuth>{
-    IPage<APIAuth> getDevEnvSettingListPaging(Integer pageSize, Integer pageNo, String searchName);
-
+    IPage<APIAuth> getAPIConfigListPaging(Integer pageSize, Integer pageNo, String searchName);
 }

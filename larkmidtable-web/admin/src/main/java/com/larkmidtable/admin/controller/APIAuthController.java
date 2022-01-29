@@ -42,7 +42,7 @@ public class APIAuthController extends BaseController {
                                           @RequestParam("pageSize") Integer pageSize,
                                           @RequestParam("pageNo") Integer pageNo) {
 
-        return success(apiAuthService.getDevEnvSettingListPaging(pageSize, pageNo, searchVal));
+        return success(apiAuthService.getAPIConfigListPaging(pageSize, pageNo, searchVal));
     }
 
     /**
