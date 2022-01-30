@@ -4,12 +4,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.larkmidtable.admin.entity.APIConfig;
+import com.larkmidtable.admin.mapper.APIAuthMapper;
+import com.larkmidtable.admin.mapper.APIConfigMapper;
 import com.larkmidtable.admin.service.APIConfigService;
+import com.larkmidtable.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Date;
@@ -28,6 +32,9 @@ public class APIConfigController extends BaseController {
 
     @Autowired
     private APIConfigService apiConfigService;
+
+	@Resource
+	private APIConfigMapper apiConfigMapper;
 
 
     /**
@@ -114,12 +121,13 @@ public class APIConfigController extends BaseController {
     /**
      * 删除数据
      *
-     * @param idList 主键结合
+     * @param id 主键结合
      * @return 删除结果
      */
-    @DeleteMapping
-    @ApiOperation("删除数据")
-    public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.apiConfigService.removeByIds(idList));
-    }
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	@ApiOperation("删除数据")
+	public ReturnT<String> delete(int id) {
+		int result = apiConfigMapper.delete(id);
+		return result != 1 ? ReturnT.FAIL : ReturnT.SUCCESS;
+	}
 }

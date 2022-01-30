@@ -11,4 +11,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface APIAuthMapper extends BaseMapper<APIAuth>{
     IPage<APIAuth> getDevEnvSettingListPaging(IPage<APIAuth> page, @Param("searchName") String searchName);
+
+	int delete(@Param("id") int id);
 }

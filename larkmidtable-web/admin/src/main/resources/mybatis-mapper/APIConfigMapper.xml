@@ -13,4 +13,9 @@
         </if>
         order by p.create_time desc
     </select>
+    <delete id="delete" parameterType="java.util.HashMap">
+		DELETE
+		FROM lark_api_config
+		WHERE id = #{id}
+	</delete>
 </mapper>

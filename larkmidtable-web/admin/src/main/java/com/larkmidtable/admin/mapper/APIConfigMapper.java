@@ -11,4 +11,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface APIConfigMapper extends BaseMapper<APIConfig>{
     IPage<APIConfig> getDevEnvSettingListPaging(IPage<APIConfig> page, @Param("searchName") String searchName);
+
+	int delete(@Param("id") int id);
 }
