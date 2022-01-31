@@ -3,6 +3,7 @@ package com.larkmidtable.admin.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
+import com.larkmidtable.admin.entity.APIAuth;
 import com.larkmidtable.admin.entity.APIConfig;
 import com.larkmidtable.admin.mapper.APIAuthMapper;
 import com.larkmidtable.admin.mapper.APIConfigMapper;
@@ -56,13 +57,13 @@ public class APIConfigController extends BaseController {
      *
      * @return
      */
-    @ApiOperation("获取所有数据")
-    @GetMapping("/list")
-    public R<List<APIConfig>> selectList() {
-        QueryWrapper<APIConfig> query = new QueryWrapper();
-        query.eq("flag", true);
-        return success(apiConfigService.list(query));
-    }
+	@ApiOperation("获取所有数据")
+	@GetMapping("/list")
+	public ReturnT<List<APIConfig>> selectList() {
+		// page list
+		List<APIConfig> list = apiConfigMapper.findAll();
+		return new ReturnT<> (list);
+	}
 
     /**
      * 通过主键查询单条数据

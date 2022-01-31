@@ -19,6 +19,6 @@ public class APIAuth {
     private String group_id;
 
 	@ApiModelProperty("更新时间")
-	private String updateTime;
+	private String update_time;
 
 }

@@ -107,6 +107,12 @@ public class JobScheduleHelper {
 							}
 						}
 					}
+					try {
+						//每次循环要休眠5秒
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 				}
 				logger.info(">>>>>>>>>>> web, JobScheduleHelper#scheduleThread stop");
 			}

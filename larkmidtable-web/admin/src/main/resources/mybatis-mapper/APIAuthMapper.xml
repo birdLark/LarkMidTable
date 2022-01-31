@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.larkmidtable.admin.mapper.APIAuthMapper">
 
+    <resultMap id="APIAuth" type="com.larkmidtable.admin.entity.APIAuth">
+        <result column="id" property="id"/>
+        <result column="token_id" property="token_id"/>
+        <result column="group_id" property="group_id"/>
+        <result column="updatetime" property="update_time" />
+    </resultMap>
+
+    <sql id="Show_Column_List">
+		t.id,
+		t.token_id,
+		t.group_id,
+		t.updatetime
+	</sql>
+
     <select id="getDevEnvSettingListPaging" resultType="com.larkmidtable.admin.entity.APIAuth">
         select
         p.*,u.username
@@ -19,4 +33,12 @@
 		FROM lark_api_auth
 		WHERE id = #{id}
 	</delete>
+
+    <select id="findAll" resultMap="APIAuth">
+        SELECT <include refid="Show_Column_List" />
+        FROM lark_api_auth AS t
+        ORDER BY t.id ASC
+    </select>
+
+
 </mapper>

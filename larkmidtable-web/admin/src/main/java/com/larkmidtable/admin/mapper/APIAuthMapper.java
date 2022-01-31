@@ -8,9 +8,13 @@ import com.larkmidtable.admin.entity.APIConfig;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface APIAuthMapper extends BaseMapper<APIAuth>{
     IPage<APIAuth> getDevEnvSettingListPaging(IPage<APIAuth> page, @Param("searchName") String searchName);
 
 	int delete(@Param("id") int id);
+
+	List<APIAuth> findAll();
 }

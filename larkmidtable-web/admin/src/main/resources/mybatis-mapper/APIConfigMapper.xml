@@ -2,6 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.larkmidtable.admin.mapper.APIConfigMapper">
 
+    <resultMap id="APIConfig" type="com.larkmidtable.admin.entity.APIConfig">
+        <result column="id" property="id"/>
+        <result column="path" property="path"/>
+        <result column="name" property="name"/>
+        <result column="group_id" property="group_id" />
+        <result column="describe" property="describe" />
+        <result column="datasource_id" property="datasource_id" />
+        <result column="params" property="params" />
+        <result column="create_time" property="create_time" />
+        <result column="update_time" property="update_time" />
+    </resultMap>
+
+    <sql id="Show_Column_List">
+		t.id,
+		t.path,
+		t.name,
+		t.group_id,
+		t.describe,
+        t.datasource_id,
+        t.params,
+        t.create_time,
+        t.update_time
+	</sql>
+
     <select id="getDevEnvSettingListPaging" resultType="com.larkmidtable.admin.entity.APIConfig">
         select
         p.*,u.username
@@ -18,4 +42,10 @@
 		FROM lark_api_config
 		WHERE id = #{id}
 	</delete>
+
+    <select id="findAll" resultMap="APIConfig">
+        SELECT <include refid="Show_Column_List" />
+        FROM lark_api_config AS t
+        ORDER BY t.id ASC
+    </select>
 </mapper>

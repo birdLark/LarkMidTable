@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.larkmidtable.admin.entity.APIAuth;
+import com.larkmidtable.admin.entity.JobUser;
 import com.larkmidtable.admin.mapper.APIAuthMapper;
 import com.larkmidtable.admin.mapper.JobUserMapper;
 import com.larkmidtable.admin.service.APIAuthService;
@@ -59,10 +60,10 @@ public class APIAuthController extends BaseController {
      */
     @ApiOperation("获取所有数据")
     @GetMapping("/list")
-    public R<List<APIAuth>> selectList() {
-        QueryWrapper<APIAuth> query = new QueryWrapper();
-        query.eq("flag", true);
-        return success(apiAuthService.list(query));
+    public ReturnT<List<APIAuth>> selectList() {
+		// page list
+		List<APIAuth> list = apiAuthMapper.findAll();
+		return new ReturnT<> (list);
     }
 
     /**
@@ -88,7 +89,7 @@ public class APIAuthController extends BaseController {
     public R<Boolean> insert(HttpServletRequest request, @RequestBody APIAuth entity) {
         entity.setGroup_id(entity.getGroup_id());
         entity.setToken_id(entity.getToken_id());
-		entity.setUpdateTime(new Date().toString());
+		entity.setUpdate_time(new Date().toString());
         return success(this.apiAuthService.save(entity));
     }
 
@@ -104,7 +105,7 @@ public class APIAuthController extends BaseController {
 		APIAuth project = apiAuthService.getById(entity.getId());
 		project.setGroup_id(entity.getGroup_id());
 		project.setToken_id(entity.getToken_id());
-        project.setUpdateTime(new Date().toString());
+        project.setUpdate_time(new Date().toString());
         return success(this.apiAuthService.updateById(entity));
     }
 
