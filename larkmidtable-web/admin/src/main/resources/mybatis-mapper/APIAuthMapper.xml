@@ -13,20 +13,8 @@
 		t.id,
 		t.token_id,
 		t.group_id,
-		t.updatetime
+		t.update_time
 	</sql>
-
-    <select id="getDevEnvSettingListPaging" resultType="com.larkmidtable.admin.entity.APIAuth">
-        select
-        p.*,u.username
-        from dev_env_setting p
-        join job_user u on p.user_id = u.id
-        where p.flag=1
-        <if test="searchName!=null and searchName != ''">
-            and p.name like concat('%', #{searchName}, '%')
-        </if>
-        order by p.create_time desc
-    </select>
 
     <delete id="delete" parameterType="java.util.HashMap">
 		DELETE
@@ -40,6 +28,12 @@
         ORDER BY t.id ASC
     </select>
 
+    <select id="getById" parameterType="java.util.HashMap" resultMap="APIAuth">
+        SELECT <include refid="Show_Column_List" />
+        FROM lark_api_auth AS t
+        WHERE t.id = #{id}
+    </select>
+
     <insert id="save" parameterType="com.larkmidtable.admin.entity.APIAuth" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO lark_api_auth (
 			token_id,
@@ -51,6 +45,15 @@
 			#{update_time}
 		);
 	</insert>
+
+    <update id="update" parameterType="com.larkmidtable.admin.entity.APIAuth" >
+        UPDATE lark_api_auth
+        SET
+        token_id = #{token_id},
+        group_id = #{group_id},
+        update_time = #{update_time}
+        WHERE id = #{id}
+    </update>
 
 
 </mapper>

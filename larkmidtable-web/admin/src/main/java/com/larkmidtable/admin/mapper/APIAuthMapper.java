@@ -20,6 +20,7 @@ public interface APIAuthMapper extends BaseMapper<APIAuth>{
 
 	int save(APIAuth apiAuth);
 
+	int update(APIAuth entity);
 
-
+	APIAuth getById(int id);
 }

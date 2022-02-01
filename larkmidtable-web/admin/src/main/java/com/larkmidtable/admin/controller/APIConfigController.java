@@ -103,10 +103,10 @@ public class APIConfigController extends BaseController {
      * @param entity 实体对象
      * @return 修改结果
      */
-    @PutMapping
     @ApiOperation("修改数据")
-    public R<Boolean> update(@RequestBody APIConfig entity) {
-		APIConfig project = apiConfigService.getById(entity.getId());
+	@PostMapping(value = "/update")
+	public ReturnT<String> update(@RequestBody APIConfig entity) {
+		APIConfig project = apiConfigMapper.getById(entity.getId());
         project.setName(entity.getName());
         project.setParams(entity.getParams());
         project.setUpdate_time(new Date().toString());
@@ -114,7 +114,8 @@ public class APIConfigController extends BaseController {
         project.setDescribe(entity.getDescribe());
         project.setPath(entity.getPath());
         project.setGroup_id(entity.getGroup_id());
-        return success(this.apiConfigService.updateById(entity));
+		apiConfigMapper.update(project);
+		return ReturnT.SUCCESS;
     }
 
     /**

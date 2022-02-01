@@ -100,14 +100,15 @@ public class APIAuthController extends BaseController {
      * @param entity 实体对象
      * @return 修改结果
      */
-    @PutMapping
     @ApiOperation("修改数据")
-    public R<Boolean> update(@RequestBody APIAuth entity) {
-		APIAuth project = apiAuthService.getById(entity.getId());
+	@PostMapping(value = "/update")
+    public ReturnT<String> update(@RequestBody APIAuth entity) {
+		APIAuth project = apiAuthMapper.getById(entity.getId());
 		project.setGroup_id(entity.getGroup_id());
 		project.setToken_id(entity.getToken_id());
         project.setUpdate_time(new Date().toString());
-        return success(this.apiAuthService.updateById(entity));
+		apiAuthMapper.update(project);
+		return ReturnT.SUCCESS;
     }
 
     /**

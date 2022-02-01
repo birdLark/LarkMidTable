@@ -20,4 +20,8 @@ public interface APIConfigMapper extends BaseMapper<APIConfig>{
 	List<APIConfig> findAll();
 
 	int save(APIConfig apiConfig);
+
+	int update(APIConfig project);
+
+	APIConfig getById(int id);
 }

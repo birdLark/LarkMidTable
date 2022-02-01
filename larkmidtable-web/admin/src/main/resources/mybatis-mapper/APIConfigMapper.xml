@@ -26,17 +26,6 @@
         t.update_time
 	</sql>
 
-    <select id="getDevEnvSettingListPaging" resultType="com.larkmidtable.admin.entity.APIConfig">
-        select
-        p.*,u.username
-        from dev_env_setting p
-        join job_user u on p.user_id = u.id
-        where p.flag=1
-        <if test="searchName!=null and searchName != ''">
-            and p.name like concat('%', #{searchName}, '%')
-        </if>
-        order by p.create_time desc
-    </select>
     <delete id="delete" parameterType="java.util.HashMap">
 		DELETE
 		FROM lark_api_config
@@ -47,6 +36,12 @@
         SELECT <include refid="Show_Column_List" />
         FROM lark_api_config AS t
         ORDER BY t.id ASC
+    </select>
+
+    <select id="getById" parameterType="java.util.HashMap" resultMap="APIConfig">
+        SELECT <include refid="Show_Column_List" />
+        FROM lark_api_config AS t
+        WHERE t.id = #{id}
     </select>
 
     <insert id="save" parameterType="com.larkmidtable.admin.entity.APIConfig" useGeneratedKeys="true" keyProperty="id" >
@@ -70,4 +65,17 @@
 			#{update_time}
 		);
 	</insert>
+
+    <update id="update" parameterType="com.larkmidtable.admin.entity.APIConfig" >
+        UPDATE lark_api_config
+        SET
+        path = #{path},
+        `name` = #{name},
+        group_id = #{group_id},
+        `describe` = #{describe},
+        datasource_id = #{datasource_id},
+        params = #{params},
+        update_time = #{update_time}
+        WHERE id = #{id}
+    </update>
 </mapper>
