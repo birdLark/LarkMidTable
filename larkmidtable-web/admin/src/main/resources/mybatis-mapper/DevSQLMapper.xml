@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.larkmidtable.admin.mapper.DevSQLMapper">
+
+    <insert id="save" parameterType="com.larkmidtable.admin.entity.DevTask" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO lark_dev_tasklist (
+			`name`,
+			tasktype,
+			runtype,
+			run_param,
+			sql_text,
+			task_describe,
+			create_time
+		) VALUES (
+			#{name},
+			#{tasktype},
+			#{runtype},
+			#{run_param},
+			#{sql_text},
+			#{task_describe},
+			#{create_time}
+		);
+	</insert>
+</mapper>

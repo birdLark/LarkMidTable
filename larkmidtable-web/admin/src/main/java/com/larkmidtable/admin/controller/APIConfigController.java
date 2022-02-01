@@ -61,14 +61,7 @@ public class APIConfigController extends BaseController {
     @ApiOperation("新增数据")
 	@PostMapping("/add")
     public ReturnT<String> insert(HttpServletRequest request, @RequestBody APIConfig entity) {
-		entity.setName(entity.getName());
-		entity.setParams(entity.getParams());
 		entity.setCreate_time(new Date().toString());
-		entity.setDatasource_id(entity.getDatasource_id());
-		entity.setDescribe(entity.getDescribe());
-		entity.setPath(entity.getPath());
-		entity.setGroup_id(entity.getGroup_id());
-		entity.setSql_text(entity.getSql_text());
         this.apiConfigMapper.save(entity);
 		return ReturnT.SUCCESS;
     }

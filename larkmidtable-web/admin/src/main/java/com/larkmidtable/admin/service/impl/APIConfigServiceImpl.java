@@ -14,10 +14,4 @@ public class APIConfigServiceImpl extends ServiceImpl<APIConfigMapper, APIConfig
 
     @Autowired
     private APIConfigMapper apiConfigMapper;
-
-    @Override
-    public IPage<APIConfig> getAPIConfigListPaging(Integer pageSize, Integer pageNo, String searchName) {
-        Page<APIConfig> page = new Page(pageNo, pageSize);
-        return apiConfigMapper.getDevEnvSettingListPaging(page, searchName);
-    }
 }

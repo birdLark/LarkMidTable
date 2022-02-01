@@ -5,6 +5,4 @@ import com.larkmidtable.admin.entity.APIConfig;
 import com.larkmidtable.admin.entity.APIConfig;
 
 public interface APIConfigService extends IService<APIConfig>{
-    IPage<APIConfig> getAPIConfigListPaging(Integer pageSize, Integer pageNo, String searchName);
-
 }

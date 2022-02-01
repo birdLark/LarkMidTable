@@ -18,9 +18,4 @@ public class APIAuthServiceImpl extends ServiceImpl<APIAuthMapper, APIAuth> impl
     @Autowired
     private APIAuthMapper apiAuthMapper;
 
-    @Override
-    public IPage<APIAuth> getAPIConfigListPaging(Integer pageSize, Integer pageNo, String searchName) {
-        Page<APIAuth> page = new Page(pageNo, pageSize);
-        return apiAuthMapper.getDevEnvSettingListPaging(page, searchName);
-    }
 }

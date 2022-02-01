@@ -60,8 +60,6 @@ public class APIAuthController extends BaseController {
     @ApiOperation("新增数据")
 	@PostMapping("/add")
     public ReturnT<String> insert(HttpServletRequest request, @RequestBody APIAuth entity) {
-        entity.setGroup_id(entity.getGroup_id());
-        entity.setToken_id(entity.getToken_id());
 		entity.setUpdate_time(new Date().toString());
         this.apiAuthMapper.save(entity);
 		return ReturnT.SUCCESS;
