@@ -1,6 +1,8 @@
 server:
   port: 8080
 #  port: ${server.port}
+
+
 spring:
   #数据源
   datasource:
@@ -43,7 +45,11 @@ spring:
             required: true
         socketFactory:
           class: javax.net.ssl.SSLSocketFactory
-
+  # 文件上传
+  servlet:
+    multipart:
+      max-request-size: 5GB  # 上传文件总的最大值 默认10MB
+      max-file-size: 1GB #单个文件最大值 默认10MB
 
 management:
   health:
