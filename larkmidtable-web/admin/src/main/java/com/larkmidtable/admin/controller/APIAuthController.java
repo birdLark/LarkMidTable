@@ -38,21 +38,6 @@ public class APIAuthController extends BaseController {
 	@Resource
 	private APIAuthMapper apiAuthMapper;
 
-
-    /**
-     * 分页查询所有数据
-     *
-     * @return 所有数据
-     */
-    @GetMapping
-    @ApiOperation("分页查询所有数据")
-    public R<IPage<APIAuth>> selectAll(@RequestParam(value = "searchVal", required = false) String searchVal,
-                                          @RequestParam("pageSize") Integer pageSize,
-                                          @RequestParam("pageNo") Integer pageNo) {
-
-        return success(apiAuthService.getAPIConfigListPaging(pageSize, pageNo, searchVal));
-    }
-
     /**
      * Get all project
      *
@@ -64,18 +49,6 @@ public class APIAuthController extends BaseController {
 		// page list
 		List<APIAuth> list = apiAuthMapper.findAll();
 		return new ReturnT<> (list);
-    }
-
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
-    public R<APIAuth> selectOne(@PathVariable Serializable id) {
-        return success(this.apiAuthService.getById(id));
     }
 
     /**

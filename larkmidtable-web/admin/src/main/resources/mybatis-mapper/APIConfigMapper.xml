@@ -12,6 +12,7 @@
         <result column="params" property="params" />
         <result column="create_time" property="create_time" />
         <result column="update_time" property="update_time" />
+        <result column="sql_text" property="sql_text" />
     </resultMap>
 
     <sql id="Show_Column_List">
@@ -23,7 +24,8 @@
         t.datasource_id,
         t.params,
         t.create_time,
-        t.update_time
+        t.update_time,
+        t.sql_text
 	</sql>
 
     <delete id="delete" parameterType="java.util.HashMap">
@@ -53,7 +55,8 @@
 			datasource_id,
 			params,
 			create_time,
-			update_time
+			update_time,
+			sql_text
 		) VALUES (
 			#{path},
 			#{name},
@@ -62,7 +65,8 @@
 			#{datasource_id},
 			#{params},
 			#{create_time},
-			#{update_time}
+			#{update_time},
+			#{sql_text}
 		);
 	</insert>
 
@@ -75,7 +79,8 @@
         `describe` = #{describe},
         datasource_id = #{datasource_id},
         params = #{params},
-        update_time = #{update_time}
+        update_time = #{update_time},
+        sql_text=#{sql_text}
         WHERE id = #{id}
     </update>
 </mapper>

@@ -39,4 +39,7 @@ public class APIConfig {
 
 	@ApiModelProperty("更新时间")
 	private String update_time;
+
+	@ApiModelProperty("执行的SQL语句")
+	private String sql_text;
 }

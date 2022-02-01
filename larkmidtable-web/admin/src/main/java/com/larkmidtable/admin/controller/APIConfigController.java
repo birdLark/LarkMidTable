@@ -1,13 +1,15 @@
 package com.larkmidtable.admin.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.api.R;
-import com.larkmidtable.admin.entity.APIAuth;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
 import com.larkmidtable.admin.entity.APIConfig;
-import com.larkmidtable.admin.mapper.APIAuthMapper;
+import com.larkmidtable.admin.entity.JobDatasource;
+import com.larkmidtable.admin.entity.ResponseData;
 import com.larkmidtable.admin.mapper.APIConfigMapper;
 import com.larkmidtable.admin.service.APIConfigService;
+import com.larkmidtable.admin.service.JobDatasourceService;
+import com.larkmidtable.admin.util.DruidDataSource;
 import com.larkmidtable.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,9 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -34,23 +34,11 @@ public class APIConfigController extends BaseController {
     @Autowired
     private APIConfigService apiConfigService;
 
+	@Autowired
+	private JobDatasourceService jobJdbcDatasourceService;
+
 	@Resource
 	private APIConfigMapper apiConfigMapper;
-
-
-    /**
-     * 分页查询所有数据
-     *
-     * @return 所有数据
-     */
-    @GetMapping
-    @ApiOperation("分页查询所有数据")
-    public R<IPage<APIConfig>> selectAll(@RequestParam(value = "searchVal", required = false) String searchVal,
-                                          @RequestParam("pageSize") Integer pageSize,
-                                          @RequestParam("pageNo") Integer pageNo) {
-
-        return success(apiConfigService.getAPIConfigListPaging(pageSize, pageNo, searchVal));
-    }
 
     /**
      * Get all project
@@ -64,19 +52,6 @@ public class APIConfigController extends BaseController {
 		List<APIConfig> list = apiConfigMapper.findAll();
 		return new ReturnT<> (list);
 	}
-
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
-    public R<APIConfig> selectOne(@PathVariable Serializable id) {
-        return success(this.apiConfigService.getById(id));
-    }
-
     /**
      * 新增数据
      *
@@ -93,6 +68,7 @@ public class APIConfigController extends BaseController {
 		entity.setDescribe(entity.getDescribe());
 		entity.setPath(entity.getPath());
 		entity.setGroup_id(entity.getGroup_id());
+		entity.setSql_text(entity.getSql_text());
         this.apiConfigMapper.save(entity);
 		return ReturnT.SUCCESS;
     }
@@ -114,6 +90,7 @@ public class APIConfigController extends BaseController {
         project.setDescribe(entity.getDescribe());
         project.setPath(entity.getPath());
         project.setGroup_id(entity.getGroup_id());
+        project.setSql_text(entity.getSql_text());
 		apiConfigMapper.update(project);
 		return ReturnT.SUCCESS;
     }
@@ -129,5 +106,24 @@ public class APIConfigController extends BaseController {
 	public ReturnT<String> delete(int id) {
 		int result = apiConfigMapper.delete(id);
 		return result != 1 ? ReturnT.FAIL : ReturnT.SUCCESS;
+	}
+
+	@PostMapping(value ="/execute")
+	@ApiOperation("执行API的查询")
+	public ResponseData executeSql(@RequestBody APIConfig apiConfig) {
+		try {
+			String params = apiConfig.getParams();
+			String datasourceId = apiConfig.getDatasource_id();
+			String sql_text = apiConfig.getSql_text();
+			Map<String, Object> paramsMap = JSON.parseObject(params, LinkedHashMap.class);
+			// 获取DateSource
+			JobDatasource datasource = this.jobJdbcDatasourceService.getById(datasourceId);
+			// 执行结果
+			Object result = DruidDataSource.executeSql(datasource,sql_text,paramsMap);
+			return ResponseData.successWithData(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseData.fail(e.getMessage());
+		}
 	}
 }
