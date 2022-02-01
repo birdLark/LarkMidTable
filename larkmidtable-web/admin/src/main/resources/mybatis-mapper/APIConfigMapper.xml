@@ -48,4 +48,26 @@
         FROM lark_api_config AS t
         ORDER BY t.id ASC
     </select>
+
+    <insert id="save" parameterType="com.larkmidtable.admin.entity.APIConfig" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO lark_api_config (
+			path,
+			`name`,
+			group_id,
+			`describe`,
+			datasource_id,
+			params,
+			create_time,
+			update_time
+		) VALUES (
+			#{path},
+			#{name},
+			#{group_id},
+			#{describe},
+			#{datasource_id},
+			#{params},
+			#{create_time},
+			#{update_time}
+		);
+	</insert>
 </mapper>

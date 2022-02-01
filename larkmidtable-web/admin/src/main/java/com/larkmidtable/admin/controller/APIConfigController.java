@@ -84,8 +84,8 @@ public class APIConfigController extends BaseController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
-    public R<Boolean> insert(HttpServletRequest request, @RequestBody APIConfig entity) {
+	@PostMapping("/add")
+    public ReturnT<String> insert(HttpServletRequest request, @RequestBody APIConfig entity) {
 		entity.setName(entity.getName());
 		entity.setParams(entity.getParams());
 		entity.setCreate_time(new Date().toString());
@@ -93,11 +93,9 @@ public class APIConfigController extends BaseController {
 		entity.setDescribe(entity.getDescribe());
 		entity.setPath(entity.getPath());
 		entity.setGroup_id(entity.getGroup_id());
-        return success(this.apiConfigService.save(entity));
+        this.apiConfigMapper.save(entity);
+		return ReturnT.SUCCESS;
     }
-
-
-
 
     /**
      * 修改数据

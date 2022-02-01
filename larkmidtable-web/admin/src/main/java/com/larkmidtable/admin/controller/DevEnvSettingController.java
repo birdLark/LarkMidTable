@@ -17,9 +17,9 @@ import java.util.List;
 
 /**
  *
- * @Author: 
- * @Date: 
- * @Description: 
+ * @Author:
+ * @Date:
+ * @Description:
  **/
 @RestController
 @RequestMapping("/api/devEnvSetting")
@@ -82,9 +82,6 @@ public class DevEnvSettingController extends BaseController {
         entity.setCreateTime(new Date());
         return success(this.devEnvSettingService.save(entity));
     }
-
-
-
 
     /**
      * 修改数据

@@ -369,8 +369,10 @@ CREATE TABLE `dev_env_setting` (
 -- ----------------------------
 -- 数据可视化模块--
 -- ----------------------------
+-- web.lark_api_config definition
+
 CREATE TABLE `lark_api_config` (
-  `id` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `path` varchar(100) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `group_id` varchar(100) DEFAULT NULL,
@@ -381,7 +383,7 @@ CREATE TABLE `lark_api_config` (
   `update_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `lark_api_config_un` (`path`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `lark_api_sql` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -410,9 +412,9 @@ CREATE TABLE `lark_api_auth` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `token_id` varchar(100) DEFAULT NULL,
   `group_id` varchar(100) DEFAULT NULL,
-  `updatetime` varchar(100) DEFAULT NULL,
+  `update_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- 数据开发模块--

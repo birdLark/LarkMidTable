@@ -40,5 +40,17 @@
         ORDER BY t.id ASC
     </select>
 
+    <insert id="save" parameterType="com.larkmidtable.admin.entity.APIAuth" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO lark_api_auth (
+			token_id,
+			group_id,
+			update_time
+		) VALUES (
+			#{token_id},
+			#{group_id},
+			#{update_time}
+		);
+	</insert>
+
 
 </mapper>

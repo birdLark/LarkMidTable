@@ -17,4 +17,9 @@ public interface APIAuthMapper extends BaseMapper<APIAuth>{
 	int delete(@Param("id") int id);
 
 	List<APIAuth> findAll();
+
+	int save(APIAuth apiAuth);
+
+
+
 }
