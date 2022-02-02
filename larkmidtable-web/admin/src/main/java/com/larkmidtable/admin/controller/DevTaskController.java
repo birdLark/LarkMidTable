@@ -1,8 +1,14 @@
 package com.larkmidtable.admin.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.larkmidtable.admin.entity.APIConfig;
 import com.larkmidtable.admin.entity.DevTask;
+import com.larkmidtable.admin.entity.JobDatasource;
+import com.larkmidtable.admin.entity.ResponseData;
 import com.larkmidtable.admin.mapper.DevJarMapper;
+import com.larkmidtable.admin.util.DruidDataSource;
 import com.larkmidtable.core.biz.model.ReturnT;
+import com.larkmidtable.core.util.ProcessUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +18,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/devTask")
@@ -35,6 +41,55 @@ public class DevTaskController extends BaseController {
 	public ReturnT<String> upload(@RequestParam("file") MultipartFile file, @RequestParam("filePath") String filePath) {
 		saveFile(file, filePath);
 		return ReturnT.SUCCESS;
+	}
+
+	@PostMapping(value ="/execute")
+	@ApiOperation("执行SQL或者JAR任务")
+	public ResponseData executeSql(@RequestBody DevTask devTask) {
+		try {
+			int id = devTask.getId();
+			String flinkHome = "";
+			String runtype = devTask.getRuntype();
+			String run_param = devTask.getRun_param();
+			String jarpath = devTask.getJarpath();
+			String sql_text = devTask.getSql_text();
+			String sqlPath ="";
+			//生成脚本文件
+			String shellPath ="";
+			String cmdstr ="";
+			if(!jarpath.equals("")) {
+				shellPath = buildFlinkTextFile(flinkHome,run_param,jarpath);
+			}else {
+				shellPath =  buildFlinkSQLFile(flinkHome,run_param,sqlPath);
+			}
+			// 调用执行的脚本文件
+			String[] cmdStrArray = buildFlinkExecutorCmd(shellPath);
+			for (int j = 0; j < cmdStrArray.length; j++) {
+				cmdstr += cmdStrArray[j] + " ";
+			}
+			final Process process = Runtime.getRuntime().exec(cmdstr);
+			return ResponseData.successWithData("");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseData.fail(e.getMessage());
+		}
+	}
+
+	public static String buildFlinkSQLFile(String flinkShPath, String runParam,String jarPath) {
+
+		return null;
+	}
+
+	public static String buildFlinkTextFile(String flinkShPath, String tmpFilePath,String sqlPath) {
+
+		return null;
+	}
+
+	public static String[] buildFlinkExecutorCmd(String shellPath) {
+		List<String> cmdArr = new ArrayList<>();
+		cmdArr.add("python");
+		cmdArr.add(shellPath);
+		return cmdArr.toArray(new String[cmdArr.size()]);
 	}
 
 	private void saveFile(MultipartFile file, String filePath) {
