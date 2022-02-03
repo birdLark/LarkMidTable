@@ -1,11 +1,9 @@
 package com.larkmidtable.admin.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.larkmidtable.admin.entity.APIConfig;
-import com.larkmidtable.admin.entity.DevTask;
-import com.larkmidtable.admin.entity.JobDatasource;
-import com.larkmidtable.admin.entity.ResponseData;
+import com.larkmidtable.admin.entity.*;
 import com.larkmidtable.admin.mapper.DevJarMapper;
+import com.larkmidtable.admin.mapper.DevTaskMapper;
 import com.larkmidtable.admin.util.DruidDataSource;
 import com.larkmidtable.core.biz.model.ReturnT;
 import com.larkmidtable.core.util.ProcessUtil;
@@ -26,15 +24,7 @@ import java.util.*;
 public class DevTaskController extends BaseController {
 
 	@Resource
-	private DevJarMapper devJarMapper;
-
-	@ApiOperation("新增数据")
-	@PostMapping("/add")
-	public ReturnT<String> insert(HttpServletRequest request, @RequestBody DevTask entity) {
-		entity.setCreate_time(new Date().toString());
-		this.devJarMapper.save(entity);
-		return ReturnT.SUCCESS;
-	}
+	private DevTaskMapper devTaskMapper;
 
 	@ApiOperation("文件上传")
 	@PostMapping("/upload")
@@ -59,7 +49,7 @@ public class DevTaskController extends BaseController {
 			String cmdstr ="";
 			if(!jarpath.equals("")) {
 				shellPath = buildFlinkTextFile(flinkHome,run_param,jarpath);
-			}else {
+			} else {
 				shellPath =  buildFlinkSQLFile(flinkHome,run_param,sqlPath);
 			}
 			// 调用执行的脚本文件
@@ -109,4 +99,26 @@ public class DevTaskController extends BaseController {
 			}
 		}
 	}
+
+	@ApiOperation("获取所有数据")
+	@GetMapping("/list")
+	public ReturnT<List<DevTask>> selectList() {
+		// page list
+		List<DevTask> list = devTaskMapper.findAll();
+		return new ReturnT<> (list);
+	}
+
+	/**
+	 * 删除数据
+	 *
+	 * @param id 删除的主键
+	 * @return 删除结果
+	 */
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	@ApiOperation("删除数据")
+	public ReturnT<String> delete(int id) {
+		int result = devTaskMapper.delete(id);
+		return result != 1 ? ReturnT.FAIL : ReturnT.SUCCESS;
+	}
+
 }

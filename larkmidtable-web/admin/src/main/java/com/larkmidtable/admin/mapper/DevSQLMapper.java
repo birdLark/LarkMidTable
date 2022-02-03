@@ -11,9 +11,6 @@ import java.util.List;
 @Mapper
 public interface DevSQLMapper extends BaseMapper<DevTask>{
 
-	int delete(@Param("id") int id);
-
-	List<DevTask> findAll();
 
 	int save(DevTask devJar);
 

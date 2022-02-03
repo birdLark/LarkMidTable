@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.larkmidtable.admin.mapper.DevSQLMapper">
-
+<mapper namespace="com.larkmidtable.admin.mapper.DevTaskMapper">
 
     <resultMap id="DevTask" type="com.larkmidtable.admin.entity.DevTask">
         <result column="id" property="id"/>
@@ -27,41 +26,16 @@
 		t.create_time
 	</sql>
 
-    <insert id="save" parameterType="com.larkmidtable.admin.entity.DevTask" useGeneratedKeys="true" keyProperty="id" >
-		INSERT INTO lark_dev_tasklist (
-			`name`,
-			tasktype,
-			runtype,
-			run_param,
-			sql_text,
-			task_describe,
-			create_time
-		) VALUES (
-			#{name},
-			#{tasktype},
-			#{runtype},
-			#{run_param},
-			#{sql_text},
-			#{task_describe},
-			#{create_time}
-		);
-	</insert>
+    <delete id="delete" parameterType="java.util.HashMap">
+		DELETE
+		FROM lark_dev_tasklist
+		WHERE id = #{id}
+	</delete>
 
-    <update id="update" parameterType="com.larkmidtable.admin.entity.DevTask" >
-        UPDATE lark_dev_tasklist
-        SET
-        `name` = #{name},
-        tasktype = #{tasktype},
-        runtype = #{runtype},
-        run_param = #{run_param},
-        sql_text = #{sql_text},
-        task_describe = #{task_describe},
-        create_time = #{create_time}
-        WHERE id = #{id}
-    </update>
-    <select id="getById" parameterType="java.util.HashMap" resultMap="DevTask">
+    <select id="findAll" resultMap="DevTask">
         SELECT <include refid="Show_Column_List" />
         FROM lark_dev_tasklist AS t
-        WHERE t.id = #{id}
+        ORDER BY t.id ASC
     </select>
+
 </mapper>

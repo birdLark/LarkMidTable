@@ -5,10 +5,7 @@ import com.larkmidtable.admin.mapper.DevJarMapper;
 import com.larkmidtable.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +28,12 @@ public class DevJarController  extends BaseController {
 	}
 
 
-	// 文件上传
+	@ApiOperation("修改数据")
+	@PostMapping(value = "/update")
+	public ReturnT<String> update(@RequestBody DevTask entity) {
+		entity.setUpdate_time(new Date().toString());
+		devJarMapper.update(entity);
+		return ReturnT.SUCCESS;
+	}
 
 }
