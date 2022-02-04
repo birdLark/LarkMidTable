@@ -38,6 +38,8 @@ packages/admin_{VERSION}.tar.gz
 
 ### 2.3解压部署
 
+#### Linux方式解压部署
+
 1.解压安装包
 
 ```
@@ -49,6 +51,14 @@ tar -zxvf admin_2.1.2_1.tar.gz
 ```
 admin/bin
 ```
+
+####  window方式解压部署
+
+1.解压安装包，使用winRAR解压
+
+2.运行\admin\bin下的admin.bat文件即可
+
+
 
 ### 2.4安装配置
 
