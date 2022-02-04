@@ -89,7 +89,7 @@ public final class SqlCommandParser {
 	private static final int DEFAULT_PATTERN_FLAGS = Pattern.CASE_INSENSITIVE | Pattern.DOTALL;
 
 	/**
-	 * Supported SQL commands.
+	 * 对SQL进行解析
 	 */
 	public enum SqlCommand {
 		SELECT("(^SELECT\\s.*)", SINGLE_OPERAND),
