@@ -91,7 +91,7 @@ mybatis-plus:
 logging:
   level:
     com.larkmidtable.admin.mapper: info
-    path: /home/hadoop/data/web-2.1.2/packages/admin
+  path: /home/hadoop/data/web-2.1.2/packages/admin
 
 
 
