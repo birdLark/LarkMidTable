@@ -5,14 +5,14 @@
     <resultMap id="BaseResource" type="com.larkmidtable.admin.entity.BaseResource">
         <result column="id" property="id"/>
         <result column="name" property="name"/>
-        <result column="resourceAddress" property="resourceAddress"/>
+        <result column="resource_address" property="resource_address"/>
         <result column="updatetime" property="update_time" />
     </resultMap>
 
     <sql id="Show_Column_List">
 		t.id,
 		t.name,
-		t.resourceAddress,
+		t.resource_address,
 		t.update_time
 	</sql>
 
@@ -37,11 +37,11 @@
     <insert id="save" parameterType="com.larkmidtable.admin.entity.BaseResource" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO lark_base_resource (
 			`name`,
-			resourceAddress,
+			resource_address,
 			update_time
 		) VALUES (
 			#{name},
-			#{resourceAddress},
+			#{resource_address},
 			#{update_time}
 		);
 	</insert>
@@ -50,7 +50,7 @@
         UPDATE lark_base_resource
         SET
         `name` = #{name},
-        resourceAddress = #{resourceAddress},
+        resource_address = #{resource_address},
         update_time = #{update_time}
         WHERE id = #{id}
     </update>

@@ -16,7 +16,7 @@ public class BaseResource {
     private String name;
 
 	@ApiModelProperty("资源地址")
-	private String resourceAddress;
+	private String resource_address;
 
 	@ApiModelProperty("更新时间")
 	private String update_time;
