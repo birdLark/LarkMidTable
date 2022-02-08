@@ -22,7 +22,7 @@ import static com.larkmidtable.core.biz.model.ReturnT.FAIL_CODE;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: 任务状态接口
+ * @Description: 数据集成-任务状态接口
  **/
 @RestController
 @RequestMapping("/jobcode")

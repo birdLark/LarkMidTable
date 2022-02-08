@@ -22,12 +22,12 @@ import static com.larkmidtable.core.biz.model.ReturnT.FAIL_CODE;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description:  用户管理模块
+ * @Description:  基础建设-用户管理模块
  **/
 @RestController
 @RequestMapping("/api/user")
 @Api(tags = "用户信息接口")
-public class UserController {
+public class BaseUserController {
 
     @Resource
     private JobUserMapper jobUserMapper;

@@ -20,7 +20,7 @@ import java.util.*;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: 执行器管理接口
+ * @Description: 数据集成-执行器管理接口
  **/
 @RestController
 @RequestMapping("/api/jobGroup")

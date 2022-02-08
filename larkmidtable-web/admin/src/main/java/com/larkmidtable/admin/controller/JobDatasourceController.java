@@ -22,7 +22,7 @@ import java.util.List;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: jdbc数据源配置控制器层
+ * @Description: 基础建设-jdbc数据源配置控制器层
  **/
 @RestController
 @RequestMapping("/api/jobJdbcDatasource")

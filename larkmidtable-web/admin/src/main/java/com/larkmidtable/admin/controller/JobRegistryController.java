@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: 执行器资源监控
+ * @Description: 数据集成-执行器资源监控
  **/
 @RestController
 @RequestMapping("/api/jobRegistry")

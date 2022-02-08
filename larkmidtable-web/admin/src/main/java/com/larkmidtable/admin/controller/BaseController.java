@@ -13,7 +13,8 @@ import static com.larkmidtable.core.util.Constants.STRING_BLANK;
  *
  * @Author: LarkMidTable
  * @Date: 2020/9/16 11:14
- * @Description: base controller
+ * @Description: 基础建设-用户管理
+ *
  **/
 public class BaseController extends ApiController {
 

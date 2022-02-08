@@ -25,7 +25,7 @@ import java.util.List;
  *
  * @Author:
  * @Date:
- * @Description:
+ * @Description: 数据服务- 权限控制
  **/
 @RestController
 @RequestMapping("/api/apiAuth")
