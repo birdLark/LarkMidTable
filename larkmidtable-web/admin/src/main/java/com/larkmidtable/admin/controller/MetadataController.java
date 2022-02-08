@@ -11,15 +11,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- *
- * @Author: LarkMidTable
- * @Date: 2020/9/16 11:14
- * @Description: 数据集成-查询数据库表名，字段的控制器
- **/
 @RestController
 @RequestMapping("api/metadata")
-@Api(tags = "jdbc数据库查询控制器")
+@Api(tags = "数据集成-jdbc数据库查询控制器")
 public class MetadataController extends BaseController {
 
     @Autowired

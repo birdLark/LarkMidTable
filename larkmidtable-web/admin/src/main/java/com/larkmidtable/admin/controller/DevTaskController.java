@@ -18,13 +18,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * @Description: 数据开发-开发任务列表
- *
- * */
+
 @RestController
 @RequestMapping("/api/devTask")
-@Api(tags = "数据开发任务")
+@Api(tags = "数据开发-开发任务列表")
 public class DevTaskController extends BaseController {
 
 	@Resource
@@ -112,12 +109,6 @@ public class DevTaskController extends BaseController {
 		return new ReturnT<> (list);
 	}
 
-	/**
-	 * 删除数据
-	 *
-	 * @param id 删除的主键
-	 * @return 删除结果
-	 */
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	@ApiOperation("删除数据")
 	public ReturnT<String> delete(int id) {

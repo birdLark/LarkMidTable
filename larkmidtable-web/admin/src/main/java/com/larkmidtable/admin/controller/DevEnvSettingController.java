@@ -15,24 +15,16 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Description: 数据开发-开发环境配置
- *
- * */
+
 @RestController
 @RequestMapping("/api/devEnvSetting")
-@Api(tags = "开发配置模块")
+@Api(tags = "数据开发-开发环境配置")
 public class DevEnvSettingController extends BaseController {
 
     @Autowired
     private DevEnvSettingService devEnvSettingService;
 
 
-    /**
-     * 分页查询所有数据
-     *
-     * @return 所有数据
-     */
     @GetMapping
     @ApiOperation("分页查询所有数据")
     public R<IPage<DevEnvSetting>> selectAll(@RequestParam(value = "searchVal", required = false) String searchVal,
@@ -42,11 +34,6 @@ public class DevEnvSettingController extends BaseController {
         return success(devEnvSettingService.getDevEnvSettingListPaging(pageSize, pageNo, searchVal));
     }
 
-    /**
-     * Get all project
-     *
-     * @return
-     */
     @ApiOperation("获取所有数据")
     @GetMapping("/list")
     public R<List<DevEnvSetting>> selectList() {
@@ -55,24 +42,12 @@ public class DevEnvSettingController extends BaseController {
         return success(devEnvSettingService.list(query));
     }
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
     @ApiOperation("通过主键查询单条数据")
     @GetMapping("{id}")
     public R<DevEnvSetting> selectOne(@PathVariable Serializable id) {
         return success(this.devEnvSettingService.getById(id));
     }
 
-    /**
-     * 新增数据
-     *
-     * @param entity 实体对象
-     * @return 新增结果
-     */
     @ApiOperation("新增数据")
     @PostMapping
     public R<Boolean> insert(HttpServletRequest request, @RequestBody DevEnvSetting entity) {
@@ -81,12 +56,6 @@ public class DevEnvSettingController extends BaseController {
         return success(this.devEnvSettingService.save(entity));
     }
 
-    /**
-     * 修改数据
-     *
-     * @param entity 实体对象
-     * @return 修改结果
-     */
     @PutMapping
     @ApiOperation("修改数据")
     public R<Boolean> update(@RequestBody DevEnvSetting entity) {
@@ -97,12 +66,6 @@ public class DevEnvSettingController extends BaseController {
         return success(this.devEnvSettingService.updateById(entity));
     }
 
-    /**
-     * 删除数据
-     *
-     * @param idList 主键结合
-     * @return 删除结果
-     */
     @DeleteMapping
     @ApiOperation("删除数据")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {

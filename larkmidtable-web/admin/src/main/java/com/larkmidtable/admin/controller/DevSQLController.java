@@ -13,13 +13,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
-/**
- * @Description: 数据开发-SQL作业开发
- *
- * */
+
 @RestController
 @RequestMapping("/api/devSQL")
-@Api(tags = "数据开发JAR方式的增删改查")
+@Api(tags = "数据开发-SQL作业开发")
 public class DevSQLController extends BaseController {
 
 	@Resource

@@ -15,26 +15,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @Author: LarkMidTable
- * @Date: 2020/9/16 11:14
- * @Description: 数据集成-项目管理模块
- **/
 @RestController
 @RequestMapping("/api/jobProject")
-@Api(tags = "项目管理模块")
+@Api(tags = "数据集成-项目管理模块")
 public class JobProjectController extends BaseController {
 
     @Autowired
     private JobProjectService jobProjectService;
 
-
-    /**
-     * 分页查询所有数据
-     *
-     * @return 所有数据
-     */
     @GetMapping
     @ApiOperation("分页查询所有数据")
     public R<IPage<JobProject>> selectAll(@RequestParam(value = "searchVal", required = false) String searchVal,
@@ -44,11 +32,6 @@ public class JobProjectController extends BaseController {
         return success(jobProjectService.getProjectListPaging(pageSize, pageNo, searchVal));
     }
 
-    /**
-     * Get all project
-     *
-     * @return
-     */
     @ApiOperation("获取所有数据")
     @GetMapping("/list")
     public R<List<JobProject>> selectList() {
@@ -57,24 +40,12 @@ public class JobProjectController extends BaseController {
         return success(jobProjectService.list(query));
     }
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
     @ApiOperation("通过主键查询单条数据")
     @GetMapping("{id}")
     public R<JobProject> selectOne(@PathVariable Serializable id) {
         return success(this.jobProjectService.getById(id));
     }
 
-    /**
-     * 新增数据
-     *
-     * @param entity 实体对象
-     * @return 新增结果
-     */
     @ApiOperation("新增数据")
     @PostMapping
     public R<Boolean> insert(HttpServletRequest request, @RequestBody JobProject entity) {
@@ -83,13 +54,6 @@ public class JobProjectController extends BaseController {
         return success(this.jobProjectService.save(entity));
     }
 
-
-    /**
-     * 修改数据
-     *
-     * @param entity 实体对象
-     * @return 修改结果
-     */
     @PutMapping
     @ApiOperation("修改数据")
     public R<Boolean> update(@RequestBody JobProject entity) {
@@ -100,12 +64,6 @@ public class JobProjectController extends BaseController {
         return success(this.jobProjectService.updateById(entity));
     }
 
-    /**
-     * 删除数据
-     *
-     * @param idList 主键结合
-     * @return 删除结果
-     */
     @DeleteMapping
     @ApiOperation("删除数据")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {

@@ -8,6 +8,7 @@ import com.larkmidtable.core.biz.model.HandleProcessCallbackParam;
 import com.larkmidtable.core.biz.model.RegistryParam;
 import com.larkmidtable.core.biz.model.ReturnT;
 import com.larkmidtable.core.util.JobRemotingUtil;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,25 +17,15 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-/**
- *
- * @Author: LarkMidTable
- * @Date: 2020/9/16 11:14
- * @Description:  后端-API的接口
- **/
+
 @RestController
 @RequestMapping("/api")
+@Api(tags = "后端-API的接口")
 public class JobApiController {
 
     @Resource
     private AdminBiz adminBiz;
 
-    /**
-     * callback
-     *
-     * @param data
-     * @return
-     */
     @RequestMapping("/callback")
     public ReturnT<String> callback(HttpServletRequest request, @RequestBody(required = false) String data) {
         // valid
@@ -57,12 +48,6 @@ public class JobApiController {
         return adminBiz.callback(callbackParamList);
     }
 
-    /**
-     * callback
-     *
-     * @param data
-     * @return
-     */
     @RequestMapping("/processCallback")
     public ReturnT<String> processCallback(HttpServletRequest request, @RequestBody(required = false) String data) {
         // valid
@@ -85,14 +70,6 @@ public class JobApiController {
         return adminBiz.processCallback(callbackParamList);
     }
 
-
-
-    /**
-     * registry
-     *
-     * @param data
-     * @return
-     */
     @RequestMapping("/registry")
     public ReturnT<String> registry(HttpServletRequest request, @RequestBody(required = false) String data) {
         // valid
@@ -115,12 +92,6 @@ public class JobApiController {
         return adminBiz.registry(registryParam);
     }
 
-    /**
-     * registry remove
-     *
-     * @param data
-     * @return
-     */
     @RequestMapping("/registryRemove")
     public ReturnT<String> registryRemove(HttpServletRequest request, @RequestBody(required = false) String data) {
         // valid

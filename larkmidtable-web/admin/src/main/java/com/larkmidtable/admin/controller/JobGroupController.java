@@ -16,15 +16,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.*;
 
-/**
- *
- * @Author: LarkMidTable
- * @Date: 2020/9/16 11:14
- * @Description: 数据集成-执行器管理接口
- **/
+
 @RestController
 @RequestMapping("/api/jobGroup")
-@Api(tags = "执行器管理接口")
+@Api(tags = "数据集成-执行器管理接口")
 public class JobGroupController {
 
     @Resource

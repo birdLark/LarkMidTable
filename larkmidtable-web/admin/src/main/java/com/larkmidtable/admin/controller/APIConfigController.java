@@ -1,13 +1,10 @@
 package com.larkmidtable.admin.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.parser.Feature;
 import com.larkmidtable.admin.entity.APIConfig;
 import com.larkmidtable.admin.entity.JobDatasource;
 import com.larkmidtable.admin.entity.ResponseData;
 import com.larkmidtable.admin.mapper.APIConfigMapper;
-import com.larkmidtable.admin.service.APIConfigService;
 import com.larkmidtable.admin.service.JobDatasourceService;
 import com.larkmidtable.admin.util.DruidDataSource;
 import com.larkmidtable.core.biz.model.ReturnT;
@@ -20,19 +17,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
-/**
- *
- * @Author:
- * @Date:
- * @Description: 数据服务-可视化API构建
- **/
 @RestController
 @RequestMapping("/api/apiConfig")
-@Api(tags = "OpenAPI的操作")
+@Api(tags = "数据服务-可视化API构建")
 public class APIConfigController extends BaseController {
-
-    @Autowired
-    private APIConfigService apiConfigService;
 
 	@Autowired
 	private JobDatasourceService jobJdbcDatasourceService;
@@ -40,11 +28,6 @@ public class APIConfigController extends BaseController {
 	@Resource
 	private APIConfigMapper apiConfigMapper;
 
-    /**
-     * Get all project
-     *
-     * @return
-     */
 	@ApiOperation("获取所有数据")
 	@GetMapping("/list")
 	public ReturnT<List<APIConfig>> selectList() {
@@ -52,12 +35,7 @@ public class APIConfigController extends BaseController {
 		List<APIConfig> list = apiConfigMapper.findAll();
 		return new ReturnT<> (list);
 	}
-    /**
-     * 新增数据
-     *
-     * @param entity 实体对象
-     * @return 新增结果
-     */
+
     @ApiOperation("新增数据")
 	@PostMapping("/add")
     public ReturnT<String> insert(HttpServletRequest request, @RequestBody APIConfig entity) {
@@ -66,12 +44,6 @@ public class APIConfigController extends BaseController {
 		return ReturnT.SUCCESS;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param entity 实体对象
-     * @return 修改结果
-     */
     @ApiOperation("修改数据")
 	@PostMapping(value = "/update")
 	public ReturnT<String> update(@RequestBody APIConfig entity) {
@@ -88,12 +60,6 @@ public class APIConfigController extends BaseController {
 		return ReturnT.SUCCESS;
     }
 
-    /**
-     * 删除数据
-     *
-     * @param id 主键结合
-     * @return 删除结果
-     */
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	@ApiOperation("删除数据")
 	public ReturnT<String> delete(int id) {
@@ -109,9 +75,8 @@ public class APIConfigController extends BaseController {
 			String datasourceId = apiConfig.getDatasource_id();
 			String sql_text = apiConfig.getSql_text();
 			Map<String, Object> paramsMap = JSON.parseObject(params, LinkedHashMap.class);
-			// 获取DateSource
+
 			JobDatasource datasource = this.jobJdbcDatasourceService.getById(datasourceId);
-			// 执行结果
 			Object result = DruidDataSource.executeSql(datasource,sql_text,paramsMap);
 			return ResponseData.successWithData(result);
 		} catch (Exception e) {

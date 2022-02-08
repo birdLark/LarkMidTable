@@ -19,25 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-/**
- *
- * @Author: LarkMidTable
- * @Date: 2020/9/16 11:14
- * @Description: 数据集成-执行器资源监控
- **/
 @RestController
 @RequestMapping("/api/jobRegistry")
-@Api(tags = "执行器资源监控")
+@Api(tags = "数据集成-执行器资源监控")
 public class JobRegistryController extends BaseController {
 
 	@Autowired
 	private JobRegistryService jobRegistryService;
 
-	/**
-	 * 分页查询所有数据
-	 *
-	 * @return 所有数据
-	 */
 	@GetMapping
 	@ApiOperation("分页查询所有数据")
 	@ApiImplicitParams(
@@ -52,12 +41,6 @@ public class JobRegistryController extends BaseController {
 		return success(this.jobRegistryService.page(baseForm.getPlusPagingQueryEntity(), pageQueryWrapperCustom(baseForm.getParameters())));
 	}
 
-	/**
-	 * 自定义查询组装
-	 *
-	 * @param map
-	 * @return
-	 */
 	protected QueryWrapper<JobRegistry> pageQueryWrapperCustom(Map<String, Object> map) {
 		// mybatis plus 分页相关的参数
 		Map<String, Object> pageHelperParams = PageUtils.filterPageParams(map);
@@ -78,7 +61,6 @@ public class JobRegistryController extends BaseController {
 			}
 		});
 
-		//遍历进行字段查询条件组装
 		columnQueryMap.forEach((k, v) -> {
 			switch (k) {
 				case "datasourceName":

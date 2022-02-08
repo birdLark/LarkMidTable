@@ -18,15 +18,10 @@ import java.util.Date;
 
 import static com.larkmidtable.core.biz.model.ReturnT.FAIL_CODE;
 
-/**
- *
- * @Author: LarkMidTable
- * @Date: 2020/9/16 11:14
- * @Description: 数据集成-任务状态接口
- **/
+
 @RestController
 @RequestMapping("/jobcode")
-@Api(tags = "任务状态接口")
+@Api(tags = "数据集成-任务状态接口")
 public class JobCodeController {
 
     @Resource
