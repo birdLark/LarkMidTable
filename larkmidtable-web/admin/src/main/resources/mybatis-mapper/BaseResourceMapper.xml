@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.larkmidtable.admin.mapper.BaseResourceMapper">
+
+    <resultMap id="BaseResource" type="com.larkmidtable.admin.entity.BaseResource">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="resourceAddress" property="resourceAddress"/>
+        <result column="updatetime" property="update_time" />
+    </resultMap>
+
+    <sql id="Show_Column_List">
+		t.id,
+		t.name,
+		t.resourceAddress,
+		t.update_time
+	</sql>
+
+    <delete id="delete" parameterType="java.util.HashMap">
+		DELETE
+		FROM lark_base_resource
+		WHERE id = #{id}
+	</delete>
+
+    <select id="findAll" resultMap="BaseResource">
+        SELECT <include refid="Show_Column_List" />
+        FROM lark_base_resource AS t
+        ORDER BY t.id ASC
+    </select>
+
+    <select id="getById" parameterType="java.util.HashMap" resultMap="BaseResource">
+        SELECT <include refid="Show_Column_List" />
+        FROM lark_base_resource AS t
+        WHERE t.id = #{id}
+    </select>
+
+    <insert id="save" parameterType="com.larkmidtable.admin.entity.BaseResource" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO lark_base_resource (
+			`name`,
+			resourceAddress,
+			update_time
+		) VALUES (
+			#{name},
+			#{resourceAddress},
+			#{update_time}
+		);
+	</insert>
+
+    <update id="update" parameterType="com.larkmidtable.admin.entity.BaseResource" >
+        UPDATE lark_base_resource
+        SET
+        `name` = #{name},
+        resourceAddress = #{resourceAddress},
+        update_time = #{update_time}
+        WHERE id = #{id}
+    </update>
+
+
+</mapper>

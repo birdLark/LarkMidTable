@@ -353,24 +353,23 @@ CHANGE COLUMN `author` `user_id` INT(11) NOT NULL COMMENT '修改用户' ;
 ALTER TABLE `job_info`
 CHANGE COLUMN `increment_type` `increment_type` TINYINT(4) NULL DEFAULT 0 COMMENT '增量类型' ;
 
-CREATE TABLE `dev_env_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'key',
-  `name` varchar(100) DEFAULT NULL COMMENT 'property name',
-  `prop_value` varchar(300) DEFAULT NULL COMMENT 'property value',
-  `description` varchar(500) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL COMMENT 'creator id',
-  `flag` tinyint(4) DEFAULT '1' COMMENT '0 not available, 1 available',
-  `create_time` datetime DEFAULT NULL COMMENT 'create time',
-  `update_time` datetime DEFAULT NULL COMMENT 'update time',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
+
+-- ----------------------------
+-- 基础建设模块--
+-- ----------------------------
+CREATE TABLE `lark_base_resource` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `resourceAddress` varchar(100) DEFAULT NULL,
+  `update_time` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE web.lark_base_resource ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
 
 -- ----------------------------
 -- 数据可视化模块--
 -- ----------------------------
--- web.lark_api_config definition
-
 CREATE TABLE `lark_api_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `path` varchar(100) NOT NULL,
@@ -384,13 +383,9 @@ CREATE TABLE `lark_api_config` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `lark_api_config_un` (`path`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+ALTER TABLE web.lark_api_config ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
+ALTER TABLE web.lark_api_config ADD CONSTRAINT lark_api_config_un UNIQUE KEY (`path`);
 
-CREATE TABLE `lark_api_sql` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `api_id` varchar(100) DEFAULT NULL,
-  `sql_text` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `lark_api_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -398,6 +393,9 @@ CREATE TABLE `lark_api_group` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `lark_api_group_un` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE web.lark_api_group ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
+ALTER TABLE web.lark_api_group ADD CONSTRAINT lark_api_group_un UNIQUE KEY (name);
+
 
 CREATE TABLE `lark_api_token` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -407,6 +405,7 @@ CREATE TABLE `lark_api_token` (
   `create_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE web.lark_api_token ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
 
 CREATE TABLE `lark_api_auth` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -415,10 +414,22 @@ CREATE TABLE `lark_api_auth` (
   `update_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+ALTER TABLE web.lark_api_auth ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
 
 -- ----------------------------
 -- 数据开发模块--
 -- ----------------------------
+CREATE TABLE `dev_env_setting` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'key',
+  `name` varchar(100) DEFAULT NULL COMMENT 'property name',
+  `prop_value` varchar(300) DEFAULT NULL COMMENT 'property value',
+  `description` varchar(500) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL COMMENT 'creator id',
+  `flag` tinyint(4) DEFAULT '1' COMMENT '0 not available, 1 available',
+  `create_time` datetime DEFAULT NULL COMMENT 'create time',
+  `update_time` datetime DEFAULT NULL COMMENT 'update time',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 CREATE TABLE `lark_dev_tasklist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -433,3 +444,4 @@ CREATE TABLE `lark_dev_tasklist` (
   `create_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE web.lark_dev_tasklist ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
