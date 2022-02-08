@@ -28,8 +28,9 @@ public class AdminApplication {
         String envPort = env.getProperty(Common.SERVERPORT);
         String envContext = env.getProperty(Common.SERVERCONTEXTPATH);
         String port = envPort == null ? Common.PORT : envPort;
+        String docPage= Common.DOCPAGE;
         String context = envContext == null ? "" : envContext;
-        String path = port + "" + context + "/doc.html";
+        String path = port + "" + context + docPage;
         String externalAPI = InetAddress.getLocalHost().getHostAddress();
         logger.info(
                 "Access URLs:\n----------------------------------------------------------\n\t"

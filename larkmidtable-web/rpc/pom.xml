@@ -16,7 +16,6 @@
     </properties>
 
     <dependencies>
-        <!-- ********************** net + serialize + registry (default = netty + hessian + xxl-registry) ********************** -->
 
         <!-- netty -->
         <dependency>
@@ -32,8 +31,6 @@
             <version>${hessian.version}</version>
         </dependency>
 
-        <!-- ********************** base ********************** -->
-
         <!-- slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -46,9 +43,6 @@
             <version>${slf4j-api.version}</version>
             <scope>test</scope>
         </dependency>
-
-
-        <!-- ********************** spring (default=provided) ********************** -->
 
         <!-- spring -->
         <dependency>
@@ -87,7 +81,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
 
     <build>
