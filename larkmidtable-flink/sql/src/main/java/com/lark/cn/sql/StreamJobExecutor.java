@@ -16,8 +16,7 @@ import com.lark.cn.common.SqlCommandParser.SqlCommandCall;
 /**
  *
  * @author fei
- * @date 2022-01-17
- * @version flink 1.10
+ * @since 2022-01-17
  **/
 public class StreamJobExecutor {
 
