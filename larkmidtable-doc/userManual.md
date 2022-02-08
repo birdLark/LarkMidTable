@@ -68,10 +68,10 @@ http://ip:8080/index.htm
 
 点击下一步创建任务，在实例管理页面可以看到已构建的任务
 
-## 5.实例管理
+## 5.数据集成-实例管理
 
 ![1602826881720](https://img-blog.csdnimg.cn/20201018150026838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzEyNDczMg==,size_16,color_FFFFFF,t_70#pic_center)
 
-## 6.日志管理
+## 6.数据集成-日志管理
 
 ![https://img2020.cnblogs.com/blog/622382/202201/622382-20220113230801526-1641993705.png](https://img2020.cnblogs.com/blog/622382/202201/622382-20220113230801526-1641993705.png)
