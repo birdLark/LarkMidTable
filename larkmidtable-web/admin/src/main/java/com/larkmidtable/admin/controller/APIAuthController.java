@@ -12,15 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @Author:
- * @Date:
- * @Description: 数据服务- 权限控制
- **/
 @RestController
 @RequestMapping("/api/apiAuth")
-@Api(tags = "OpenAPI的权限操作")
+@Api(tags = "数据服务- 权限控制")
 public class APIAuthController extends BaseController {
 
 	@Resource

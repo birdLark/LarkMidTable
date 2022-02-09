@@ -1,16 +1,15 @@
 package com.larkmidtable.admin.controller;
 
 
-import com.larkmidtable.admin.dto.FlinkXBatchJsonBuildDto;
-import com.larkmidtable.admin.dto.TriggerJobDto;
-import com.larkmidtable.admin.service.JobService;
 import com.larkmidtable.admin.core.cron.CronExpression;
 import com.larkmidtable.admin.core.thread.JobTriggerPoolHelper;
-import com.larkmidtable.admin.core.trigger.TriggerTypeEnum;
 import com.larkmidtable.admin.core.util.I18nUtil;
+import com.larkmidtable.admin.dto.FlinkXBatchJsonBuildDto;
+import com.larkmidtable.admin.dto.TriggerJobDto;
+import com.larkmidtable.admin.entity.JobInfo;
+import com.larkmidtable.admin.service.JobService;
 import com.larkmidtable.core.biz.model.ReturnT;
 import com.larkmidtable.core.util.DateUtil;
-import com.larkmidtable.admin.entity.JobInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -25,9 +24,10 @@ import java.util.List;
 import java.util.Map;
 
 
-@Api(tags = "数据集成-任务配置接口")
+
 @RestController
 @RequestMapping("/api/job")
+@Api(tags = "数据集成-任务配置接口")
 public class JobInfoController extends BaseController{
 
     @Resource

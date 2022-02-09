@@ -22,10 +22,12 @@ public class BaseResourceController {
 
 	@ApiOperation("获取所有数据")
 	@GetMapping("/list")
-	public ReturnT<List<BaseResource>> selectList() {
+	public ReturnT<List<BaseResource>> selectList(
+			@RequestParam(value = "current", required = false, defaultValue = "1") int current,
+			@RequestParam(value = "size", required = false, defaultValue = "10") int size) {
 		// page list
 		List<BaseResource> list = baseResourceMapper.findAll();
-		return new ReturnT<> (list);
+		return new ReturnT<>(list);
 	}
 
 	@ApiOperation("新增数据")

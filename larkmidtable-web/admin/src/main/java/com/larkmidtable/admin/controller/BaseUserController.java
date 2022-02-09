@@ -18,7 +18,6 @@ import java.util.Map;
 
 import static com.larkmidtable.core.biz.model.ReturnT.FAIL_CODE;
 
-
 @RestController
 @RequestMapping("/api/user")
 @Api(tags = "基础建设-用户管理模块")
