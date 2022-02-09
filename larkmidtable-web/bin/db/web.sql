@@ -365,7 +365,6 @@ CREATE TABLE `lark_base_resource` (
   `update_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE web.lark_base_resource ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
 
 -- ----------------------------
 -- 数据可视化模块--
@@ -383,8 +382,6 @@ CREATE TABLE `lark_api_config` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `lark_api_config_un` (`path`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-ALTER TABLE web.lark_api_config ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
-ALTER TABLE web.lark_api_config ADD CONSTRAINT lark_api_config_un UNIQUE KEY (`path`);
 
 
 CREATE TABLE `lark_api_group` (
@@ -393,8 +390,6 @@ CREATE TABLE `lark_api_group` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `lark_api_group_un` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE web.lark_api_group ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
-ALTER TABLE web.lark_api_group ADD CONSTRAINT lark_api_group_un UNIQUE KEY (name);
 
 
 CREATE TABLE `lark_api_token` (
@@ -405,7 +400,6 @@ CREATE TABLE `lark_api_token` (
   `create_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE web.lark_api_token ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
 
 CREATE TABLE `lark_api_auth` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -414,7 +408,6 @@ CREATE TABLE `lark_api_auth` (
   `update_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-ALTER TABLE web.lark_api_auth ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
 
 -- ----------------------------
 -- 数据开发模块--
@@ -444,4 +437,3 @@ CREATE TABLE `lark_dev_tasklist` (
   `create_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE web.lark_dev_tasklist ADD CONSTRAINT `PRIMARY` PRIMARY KEY (id);
