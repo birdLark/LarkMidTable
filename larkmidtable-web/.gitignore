@@ -3,6 +3,7 @@
 */*.iml
 *.iml
 */target/*
+/.settings/*
 data/*
 */*.tar.gz
 */*/test/*.java
@@ -31,3 +32,5 @@ selenium-debug.log
 
 package-lock.json
 yarn.lock
+
+.project
