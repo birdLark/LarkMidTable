@@ -1,8 +1,8 @@
 package com.larkmidtable.cn.core;
 
-import com.larkmidtable.cn.core.util.container.ConfigParser;
 import com.larkmidtable.cn.core.util.container.ExceptionTracker;
 import com.larkmidtable.cn.core.util.container.FrameworkErrorCode;
+import com.larkmidtable.cn.core.util.container.JarLoader;
 import com.larkmidtable.common.exception.LarkMidTableException;
 import com.larkmidtable.common.spi.ErrorCode;
 import com.larkmidtable.common.statistics.VMInfo;
@@ -10,8 +10,21 @@ import com.larkmidtable.common.util.Configuration;
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
+import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.common.operators.Order;
+import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
+import org.apache.flink.api.java.ExecutionEnvironment;
+import org.apache.flink.api.java.io.jdbc.JDBCInputFormat;
+import org.apache.flink.api.java.operators.DataSource;
+import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.typeutils.RowTypeInfo;
+import org.apache.flink.types.Row;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -44,6 +57,7 @@ public class Engine {
 		}
 		System.exit(exitCode);
 	}
+
 	public static void entry(final String[] args) throws Throwable {
 		// 1.解析参数
 		Options options = new Options();
@@ -53,7 +67,8 @@ public class Engine {
 		CommandLine cl = parser.parse(options, args);
 		String jobPath = cl.getOptionValue("job");
 		RUNTIME_MODE = cl.getOptionValue("mode");
-		Configuration configuration = ConfigParser.parse(jobPath);
+		Configuration configuration = null;
+		//		Configuration configuration = ConfigParser.parse(jobPath);
 
 		//打印vmInfo
 		VMInfo vmInfo = VMInfo.getVmInfo();
@@ -65,13 +80,28 @@ public class Engine {
 		engine.start(configuration);
 	}
 
-	public void start(Configuration allConf) {
+	public void test() {
+		System.out.println("haha");
+	}
 
-		//2.反射得到reader
+	public void start(Configuration allConf) throws Exception {
 
-		//3.反射得到writer
+		/*JDBCInputFormat input = new JDBCInputFormat.JDBCInputFormatBuilder()
+				.setDrivername("com.mysql.cj.jdbc.Driver")
+				.setDBUrl("jdbc:mysql://localhost:3306/test?user=root&password=root&serverTimezone=UTC")
+				.setQuery("select * from student")
+				//设置获取的数据的类型
+				.setRowTypeInfo(new RowTypeInfo(BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.STRING_TYPE_INFO))
+				.finish();
 
-		//4.将流关闭
+		ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+		DataSource<Row> input1 = env.createInput(input);
 
+		input1.map(new MapFunction<Row, String>() {
+			@Override
+			public String map(Row row) throws Exception {
+				return row.toString();
+			}
+		}).print();*/
 	}
 }

@@ -13,7 +13,9 @@ public interface BaseResourceMapper extends BaseMapper<BaseResource>{
 
 	int delete(@Param("id") int id);
 
-	List<BaseResource> findAll();
+	List<BaseResource> findList(@Param("offset") int offset,
+			@Param("pagesize") int pagesize,
+			@Param("name") String name);
 
 	int save(BaseResource apiAuth);
 

@@ -38,6 +38,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <flink.version>1.12.5</flink.version>
+        <scala.binary.version>2.12</scala.binary.version>
     </properties>
 
     <dependencies>

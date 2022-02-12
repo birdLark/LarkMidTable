@@ -54,7 +54,7 @@ admin/bin
 
 ####  window方式解压部署
 
-1.解压安装包，使用winRAR解压
+1.解压 admin_2.1.2_1.tar.gz 安装包，使用winRAR解压
 
 2.运行\admin\bin下的admin.bat文件即可
 
