@@ -183,6 +183,7 @@ start_m(){
         exit 0
     fi
     LOG INFO ${EXE_JAVA}
+    echo ${EXE_JAVA}
     nohup ${EXE_JAVA} >${SHELL_LOG} 2>&1 &
     LOG INFO "Waiting ${FRIEND_NAME} to start complete ..."
     wait_for_startup 20
