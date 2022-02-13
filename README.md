@@ -15,10 +15,14 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 # **Product Vision**
 
 1. Meet many small businesses and provide one-stop solutions.
-
 2. Make world-class products that can Google or Apple.
-
 3. Create value, generate value, and make the world a better place.
+
+
+
+# Architecture Diagram
+
+![系统架构图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201019215540747-440767668.jpg ) 
 
 
 
@@ -26,17 +30,13 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 
 ![首页](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162212117-942279447.jpg)
 
+![](https://img2022.cnblogs.com/blog/622382/202202/622382-20220208153920857-1211695235.jpg)
 
+![](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093859410-908575610.png)
 
 ![页面效果图](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162508366-1004266747.jpg)
 
-
-
-# Product Architecture Diagram
-
-![系统架构图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201019215540747-440767668.jpg ) 
-
-
+![](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
 
 # Product Features
 
