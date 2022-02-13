@@ -28,15 +28,15 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 
 # Product Renderings
 
-![首页](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162212117-942279447.jpg)
+![登陆页面](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162212117-942279447.jpg)
 
-![](https://img2022.cnblogs.com/blog/622382/202202/622382-20220208153920857-1211695235.jpg)
+![数据报表](https://img2022.cnblogs.com/blog/622382/202202/622382-20220208153920857-1211695235.jpg)
 
-![](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093859410-908575610.png)
+![基础建设](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093859410-908575610.png)
 
-![页面效果图](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162508366-1004266747.jpg)
+![数据集成](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162508366-1004266747.jpg)
 
-![](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
+![数据开发](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
 
 # Product Features
 
