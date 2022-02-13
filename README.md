@@ -34,7 +34,7 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 
 ![基础建设](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093859410-908575610.png)
 
-![数据集成](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162508366-1004266747.jpg)
+![数据集成](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213095256736-980802722.png)
 
 ![数据开发](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
 
