@@ -1,22 +1,21 @@
 package com.larkmidtable.admin.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.larkmidtable.admin.entity.*;
-import com.larkmidtable.admin.mapper.DevJarMapper;
+import com.larkmidtable.admin.entity.DevTask;
+import com.larkmidtable.admin.entity.ResponseData;
 import com.larkmidtable.admin.mapper.DevTaskMapper;
-import com.larkmidtable.admin.util.DruidDataSource;
 import com.larkmidtable.core.biz.model.ReturnT;
-import com.larkmidtable.core.util.ProcessUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -103,10 +102,15 @@ public class DevTaskController extends BaseController {
 
 	@ApiOperation("获取所有数据")
 	@GetMapping("/list")
-	public ReturnT<List<DevTask>> selectList() {
+	public ReturnT<Map<String, Object>> selectList(@RequestParam(value = "current", required = false, defaultValue = "1") int current,
+			@RequestParam(value = "size", required = false, defaultValue = "10") int size,
+			@RequestParam(value = "name", required = false) String name) {
 		// page list
-		List<DevTask> list = devTaskMapper.findAll();
-		return new ReturnT<> (list);
+		List<DevTask> list = devTaskMapper.findList((current - 1) * size,size,name);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("recordsFiltered", list.size());    // 过滤后的总记录数
+		maps.put("data", list);                    // 分页列表
+		return new ReturnT<>(maps);
 	}
 
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)

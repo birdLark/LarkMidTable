@@ -32,10 +32,16 @@
 		WHERE id = #{id}
 	</delete>
 
-    <select id="findAll" resultMap="DevTask">
+    <select id="findList"  parameterType="java.util.HashMap"   resultMap="DevTask">
         SELECT <include refid="Show_Column_List" />
         FROM lark_dev_tasklist AS t
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="name != null and name != ''">
+                AND t.name like CONCAT(CONCAT('%', #{name}), '%')
+            </if>
+        </trim>
         ORDER BY t.id ASC
+        LIMIT #{offset}, #{pagesize}
     </select>
 
 </mapper>

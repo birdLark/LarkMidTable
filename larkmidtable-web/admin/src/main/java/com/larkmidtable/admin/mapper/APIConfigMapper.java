@@ -13,7 +13,9 @@ public interface APIConfigMapper extends BaseMapper<APIConfig>{
 
 	int delete(@Param("id") int id);
 
-	List<APIConfig> findAll();
+	List<APIConfig> findList(@Param("offset") int offset,
+			@Param("pagesize") int pagesize,
+			@Param("name") String name);
 
 	int save(APIConfig apiConfig);
 

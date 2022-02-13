@@ -30,10 +30,15 @@ public class APIConfigController extends BaseController {
 
 	@ApiOperation("获取所有数据")
 	@GetMapping("/list")
-	public ReturnT<List<APIConfig>> selectList() {
+	public ReturnT<Map<String, Object>> selectList(@RequestParam(value = "current", required = false, defaultValue = "1") int current,
+			@RequestParam(value = "size", required = false, defaultValue = "10") int size,
+			@RequestParam(value = "name", required = false) String name) {
 		// page list
-		List<APIConfig> list = apiConfigMapper.findAll();
-		return new ReturnT<> (list);
+		List<APIConfig> list = apiConfigMapper.findList((current - 1) * size,size,name);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("recordsFiltered", list.size());    // 过滤后的总记录数
+		maps.put("data", list);                    // 分页列表
+		return new ReturnT<>(maps);
 	}
 
     @ApiOperation("新增数据")
