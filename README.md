@@ -71,7 +71,9 @@ Operating manual  	[Operating manual](https://github.com/wxgzgl/LarkMidTable/tre
 
 Plugin Development Manual     [Plugin Development Manual](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/pluginDev.md)
 
+# Fields of application
 
+Smart campus, smart transportation, smart finance, smart agriculture, smart healthcare, smart government and other big data fields
 
 # Technological Exchanges
 
