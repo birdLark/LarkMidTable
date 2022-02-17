@@ -22,7 +22,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <log4j.version>2.12.1</log4j.version>
         <iceberg.version>0.11.0</iceberg.version>
-        <hadoop.version>2.7.3</hadoop.version>
+        <hadoop.version>2.10.1</hadoop.version>
     </properties>
 
 
