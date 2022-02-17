@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -23,10 +24,10 @@ import java.util.Date;
 @RequestMapping("/api/devSQL")
 @Api(tags = "数据开发-SQL作业开发")
 public class DevSQLController extends BaseController {
-
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	@Resource
 	private DevSQLMapper devSQLMapper;
-	
+
 	@Autowired
 	private FlinkSqlService flinkSqlService;
 
@@ -48,7 +49,7 @@ public class DevSQLController extends BaseController {
 	@ApiOperation("修改数据")
 	@PostMapping(value = "/update")
 	public ReturnT<String> update(@RequestBody DevTask entity) {
-		entity.setUpdate_time(new Date().toString());
+		entity.setUpdate_time(sdf.format(new Date()));
 		devSQLMapper.update(entity);
 		return ReturnT.SUCCESS;
 	}

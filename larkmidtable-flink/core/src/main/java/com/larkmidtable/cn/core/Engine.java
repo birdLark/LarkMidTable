@@ -1,5 +1,6 @@
 package com.larkmidtable.cn.core;
 
+import com.larkmidtable.cn.core.input.CustomInputFormat;
 import com.larkmidtable.cn.core.util.container.ExceptionTracker;
 import com.larkmidtable.cn.core.util.container.FrameworkErrorCode;
 import com.larkmidtable.cn.core.util.container.JarLoader;
@@ -36,6 +37,7 @@ import java.util.List;
 public class Engine {
 	private static final Logger LOG = LoggerFactory.getLogger(Engine.class);
 	private static String RUNTIME_MODE;
+	ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
 
 	public static void main(String[] args) throws Exception {
@@ -86,6 +88,9 @@ public class Engine {
 
 	public void start(Configuration allConf) throws Exception {
 
+		DataSource input = env.createInput(new CustomInputFormat());
+		input.print();
+
 		/*JDBCInputFormat input = new JDBCInputFormat.JDBCInputFormatBuilder()
 				.setDrivername("com.mysql.cj.jdbc.Driver")
 				.setDBUrl("jdbc:mysql://localhost:3306/test?user=root&password=root&serverTimezone=UTC")
@@ -94,8 +99,7 @@ public class Engine {
 				.setRowTypeInfo(new RowTypeInfo(BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.STRING_TYPE_INFO))
 				.finish();
 
-		ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-		DataSource<Row> input1 = env.createInput(input);
+
 
 		input1.map(new MapFunction<Row, String>() {
 			@Override

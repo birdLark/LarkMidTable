@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -22,6 +23,7 @@ import java.util.*;
 @Api(tags = "数据服务-可视化API构建")
 public class APIConfigController extends BaseController {
 
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	@Autowired
 	private JobDatasourceService jobJdbcDatasourceService;
 
@@ -55,7 +57,7 @@ public class APIConfigController extends BaseController {
 		APIConfig project = apiConfigMapper.getById(entity.getId());
         project.setName(entity.getName());
         project.setParams(entity.getParams());
-        project.setUpdate_time(new Date().toString());
+        project.setUpdate_time(sdf.format(new Date()));
         project.setDatasource_id(entity.getDatasource_id());
         project.setDescribe(entity.getDescribe());
         project.setPath(entity.getPath());

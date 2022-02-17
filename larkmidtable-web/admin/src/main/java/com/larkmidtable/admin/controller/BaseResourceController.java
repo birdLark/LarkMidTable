@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.Map;
 @Api(tags = "基础建设-资源管理")
 public class BaseResourceController {
 
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	@Resource
 	private BaseResourceMapper baseResourceMapper;
 
@@ -39,7 +41,7 @@ public class BaseResourceController {
 	@ApiOperation("新增数据")
 	@PostMapping("/add")
 	public ReturnT<String> insert(HttpServletRequest request, @RequestBody BaseResource entity) {
-		entity.setUpdate_time(new Date().toString());
+		entity.setUpdate_time(sdf.format(new Date()));
 		this.baseResourceMapper.save(entity);
 		return ReturnT.SUCCESS;
 	}
@@ -47,7 +49,7 @@ public class BaseResourceController {
 	@ApiOperation("修改数据")
 	@PostMapping(value = "/update")
 	public ReturnT<String> update(@RequestBody BaseResource entity) {
-		entity.setUpdate_time(new Date().toString());
+		entity.setUpdate_time(sdf.format(new Date()));
 		baseResourceMapper.update(entity);
 		return ReturnT.SUCCESS;
 	}
