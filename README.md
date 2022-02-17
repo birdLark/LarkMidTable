@@ -18,7 +18,13 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 2. Make world-class products that can Google or Apple.
 3. Create value, generate value, and make the world a better place.
 
+#  Advertising Space 
 
+**(AD长期招租，有需要宣传和推广产品的，可以加我微信:LarkMidTable2021)**
+
+[LarkMidTable产品](https://github.com/wxgzgl/LarkMidTable)
+
+LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据仓库开发，数据质量管理，数据的可视化，实现高效赋能数据前台并提供数据服务的产品。
 
 # Architecture Diagram
 
@@ -37,12 +43,6 @@ LarkMidTable is a one-stop open source data middle office that implements metada
 ![数据集成](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213095256736-980802722.png)
 
 ![数据开发](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
-
-#  Advertising Space (AD)
-
-[LarkMidTable产品](https://github.com/wxgzgl/LarkMidTable)
-
-LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据仓库开发，数据质量管理，数据的可视化，实现高效赋能数据前台并提供数据服务的产品。
 
 
 

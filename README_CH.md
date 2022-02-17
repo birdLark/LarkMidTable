@@ -22,6 +22,16 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
+#  产品广告位 
+
+**(AD长期招租，有需要宣传和推广产品的，可以加我微信:LarkMidTable2021)**
+
+[LarkMidTable产品](https://github.com/wxgzgl/LarkMidTable)
+
+LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据仓库开发，数据质量管理，数据的可视化，实现高效赋能数据前台并提供数据服务的产品。
+
+
+
 # 产品架构图
 
 ![系统架构图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201019215540747-440767668.jpg ) 
@@ -40,11 +50,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 ![数据开发](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
 
-# 广告位（AD）
 
-[LarkMidTable产品](https://github.com/wxgzgl/LarkMidTable)
-
-LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据仓库开发，数据质量管理，数据的可视化，实现高效赋能数据前台并提供数据服务的产品。
 
 # 产品功能
 
