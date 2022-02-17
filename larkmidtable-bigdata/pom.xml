@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lark.cn</groupId>
-    <artifactId>larkmidtable-flink</artifactId>
+    <artifactId>larkmidtable-bigdata</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -14,6 +14,7 @@
         <module>iceberg</module>
         <module>core</module>
         <module>common</module>
+        <module>example</module>
     </modules>
 
     <properties>

@@ -3,14 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-		<artifactId>larkmidtable-flink</artifactId>
+		<artifactId>larkmidtable-bigdata</artifactId>
 		<groupId>com.lark.cn</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lark.cn</groupId>
-	<artifactId>flink-sql</artifactId>
+	<artifactId>sql</artifactId>
 	<version>1.10.0</version>
 
 	<properties>
@@ -79,7 +79,7 @@
 					<!-- The semantics of this option are reversed, see MCOMPILER-209. -->
 					<useIncrementalCompilation>false</useIncrementalCompilation>
 					<compilerArgs>
-						<!-- Prevents recompilation due to missing package-info.class, see 
+						<!-- Prevents recompilation due to missing package-info.class, see
 							MCOMPILER-205 -->
 						<arg>-Xpkginfo:always</arg>
 					</compilerArgs>
@@ -118,7 +118,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -132,7 +132,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -146,7 +146,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
