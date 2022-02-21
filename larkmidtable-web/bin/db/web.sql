@@ -363,7 +363,7 @@ CHANGE COLUMN `increment_type` `increment_type` TINYINT(4) NULL DEFAULT 0 COMMEN
 CREATE TABLE `lark_base_resource` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
-  `resourceAddress` varchar(100) DEFAULT NULL,
+  `resource_address` varchar(100) DEFAULT NULL,
   `update_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

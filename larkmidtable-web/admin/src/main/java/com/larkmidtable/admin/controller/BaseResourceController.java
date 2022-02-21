@@ -33,7 +33,7 @@ public class BaseResourceController {
 		// page list
 		List<BaseResource> list = baseResourceMapper.findList((current - 1) * size,size,name);
 		Map<String, Object> maps = new HashMap<>();
-		maps.put("recordsFiltered", list.size());    // 过滤后的总记录数
+		maps.put("recordsTotal", list.size());    // 过滤后的总记录数
 		maps.put("data", list);                    // 分页列表
 		return new ReturnT<>(maps);
 	}

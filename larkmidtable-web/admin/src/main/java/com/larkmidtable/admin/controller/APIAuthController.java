@@ -11,7 +11,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/apiAuth")
@@ -23,10 +25,15 @@ public class APIAuthController extends BaseController {
 
     @ApiOperation("获取所有数据")
     @GetMapping("/list")
-    public ReturnT<List<APIAuth>> selectList() {
+    public ReturnT<Map<String, Object>> selectList(@RequestParam(value = "current", required = false, defaultValue = "1") int current,
+											 @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+											 @RequestParam(value = "name", required = false) String name) {
 		// page list
 		List<APIAuth> list = apiAuthMapper.findAll();
-		return new ReturnT<> (list);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("recordsTotal", list.size());    // 过滤后的总记录数
+		maps.put("data", list);                    // 分页列表
+		return new ReturnT<>(maps);
     }
 
     @ApiOperation("新增数据")
