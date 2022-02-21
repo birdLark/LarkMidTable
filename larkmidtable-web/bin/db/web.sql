@@ -381,6 +381,7 @@ CREATE TABLE `lark_api_config` (
   `params` varchar(100) DEFAULT NULL,
   `create_time` varchar(100) DEFAULT NULL,
   `update_time` varchar(100) DEFAULT NULL,
+  `sql_text` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `lark_api_config_un` (`path`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
