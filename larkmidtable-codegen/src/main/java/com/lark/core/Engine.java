@@ -20,8 +20,8 @@ public class Engine {
 	public static String flinkPath = Engine.getPath().concat("\\target\\Lark-1.0-SNAPSHOT-jar-with-dependencies.jar");
 	public static String host = "192.168.1.204";
 	public static Integer port = 22;
-	public static String username = "root";
-	public static String password = "shizhan123";
+	public static String username = "";
+	public static String password = "";
 	public static String uploadJarName = "Lark-1.0-SNAPSHOT-jar-with-dependencies.jar";
 	public static String uploadShellName = "test.sh";
 	public static String uploadBasePath = "/home";
