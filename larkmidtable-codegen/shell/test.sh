@@ -1,0 +1,1 @@
+flink run -p 1 /home/java_upload_test/Lark-1.0-SNAPSHOT-jar-with-dependencies.jar
