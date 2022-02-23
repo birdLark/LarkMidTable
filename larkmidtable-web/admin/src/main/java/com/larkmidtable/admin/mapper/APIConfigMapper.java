@@ -3,6 +3,7 @@ package com.larkmidtable.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.larkmidtable.admin.entity.APIConfig;
+import com.larkmidtable.admin.entity.JobDatasource;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -22,4 +23,6 @@ public interface APIConfigMapper extends BaseMapper<APIConfig>{
 	int update(APIConfig project);
 
 	APIConfig getById(int id);
+
+	List<JobDatasource> findDataSourceName();
 }

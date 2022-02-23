@@ -7,6 +7,7 @@ import com.larkmidtable.admin.entity.ResponseData;
 import com.larkmidtable.admin.mapper.APIConfigMapper;
 import com.larkmidtable.admin.service.JobDatasourceService;
 import com.larkmidtable.admin.util.DruidDataSource;
+import com.larkmidtable.admin.util.JdbcConstants;
 import com.larkmidtable.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -43,6 +44,16 @@ public class APIConfigController extends BaseController {
 		return new ReturnT<>(maps);
 	}
 
+	@ApiOperation("获取下拉框的")
+	@GetMapping("/listDataSourceName")
+	public ReturnT<Map<String, Object>> findDataSourceName() {
+		// page list
+		List<JobDatasource> list = apiConfigMapper.findDataSourceName();
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("data", list);
+		return new ReturnT<>(maps);
+	}
+
     @ApiOperation("新增数据")
 	@PostMapping("/add")
     public ReturnT<String> insert(HttpServletRequest request, @RequestBody APIConfig entity) {
@@ -73,6 +84,8 @@ public class APIConfigController extends BaseController {
 		int result = apiConfigMapper.delete(id);
 		return result != 1 ? ReturnT.FAIL : ReturnT.SUCCESS;
 	}
+
+
 
 	@PostMapping(value ="/execute")
 	@ApiOperation("执行API的查询")

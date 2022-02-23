@@ -381,35 +381,25 @@ CREATE TABLE `lark_api_config` (
   `params` varchar(100) DEFAULT NULL,
   `create_time` varchar(100) DEFAULT NULL,
   `update_time` varchar(100) DEFAULT NULL,
+  `sql_text` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `lark_api_config_un` (`path`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-
-CREATE TABLE `lark_api_group` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `lark_api_group_un` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE `lark_api_token` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `token` varchar(100) DEFAULT NULL,
-  `describe` varchar(100) DEFAULT NULL,
-  `expire` varchar(100) DEFAULT NULL,
-  `create_time` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `lark_api_auth` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `token_id` varchar(100) DEFAULT NULL,
+  `token_id` text,
   `group_id` varchar(100) DEFAULT NULL,
   `update_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `lark_api_auth_config` (
+  `auth_id` varchar(100) DEFAULT NULL,
+  `config_id` varchar(100) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- 数据开发模块--
@@ -439,3 +429,4 @@ CREATE TABLE `lark_dev_tasklist` (
   `create_time` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
