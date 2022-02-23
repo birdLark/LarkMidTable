@@ -21,7 +21,15 @@
 
 deadline: 2月23日---4月23日
 
+数据服务
 
+1.可视化API构建实现 mysql、oracle、sqlserver、postgres、db2、h2、derby、sqlite、sybase 数据库的查询
+
+2.API接口列表，修改，删除，查询
+
+3.权限管理列表，修改，删除，查询，建立和API接口的关系
+
+4.测试这一块的功能和服务，保证生产可用
 
 
 
