@@ -22,13 +22,32 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 
 
-#  产品广告位 
+# 功能列表【已经实现】
 
-**(AD长期招租，有需要宣传和推广产品的，可以加我微信:LarkMidTable2021)**
+| 模块名称 | 功能名称     | 功能描述                                                     |
+| :------- | ------------ | ------------------------------------------------------------ |
+| 数据报表 | 数据报表     | 实时展现数据可视化大屏                                       |
+| 基础建设 | 数据源管理   | 配置全局数据源：mysql、oracle、hana、postgresql、sqlserver、hive、hbase、mongodb、es |
+|          | 资源管理     | 管理资源地址并可访问：ES、Kafka、ZK、Flink、Spark、Storm、HDFS、HBASE... |
+|          | 用户管理     | 用户的增删改查操作                                           |
+| 数据集成 | 项目管理     | 项目的增删改查操作                                           |
+|          | 任务模块     | 任务模块配置任务的定时调度                                   |
+|          | 任务构建     | 创建任务并添加任务模板的调度                                 |
+| 数据开发 | 开发环境配置 | 开发环境的增删改查操作，配置部署地址、ES、Kafka、ZK、Flink、Spark、Storm、HDFS、HBASE... |
+|          | 开发任务列表 | 展示经过JAR和SQL添加的任务                                   |
+| 数据服务 | API接口列表  | 展示用户用户添加的API接口列表                                |
+|          | 权限管理列表 | 展示用户的分组和对应的访问的Token信息                        |
+|          | JSON格式化   | 可以将用户的JSON进行格式化的工具                             |
 
-[LarkMidTable产品](https://github.com/wxgzgl/LarkMidTable)
 
-LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据仓库开发，数据质量管理，数据的可视化，实现高效赋能数据前台并提供数据服务的产品。
+
+# **快速开始**
+
+开发计划     [开发计划](https://github.com/birdLark/LarkMidTable/issues/87) 
+
+安装手册      [安装手册](https://github.com/wxgzgl/flinkx-web/blob/dev/larkmidtable-doc/userGuid.md)
+
+操作手册  	[操作手册](https://github.com/wxgzgl/LarkMidTable/tree/dev/larkmidtable-doc/userManual.md)
 
 
 
@@ -51,44 +70,6 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 ![数据开发](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
 
 
-
-# 产品功能
-
-| **功能**     | **功能特性**   | **数据库类型** | **读取类型** | **写入类型** |
-| ------------ | :------------- | -------------- | ------------ | ------------ |
-| **数据集成** | 批处理同步     | Mysql          | 支持         | 支持         |
-|              |                | PostgreSql     | 支持         | 支持         |
-|              |                | Mongodb        | 支持         | 支持         |
-|              |                | SqlServer      | 支持         | 支持         |
-|              |                | Oracle         | 支持         | 支持         |
-|              |                | SAPHana        | 支持         | 支持         |
-|              |                | ClickHouse     | 支持         | 支持         |
-|              |                | Hive           |              | 支持         |
-|              |                | Hbase          | 支持         | 支持         |
-|              |                | Hdfs           | 支持         | 支持         |
-|              |                | ElasticSearch  |              |              |
-|              |                | Kudu           |              |              |
-|              |                | Redis          |              |              |
-|              | 流处理同步     | Kafka          |              |              |
-|              |                | MySQL Binlog   |              |              |
-|              |                | MongoDB Oplog  |              |              |
-|              |                | PostgreSQL WAL |              |              |
-| **任务调度** | 任务逻辑调度   |                | 支持         | 支持         |
-| **数据治理** | 元数据管理     |                |              |              |
-|              | 数据质量管理   |                |              |              |
-|              | 数据血缘管理   |                |              |              |
-| **数据开发** | 可视化任务开发 |                |              |              |
-| **数据服务** | 可视化API构建  |                |              |              |
-
-
-
-# **快速开始**
-
-安装手册      [安装手册](https://github.com/wxgzgl/flinkx-web/blob/dev/larkmidtable-doc/userGuid.md)
-
-操作手册  	[操作手册](https://github.com/wxgzgl/LarkMidTable/tree/dev/larkmidtable-doc/userManual.md)
-
-插件开发手册      [插件开发手册](https://github.com/wxgzgl/LarkMidTable/tree/master/larkmidtable-doc/pluginDev.md)
 
 
 
