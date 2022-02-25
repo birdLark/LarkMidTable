@@ -55,11 +55,12 @@ public class JobTriggerPoolHelper {
 	// ---------------------- helper ----------------------
 
 	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath) {
+		String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
 		List<String> cmdArr = new ArrayList<>();
-		cmdArr.add("python");
+		cmdArr.add("cmd /c python");
 		cmdArr.add(flinkXShPath);
 		cmdArr.add(tmpFilePath);
-
+		cmdArr.add("> "+logHome);
 		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
 		return cmdArr.toArray(new String[cmdArr.size()]);
 	}
@@ -74,9 +75,6 @@ public class JobTriggerPoolHelper {
 			for (int j = 0; j < cmdarrayFinal.length; j++) {
 				cmdstr += cmdarrayFinal[j] + " ";
 			}
-			System.out.println("-------job will run----------");
-
-
 			final Process process = Runtime.getRuntime().exec(cmdstr);
 			String prcsId = ProcessUtil.getProcessId(process);
 			JobLogger.log("------------------FlinkX process id: " + prcsId);
