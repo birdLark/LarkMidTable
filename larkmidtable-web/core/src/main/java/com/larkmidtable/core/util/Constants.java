@@ -19,6 +19,8 @@ public final class Constants {
     public static final String ORACLE_SELECT_PRI = "insufficient privileges";
     public static final String ORACLE_SQL = "invalid identifier";
 
+    public static final String CMDWINDOW ="cmd /c python";
+    public static final String CMDLINUX ="python";
 
     public static final String SPLIT_COMMA = ",";
     public static final String SPLIT_AT = "@";

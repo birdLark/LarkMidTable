@@ -80,6 +80,7 @@ public class JobLogController {
 	public ReturnT<LogResult> logDetailCat(String executorAddress, String triggerTime, String logId,
 			String fromLineNum) {
 		try {
+			// @TODO 根据前端传递的logId，生成拼装的日志路径
 			String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
 			InputStream in = new FileInputStream(logHome);
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();

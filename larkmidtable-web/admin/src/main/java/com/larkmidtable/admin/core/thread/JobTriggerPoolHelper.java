@@ -8,6 +8,7 @@ import com.larkmidtable.admin.core.trigger.JobTrigger;
 import com.larkmidtable.admin.core.trigger.TriggerTypeEnum;
 import com.larkmidtable.admin.entity.JobInfo;
 import com.larkmidtable.core.log.JobLogger;
+import com.larkmidtable.core.util.Constants;
 import com.larkmidtable.core.util.ProcessUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,12 +58,20 @@ public class JobTriggerPoolHelper {
 	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath) {
 		String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
 		List<String> cmdArr = new ArrayList<>();
-		cmdArr.add("cmd /c python");
+		if(JobTriggerPoolHelper.isWindows()) {
+			cmdArr.add(Constants.CMDWINDOW);
+		} else {
+			cmdArr.add(Constants.CMDLINUX);
+		}
 		cmdArr.add(flinkXShPath);
 		cmdArr.add(tmpFilePath);
 		cmdArr.add("> "+logHome);
 		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
 		return cmdArr.toArray(new String[cmdArr.size()]);
+	}
+
+	public static boolean isWindows() {
+		return System.getProperty("os.name").toLowerCase().contains("windows");
 	}
 
 	public static void runJob(int jobId) {
@@ -141,6 +150,7 @@ public class JobTriggerPoolHelper {
 			}
 		});
 	}
+
 
 	public void stop() {
 		//triggerPool.shutdown();
