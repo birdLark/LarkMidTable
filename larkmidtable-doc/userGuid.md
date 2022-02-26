@@ -16,7 +16,15 @@
 
 1.获取flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】
 
-2.将flinkx用压缩软件解压后，上传到linux 或者 存放在window本地
+2.将flinkx用压缩软件解压后
+
+linux部署:
+
+上传解压目录flinkx到linux**【注意: 修改Linux目录权限 chown -R 用户:用户 777】**
+
+window部署:
+
+解压后存放在window本地
 
 ## 2.web的安装
 
@@ -91,7 +99,7 @@ flinkx:
 
 2.将flinkxHome，jsonPath，logHome 配置成flinkx所在目录
 
-例如: Linux的配置
+例如: Linux部署的配置
 
 ```
   executor:
@@ -100,7 +108,7 @@ flinkx:
     logHome: /home/hadoop/flinkx/nohup.out
 ```
 
-例如:window的配置
+例如:window部署的配置
 
 ```
 executor:

@@ -15,3 +15,14 @@
 |          | 权限管理列表 | 展示用户的分组和对应的访问的Token信息                        |
 |          | JSON格式化   | 可以将用户的JSON进行格式化的工具                             |
 
+# 数据集成
+
+| **数据集成工具** | **Features** | **The database type** | **Read type** | **Write type** |
+| ---------------- | :----------- | --------------------- | ------------- | -------------- |
+| **Flinkx**       | Batch        | Mysql                 | enable        | enable         |
+|                  |              | Postgresql            | enable        | enable         |
+| **Datax**        | Batch        |                       |               |                |
+|                  |              |                       |               |                |
+| **Seatunnel**    | Batch        |                       |               |                |
+|                  |              |                       |               |                |
+

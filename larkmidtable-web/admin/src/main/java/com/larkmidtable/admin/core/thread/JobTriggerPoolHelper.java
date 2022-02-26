@@ -60,12 +60,13 @@ public class JobTriggerPoolHelper {
 		List<String> cmdArr = new ArrayList<>();
 		if(JobTriggerPoolHelper.isWindows()) {
 			cmdArr.add(Constants.CMDWINDOW);
+			cmdArr.add(flinkXShPath);
+			cmdArr.add(tmpFilePath);
 		} else {
 			cmdArr.add(Constants.CMDLINUX);
+			cmdArr.add(flinkXShPath);
+			cmdArr.add(tmpFilePath);
 		}
-		cmdArr.add(flinkXShPath);
-		cmdArr.add(tmpFilePath);
-		cmdArr.add("> "+logHome);
 		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
 		return cmdArr.toArray(new String[cmdArr.size()]);
 	}
@@ -86,6 +87,8 @@ public class JobTriggerPoolHelper {
 			}
 			final Process process = Runtime.getRuntime().exec(cmdstr);
 			String prcsId = ProcessUtil.getProcessId(process);
+			JobLogger.log("Execute: " + cmdstr);
+
 			JobLogger.log("------------------FlinkX process id: " + prcsId);
 			// 运行完后删除文件
 			if (FileUtil.exist(tmpFilePath)) {
