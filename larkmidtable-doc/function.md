@@ -21,7 +21,7 @@
 | ---------------- | :----------- | --------------------- | ------------- | -------------- |
 | **Flinkx**       | Batch        | Mysql                 | enable        | enable         |
 |                  |              | Postgresql            | enable        | enable         |
-|                  |              | Oracle                |               |                |
+|                  |              | Oracle                | enable        | enable         |
 | **Datax**        | Batch        |                       |               |                |
 |                  |              |                       |               |                |
 | **Seatunnel**    | Batch        |                       |               |                |
