@@ -99,7 +99,7 @@ flinkx:
 
 2.将flinkxHome，jsonPath，logHome 配置成flinkx所在目录
 
-例如: Linux部署的配置
+例如: Linux部署的配置**【获取flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】】**
 
 ```
   executor:
@@ -108,7 +108,7 @@ flinkx:
     logHome: /home/hadoop/flinkx/nohup.out
 ```
 
-例如:window部署的配置
+例如:window部署的配置**【获取flinkx-1.12-SNAPSHOT压缩包，关注公众号【LarkMidTable】发送 【flinkx】】**
 
 ```
 executor:

@@ -160,10 +160,12 @@
         </dependency>
 
 		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>${ojdbc6.version}</version>
-		</dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/lib/ojdbc6-11.2.0.3.jar</systemPath>
+        </dependency>
 
         <dependency>
             <groupId>com.sap.cloud.db.jdbc</groupId>
@@ -175,6 +177,8 @@
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>sqljdbc4</artifactId>
             <version>4.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/lib/sqljdbc4-4.0.jar</systemPath>
         </dependency>
 
         <dependency>
