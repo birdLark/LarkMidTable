@@ -5,7 +5,7 @@ import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
 import com.larkmidtable.admin.entity.JobTemplate;
 import com.larkmidtable.admin.mapper.*;
 import com.larkmidtable.admin.service.DatasourceQueryService;
-import com.larkmidtable.admin.service.FlinkxJsonService;
+import com.larkmidtable.admin.service.JsonService;
 import com.larkmidtable.admin.service.JobService;
 import com.larkmidtable.admin.core.cron.CronExpression;
 import com.larkmidtable.admin.core.route.ExecutorRouteStrategyEnum;
@@ -55,7 +55,7 @@ public class JobServiceImpl implements JobService {
     @Resource
     private JobTemplateMapper jobTemplateMapper;
     @Resource
-    private FlinkxJsonService flinkxJsonService;
+    private JsonService jsonService;
 
     @Override
     public Map<String, Object> pageList(int start, int length, int jobGroup, int triggerStatus, String jobDesc, String glueType, int userId, Integer[] projectIds) {
@@ -447,9 +447,18 @@ public class JobServiceImpl implements JobService {
             wdTable.add(wrTables.get(i));
             jsonBuild.setWriterTables(wdTable);
 
-            String json = flinkxJsonService.buildJobJson(jsonBuild);
+            String json = "";
 
             JobTemplate jobTemplate = jobTemplateMapper.loadById(dto.getTemplateId());
+            String glueType = jobTemplate.getGlueType();
+            if(glueType.equals("flinkx")){
+                json= jsonService.buildJobFlinkxJson(jsonBuild);
+            } else if(glueType.equals("datax")) {
+                json= jsonService.buildJobDataxJson(jsonBuild);
+            } else {
+                json= jsonService.buildJobSeatunnelJson(jsonBuild);
+            }
+
             JobInfo jobInfo = new JobInfo();
             BeanUtils.copyProperties(jobTemplate, jobInfo);
             jobInfo.setJobJson(json);

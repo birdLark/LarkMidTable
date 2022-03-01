@@ -47,4 +47,6 @@ public class FlinkXJsonBuildDto implements Serializable {
     private ClickhouseReaderDto clickhouseReader;
 
     private ClickhouseWriterDto clickhouseWriter;
+
+    private String  type;
 }

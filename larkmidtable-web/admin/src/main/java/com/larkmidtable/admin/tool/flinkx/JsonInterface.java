@@ -10,7 +10,7 @@ import java.util.Map;
  * @Version 2.1.1
  * @since 2020/03/14 12:24
  */
-public interface FlinkxJsonInterface {
+public interface JsonInterface {
 
     Map<String, Object> buildJob();
 

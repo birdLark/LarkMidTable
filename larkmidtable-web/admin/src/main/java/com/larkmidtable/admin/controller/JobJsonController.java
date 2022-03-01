@@ -2,7 +2,7 @@ package com.larkmidtable.admin.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
 import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
-import com.larkmidtable.admin.service.FlinkxJsonService;
+import com.larkmidtable.admin.service.JsonService;
 import com.larkmidtable.admin.core.util.I18nUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/flinkxJson")
 @Api(tags = "组装flinkx  json的控制器")
-public class FlinkxJsonController extends BaseController {
+public class JobJsonController extends BaseController {
 
     @Autowired
-    private FlinkxJsonService flinkxJsonService;
+    private JsonService jsonService;
 
 
     @PostMapping("/buildJson")
@@ -38,7 +38,13 @@ public class FlinkxJsonController extends BaseController {
         if (CollectionUtils.isEmpty(dto.getWriterColumns())) {
             return failed(I18nUtil.getString(key) + I18nUtil.getString("jobinfo_field_writerColumns"));
         }
-        return success(flinkxJsonService.buildJobJson(dto));
-    }
 
+        if("flinkx".equals(dto.getType())) {
+            return success(jsonService.buildJobFlinkxJson(dto));
+        }else if("datax".equals(dto.getType())){
+            return success(jsonService.buildJobDataxJson(dto));
+        }else {
+            return success(jsonService.buildJobSeatunnelJson(dto));
+        }
+    }
 }

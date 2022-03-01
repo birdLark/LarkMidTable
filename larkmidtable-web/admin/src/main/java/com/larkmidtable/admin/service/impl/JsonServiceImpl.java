@@ -3,7 +3,7 @@ package com.larkmidtable.admin.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
 import com.larkmidtable.admin.entity.JobDatasource;
-import com.larkmidtable.admin.service.FlinkxJsonService;
+import com.larkmidtable.admin.service.JsonService;
 import com.larkmidtable.admin.service.JobDatasourceService;
 import com.larkmidtable.admin.tool.flinkx.FlinkxJsonHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +16,13 @@ import org.springframework.stereotype.Service;
  * @Description:  JSON构建实现类
  **/
 @Service
-public class FlinkxJsonServiceImpl implements FlinkxJsonService {
+public class JsonServiceImpl implements JsonService {
 
     @Autowired
     private JobDatasourceService jobJdbcDatasourceService;
 
     @Override
-    public String buildJobJson(FlinkXJsonBuildDto FlinkXJsonBuildDto) {
+    public String buildJobFlinkxJson(FlinkXJsonBuildDto FlinkXJsonBuildDto) {
         FlinkxJsonHelper flinkxJsonHelper = new FlinkxJsonHelper();
         // reader
         JobDatasource readerDatasource = jobJdbcDatasourceService.getById(FlinkXJsonBuildDto.getReaderDatasourceId());
@@ -32,5 +32,15 @@ public class FlinkxJsonServiceImpl implements FlinkxJsonService {
         flinkxJsonHelper.initWriter(FlinkXJsonBuildDto, writerDatasource);
 
         return JSON.toJSONString(flinkxJsonHelper.buildJob());
+    }
+
+    @Override
+    public String buildJobDataxJson(FlinkXJsonBuildDto dto) {
+        return null;
+    }
+
+    @Override
+    public String buildJobSeatunnelJson(FlinkXJsonBuildDto dto) {
+        return null;
     }
 }

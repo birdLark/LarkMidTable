@@ -5,15 +5,15 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.larkmidtable.admin.dto.*;
 import com.larkmidtable.admin.entity.JobDatasource;
 import com.larkmidtable.admin.tool.flinkx.reader.*;
 import com.larkmidtable.admin.tool.flinkx.writer.*;
-import com.larkmidtable.admin.util.JdbcConstants;
-import com.larkmidtable.admin.dto.*;
 import com.larkmidtable.admin.tool.pojo.FlinkxHbasePojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxHivePojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxMongoDBPojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxRdbmsPojo;
+import com.larkmidtable.admin.util.JdbcConstants;
 import com.larkmidtable.core.util.Constants;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +27,7 @@ import java.util.Map;
  * JSON的构建类
  */
 @Data
-public class FlinkxJsonHelper implements JsonInterface {
+public class DataxJsonHelper implements JsonInterface {
 
     /**
      * 读取的表，根据flinkx示例，支持多个表（先不考虑，后面再去实现， 这里先用list保存吧）

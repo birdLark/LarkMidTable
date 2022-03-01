@@ -9,7 +9,7 @@ import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
  * @version 1.0
  * @since 2019/8/1
  */
-public interface FlinkxJsonService {
+public interface JsonService {
 
     /**
      * build flinkx json
@@ -17,5 +17,7 @@ public interface FlinkxJsonService {
      * @param dto
      * @return
      */
-    String buildJobJson(FlinkXJsonBuildDto dto);
+    String buildJobFlinkxJson(FlinkXJsonBuildDto dto);
+    String buildJobDataxJson(FlinkXJsonBuildDto dto);
+    String buildJobSeatunnelJson(FlinkXJsonBuildDto dto);
 }

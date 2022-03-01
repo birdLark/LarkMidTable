@@ -4,7 +4,9 @@ package com.larkmidtable.core.glue;
  * Created by xuxueli on 17/4/26.
  */
 public enum GlueTypeEnum {
-
+    seatunnel("seatunnel", false, null, null),
+    dataX("data", false, null, null),
+    flinkX("flinkx", false, null, null),
     BEAN("BEAN", false, null, null),
     GLUE_GROOVY("GLUE(Java)", false, null, null),
     GLUE_SHELL("GLUE(Shell)", true, "bash", ".sh"),
