@@ -32,4 +32,5 @@ selenium-debug.log
 
 package-lock.json
 yarn.lock
-*.jar
+larkmidtable-bigdata/common/target/*.jar
+larkmidtable-bigdata/core/target/*.jar
