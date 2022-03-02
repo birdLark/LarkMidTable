@@ -89,20 +89,16 @@ public abstract class BaseQueryTool implements QueryToolInterface {
         String jdbcUrl = jobDatasource.getJdbcUrl();
         String DBtype = jobDatasource.getDatasource();
         if (jdbcUrl != null && jdbcUrl.startsWith("jdbc:jtds")) {
-            JtdsDataSource jtdsDataSource = new JtdsDataSource();
-            String cleanURI = jdbcUrl.substring(10);//"jdbc:jtds:".length()
-            URI uri = URI.create(cleanURI);
-            String serverName = uri.getHost();
-            int port = uri.getPort();
-            String path = uri.getPath();
-            String a[] = path.split("/");
-            String dbName = a[1];
-            jtdsDataSource.setServerName(serverName);
-            jtdsDataSource.setPortNumber(port);
-            jtdsDataSource.setDatabaseName(dbName);
-//            jtdsDataSource.setServerName(jobDatasource.g);
-            jtdsDataSource.setUser(userName);
-            jtdsDataSource.setPassword(password);
+			JtdsDataSource jtdsDataSource = new JtdsDataSource();
+			jtdsDataSource.setUser(userName);
+			jtdsDataSource.setPassword(password);
+			String partUrl = jdbcUrl.substring(jdbcUrl.indexOf("//") + 2);
+			String host = partUrl.substring(0, partUrl.indexOf(":"));
+			jtdsDataSource.setServerName(host);
+			Integer port = Integer.valueOf(partUrl.substring(partUrl.indexOf(":") + 1, partUrl.indexOf(";")));
+			jtdsDataSource.setPortNumber(port);
+			String dataBaseName = partUrl.substring(partUrl.indexOf("=") + 1);
+			jtdsDataSource.setDatabaseName(dataBaseName);
             this.datasource = jtdsDataSource;
             this.connection = this.datasource.getConnection();
 
