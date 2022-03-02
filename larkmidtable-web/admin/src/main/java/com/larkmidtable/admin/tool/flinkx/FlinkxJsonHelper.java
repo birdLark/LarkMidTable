@@ -88,7 +88,7 @@ public class FlinkxJsonHelper implements JsonInterface {
     //用于保存额外参数
     private Map<String, Object> extraParams = Maps.newHashMap();
 
-    public void initReader(FlinkXJsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
+    public void initReader(JsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
 
         this.readerDatasource = readerDatasource;
         this.readerTables = flinkxJsonDto.getReaderTables();
@@ -131,7 +131,7 @@ public class FlinkxJsonHelper implements JsonInterface {
         }
     }
 
-    public void initWriter(FlinkXJsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
+    public void initWriter(JsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
         this.writerDatasource = readerDatasource;
         this.writerTables = flinkxJsonDto.getWriterTables();
         this.writerColumns = flinkxJsonDto.getWriterColumns();

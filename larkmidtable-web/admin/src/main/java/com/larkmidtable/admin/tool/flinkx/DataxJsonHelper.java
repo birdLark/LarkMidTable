@@ -88,15 +88,15 @@ public class DataxJsonHelper implements JsonInterface {
     //用于保存额外参数
     private Map<String, Object> extraParams = Maps.newHashMap();
 
-    public void initReader(FlinkXJsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
+    public void initReader(JsonBuildDto dataXJsonBuildDto, JobDatasource readerDatasource) {
 
         this.readerDatasource = readerDatasource;
-        this.readerTables = flinkxJsonDto.getReaderTables();
-        this.readerColumns = flinkxJsonDto.getReaderColumns();
-        this.hiveReaderDto = flinkxJsonDto.getHiveReader();
-        this.rdbmsReaderDto = flinkxJsonDto.getRdbmsReader();
-        this.hbaseReaderDto = flinkxJsonDto.getHbaseReader();
-        this.clickhouseReaderDto = flinkxJsonDto.getClickhouseReader();
+        this.readerTables = dataXJsonBuildDto.getReaderTables();
+        this.readerColumns = dataXJsonBuildDto.getReaderColumns();
+        this.hiveReaderDto = dataXJsonBuildDto.getHiveReader();
+        this.rdbmsReaderDto = dataXJsonBuildDto.getRdbmsReader();
+        this.hbaseReaderDto = dataXJsonBuildDto.getHbaseReader();
+        this.clickhouseReaderDto = dataXJsonBuildDto.getClickhouseReader();
         // reader 插件
         String datasource = readerDatasource.getDatasource();
 
@@ -131,7 +131,7 @@ public class DataxJsonHelper implements JsonInterface {
         }
     }
 
-    public void initWriter(FlinkXJsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
+    public void initWriter(JsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
         this.writerDatasource = readerDatasource;
         this.writerTables = flinkxJsonDto.getWriterTables();
         this.writerColumns = flinkxJsonDto.getWriterColumns();

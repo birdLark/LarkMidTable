@@ -1,7 +1,7 @@
 package com.larkmidtable.admin.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
-import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
+import com.larkmidtable.admin.dto.JsonBuildDto;
 import com.larkmidtable.admin.service.JsonService;
 import com.larkmidtable.admin.core.util.I18nUtil;
 import io.swagger.annotations.Api;
@@ -24,7 +24,7 @@ public class JobJsonController extends BaseController {
 
     @PostMapping("/buildJson")
     @ApiOperation("JSON构建")
-    public R<String> buildJobJson(@RequestBody FlinkXJsonBuildDto dto) {
+    public R<String> buildJobJson(@RequestBody JsonBuildDto dto) {
         String key = "system_please_choose";
         if (dto.getReaderDatasourceId() == null) {
             return failed(I18nUtil.getString(key) + I18nUtil.getString("jobinfo_field_readerDataSource"));

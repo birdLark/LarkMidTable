@@ -1,7 +1,7 @@
 package com.larkmidtable.admin.service.impl;
 
 import com.larkmidtable.admin.dto.FlinkXBatchJsonBuildDto;
-import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
+import com.larkmidtable.admin.dto.JsonBuildDto;
 import com.larkmidtable.admin.entity.JobTemplate;
 import com.larkmidtable.admin.mapper.*;
 import com.larkmidtable.admin.service.DatasourceQueryService;
@@ -422,7 +422,7 @@ public class JobServiceImpl implements JobService {
             return new ReturnT<>(ReturnT.FAIL_CODE, I18nUtil.getString("json_build_inconsistent_number_r_w_tables"));
         }
 
-        FlinkXJsonBuildDto jsonBuild = new FlinkXJsonBuildDto();
+        JsonBuildDto jsonBuild = new JsonBuildDto();
 
         List<String> rColumns;
         List<String> wColumns;

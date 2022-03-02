@@ -22,6 +22,8 @@
 | **Flinkx**       | Batch        | Mysql                 | enable        | enable         |
 |                  |              | Postgresql            | enable        | enable         |
 |                  |              | Oracle                | enable        | enable         |
+|                  |              | Mongodb               |               |                |
+|                  |              | SqlServer             |               |                |
 | **Datax**        | Batch        |                       |               |                |
 |                  |              |                       |               |                |
 | **Seatunnel**    | Batch        |                       |               |                |

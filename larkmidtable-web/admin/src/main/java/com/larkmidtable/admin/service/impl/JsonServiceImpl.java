@@ -1,11 +1,13 @@
 package com.larkmidtable.admin.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
+import com.larkmidtable.admin.dto.JsonBuildDto;
 import com.larkmidtable.admin.entity.JobDatasource;
 import com.larkmidtable.admin.service.JsonService;
 import com.larkmidtable.admin.service.JobDatasourceService;
+import com.larkmidtable.admin.tool.flinkx.DataxJsonHelper;
 import com.larkmidtable.admin.tool.flinkx.FlinkxJsonHelper;
+import com.larkmidtable.admin.tool.flinkx.SeatunnelHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,7 @@ public class JsonServiceImpl implements JsonService {
     private JobDatasourceService jobJdbcDatasourceService;
 
     @Override
-    public String buildJobFlinkxJson(FlinkXJsonBuildDto FlinkXJsonBuildDto) {
+    public String buildJobFlinkxJson(JsonBuildDto FlinkXJsonBuildDto) {
         FlinkxJsonHelper flinkxJsonHelper = new FlinkxJsonHelper();
         // reader
         JobDatasource readerDatasource = jobJdbcDatasourceService.getById(FlinkXJsonBuildDto.getReaderDatasourceId());
@@ -35,12 +37,28 @@ public class JsonServiceImpl implements JsonService {
     }
 
     @Override
-    public String buildJobDataxJson(FlinkXJsonBuildDto dto) {
-        return null;
+    public String buildJobDataxJson(JsonBuildDto dataXJsonBuildDto) {
+        DataxJsonHelper dataxJsonHelper = new DataxJsonHelper();
+        // reader
+        JobDatasource readerDatasource = jobJdbcDatasourceService.getById(dataXJsonBuildDto.getReaderDatasourceId());
+        dataxJsonHelper.initReader(dataXJsonBuildDto, readerDatasource);
+        // writer
+        JobDatasource writerDatasource = jobJdbcDatasourceService.getById(dataXJsonBuildDto.getWriterDatasourceId());
+        dataxJsonHelper.initWriter(dataXJsonBuildDto, writerDatasource);
+
+        return JSON.toJSONString(dataxJsonHelper.buildJob());
     }
 
     @Override
-    public String buildJobSeatunnelJson(FlinkXJsonBuildDto dto) {
-        return null;
+    public String buildJobSeatunnelJson(JsonBuildDto seatunnelJsonBuildDto) {
+        SeatunnelHelper seatunnelHelper = new SeatunnelHelper();
+        // reader
+        JobDatasource readerDatasource = jobJdbcDatasourceService.getById(seatunnelJsonBuildDto.getReaderDatasourceId());
+        seatunnelHelper.initReader(seatunnelJsonBuildDto, readerDatasource);
+        // writer
+        JobDatasource writerDatasource = jobJdbcDatasourceService.getById(seatunnelJsonBuildDto.getWriterDatasourceId());
+        seatunnelHelper.initWriter(seatunnelJsonBuildDto, writerDatasource);
+
+        return JSON.toJSONString(seatunnelHelper.buildJob());
     }
 }

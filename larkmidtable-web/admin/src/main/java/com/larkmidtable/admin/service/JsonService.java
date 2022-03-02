@@ -1,6 +1,6 @@
 package com.larkmidtable.admin.service;
 
-import com.larkmidtable.admin.dto.FlinkXJsonBuildDto;
+import com.larkmidtable.admin.dto.JsonBuildDto;
 
 /**
  * com.larkmidtable json构建服务层接口
@@ -17,7 +17,7 @@ public interface JsonService {
      * @param dto
      * @return
      */
-    String buildJobFlinkxJson(FlinkXJsonBuildDto dto);
-    String buildJobDataxJson(FlinkXJsonBuildDto dto);
-    String buildJobSeatunnelJson(FlinkXJsonBuildDto dto);
+    String buildJobFlinkxJson(JsonBuildDto dto);
+    String buildJobDataxJson(JsonBuildDto dto);
+    String buildJobSeatunnelJson(JsonBuildDto dto);
 }

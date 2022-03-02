@@ -27,7 +27,7 @@ import java.util.Map;
  * JSON的构建类
  */
 @Data
-public class SeatunnelJsonHelper implements JsonInterface {
+public class SeatunnelHelper implements JsonInterface {
 
     /**
      * 读取的表，根据flinkx示例，支持多个表（先不考虑，后面再去实现， 这里先用list保存吧）
@@ -88,15 +88,15 @@ public class SeatunnelJsonHelper implements JsonInterface {
     //用于保存额外参数
     private Map<String, Object> extraParams = Maps.newHashMap();
 
-    public void initReader(JsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
+    public void initReader(JsonBuildDto seatunnelJsonBuildDto, JobDatasource readerDatasource) {
 
         this.readerDatasource = readerDatasource;
-        this.readerTables = flinkxJsonDto.getReaderTables();
-        this.readerColumns = flinkxJsonDto.getReaderColumns();
-        this.hiveReaderDto = flinkxJsonDto.getHiveReader();
-        this.rdbmsReaderDto = flinkxJsonDto.getRdbmsReader();
-        this.hbaseReaderDto = flinkxJsonDto.getHbaseReader();
-        this.clickhouseReaderDto = flinkxJsonDto.getClickhouseReader();
+        this.readerTables = seatunnelJsonBuildDto.getReaderTables();
+        this.readerColumns = seatunnelJsonBuildDto.getReaderColumns();
+        this.hiveReaderDto = seatunnelJsonBuildDto.getHiveReader();
+        this.rdbmsReaderDto = seatunnelJsonBuildDto.getRdbmsReader();
+        this.hbaseReaderDto = seatunnelJsonBuildDto.getHbaseReader();
+        this.clickhouseReaderDto = seatunnelJsonBuildDto.getClickhouseReader();
         // reader 插件
         String datasource = readerDatasource.getDatasource();
 
@@ -131,14 +131,14 @@ public class SeatunnelJsonHelper implements JsonInterface {
         }
     }
 
-    public void initWriter(JsonBuildDto flinkxJsonDto, JobDatasource readerDatasource) {
+    public void initWriter(JsonBuildDto seatunnelJsonBuildDto, JobDatasource readerDatasource) {
         this.writerDatasource = readerDatasource;
-        this.writerTables = flinkxJsonDto.getWriterTables();
-        this.writerColumns = flinkxJsonDto.getWriterColumns();
-        this.hiveWriterDto = flinkxJsonDto.getHiveWriter();
-        this.rdbmsWriterDto = flinkxJsonDto.getRdbmsWriter();
-        this.hbaseWriterDto = flinkxJsonDto.getHbaseWriter();
-        this.mongoDBWriterDto = flinkxJsonDto.getMongoDBWriter();
+        this.writerTables = seatunnelJsonBuildDto.getWriterTables();
+        this.writerColumns = seatunnelJsonBuildDto.getWriterColumns();
+        this.hiveWriterDto = seatunnelJsonBuildDto.getHiveWriter();
+        this.rdbmsWriterDto = seatunnelJsonBuildDto.getRdbmsWriter();
+        this.hbaseWriterDto = seatunnelJsonBuildDto.getHbaseWriter();
+        this.mongoDBWriterDto = seatunnelJsonBuildDto.getMongoDBWriter();
         // writer
         String datasource = readerDatasource.getDatasource();
 //        this.writerColumns = convertKeywordsColumns(datasource, this.writerColumns);

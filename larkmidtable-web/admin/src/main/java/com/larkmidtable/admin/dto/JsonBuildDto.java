@@ -14,7 +14,7 @@ import java.util.List;
  * @since 2020/03/14 07:15
  */
 @Data
-public class FlinkXJsonBuildDto implements Serializable {
+public class JsonBuildDto implements Serializable {
 
     private Long readerDatasourceId;
 
