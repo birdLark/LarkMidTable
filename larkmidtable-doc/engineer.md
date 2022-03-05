@@ -4,13 +4,11 @@
 
 junior： mongodb测试【完成】
 
-飞:sqlserver测试【完成】
+飞:sqlserver测试  hana测试【完成】
 
 星空:集成datax部分代码的书写【完成】
 
 星空:集成seatunnel部分代码书写【完成】
-
-
 
 
 
@@ -28,8 +26,6 @@ junior： mongodb测试【完成】
 
 **数据集成:** 
 
-飞: hana测试
-
 离别成殇: hbase测试
 
 tyrantlucifer:clickhouse测试
@@ -40,9 +36,7 @@ junior：hdfs测试
 
 **数据治理：**
 
-黎阳、谋个好营生
-
-Prince
+黎阳、谋个好营生、Prince
 
 **数据服务:**
 

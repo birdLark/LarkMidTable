@@ -15,26 +15,17 @@ import java.util.Date;
 public class KillJob {
 
     /**
-     * @param logId
-     * @param address
+     *
      * @param processId
      */
-    public static ReturnT<String> trigger(long logId, Date triggerTime, String address, String processId) {
-        ReturnT<String> triggerResult;
-        TriggerParam triggerParam = new TriggerParam();
-        triggerParam.setJobId(-1);
-        triggerParam.setExecutorHandler("killJobHandler");
-        triggerParam.setProcessId(processId);
-        triggerParam.setLogId(logId);
-        triggerParam.setGlueType(GlueTypeEnum.BEAN.getDesc());
-        triggerParam.setExecutorBlockStrategy(ExecutorBlockStrategyEnum.SERIAL_EXECUTION.getTitle());
-        triggerParam.setLogDateTime(triggerTime.getTime());
-        if (address != null) {
-            triggerResult = JobTrigger.runExecutor(triggerParam, address);
-        } else {
+    public static ReturnT<String> trigger(String processId) {
+        ReturnT<String> triggerResult = null;
+        try {
+            //将作业杀掉
+            triggerResult = new ReturnT<>(ReturnT.SUCCESS_CODE, "成功停止作业 !!!");
+        }catch (Exception e) {
             triggerResult = new ReturnT<>(ReturnT.FAIL_CODE, null);
         }
         return triggerResult;
     }
-
 }

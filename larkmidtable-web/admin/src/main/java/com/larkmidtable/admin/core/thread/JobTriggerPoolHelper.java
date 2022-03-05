@@ -7,6 +7,8 @@ import com.larkmidtable.admin.core.conf.JobAdminConfig;
 import com.larkmidtable.admin.core.trigger.JobTrigger;
 import com.larkmidtable.admin.core.trigger.TriggerTypeEnum;
 import com.larkmidtable.admin.entity.JobInfo;
+import com.larkmidtable.admin.entity.JobLog;
+import com.larkmidtable.core.biz.model.ReturnT;
 import com.larkmidtable.core.log.JobLogger;
 import com.larkmidtable.core.util.Constants;
 import com.larkmidtable.core.util.ProcessUtil;
@@ -18,6 +20,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -88,12 +92,25 @@ public class JobTriggerPoolHelper {
 			final Process process = Runtime.getRuntime().exec(cmdstr);
 			String prcsId = ProcessUtil.getProcessId(process);
 			JobLogger.log("Execute: " + cmdstr);
-
-			JobLogger.log("------------------FlinkX process id: " + prcsId);
-			// 运行完后删除文件
+			JobLogger.log("process id: " + prcsId);
 			if (FileUtil.exist(tmpFilePath)) {
 //				FileUtil.del(new File(tmpFilePath));
 			}
+			// 记录日志
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(new Date());
+			calendar.set(Calendar.MILLISECOND, 0);
+			Date triggerTime = calendar.getTime();
+			JobLog jobLog = new JobLog();
+			jobLog.setJobGroup(jobInfo.getJobGroup());
+			jobLog.setJobId(jobInfo.getId());
+			jobLog.setTriggerTime(triggerTime);
+			jobLog.setJobDesc(jobInfo.getJobDesc());
+			jobLog.setHandleTime(triggerTime);
+			jobLog.setTriggerCode(ReturnT.SUCCESS_CODE);
+			jobLog.setHandleCode(0);
+			jobLog.setProcessId(prcsId);
+			JobAdminConfig.getAdminConfig().getJobLogMapper().save(jobLog);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

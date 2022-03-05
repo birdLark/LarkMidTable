@@ -80,22 +80,8 @@ public class JobLogController {
 	public ReturnT<LogResult> logDetailCat(String executorAddress, String triggerTime, String logId,
 			String fromLineNum) {
 		try {
-			// @TODO 根据前端传递的logId，生成拼装的日志路径
-			String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
-			InputStream in = new FileInputStream(logHome);
-			ByteArrayOutputStream bos = new ByteArrayOutputStream();
-			byte[] buf = new byte[1024];
-			int len;
-			while ((len = in.read(buf)) != -1) {
-				bos.write(buf, 0, len);
-			}
-			String logContent = new String(bos.toByteArray());
-			if (bos != null) {
-				bos.close();
-			}
-			if (in != null) {
-				in.close();
-			}
+			//@TODO 查看日志
+			String logContent = "";
 			ReturnT<LogResult> returnT = new ReturnT<>(ReturnT.SUCCESS_CODE, "查询日志成功");
 			LogResult logResult = new LogResult(0, 0, logContent, true);
 			returnT.setContent(logResult);
@@ -184,6 +170,9 @@ public class JobLogController {
 	@ApiOperation("停止该job作业")
 	@PostMapping("/killJob")
 	public ReturnT<String> killJob(@RequestBody JobLog log) {
-		return KillJob.trigger(log.getId(), log.getTriggerTime(), log.getExecutorAddress(), log.getProcessId());
+		//获取到任务的ID，执行脚本程序杀掉
+		//@TODO 停掉作业
+		String processId = log.getProcessId();
+		return KillJob.trigger(processId);
 	}
 }
