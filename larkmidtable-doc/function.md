@@ -24,8 +24,22 @@
 |                  |              | Oracle                | enable        | enable         |
 |                  |              | Mongodb               |               |                |
 |                  |              | SqlServer             |               |                |
+|                  |              | hana                  |               |                |
 | **Datax**        | Batch        |                       |               |                |
 |                  |              |                       |               |                |
 | **Seatunnel**    | Batch        |                       |               |                |
 |                  |              |                       |               |                |
 
+# 数据服务
+
+| **数据库** | **search** |
+| ---------- | ---------- |
+| mysql      | enable     |
+| oracle     |            |
+| sqlserver  |            |
+| postgres   |            |
+| db2        |            |
+| h2         |            |
+| derby      |            |
+| sqlite     |            |
+| sybase     |            |

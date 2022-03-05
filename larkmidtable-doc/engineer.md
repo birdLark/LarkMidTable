@@ -12,6 +12,8 @@ junior： mongodb测试【完成】
 
 
 
+
+
 **数据服务:**
 
 子弹在这：修复页面
@@ -35,3 +37,16 @@ tyrantlucifer:clickhouse测试
 DeepM：flinkx 适配standalone的 去掉checkpoint部分 
 
 junior：hdfs测试
+
+**数据治理：**
+
+黎阳、谋个好营生
+
+Prince
+
+**数据服务:**
+
+光阳:   测试API接口支持Oracle
+
+Mask:
+
