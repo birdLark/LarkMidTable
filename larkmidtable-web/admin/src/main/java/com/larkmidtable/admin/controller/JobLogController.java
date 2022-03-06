@@ -43,34 +43,19 @@ public class JobLogController {
 	public ReturnT<Map<String, Object>> pageList(
 			@RequestParam(value = "current", required = false, defaultValue = "0") int current,
 			@RequestParam(value = "size", required = false, defaultValue = "10") int size,
-			@RequestParam(value = "jobGroup") int jobGroup, @RequestParam(value = "jobId") int jobId,
-			@RequestParam(value = "logStatus") int logStatus, @RequestParam(value = "filterTime") String filterTime) {
-
-		// valid permission
-		//JobInfoController.validPermission(request, jobGroup);	// 仅管理员支持查询全部；普通用户仅支持查询有权限的 jobGroup
-
-		// parse param
-		Date triggerTimeStart = null;
-		Date triggerTimeEnd = null;
-		if (filterTime != null && filterTime.trim().length() > 0) {
-			String[] temp = filterTime.split(" - ");
-			if (temp.length == 2) {
-				triggerTimeStart = DateUtil.parseDateTime(temp[0]);
-				triggerTimeEnd = DateUtil.parseDateTime(temp[1]);
-			}
-		}
+			@RequestParam(value = "type", required = false, defaultValue ="0") int type,
+			@RequestParam(value = "status", required = false, defaultValue = "0") int status) {
 
 		// page query
 		List<JobLog> data = jobLogMapper
-				.pageList((current - 1) * size, size, jobGroup, jobId, triggerTimeStart, triggerTimeEnd, logStatus);
-		int cnt = jobLogMapper
-				.pageListCount((current - 1) * size, size, jobGroup, jobId, triggerTimeStart, triggerTimeEnd,
-						logStatus);
-
-		// package result
+				.pageList((current - 1) * size, size, type,status);
+//		int cnt = jobLogMapper
+//				.pageListCount((current - 1) * size, size, type,status);
+////
+//		// package result
 		Map<String, Object> maps = new HashMap<>();
-		maps.put("recordsTotal", cnt);        // 总记录数
-		maps.put("recordsFiltered", cnt);    // 过滤后的总记录数
+		maps.put("recordsTotal", data.size());        // 总记录数
+		maps.put("recordsFiltered", data.size());    // 过滤后的总记录数
 		maps.put("data", data);                    // 分页列表
 		return new ReturnT<>(maps);
 	}
@@ -80,8 +65,23 @@ public class JobLogController {
 	public ReturnT<LogResult> logDetailCat(String executorAddress, String triggerTime, String logId,
 			String fromLineNum) {
 		try {
+			// @TODO 根据前端传递的logId，生成拼装的日志路径
+			String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
+			InputStream in = new FileInputStream(logHome);
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			byte[] buf = new byte[1024];
+			int len;
+			while ((len = in.read(buf)) != -1) {
+				bos.write(buf, 0, len);
+			}
+			String logContent = new String(bos.toByteArray());
+			if (bos != null) {
+				bos.close();
+			}
+			if (in != null) {
+				in.close();
+			}
 			//@TODO 查看日志
-			String logContent = "";
 			ReturnT<LogResult> returnT = new ReturnT<>(ReturnT.SUCCESS_CODE, "查询日志成功");
 			LogResult logResult = new LogResult(0, 0, logContent, true);
 			returnT.setContent(logResult);

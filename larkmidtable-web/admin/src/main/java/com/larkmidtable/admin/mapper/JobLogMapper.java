@@ -19,19 +19,13 @@ public interface JobLogMapper {
     // exist jobId not use jobGroup, not exist use jobGroup
     List<JobLog> pageList(@Param("offset") int offset,
                           @Param("pagesize") int pagesize,
-                          @Param("jobGroup") int jobGroup,
-                          @Param("jobId") int jobId,
-                          @Param("triggerTimeStart") Date triggerTimeStart,
-                          @Param("triggerTimeEnd") Date triggerTimeEnd,
-                          @Param("logStatus") int logStatus);
+                          @Param("type") int type,
+                          @Param("status") int status);
 
     int pageListCount(@Param("offset") int offset,
                       @Param("pagesize") int pagesize,
-                      @Param("jobGroup") int jobGroup,
-                      @Param("jobId") int jobId,
-                      @Param("triggerTimeStart") Date triggerTimeStart,
-                      @Param("triggerTimeEnd") Date triggerTimeEnd,
-                      @Param("logStatus") int logStatus);
+                      @Param("type") int type,
+                      @Param("status") int status);
 
     JobLog load(@Param("id") long id);
 

@@ -22,6 +22,9 @@ public final class Constants {
     public static final String CMDWINDOW ="cmd /c python";
     public static final String CMDLINUX ="python";
 
+    public static final String CMDWINDOWTASKKILL ="taskkill /pid ";
+    public static final String CMDLINUXTASKKILL ="kill -9 ";
+
     public static final String SPLIT_COMMA = ",";
     public static final String SPLIT_AT = "@";
     public static final String SPLIT_COLON = ";";

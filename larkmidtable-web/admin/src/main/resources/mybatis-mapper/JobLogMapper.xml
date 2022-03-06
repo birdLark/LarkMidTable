@@ -58,34 +58,24 @@
 		SELECT <include refid="Base_Column_List" />
 		FROM job_log AS t
 		<trim prefix="WHERE" prefixOverrides="AND | OR" >
-			<if test="jobId==0 and jobGroup gt 0">
-				AND t.job_group = #{jobGroup}
+			<if test="type gt 0">
+				AND t.job_group=#{type}
 			</if>
-			<if test="jobId gt 0">
-				AND t.job_id = #{jobId}
-			</if>
-			<if test="triggerTimeStart != null">
-				AND t.trigger_time <![CDATA[ >= ]]> #{triggerTimeStart}
-			</if>
-			<if test="triggerTimeEnd != null">
-				AND t.trigger_time <![CDATA[ <= ]]> #{triggerTimeEnd}
-			</if>
-			<if test="logStatus == 1" >
+			<if test="status == 1" >
 				AND t.handle_code = 200
 			</if>
-			<if test="logStatus == 2" >
+			<if test="status == 2" >
 				AND (
 					t.trigger_code NOT IN (0, 200) OR
 					t.handle_code NOT IN (0, 200)
 				)
 			</if>
-			<if test="logStatus == 3" >
+			<if test="status == 3" >
 				AND t.trigger_code = 200
 				AND t.handle_code = 0
 			</if>
 		</trim>
 		ORDER BY t.trigger_time DESC
-		LIMIT #{offset}, #{pagesize}
 	</select>
 
 	<select id="pageListCount" resultType="int">
@@ -134,14 +124,16 @@
 			`job_desc`,
 			`trigger_time`,
 			`trigger_code`,
-			`handle_code`
+			`handle_code`,
+		    `process_id`
 		) VALUES (
 			#{jobGroup},
 			#{jobId},
 			#{jobDesc},
 			#{triggerTime},
 			#{triggerCode},
-			#{handleCode}
+			#{handleCode},
+	    	#{processId}
 		);
 		<!--<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
 			SELECT LAST_INSERT_ID()
@@ -208,27 +200,13 @@
 	<select id="findClearLogIds" resultType="long" >
 		SELECT id FROM job_log
 		<trim prefix="WHERE" prefixOverrides="AND | OR" >
-			<if test="jobGroup gt 0">
-				AND job_group = #{jobGroup}
-			</if>
-			<if test="jobId gt 0">
-				AND job_id = #{jobId}
-			</if>
 			<if test="clearBeforeTime != null">
 				AND trigger_time <![CDATA[ <= ]]> #{clearBeforeTime}
 			</if>
 			<if test="clearBeforeNum gt 0">
-				AND id NOT in(
+				AND id  in(
 				SELECT id FROM(
 				SELECT id FROM job_log AS t
-				<trim prefix="WHERE" prefixOverrides="AND | OR" >
-					<if test="jobGroup gt 0">
-						AND t.job_group = #{jobGroup}
-					</if>
-					<if test="jobId gt 0">
-						AND t.job_id = #{jobId}
-					</if>
-				</trim>
 				ORDER BY t.trigger_time desc
 				LIMIT 0, #{clearBeforeNum}
 				) t1
