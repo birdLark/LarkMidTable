@@ -23,8 +23,8 @@
 |                  |              | Postgresql            | enable        | enable         |
 |                  |              | Oracle                | enable        | enable         |
 |                  |              | Mongodb               |               |                |
-|                  |              | SqlServer             |               |                |
-|                  |              | hana                  |               |                |
+|                  |              | SqlServer             | enable        | enable         |
+|                  |              | hana                  | enable        | enable         |
 | **Datax**        | Batch        |                       |               |                |
 |                  |              |                       |               |                |
 | **Seatunnel**    | Batch        |                       |               |                |
