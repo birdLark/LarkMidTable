@@ -65,7 +65,7 @@ public class JobScheduleHelper {
 								.scheduleJobQuery(nowTime , preReadCount);
 						if (scheduleList != null && scheduleList.size() > 0) {
 							for (JobInfo jobInfo : scheduleList) {
-								jobTriggerPoolHelper.runJobWithJson(jobInfo.getJobJson());
+								jobTriggerPoolHelper.runJobWithJson(jobInfo.getJobJson(),jobInfo.getGlueType());
 								CronExpression cronExpression = new CronExpression(jobInfo.getJobCron());
 								Date lastTime = new Date();
 								lastTime = cronExpression.getNextValidTimeAfter(lastTime);

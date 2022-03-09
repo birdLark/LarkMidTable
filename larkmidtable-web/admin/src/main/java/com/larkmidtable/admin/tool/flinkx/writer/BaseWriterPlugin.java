@@ -1,6 +1,8 @@
 package com.larkmidtable.admin.tool.flinkx.writer;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.larkmidtable.admin.util.AESUtil;
 import com.larkmidtable.admin.tool.flinkx.BaseFlinkxPlugin;
@@ -12,6 +14,7 @@ import com.larkmidtable.core.util.Constants;
 import com.larkmidtable.admin.entity.JobDatasource;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -76,5 +79,19 @@ public abstract class BaseWriterPlugin extends BaseFlinkxPlugin {
     @Override
     public Map<String, Object> buildMongoDB(FlinkxMongoDBPojo plugin) {
         return null;
+    }
+
+    /**
+     * 默认的字段是 ["column1","column2"],如果不同 则需要覆盖掉
+     * @param columns
+     * @return
+     */
+    @Override
+    public List<Object> getColumn(List<String> columns) {
+        List<Object> data = Lists.newArrayList();
+        columns.forEach(c -> {
+            data.add(c.split(Constants.SPLIT_SCOLON)[0]);
+        });
+        return data;
     }
 }

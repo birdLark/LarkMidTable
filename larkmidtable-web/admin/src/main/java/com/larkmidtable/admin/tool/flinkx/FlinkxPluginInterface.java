@@ -1,10 +1,12 @@
 package com.larkmidtable.admin.tool.flinkx;
 
+import com.alibaba.fastjson.JSONObject;
 import com.larkmidtable.admin.tool.pojo.FlinkxHbasePojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxHivePojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxMongoDBPojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxRdbmsPojo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -58,4 +60,7 @@ public interface FlinkxPluginInterface {
      * @return
      */
     Map<String, Object> sample();
+
+
+    List<Object> getColumn(List<String> columns);
 }

@@ -1,6 +1,7 @@
 package com.larkmidtable.admin.tool.flinkx;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
@@ -253,14 +254,7 @@ public class DataxJsonHelper implements JsonInterface {
         FlinkxRdbmsPojo flinkxPluginPojo = new FlinkxRdbmsPojo();
         flinkxPluginPojo.setJobDatasource(readerDatasource);
         flinkxPluginPojo.setTables(readerTables);
-		List<Map<String, Object>> columns = Lists.newArrayList();
-		readerColumns.forEach(c -> {
-			Map<String, Object> column = Maps.newLinkedHashMap();
-			column.put("name", c.split(Constants.SPLIT_SCOLON)[0]);
-//			column.put("index", Integer.parseInt(c.split(Constants.SPLIT_SCOLON)[0]));
-//			column.put("type", c.split(Constants.SPLIT_SCOLON)[2]);
-			columns.add(column);
-		});
+        List<Object> columns = readerPlugin.getColumn(readerColumns);
         flinkxPluginPojo.setRdbmsColumns(columns);
         flinkxPluginPojo.setSplitPk(rdbmsReaderDto.getReaderSplitPk());
         if (StringUtils.isNotBlank(rdbmsReaderDto.getQuerySql())) {
@@ -333,14 +327,8 @@ public class DataxJsonHelper implements JsonInterface {
         FlinkxRdbmsPojo flinkxPluginPojo = new FlinkxRdbmsPojo();
         flinkxPluginPojo.setJobDatasource(writerDatasource);
         flinkxPluginPojo.setTables(writerTables);
-		List<Map<String, Object>> columns = Lists.newArrayList();
-		writerColumns.forEach(c -> {
-			Map<String, Object> column = Maps.newLinkedHashMap();
-			column.put("name", c.split(Constants.SPLIT_SCOLON)[0]);
-//			column.put("type", c.split(Constants.SPLIT_SCOLON)[2]);
-			columns.add(column);
-		});
-        flinkxPluginPojo.setRdbmsColumns(columns);
+        List<Object> list =writerPlugin.getColumn(writerColumns);
+        flinkxPluginPojo.setRdbmsColumns(list);
         flinkxPluginPojo.setPreSql(rdbmsWriterDto.getPreSql());
         flinkxPluginPojo.setPostSql(rdbmsWriterDto.getPostSql());
         return writerPlugin.build(flinkxPluginPojo);

@@ -1,8 +1,11 @@
 package com.larkmidtable.admin.tool.flinkx.reader;
 
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.gson.JsonObject;
 import com.larkmidtable.admin.entity.JobDatasource;
 import com.larkmidtable.admin.tool.flinkx.BaseFlinkxPlugin;
 import com.larkmidtable.admin.tool.pojo.FlinkxHbasePojo;
@@ -10,8 +13,10 @@ import com.larkmidtable.admin.tool.pojo.FlinkxHivePojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxMongoDBPojo;
 import com.larkmidtable.admin.tool.pojo.FlinkxRdbmsPojo;
 import com.larkmidtable.admin.util.AESUtil;
+import com.larkmidtable.core.util.Constants;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,6 +29,19 @@ import java.util.Map;
  */
 public abstract class BaseReaderPlugin extends BaseFlinkxPlugin {
 
+    /**
+     * 默认的字段是 ["column1","column2"],如果不同 则需要覆盖掉
+     * @param columns
+     * @return
+     */
+    @Override
+    public List<Object>  getColumn(List<String> columns) {
+        List<Object> data = Lists.newArrayList();
+        columns.forEach(c -> {
+            data.add(c.split(Constants.SPLIT_SCOLON)[0]);
+        });
+        return data;
+    }
 
     @Override
     public Map<String, Object> build(FlinkxRdbmsPojo plugin) {

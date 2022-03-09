@@ -2,6 +2,7 @@ package com.larkmidtable.admin.core.thread;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.larkmidtable.admin.core.conf.ExcecutorConfig;
 import com.larkmidtable.admin.core.conf.JobAdminConfig;
 import com.larkmidtable.admin.core.trigger.JobTrigger;
@@ -9,16 +10,15 @@ import com.larkmidtable.admin.core.trigger.TriggerTypeEnum;
 import com.larkmidtable.admin.entity.JobInfo;
 import com.larkmidtable.admin.entity.JobLog;
 import com.larkmidtable.core.biz.model.ReturnT;
+import com.larkmidtable.core.glue.GlueTypeEnum;
 import com.larkmidtable.core.log.JobLogger;
 import com.larkmidtable.core.util.Constants;
 import com.larkmidtable.core.util.ProcessUtil;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -75,6 +75,25 @@ public class JobTriggerPoolHelper {
 		return cmdArr.toArray(new String[cmdArr.size()]);
 	}
 
+	public static String[] buildDataXExecutorCmd(String dataXShPath,
+												 String tmpFilePath,
+												 String dataxHome,
+												 String logPath) {
+		List<String> cmdArr = new ArrayList<>();
+		if(JobTriggerPoolHelper.isWindows()) {
+			cmdArr.add(Constants.CMDWINDOW);
+		} else {
+			cmdArr.add(Constants.CMDLINUX);
+
+		}
+		cmdArr.add(dataXShPath);
+		cmdArr.add(tmpFilePath);
+		cmdArr.add(dataxHome);
+		cmdArr.add(logPath);
+		logger.info(JSONObject.toJSONString(cmdArr));
+		return cmdArr.toArray(new String[cmdArr.size()]);
+	}
+
 	public static boolean isWindows() {
 		return System.getProperty("os.name").toLowerCase().contains("windows");
 	}
@@ -85,7 +104,21 @@ public class JobTriggerPoolHelper {
 			String tmpFilePath = generateTemJsonFile(jobInfo.getJobJson());
 			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
 			String cmdstr = "";
-			String[] cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+			String[] cmdarrayFinal = null;
+			switch (jobInfo.getGlueType()){
+				case "datax":
+					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxPyHome(),
+							tmpFilePath,ExcecutorConfig.getExcecutorConfig().getDataxHome(),
+							ExcecutorConfig.getExcecutorConfig().getLogHome()
+							);
+				    break;
+				case "flinkx":
+					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+					break;
+				default:
+					throw new RuntimeException("配置的执行类型["+jobInfo.getGlueType()+"]没有配置执行方法");
+			}
+
 			for (int j = 0; j < cmdarrayFinal.length; j++) {
 				cmdstr += cmdarrayFinal[j] + " ";
 			}
@@ -116,19 +149,42 @@ public class JobTriggerPoolHelper {
 		}
 	}
 
-	public static void runJobWithJson(String  jobJson) {
+	public static void runJobWithJson(String  jobJson,String type) {
 		try {
 			String tmpFilePath = generateTemJsonFile(jobJson);
 			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
 			String cmdstr = "";
-			String[] cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+			String[] cmdarrayFinal = null;
+			switch (type){
+				case "datax":
+					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxPyHome(),
+							tmpFilePath,ExcecutorConfig.getExcecutorConfig().getDataxHome(),
+							ExcecutorConfig.getExcecutorConfig().getLogHome()
+					);
+					break;
+				case "flinkx":
+					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+					break;
+				default:
+					throw new RuntimeException("配置的执行类型["+type+"]没有配置执行方法");
+			}
+
 			for (int j = 0; j < cmdarrayFinal.length; j++) {
 				cmdstr += cmdarrayFinal[j] + " ";
 			}
 			System.out.println("-------job will run----------");
+			logger.info("cmdStr:{}",cmdstr);
 			final Process process = Runtime.getRuntime().exec(cmdstr);
 			String prcsId = ProcessUtil.getProcessId(process);
 			JobLogger.log("------------------FlinkX process id: " + prcsId);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream(), "gbk"));
+			String line = null;
+			while ((line = reader.readLine()) != null){
+				logger.info(line);
+			}
+			process.waitFor();
+			int exitVal =process.exitValue();
+			logger.info(exitVal == 0 ? "成功" : "失败");
 			// 运行完后删除文件
 			if (FileUtil.exist(tmpFilePath)) {
 //				FileUtil.del(new File(tmpFilePath));

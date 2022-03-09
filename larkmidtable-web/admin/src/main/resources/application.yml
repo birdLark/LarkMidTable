@@ -113,6 +113,8 @@ flinkx:
     flinkxHome: E:/flinkx/flinkx.py
     jsonPath: E:/flinkx/job/
     logHome: E:/flinkx/nohup.out
+    dataxPyHome: E:/flinkx/datax.py
+    dataxHome: E:/flinkx/datax
 
 
 datasource:

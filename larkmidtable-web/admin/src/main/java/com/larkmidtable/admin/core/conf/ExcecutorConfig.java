@@ -39,6 +39,11 @@ public class ExcecutorConfig  implements InitializingBean, DisposableBean {
 	@Value("${flinkx.executor.logHome}")
 	private  String logHome;
 
+	@Value("${flinkx.executor.dataxPyHome}")
+	private String dataxPyHome;
+
+	@Value("${flinkx.executor.dataxHome}")
+	private String dataxHome;
 
 	public String getJsonPath() {
 		return jsonPath;
@@ -63,4 +68,21 @@ public class ExcecutorConfig  implements InitializingBean, DisposableBean {
 	public void setLogHome(String logHome) {
 		this.logHome = logHome;
 	}
+
+	public String getDataxPyHome() {
+		return dataxPyHome;
+	}
+
+	public void setDataxPyHome(String dataxPyHome) {
+		this.dataxPyHome = dataxPyHome;
+	}
+
+	public String getDataxHome() {
+		return dataxHome;
+	}
+
+	public void setDataxHome(String dataxHome) {
+		this.dataxHome = dataxHome;
+	}
+
 }

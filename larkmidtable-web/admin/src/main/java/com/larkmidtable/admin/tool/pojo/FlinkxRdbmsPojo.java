@@ -1,5 +1,7 @@
 package com.larkmidtable.admin.tool.pojo;
 
+
+import com.alibaba.fastjson.JSONObject;
 import com.larkmidtable.admin.entity.JobDatasource;
 import lombok.Data;
 
@@ -25,7 +27,7 @@ public class FlinkxRdbmsPojo {
     /**
      * 列名
      */
-    private List<Map<String,Object>> rdbmsColumns;
+    private Object rdbmsColumns;
 
     /**
      * 数据源信息
