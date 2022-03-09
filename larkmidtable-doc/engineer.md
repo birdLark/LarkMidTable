@@ -10,6 +10,10 @@ junior： mongodb测试【完成】
 
 星空:集成seatunnel部分代码书写【完成】
 
+939:datax编译源码，datax配置文件的适配【完成】
+
+离别成殇: hbase测试【完成】
+
 
 
 **数据服务:**
@@ -20,13 +24,9 @@ junior： mongodb测试【完成】
 
 **数据集成开发:** 
 
-939:datax编译源码，datax配置文件的适配
-
 星空: 修改日志文件的查看问题
 
 **数据集成:** 
-
-离别成殇: hbase测试
 
 tyrantlucifer:clickhouse测试
 
@@ -41,6 +41,4 @@ junior：hdfs测试
 **数据服务:**
 
 光阳:   测试API接口支持Oracle
-
-Mask:
 
