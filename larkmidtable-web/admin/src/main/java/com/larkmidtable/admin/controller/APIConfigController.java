@@ -7,6 +7,7 @@ import com.larkmidtable.admin.entity.ResponseData;
 import com.larkmidtable.admin.mapper.APIAuthMapper;
 import com.larkmidtable.admin.mapper.APIConfigMapper;
 import com.larkmidtable.admin.service.JobDatasourceService;
+import com.larkmidtable.admin.service.JobProjectService;
 import com.larkmidtable.admin.util.DruidDataSource;
 import com.larkmidtable.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
@@ -25,6 +26,7 @@ import java.util.*;
 public class APIConfigController extends BaseController {
 
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     @Autowired
     private JobDatasourceService jobJdbcDatasourceService;
 
@@ -94,20 +96,20 @@ public class APIConfigController extends BaseController {
     @ApiOperation("执行API的查询")
     public ResponseData executeSql(@RequestBody APIConfig apiConfig) {
         try {
-            if (apiConfig.getId() == 0) {
+//            if (apiConfig.getId() == 0) {
                 String params = apiConfig.getParams();
-                String datasourceId = apiConfig.getDatasource_id();
+                Long datasourceId = apiConfig.getDatasource_id();
                 String sql_text = apiConfig.getSql_text();
                 Map<String, Object> paramsMap = JSON.parseObject(params, LinkedHashMap.class);
 
-                JobDatasource datasource = this.jobJdbcDatasourceService.getById(datasourceId);
+                JobDatasource datasource = jobJdbcDatasourceService.getDataSourceById(datasourceId);
                 Object result = DruidDataSource.executeSql(datasource, sql_text, paramsMap);
                 return ResponseData.successWithData(result);
-            }else {
-                apiAuthMapper.getAuthByConfigId(apiConfig.getId());
-                // 确认是否有权限
-                return ResponseData.fail("没有访问权限接口，请添加权限后再进行尝试！！！");
-            }
+//            }else {
+//                apiAuthMapper.getAuthByConfigId(apiConfig.getId());
+//                // 确认是否有权限
+//                return ResponseData.fail("没有访问权限接口，请添加权限后再进行尝试！！！");
+//            }
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseData.fail(e.getMessage());

@@ -18,4 +18,48 @@
         WHERE id = #{id}
     </update>
 
+    <resultMap id="JobDatasource" type="com.larkmidtable.admin.entity.JobDatasource">
+        <result column="id" property="id"/>
+        <result column="datasource_name" property="datasourceName"/>
+        <result column="datasource" property="datasource"/>
+        <result column="datasource_group" property="datasourceGroup" />
+        <result column="jdbc_username" property="jdbcUsername" />
+        <result column="jdbc_password" property="jdbcPassword" />
+        <result column="jdbc_url" property="jdbcUrl" />
+        <result column="jdbc_driver_class" property="jdbcDriverClass" />
+        <result column="status" property="status" />
+        <result column="create_by" property="createBy" />
+        <result column="create_date" property="createDate" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_date" property="updateDate" />
+        <result column="comments" property="comments" />
+        <result column="zk_adress" property="zkAdress" />
+        <result column="database_name" property="databaseName" />
+    </resultMap>
+
+    <sql id="Show_Column_List">
+		t.id,
+		t.datasource_name,
+		t.datasource,
+		t.datasource_group,
+		t.jdbc_username,
+        t.jdbc_password,
+        t.jdbc_url,
+        t.jdbc_driver_class,
+        t.status,
+        t.create_by,
+        t.create_date,
+        t.update_date,
+        t.comments,
+        t.zk_adress,
+        t.database_name
+	</sql>
+
+    <select id="getDataSourceById" parameterType="java.util.HashMap" resultMap="JobDatasource">
+        SELECT <include refid="Show_Column_List" />
+        FROM job_jdbc_datasource AS t
+        WHERE t.id = #{id}
+    </select>
+
+
 </mapper>
