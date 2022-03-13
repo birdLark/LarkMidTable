@@ -96,11 +96,11 @@ public class APIConfigController extends BaseController {
         try {
             if (apiConfig.getId() == 0) {
                 String params = apiConfig.getParams();
-                String datasourceId = apiConfig.getDatasource_id();
+                Long datasourceId = apiConfig.getDatasource_id();
                 String sql_text = apiConfig.getSql_text();
                 Map<String, Object> paramsMap = JSON.parseObject(params, LinkedHashMap.class);
 
-                JobDatasource datasource = this.jobJdbcDatasourceService.getById(datasourceId);
+                JobDatasource datasource = this.jobJdbcDatasourceService.getDataSourceById(datasourceId);
                 Object result = DruidDataSource.executeSql(datasource, sql_text, paramsMap);
                 return ResponseData.successWithData(result);
             }else {
