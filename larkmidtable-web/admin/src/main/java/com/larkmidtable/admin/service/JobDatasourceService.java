@@ -34,5 +34,9 @@ public interface JobDatasourceService extends IService<JobDatasource> {
      */
     List<JobDatasource> selectAllDatasource();
 
+
     JobDatasource getDataSourceById(Long datasourceId);
+
+    List<JobDatasource> findDataSourceName();
+
 }

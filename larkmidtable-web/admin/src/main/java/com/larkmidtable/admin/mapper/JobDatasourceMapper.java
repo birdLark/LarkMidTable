@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.larkmidtable.admin.entity.JobDatasource;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * jdbc数据源配置表数据库访问层
  *
@@ -16,5 +18,7 @@ public interface JobDatasourceMapper extends BaseMapper<JobDatasource> {
     int update(JobDatasource datasource);
 
     JobDatasource getDataSourceById(Long id);
+
+    List<JobDatasource> findDataSourceName();
 
 }

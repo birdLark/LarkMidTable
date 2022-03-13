@@ -112,7 +112,7 @@ flinkx:
   executor:
     flinkxHome: E:/flinkx/flinkx.py
     jsonPath: E:/flinkx/job/
-    logHome: E:/flinkx/nohup.out
+    logHome: E:/flinkx/
     dataxPyHome: E:/flinkx/datax.py
     dataxHome: E:/flinkx/datax
 

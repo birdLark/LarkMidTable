@@ -46,11 +46,6 @@
         LIMIT #{offset}, #{pagesize}
     </select>
 
-<!--    <select  id="findDataSourceName" resultMap="JobDatasource">
-        SELECT datasource_name,id
-        FROM job_jdbc_datasource
-        ORDER BY id ASC
-    </select>-->
 
     <select id="getById" parameterType="java.util.HashMap" resultMap="APIConfig">
         SELECT <include refid="Show_Column_List" />

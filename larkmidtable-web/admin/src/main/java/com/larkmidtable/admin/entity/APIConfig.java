@@ -29,7 +29,7 @@ public class APIConfig {
     private String describe;
 
     @ApiModelProperty("数据源ID")
-    private Long datasource_id;
+    private String datasource_id;
 
     @ApiModelProperty("请求参数")
     private String params;

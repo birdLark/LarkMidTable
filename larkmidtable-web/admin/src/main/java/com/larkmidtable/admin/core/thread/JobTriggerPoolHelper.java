@@ -59,8 +59,8 @@ public class JobTriggerPoolHelper {
 
 	// ---------------------- helper ----------------------
 
-	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath) {
-		String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
+	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath,int jobId) {
+		long timestamp = System.currentTimeMillis();
 		List<String> cmdArr = new ArrayList<>();
 		if(JobTriggerPoolHelper.isWindows()) {
 			cmdArr.add(Constants.CMDWINDOW);
@@ -71,6 +71,7 @@ public class JobTriggerPoolHelper {
 			cmdArr.add(flinkXShPath);
 			cmdArr.add(tmpFilePath);
 		}
+		cmdArr.add(jobId+""+timestamp+".out");
 		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
 		return cmdArr.toArray(new String[cmdArr.size()]);
 	}
@@ -78,8 +79,9 @@ public class JobTriggerPoolHelper {
 	public static String[] buildDataXExecutorCmd(String dataXShPath,
 												 String tmpFilePath,
 												 String dataxHome,
-												 String logPath) {
+												 int jobId) {
 		List<String> cmdArr = new ArrayList<>();
+		long timestamp = System.currentTimeMillis();
 		if(JobTriggerPoolHelper.isWindows()) {
 			cmdArr.add(Constants.CMDWINDOW);
 		} else {
@@ -89,7 +91,7 @@ public class JobTriggerPoolHelper {
 		cmdArr.add(dataXShPath);
 		cmdArr.add(tmpFilePath);
 		cmdArr.add(dataxHome);
-		cmdArr.add(logPath);
+		cmdArr.add(jobId+""+timestamp+".out");
 		logger.info(JSONObject.toJSONString(cmdArr));
 		return cmdArr.toArray(new String[cmdArr.size()]);
 	}
@@ -109,11 +111,11 @@ public class JobTriggerPoolHelper {
 				case "datax":
 					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxPyHome(),
 							tmpFilePath,ExcecutorConfig.getExcecutorConfig().getDataxHome(),
-							ExcecutorConfig.getExcecutorConfig().getLogHome()
+							jobId
 							);
 				    break;
 				case "flinkx":
-					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath,jobId);
 					break;
 				default:
 					throw new RuntimeException("配置的执行类型["+jobInfo.getGlueType()+"]没有配置执行方法");
@@ -143,13 +145,15 @@ public class JobTriggerPoolHelper {
 			jobLog.setTriggerCode(ReturnT.SUCCESS_CODE);
 			jobLog.setHandleCode(0);
 			jobLog.setProcessId(prcsId);
+			// 设置job的执行路径
+			jobLog.setExecutorAddress(cmdarrayFinal[3]);
 			JobAdminConfig.getAdminConfig().getJobLogMapper().save(jobLog);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static void runJobWithJson(String  jobJson,String type) {
+	public static void runJobWithJson(String  jobJson,String type,int jobid,JobInfo jobInfo) {
 		try {
 			String tmpFilePath = generateTemJsonFile(jobJson);
 			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
@@ -159,11 +163,11 @@ public class JobTriggerPoolHelper {
 				case "datax":
 					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxPyHome(),
 							tmpFilePath,ExcecutorConfig.getExcecutorConfig().getDataxHome(),
-							ExcecutorConfig.getExcecutorConfig().getLogHome()
+							jobid
 					);
 					break;
 				case "flinkx":
-					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath);
+					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath,jobid);
 					break;
 				default:
 					throw new RuntimeException("配置的执行类型["+type+"]没有配置执行方法");
@@ -189,6 +193,23 @@ public class JobTriggerPoolHelper {
 			if (FileUtil.exist(tmpFilePath)) {
 //				FileUtil.del(new File(tmpFilePath));
 			}
+			// 记录日志
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(new Date());
+			calendar.set(Calendar.MILLISECOND, 0);
+			Date triggerTime = calendar.getTime();
+			JobLog jobLog = new JobLog();
+			jobLog.setJobGroup(jobInfo.getJobGroup());
+			jobLog.setJobId(jobInfo.getId());
+			jobLog.setTriggerTime(triggerTime);
+			jobLog.setJobDesc(jobInfo.getJobDesc());
+			jobLog.setHandleTime(triggerTime);
+			jobLog.setTriggerCode(ReturnT.SUCCESS_CODE);
+			jobLog.setHandleCode(0);
+			jobLog.setProcessId(prcsId);
+			// 设置job的执行路径
+			jobLog.setExecutorAddress(cmdarrayFinal[3]);
+			JobAdminConfig.getAdminConfig().getJobLogMapper().save(jobLog);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

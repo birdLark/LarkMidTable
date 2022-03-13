@@ -62,12 +62,11 @@ public class JobLogController {
 
 	@RequestMapping(value = "/logDetailCat", method = RequestMethod.GET)
 	@ApiOperation("运行日志详情")
-	public ReturnT<LogResult> logDetailCat(String executorAddress, String triggerTime, String logId,
-			String fromLineNum) {
+	public ReturnT<LogResult> logDetailCat(String executorAddress) {
 		try {
 			// @TODO 根据前端传递的logId，生成拼装的日志路径
 			String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
-			InputStream in = new FileInputStream(logHome);
+			InputStream in = new FileInputStream(logHome+"/"+executorAddress);
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			byte[] buf = new byte[1024];
 			int len;

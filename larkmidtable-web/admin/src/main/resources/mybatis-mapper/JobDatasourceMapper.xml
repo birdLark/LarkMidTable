@@ -61,5 +61,10 @@
         WHERE t.id = #{id}
     </select>
 
+    <select  id="findDataSourceName" resultMap="JobDatasource">
+        SELECT datasource_name,id
+        FROM job_jdbc_datasource
+        ORDER BY id ASC
+    </select>
 
 </mapper>

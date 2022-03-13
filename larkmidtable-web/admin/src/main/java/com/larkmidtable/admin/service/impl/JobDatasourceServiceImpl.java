@@ -64,4 +64,9 @@ public class JobDatasourceServiceImpl extends ServiceImpl<JobDatasourceMapper, J
         return datasourceMapper.getDataSourceById(datasourceId);
     }
 
+    @Override
+    public List<JobDatasource> findDataSourceName() {
+        return datasourceMapper.findDataSourceName();
+    }
+
 }
