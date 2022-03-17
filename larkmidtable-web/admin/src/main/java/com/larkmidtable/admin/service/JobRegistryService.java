@@ -1,5 +1,6 @@
 package com.larkmidtable.admin.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.larkmidtable.admin.entity.JobRegistry;
 
@@ -11,4 +12,5 @@ import com.larkmidtable.admin.entity.JobRegistry;
  * @since 2020-03-15
  */
 public interface JobRegistryService extends IService<JobRegistry> {
+    IPage<JobRegistry> selectAll(Integer size, Integer current);
 }

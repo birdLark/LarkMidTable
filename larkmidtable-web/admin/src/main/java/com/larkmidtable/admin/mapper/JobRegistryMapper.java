@@ -1,6 +1,9 @@
 package com.larkmidtable.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.larkmidtable.admin.entity.JobProject;
 import com.larkmidtable.admin.entity.JobRegistry;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -42,4 +45,5 @@ public interface JobRegistryMapper extends BaseMapper<JobRegistry> {
                               @Param("registryKey") String registryKey,
                               @Param("registryValue") String registryValue);
 
+    IPage<JobRegistry> selectAll(Page<JobProject> page);
 }

@@ -35,7 +35,7 @@ public class JobRegistryMonitorHelper {
 						// remove dead address (admin/executor)
 						List<Integer> ids = JobAdminConfig.getAdminConfig().getJobRegistryMapper().findDead(RegistryConfig.DEAD_TIMEOUT, new Date());
 						if (ids!=null && ids.size()>0) {
-							JobAdminConfig.getAdminConfig().getJobRegistryMapper().removeDead(ids);
+//							JobAdminConfig.getAdminConfig().getJobRegistryMapper().removeDead(ids);
 						}
 
 						// fresh online address (admin/executor)

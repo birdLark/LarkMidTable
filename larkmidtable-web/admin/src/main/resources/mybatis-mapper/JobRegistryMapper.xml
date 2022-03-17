@@ -14,6 +14,12 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
+    <select id="selectAll" resultType="com.larkmidtable.admin.entity.JobRegistry">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM job_registry AS t
+    </select>
+
     <sql id="Base_Column_List">
 		t.id,
 		t.registry_group,

@@ -104,7 +104,8 @@ public class DevTaskController extends BaseController {
 	@GetMapping("/list")
 	public ReturnT<Map<String, Object>> selectList(@RequestParam(value = "current", required = false, defaultValue = "1") int current,
 			@RequestParam(value = "size", required = false, defaultValue = "10") int size,
-			@RequestParam(value = "name", required = false) String name) {
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "name", required = false) String tasktype) {
 		// page list
 		List<DevTask> list = devTaskMapper.findList((current - 1) * size,size,name);
 		Map<String, Object> maps = new HashMap<>();
