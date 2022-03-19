@@ -35,7 +35,7 @@ public class JobRegistryController extends BaseController {
 	@Autowired
 	private JobRegistryService jobRegistryService;
 
-	@GetMapping("list")
+	@GetMapping("/list")
 	@ApiOperation("分页查询所有数据")
 	public R<IPage<JobRegistry>> selectAll(@RequestParam("size") Integer size,
 										   @RequestParam("current") Integer current) {

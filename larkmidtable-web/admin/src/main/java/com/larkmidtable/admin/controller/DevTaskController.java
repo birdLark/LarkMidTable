@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -105,9 +106,9 @@ public class DevTaskController extends BaseController {
 	public ReturnT<Map<String, Object>> selectList(@RequestParam(value = "current", required = false, defaultValue = "1") int current,
 			@RequestParam(value = "size", required = false, defaultValue = "10") int size,
 			@RequestParam(value = "name", required = false) String name,
-			@RequestParam(value = "name", required = false) String tasktype) {
+			@RequestParam(value = "tasktype", required = false) String tasktype) {
 		// page list
-		List<DevTask> list = devTaskMapper.findList((current - 1) * size,size,name);
+		List<DevTask> list = devTaskMapper.findList((current - 1) * size,size,tasktype);
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("recordsTotal", list.size());    // 过滤后的总记录数
 		maps.put("data", list);                    // 分页列表

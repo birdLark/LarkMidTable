@@ -21,5 +21,5 @@ public interface DevTaskMapper extends BaseMapper<DevTask>{
 
 	List<DevTask> findList(@Param("offset") int offset,
 			@Param("pagesize") int pagesize,
-			@Param("name") String name);
+			@Param("tasktype") String tasktype);
 }

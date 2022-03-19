@@ -37,7 +37,7 @@ public class DevSQLController extends BaseController {
 	@ApiOperation("新增数据")
 	@PostMapping("/add")
 	public ReturnT<String> insert(HttpServletRequest request, @RequestBody DevTask entity) {
-		entity.setCreate_time(new Date().toString());
+		entity.setCreate_time(sdf.format(new Date()));
 		this.devSQLMapper.save(entity);
 		return ReturnT.SUCCESS;
 	}
