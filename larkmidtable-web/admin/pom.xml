@@ -11,6 +11,7 @@
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
+        <flink.version>1.10.0</flink.version>
     </properties>
 
     <dependencyManagement>
@@ -815,6 +816,50 @@
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
         </dependency>
+        
+        <!-- Flink modules -->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-table-api-java</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-table-planner-blink_2.11</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-table-planner_2.11</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-jdbc_2.11</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- CLI dependencies -->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-clients_2.11</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lark.cn</groupId>
+			<artifactId>sql</artifactId>
+			<version>1.10.0</version> 
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/lib/sql-1.10.0.jar</systemPath>
+		</dependency>
     </dependencies>
 
     <build>
