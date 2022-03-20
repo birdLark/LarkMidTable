@@ -106,9 +106,9 @@ public class DevTaskController extends BaseController {
 	public ReturnT<Map<String, Object>> selectList(@RequestParam(value = "current", required = false, defaultValue = "1") int current,
 			@RequestParam(value = "size", required = false, defaultValue = "10") int size,
 			@RequestParam(value = "name", required = false) String name,
-			@RequestParam(value = "tasktype", required = false) String tasktype) {
+			@RequestParam(value = "type", required = false) String type) {
 		// page list
-		List<DevTask> list = devTaskMapper.findList((current - 1) * size,size,tasktype);
+		List<DevTask> list = devTaskMapper.findList((current - 1) * size,size,type);
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("recordsTotal", list.size());    // 过滤后的总记录数
 		maps.put("data", list);                    // 分页列表

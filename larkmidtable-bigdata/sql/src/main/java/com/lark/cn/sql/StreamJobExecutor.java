@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.SqlParserException;
 import org.apache.flink.table.api.Table;
-import org.apache.flink.table.api.java.StreamTableEnvironment;
+import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 import com.lark.cn.common.SqlCommandParser;
 import com.lark.cn.common.SqlCommandParser.SqlCommandCall;

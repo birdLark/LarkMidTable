@@ -34,3 +34,4 @@ package-lock.json
 yarn.lock
 larkmidtable-bigdata/common/target/*.jar
 larkmidtable-bigdata/core/target/*.jar
+larkmidtable-bigdata/sql/src/main/resources/odslarkorder.sql

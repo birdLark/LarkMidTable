@@ -15,7 +15,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<flink.version>1.10.0</flink.version>
+		<flink.version>1.13.6</flink.version>
+        <flink-jdbc.version>1.10.0</flink-jdbc.version>
 	</properties>
 
 	<dependencies>
@@ -34,29 +35,29 @@
 		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-table-planner-blink_2.11</artifactId>
+			<artifactId>flink-table-planner-blink_2.12</artifactId>
 			<version>${flink.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-table-planner_2.11</artifactId>
+			<artifactId>flink-table-planner_2.12</artifactId>
 			<version>${flink.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-jdbc_2.11</artifactId>
-			<version>${flink.version}</version>
+			<artifactId>flink-jdbc_2.12</artifactId>
+			<version>${flink-jdbc.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<!-- CLI dependencies -->
 		<dependency>
 			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-clients_2.11</artifactId>
+			<artifactId>flink-clients_2.12</artifactId>
 			<version>${flink.version}</version>
 			<scope>provided</scope>
 		</dependency>

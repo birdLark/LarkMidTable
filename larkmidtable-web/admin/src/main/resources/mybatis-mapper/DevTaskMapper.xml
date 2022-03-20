@@ -36,8 +36,8 @@
         SELECT <include refid="Show_Column_List" />
         FROM lark_dev_tasklist AS t
         <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="tasktype != null and tasktype != ''">
-                AND t.tasktype = #{tasktype}
+            <if test="type != null and type != ''">
+                AND t.type = #{type}
             </if>
         </trim>
         ORDER BY t.id ASC
