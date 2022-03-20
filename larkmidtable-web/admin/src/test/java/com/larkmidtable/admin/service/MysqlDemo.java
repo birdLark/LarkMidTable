@@ -15,10 +15,10 @@ public interface MysqlDemo {
 			+ "WITH ("
 			+ "'connector.type' = 'jdbc',"
 			+ "'connector.driver' = 'com.mysql.cj.jdbc.Driver',"
-			+ "'connector.url' = 'jdbc:mysql://localhost:3306/world?tinyInt1isBit=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true',"
-			+ "'connector.table' = 'city',"
-			+ "'connector.username' = 'root',"
-			+ "'connector.password' = '123abc'"
+			+ "'connector.url' = 'jdbc:mysql://192.168.220.248:3306/world?tinyInt1isBit=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true',"
+			+ "'connector.table' = 'city1',"
+			+ "'connector.username' = '111',"
+			+ "'connector.password' = '111'"
 			+ ")";
 	
 	String MYSQL_SELECT = "SELECT ID,NAME from city1";
@@ -32,10 +32,10 @@ public interface MysqlDemo {
 			+ "WITH ("
 			+ "'connector.type' = 'jdbc',"
 			+ "'connector.driver' = 'com.mysql.cj.jdbc.Driver',"
-			+ "'connector.url' = 'jdbc:mysql://localhost:3306/world?tinyInt1isBit=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true',"
+			+ "'connector.url' = 'jdbc:mysql://192.168.220.12:3306/world?tinyInt1isBit=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true',"
 			+ "'connector.table' = 'city2',"
-			+ "'connector.username' = 'root',"
-			+ "'connector.password' = '123abc'"
+			+ "'connector.username' = '111',"
+			+ "'connector.password' = '111'"
 			+ ")";
 	
 	String MSYQL_INSERT = "INSERT INTO city2 select * from city1";

@@ -1,19 +1,25 @@
 package com.larkmidtable.admin.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
-import com.larkmidtable.admin.entity.DevTask;
-import com.larkmidtable.admin.mapper.DevSQLMapper;
-import com.larkmidtable.core.biz.model.ReturnT;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.baomidou.mybatisplus.extension.api.R;
+import com.larkmidtable.admin.entity.DevTask;
+import com.larkmidtable.admin.mapper.DevSQLMapper;
+import com.larkmidtable.admin.service.DevSQLService;
+import com.larkmidtable.core.biz.model.ReturnT;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 
 @RestController
@@ -24,13 +30,13 @@ public class DevSQLController extends BaseController {
 	@Resource
 	private DevSQLMapper devSQLMapper;
 
-//	@Autowired
-//	private FlinkSqlService flinkSqlService;
+	@Autowired
+	private DevSQLService devSQLService;
 
 	@ApiOperation(value = "Flink SQL 执行器")
 	@PostMapping("/exeFlinkSql")
 	public R<String> exeFlinkSql(@RequestBody DevTask entity) {
-//		flinkSqlService.exeFlinkSql(entity);
+		devSQLService.exeFlinkSql(entity);
 		return R.ok("执行成功");
 	}
 
