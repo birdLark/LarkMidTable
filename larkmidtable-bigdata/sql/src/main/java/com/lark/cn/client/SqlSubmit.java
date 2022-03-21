@@ -31,20 +31,22 @@ import com.lark.cn.common.SqlCommandParser;
 public class SqlSubmit {
 
     public static void main(String[] args) throws Exception {
-        final CliOptions options = CliOptionsParser.parseClient(args);
+//        final CliOptions options = CliOptionsParser.parseClient(args);
+		CliOptions options =null;
+		path = args[0];
         SqlSubmit submit = new SqlSubmit(options);
         submit.run();
     }
 
     // --------------------------------------------------------------------------------------------
-
+	private static  String path;
     private String sqlFilePath;
     private String workSpace;
     private TableEnvironment tEnv;
 
     private SqlSubmit(CliOptions options) {
-        this.sqlFilePath = options.getSqlFilePath();
-        this.workSpace = options.getWorkingSpace();
+//        this.sqlFilePath = options.getSqlFilePath();
+//        this.workSpace = options.getWorkingSpace();
     }
 
     private void run() throws Exception {
@@ -53,7 +55,8 @@ public class SqlSubmit {
                 .inStreamingMode()
                 .build();
         this.tEnv = TableEnvironment.create(settings);
-        List<String> sql = Files.readAllLines(Paths.get(workSpace + "/" + sqlFilePath));
+//        List<String> sql = Files.readAllLines(Paths.get(workSpace + "/" + sqlFilePath));
+	    List<String> sql = Files.readAllLines(Paths.get(path));
         List<SqlCommandParser.SqlCommandCall> calls = SqlCommandParser.parse(sql);
         for (SqlCommandParser.SqlCommandCall call : calls) {
             callCommand(call);
