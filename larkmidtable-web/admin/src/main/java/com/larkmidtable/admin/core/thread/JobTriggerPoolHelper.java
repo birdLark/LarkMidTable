@@ -72,6 +72,10 @@ public class JobTriggerPoolHelper {
 			cmdArr.add(tmpFilePath);
 		}
 		String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
+		File folder = new File(logHome);
+		if (!folder.exists() && !folder.isDirectory()) {
+			folder.mkdirs();
+		}
 		cmdArr.add(logHome+"/"+jobId+""+timestamp+".out");
 		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
 		return cmdArr.toArray(new String[cmdArr.size()]);
@@ -93,6 +97,10 @@ public class JobTriggerPoolHelper {
 		cmdArr.add(tmpFilePath);
 		cmdArr.add(dataxHome);
 		String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
+		File folder = new File(logHome);
+		if (!folder.exists() && !folder.isDirectory()) {
+			folder.mkdirs();
+		}
 		cmdArr.add(logHome+"/"+jobId+""+timestamp+".out");
 		logger.info(JSONObject.toJSONString(cmdArr));
 		return cmdArr.toArray(new String[cmdArr.size()]);
