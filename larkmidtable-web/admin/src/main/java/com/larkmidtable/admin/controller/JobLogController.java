@@ -64,9 +64,7 @@ public class JobLogController {
 	@ApiOperation("运行日志详情")
 	public ReturnT<LogResult> logDetailCat(String executorAddress) {
 		try {
-			// @TODO 根据前端传递的logId，生成拼装的日志路径
-			String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
-			InputStream in = new FileInputStream(logHome+"/"+executorAddress);
+			InputStream in = new FileInputStream(executorAddress);
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			byte[] buf = new byte[1024];
 			int len;
