@@ -19,7 +19,7 @@ USE  `web`;
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
--- lark.dev_env_setting definition
+-- web.dev_env_setting definition
 
 CREATE TABLE `dev_env_setting` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'key',
@@ -34,7 +34,7 @@ CREATE TABLE `dev_env_setting` (
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_group definition
+-- web.job_group definition
 
 CREATE TABLE `job_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -47,7 +47,7 @@ CREATE TABLE `job_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_info definition
+-- web.job_info definition
 
 CREATE TABLE `job_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -89,7 +89,7 @@ CREATE TABLE `job_info` (
 ) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_jdbc_datasource definition
+-- web.job_jdbc_datasource definition
 
 CREATE TABLE `job_jdbc_datasource` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
@@ -112,7 +112,7 @@ CREATE TABLE `job_jdbc_datasource` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='jdbc数据源配置';
 
 
--- lark.job_lock definition
+-- web.job_lock definition
 
 CREATE TABLE `job_lock` (
   `lock_name` varchar(50) NOT NULL COMMENT '锁名称',
@@ -120,7 +120,7 @@ CREATE TABLE `job_lock` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_log definition
+-- web.job_log definition
 
 CREATE TABLE `job_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -147,7 +147,7 @@ CREATE TABLE `job_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_log_report definition
+-- web.job_log_report definition
 
 CREATE TABLE `job_log_report` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -160,7 +160,7 @@ CREATE TABLE `job_log_report` (
 ) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_logglue definition
+-- web.job_logglue definition
 
 CREATE TABLE `job_logglue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -174,7 +174,7 @@ CREATE TABLE `job_logglue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_permission definition
+-- web.job_permission definition
 
 CREATE TABLE `job_permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -186,7 +186,7 @@ CREATE TABLE `job_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_project definition
+-- web.job_project definition
 
 CREATE TABLE `job_project` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'key',
@@ -200,7 +200,7 @@ CREATE TABLE `job_project` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_registry definition
+-- web.job_registry definition
 
 CREATE TABLE `job_registry` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -216,7 +216,7 @@ CREATE TABLE `job_registry` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_template definition
+-- web.job_template definition
 
 CREATE TABLE `job_template` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -247,7 +247,7 @@ CREATE TABLE `job_template` (
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.job_user definition
+-- web.job_user definition
 
 CREATE TABLE `job_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -260,7 +260,7 @@ CREATE TABLE `job_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
--- lark.lark_api_auth definition
+-- web.lark_api_auth definition
 
 CREATE TABLE `lark_api_auth` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -271,7 +271,7 @@ CREATE TABLE `lark_api_auth` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 
--- lark.lark_api_auth_config definition
+-- web.lark_api_auth_config definition
 
 CREATE TABLE `lark_api_auth_config` (
   `auth_id` varchar(100) DEFAULT NULL,
@@ -281,7 +281,7 @@ CREATE TABLE `lark_api_auth_config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- lark.lark_api_config definition
+-- web.lark_api_config definition
 
 CREATE TABLE `lark_api_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -299,7 +299,7 @@ CREATE TABLE `lark_api_config` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 
--- lark.lark_base_resource definition
+-- web.lark_base_resource definition
 
 CREATE TABLE `lark_base_resource` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -310,7 +310,7 @@ CREATE TABLE `lark_base_resource` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 
--- lark.lark_dev_tasklist definition
+-- web.lark_dev_tasklist definition
 
 CREATE TABLE `lark_dev_tasklist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -329,7 +329,7 @@ CREATE TABLE `lark_dev_tasklist` (
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 
--- lark.order_sink definition
+-- web.order_sink definition
 
 CREATE TABLE `order_sink` (
   `pv` int(11) DEFAULT NULL,
@@ -337,7 +337,7 @@ CREATE TABLE `order_sink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
--- lark.sink definition
+-- web.sink definition
 
 CREATE TABLE `sink` (
   `id` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -346,7 +346,7 @@ CREATE TABLE `sink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
--- lark.source definition
+-- web.source definition
 
 CREATE TABLE `source` (
   `id` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -355,10 +355,14 @@ CREATE TABLE `source` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
--- lark.student definition
+-- web.student definition
 
 CREATE TABLE `student` (
   `id` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
   `name` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+INSERT INTO job_user (id, username, password, `role`, permission) VALUES(1, 'admin', '$2a$10$2KCqRbra0Yn2TwvkZxtfLuWuUP5KyCWsljO/ci5pLD27pqR3TV1vy', 'ROLE_ADMIN', NULL);
+INSERT INTO job_group (id, app_name, title, `order`, address_type, address_list) VALUES(1, 'executor', 'flinkx', 1, 0, NULL);
+INSERT INTO job_group (id, app_name, title, `order`, address_type, address_list) VALUES(2, 'executor', 'datax', 2, 0, NULL);
 

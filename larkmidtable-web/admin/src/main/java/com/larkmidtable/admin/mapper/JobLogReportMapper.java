@@ -1,5 +1,6 @@
 package com.larkmidtable.admin.mapper;
 
+import com.larkmidtable.admin.entity.InfoReport;
 import com.larkmidtable.admin.entity.JobLogReport;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,6 +23,6 @@ public interface JobLogReportMapper {
     List<JobLogReport> queryLogReport(@Param("triggerDayFrom") Date triggerDayFrom,
                                       @Param("triggerDayTo") Date triggerDayTo);
 
-    JobLogReport queryLogReportTotal();
 
+	InfoReport getInfoReportCount();
 }

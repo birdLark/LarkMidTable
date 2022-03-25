@@ -11,6 +11,13 @@
 	    <result column="fail_count" property="failCount" />
 	</resultMap>
 
+    <resultMap id="InfoReport" type="com.larkmidtable.admin.entity.InfoReport" >
+        <result column="dbCount" property="dbCount" />
+        <result column="tCount" property="tCount" />
+        <result column="devCount" property="devCount" />
+        <result column="apiCount" property="apiCount" />
+    </resultMap>
+
 	<sql id="Base_Column_List">
 		t.id,
 		t.trigger_day,
@@ -51,12 +58,14 @@
 		ORDER BY t.trigger_day ASC
 	</select>
 
-	<select id="queryLogReportTotal" resultMap="JobLogReport">
-		SELECT
-			SUM(running_count) running_count,
-			SUM(suc_count) suc_count,
-			SUM(fail_count) fail_count
-		FROM job_log_report AS t
+	<select id="getInfoReportCount" resultMap="InfoReport">
+		select count(*) as dbCount from job_jdbc_datasource
+		union
+		select count(*) as tCount from job_jdbc_datasource
+		union
+		select count(*) as devCount from job_jdbc_datasource
+		union
+		select count(*) as apiCount from job_jdbc_datasource
 	</select>
 
 </mapper>

@@ -2,7 +2,7 @@ package com.larkmidtable.admin.service.impl;
 
 import com.larkmidtable.admin.dto.FlinkXBatchJsonBuildDto;
 import com.larkmidtable.admin.dto.JsonBuildDto;
-import com.larkmidtable.admin.entity.JobTemplate;
+import com.larkmidtable.admin.entity.*;
 import com.larkmidtable.admin.mapper.*;
 import com.larkmidtable.admin.service.DatasourceQueryService;
 import com.larkmidtable.admin.service.JsonService;
@@ -16,9 +16,6 @@ import com.larkmidtable.core.biz.model.ReturnT;
 import com.larkmidtable.core.enums.ExecutorBlockStrategyEnum;
 import com.larkmidtable.core.glue.GlueTypeEnum;
 import com.larkmidtable.core.util.DateUtil;
-import com.larkmidtable.admin.entity.JobGroup;
-import com.larkmidtable.admin.entity.JobInfo;
-import com.larkmidtable.admin.entity.JobLogReport;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -322,35 +319,13 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Map<String, Object> dashboardInfo() {
-
-        int jobInfoCount = jobInfoMapper.findAllCount();
-        int jobLogCount = 0;
-        int jobLogSuccessCount = 0;
-        JobLogReport jobLogReport = jobLogReportMapper.queryLogReportTotal();
-        if (jobLogReport != null) {
-            jobLogCount = jobLogReport.getRunningCount() + jobLogReport.getSucCount() + jobLogReport.getFailCount();
-            jobLogSuccessCount = jobLogReport.getSucCount();
-        }
-
-        // executor count
-        Set<String> executorAddressSet = new HashSet<>();
-        List<JobGroup> groupList = jobGroupMapper.findAll();
-
-        if (groupList != null && !groupList.isEmpty()) {
-            for (JobGroup group : groupList) {
-                if (group.getRegistryList() != null && !group.getRegistryList().isEmpty()) {
-                    executorAddressSet.addAll(group.getRegistryList());
-                }
-            }
-        }
-
-        int executorCount = executorAddressSet.size();
+		InfoReport  infoReport = jobLogReportMapper.getInfoReportCount();
 
         Map<String, Object> dashboardMap = new HashMap<>();
-        dashboardMap.put("jobInfoCount", jobInfoCount);
-        dashboardMap.put("jobLogCount", jobLogCount);
-        dashboardMap.put("jobLogSuccessCount", jobLogSuccessCount);
-        dashboardMap.put("executorCount", executorCount);
+        dashboardMap.put("dbCount", infoReport.getDbCount());
+        dashboardMap.put("tCount", infoReport.getTCount());
+        dashboardMap.put("devCount", infoReport.getDevCount());
+        dashboardMap.put("apiCount", infoReport.getApiCount());
         return dashboardMap;
     }
 
