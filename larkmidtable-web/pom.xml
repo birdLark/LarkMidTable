@@ -14,7 +14,6 @@
         <module>core</module>
         <module>rpc</module>
         <module>assembly</module>
-        <module>metadata</module>
     </modules>
 
     <properties>
