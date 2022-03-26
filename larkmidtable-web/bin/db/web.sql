@@ -889,8 +889,7 @@ INSERT INTO web.dev_env_setting (name,prop_value,description,user_id,flag,create
 }',NULL,'',NULL,NULL,0,'Timestamp',NULL,NULL,NULL,0,0),
 	 (4,'00 13 03 * * ? *','student',9,'2022-03-25 23:46:22.0','2022-03-25 23:46:22.0',3,'','RANDOM','executorJobHandler','','DISCARD_LATER',0,0,'flinkx',NULL,NULL,'2022-03-25 23:46:22.0','',0,0,0,'{"job":{"setting":{"speed":{"channel":1,"bytes":0},"errorLimit":{"record":100},"restore":{"maxRowNumForCheckpoint":0,"isRestore":false,"restoreColumnName":"","restoreColumnIndex":0},"log":{"isLogger":false,"level":"debug","path":"","pattern":""}},"content":[{"reader":{"name":"mysqlreader","parameter":{"username":"web","password":"LarkMid!@#123","column":[{"name":"id"},{"name":"name"}],"splitPk":"","connection":[{"table":["student"],"jdbcUrl":["jdbc:mysql://localhost:3310/source?serverTimezone=UTC"]}]}},"writer":{"name":"mysqlwriter","parameter":{"username":"web","password":"LarkMid!@#123","writeMode":"insert","column":[{"name":"id"},{"name":"name"}],"connection":[{"table":["student"],"jdbcUrl":"jdbc:mysql://localhost:3310/sink?serverTimezone=UTC"}]}}}]}}',NULL,'',NULL,NULL,0,NULL,NULL,NULL,NULL,0,0);INSERT INTO web.job_jdbc_datasource (datasource_name,datasource,datasource_group,database_name,jdbc_username,jdbc_password,jdbc_url,jdbc_driver_class,zk_adress,status,create_by,create_date,update_by,update_date,comments) VALUES
 	 ('mysql的source源','mysql','source',NULL,'r1zeucGv0jVj6vMQMIxIFA==','ILKXd6gtmqnoBZ0mdMHpzQ==','jdbc:mysql://localhost:3310/source?serverTimezone=UTC','com.mysql.jdbc.Driver',NULL,1,'admin','2022-03-09 21:27:50.0','admin','2022-03-24 21:18:02.0',''),
-	 ('mysql的sink源','mysql','sink',NULL,'r1zeucGv0jVj6vMQMIxIFA==','ILKXd6gtmqnoBZ0mdMHpzQ==','jdbc:mysql://localhost:3310/sink?serverTimezone=UTC','com.mysql.jdbc.Driver',NULL,1,'admin','2022-03-09 21:29:21.0','admin','2022-03-23 23:12:17.0',''),
-	 ('生产','sqlserver','生产环境',NULL,'KAtgZpcVTxVOWl2MZAaTNQ==','1y7zmlABs804F8NbLpqupQ==','jdbc:jtds:sqlserver://49.7.58.10:1433;DatabaseName=master','net.sourceforge.jtds.jdbc.Driver',NULL,1,'admin','2022-03-24 22:43:44.0',NULL,NULL,'生产环境');INSERT INTO web.job_lock (lock_name) VALUES
+	 ('mysql的sink源','mysql','sink',NULL,'r1zeucGv0jVj6vMQMIxIFA==','ILKXd6gtmqnoBZ0mdMHpzQ==','jdbc:mysql://localhost:3310/sink?serverTimezone=UTC','com.mysql.jdbc.Driver',NULL,1,'admin','2022-03-09 21:29:21.0','admin','2022-03-23 23:12:17.0','');INSERT INTO web.job_lock (lock_name) VALUES
 	 ('schedule_lock');INSERT INTO web.job_log (job_group,job_id,job_desc,executor_address,executor_handler,executor_param,executor_sharding_param,executor_fail_retry_count,trigger_time,trigger_code,trigger_msg,handle_time,handle_code,handle_msg,alarm_status,process_id,max_id) VALUES
 	 (4,96,'student',NULL,NULL,NULL,NULL,0,'2022-03-23 23:17:03.0',200,NULL,NULL,0,NULL,0,'31900',NULL),
 	 (4,96,'student',NULL,NULL,NULL,NULL,0,'2022-03-24 01:00:00.0',200,NULL,NULL,0,NULL,0,'13812',NULL),
@@ -1691,16 +1690,7 @@ INSERT INTO web.job_log_report (trigger_day,running_count,suc_count,fail_count) 
 	 ('2022-03-15 00:00:00.0',0,0,0),
 	 ('2022-03-16 00:00:00.0',0,0,0),
 	 ('2022-03-17 00:00:00.0',0,0,0),
-	 ('2022-03-18 00:00:00.0',0,0,0);
-INSERT INTO web.job_log_report (trigger_day,running_count,suc_count,fail_count) VALUES
-	 ('2022-03-19 00:00:00.0',0,0,0),
-	 ('2022-03-20 00:00:00.0',0,0,0),
-	 ('2022-03-21 00:00:00.0',0,0,0),
-	 ('2022-03-22 00:00:00.0',0,0,0),
-	 ('2022-03-23 00:00:00.0',1,0,0),
-	 ('2022-03-24 00:00:00.0',656,0,0),
-	 ('2022-03-25 00:00:00.0',1,0,0),
-	 ('2022-03-26 00:00:00.0',1,0,0);INSERT INTO web.job_project (name,description,user_id,flag,create_time,update_time) VALUES
+	 ('2022-03-18 00:00:00.0',0,0,0);INSERT INTO web.job_project (name,description,user_id,flag,create_time,update_time) VALUES
 	 ('客户分析系统','分析用户客户行为系统',3,1,'2022-03-06 14:53:53.0',NULL),
 	 ('前端活动大屏','前端活动大屏的展示',3,1,'2022-03-06 14:54:12.0',NULL),
 	 ('活动营销系统','房地产营销策略',3,1,'2022-03-06 14:54:45.0',NULL),
