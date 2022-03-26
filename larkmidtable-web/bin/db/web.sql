@@ -1711,16 +1711,16 @@ INSERT INTO web.job_log_report (trigger_day,running_count,suc_count,fail_count) 
 	 (4,'* * 01 ? * * *','迁移数据到sink数据库','2022-03-23 23:14:41.0','2022-03-23 23:14:41.0',3,'','RANDOM','executorJobHandler','','DISCARD_LATER',0,0,'flinkx',NULL,NULL,'2022-03-23 23:14:41.0','70',0,0,NULL,'',9),
 	 (4,'00 13 03 * * ? *','测试','2022-03-24 20:34:01.0','2022-03-24 20:34:01.0',3,'','RANDOM','executorJobHandler','','DISCARD_LATER',0,0,'flinkx',NULL,NULL,'2022-03-24 20:34:01.0','',0,0,NULL,'',9);INSERT INTO web.job_user (username,password,`role`,permission) VALUES
 	 ('admin','$2a$10$gnMxMSCMPBrWIU8FHRhAQuRiwNIMbPhXXjWrkU16hWa76vXDq4Fs6','ROLE_ADMIN',NULL),
-	 ('yoyo','$2a$10$yr4ZOZwoGpsXYPyalJMzVO5NsB9ydlvXZBdm0KwvAHZI.ZCiJ7xaK','ROLE_USER','');INSERT INTO web.web_api_auth (token_id,group_id,update_time) VALUES
+	 ('yoyo','$2a$10$yr4ZOZwoGpsXYPyalJMzVO5NsB9ydlvXZBdm0KwvAHZI.ZCiJ7xaK','ROLE_USER','');INSERT INTO web.lark_api_auth (token_id,group_id,update_time) VALUES
 	 ('Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLGFkbWluIiwiaXNzIjoiYWRtaW4iLCJleHAiOjE2NDU5NTIwNjEsImlhdCI6MTY0NTM0NzI2MSwicm9sIjoiUk9MRV9BRE1JTiJ9.yYik6il-yfp43fJxCDVz2f7-FyP5p-nZQ8yKqIA_sb7zafo0NeJu9x51hEVmR4e8mpwzguQzACEjvb1IHnz4nA','开发组','Tue Feb 01 12:08:54 CST 2022'),
 	 ('Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLGFkbWluIiwiaXNzIjoiYWRtaW4iLCJleHAiOjE2NDU5NTIwNjEsImlhdCI6MTY0NTM0NzI2MSwicm9sIjoiUk9MRV9BRE1JTiJ9.yYik6il-yfp43fJxCDVz2f7-FyP5p-nZQ8yKqIA_sb7zafo0NeJu9x51hEVmR4e8mpwzguQzACEjvb1IHnz4nA','业务组','2022-01-01 11:00:00'),
-	 ('Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLGFkbWluIiwiaXNzIjoiYWRtaW4iLCJleHAiOjE2NDU5NTIwNjEsImlhdCI6MTY0NTM0NzI2MSwicm9sIjoiUk9MRV9BRE1JTiJ9.yYik6il-yfp43fJxCDVz2f7-FyP5p-nZQ8yKqIA_sb7zafo0NeJu9x51hEVmR4e8mpwzguQzACEjvb1IHnz4nA','大数据组','Tue Feb 01 10:01:02 CST 2022');INSERT INTO web.web_api_config (`path`,name,group_id,`describe`,datasource_id,params,create_time,update_time,sql_text) VALUES
+	 ('Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLGFkbWluIiwiaXNzIjoiYWRtaW4iLCJleHAiOjE2NDU5NTIwNjEsImlhdCI6MTY0NTM0NzI2MSwicm9sIjoiUk9MRV9BRE1JTiJ9.yYik6il-yfp43fJxCDVz2f7-FyP5p-nZQ8yKqIA_sb7zafo0NeJu9x51hEVmR4e8mpwzguQzACEjvb1IHnz4nA','大数据组','Tue Feb 01 10:01:02 CST 2022');INSERT INTO web.lark_api_config (`path`,name,group_id,`describe`,datasource_id,params,create_time,update_time,sql_text) VALUES
 	 ('/api/apiConfig/add','新增','开发组','数据服务-可视化API新增构建','121','name:zhangsan',NULL,'Tue Feb 01 12:09:56 CST 2022',NULL),
 	 ('/student','学生列表','开发组','查询学生列表','21','{}','Sat Mar 19 11:50:13 CST 2022',NULL,'select * from student'),
-	 ('/api/getUserList','获取用户列表','用户组','无','6','{}','Fri Mar 25 15:47:07 CST 2022',NULL,'select * from student where id=1');INSERT INTO web.web_base_resource (name,resource_address,update_time) VALUES
+	 ('/api/getUserList','获取用户列表','用户组','无','6','{}','Fri Mar 25 15:47:07 CST 2022',NULL,'select * from student where id=1');INSERT INTO web.lark_base_resource (name,resource_address,update_time) VALUES
 	 ('商品成交总额（GMV）',NULL,'2022-03-25 15:47:36'),
 	 ('Flink集群地址',' http://localhost:8081/','2022-03-22 15:08:37'),
-	 ('Spark集群地址',' http://localhost:8080/','2022-03-22 15:07:31');INSERT INTO web.web_dev_tasklist (name,tasktype,runtype,sql_text,run_param,jarpath,task_describe,update_time,create_time,`type`,status) VALUES
+	 ('Spark集群地址',' http://localhost:8080/','2022-03-22 15:07:31');INSERT INTO web.lark_dev_tasklist (name,tasktype,runtype,sql_text,run_param,jarpath,task_describe,update_time,create_time,`type`,status) VALUES
 	 ('访问人数PV','Spark','yarn-session','','',NULL,'访问人数PV',NULL,'2022-02-20 14:26:10','JAR',0),
 	 ('商品成交总额（GMV）','Spark','yarn-session','select * from order','',NULL,'商品成交总额（GMV）',NULL,'2022-02-20 14:26:10','SQL',0),
 	 ('FUTURE测试sql','SQL','yarn-session','','',NULL,NULL,NULL,'2022-03-24 20:34:38',NULL,NULL);
