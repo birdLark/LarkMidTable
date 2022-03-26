@@ -59,13 +59,14 @@
 	</select>
 
 	<select id="getInfoReportCount" resultMap="InfoReport">
-		select count(*) as dbCount from job_jdbc_datasource
-		union all
-		select count(*) as tCount from job_jdbc_datasource
-		union
-		select count(*) as devCount from job_jdbc_datasource
-		union
-		select count(*) as apiCount from job_jdbc_datasource
+    select resultCount,countType from (
+            select count(*) as resultCount,"dbCount" as countType from job_jdbc_datasource
+            union all
+            select count(*) as resultCount,"tCount" as countType  from job_info
+            union all
+            select count(*) as resultCount,"devCount" as countType  from lark_dev_tasklist
+            union all
+            select count(*) as resultCount,"apiCount" as countType  from lark_api_config
+    ) tab
 	</select>
-
 </mapper>

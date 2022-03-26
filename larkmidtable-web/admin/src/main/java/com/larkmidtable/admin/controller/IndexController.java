@@ -24,8 +24,8 @@ public class IndexController {
 
 
     @GetMapping("/index")
-    @ApiOperation("监控图")
-    public ReturnT<Map<String, Object>> index() {
+    @ApiOperation("数据统计功能")
+    public ReturnT<Map<String, Integer>> index() {
         return new ReturnT<>(jobService.dashboardInfo());
     }
 

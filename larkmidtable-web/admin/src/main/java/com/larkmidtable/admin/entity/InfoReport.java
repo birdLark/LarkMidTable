@@ -6,8 +6,6 @@ import java.util.Date;
 
 @Data
 public class InfoReport {
-    private int dbCount;
-    private int tCount;
-    private int devCount;
-	private int apiCount;
+    private int resultCount;
+    private String countType;
 }

@@ -24,5 +24,5 @@ public interface JobLogReportMapper {
                                       @Param("triggerDayTo") Date triggerDayTo);
 
 
-	InfoReport getInfoReportCount();
+	List<InfoReport> getInfoReportCount();
 }

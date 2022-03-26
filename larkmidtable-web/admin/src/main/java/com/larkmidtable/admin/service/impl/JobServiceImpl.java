@@ -318,14 +318,14 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public Map<String, Object> dashboardInfo() {
-		InfoReport  infoReport = jobLogReportMapper.getInfoReportCount();
+    public Map<String, Integer> dashboardInfo() {
+		List<InfoReport>  infoReport = jobLogReportMapper.getInfoReportCount();
 
-        Map<String, Object> dashboardMap = new HashMap<>();
-        dashboardMap.put("dbCount", infoReport.getDbCount());
-        dashboardMap.put("tCount", infoReport.getTCount());
-        dashboardMap.put("devCount", infoReport.getDevCount());
-        dashboardMap.put("apiCount", infoReport.getApiCount());
+        Map<String, Integer> dashboardMap = new HashMap<>();
+        for (int i =0;i<infoReport.size();i++) {
+			dashboardMap.put(infoReport.get(i).getCountType(),
+					infoReport.get(i).getResultCount());
+		}
         return dashboardMap;
     }
 

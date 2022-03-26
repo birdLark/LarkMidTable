@@ -77,7 +77,7 @@ public interface JobService {
      *
      * @return
      */
-    Map<String, Object> dashboardInfo();
+    Map<String, Integer> dashboardInfo();
 
     /**
      * chart info
