@@ -58,6 +58,24 @@ public class APIConfigController extends BaseController {
         return new ReturnT<>(maps);
     }
 
+	@ApiOperation("可视化API调用")
+	@GetMapping("/findData")
+	public ReturnT<Map<String, Object>> findData(@RequestParam(value = "name", required = false) String name) {
+		// page list
+		Object result = null;
+		try {
+			APIConfig apiConfig = apiConfigMapper.getByName(name);
+			if(apiConfig != null) {
+				result = getResult(apiConfig);
+			}
+		}catch (Exception e ){
+			e.printStackTrace();
+		}
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("data", result);
+		return new ReturnT<>(maps);
+	}
+
     @ApiOperation("新增数据")
     @PostMapping("/add")
     public ReturnT<String> insert(HttpServletRequest request, @RequestBody APIConfig entity) {
@@ -95,14 +113,8 @@ public class APIConfigController extends BaseController {
     public ResponseData executeSql(@RequestBody APIConfig apiConfig) {
         try {
             if (apiConfig.getId() == 0) {
-                String params = apiConfig.getParams();
-                Long datasourceId = apiConfig.getDatasource_id();
-                String sql_text = apiConfig.getSql_text();
-                Map<String, Object> paramsMap = JSON.parseObject(params, LinkedHashMap.class);
-
-                JobDatasource datasource = this.jobJdbcDatasourceService.getDataSourceById(datasourceId);
-                Object result = DruidDataSource.executeSql(datasource, sql_text, paramsMap);
-                return ResponseData.successWithData(result);
+				Object result = getResult(apiConfig);
+				return ResponseData.successWithData(result);
             }else {
                 apiAuthMapper.getAuthByConfigId(apiConfig.getId());
                 // 确认是否有权限
@@ -113,4 +125,17 @@ public class APIConfigController extends BaseController {
             return ResponseData.fail(e.getMessage());
         }
     }
+
+    private Object getResult(APIConfig apiConfig) {
+		String params = apiConfig.getParams();
+		Long datasourceId = apiConfig.getDatasource_id();
+		String sql_text = apiConfig.getSql_text();
+		Map<String, Object> paramsMap = JSON.parseObject(params, LinkedHashMap.class);
+
+		JobDatasource datasource = this.jobJdbcDatasourceService.getDataSourceById(datasourceId);
+		Object result = DruidDataSource.executeSql(datasource, sql_text, paramsMap);
+		return result;
+	}
+
+
 }

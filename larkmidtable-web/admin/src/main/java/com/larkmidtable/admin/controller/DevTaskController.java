@@ -1,5 +1,6 @@
 package com.larkmidtable.admin.controller;
 
+import com.larkmidtable.admin.entity.DevEnvSetting;
 import com.larkmidtable.admin.entity.DevTask;
 import com.larkmidtable.admin.entity.ResponseData;
 import com.larkmidtable.admin.mapper.DevTaskMapper;
@@ -87,23 +88,17 @@ public class DevTaskController extends BaseController {
 		return cmdArr.toArray(new String[cmdArr.size()]);
 	}
 
-	private void saveFile(MultipartFile file,String tasktype) {
+	private void saveFile(MultipartFile file,String tasktype) throws IOException {
 		if (!file.isEmpty()) {
-			String filename = file.getOriginalFilename(); //获取上传文件原来的名称
-			//获取spark或者flink
-			String path ="/home/larkmidtable/flink1.13/job";
-			//
+			String filename = file.getOriginalFilename();
+			String path = devTaskMapper.findPath(tasktype);
 			File temp = new File(path);
 			if (!temp.exists()) {
 				temp.mkdirs();
 			}
-
 			File localFile = new File(path+"/"+filename);
-			try {
-				file.transferTo(localFile); //把上传的文件保存至本地
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			localFile.delete();
+			file.transferTo(localFile); //把上传的文件保存至本地
 		}
 	}
 

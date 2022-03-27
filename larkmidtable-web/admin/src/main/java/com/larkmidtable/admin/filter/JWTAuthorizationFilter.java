@@ -48,6 +48,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             response.getWriter().flush();
             return;
         }
+        //
         super.doFilterInternal(request, response, chain);
     }
 

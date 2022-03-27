@@ -44,4 +44,8 @@
         LIMIT #{offset}, #{pagesize}
     </select>
 
+    <select id="findPath"  parameterType="java.util.HashMap"   resultType="java.lang.String">
+        select prop_value from dev_env_setting where name = #{tasktype}
+    </select>
+
 </mapper>

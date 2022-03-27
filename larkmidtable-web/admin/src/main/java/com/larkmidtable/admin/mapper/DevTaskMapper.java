@@ -2,6 +2,7 @@ package com.larkmidtable.admin.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.larkmidtable.admin.entity.DevEnvSetting;
 import com.larkmidtable.admin.entity.DevTask;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,4 +23,6 @@ public interface DevTaskMapper extends BaseMapper<DevTask>{
 	List<DevTask> findList(@Param("offset") int offset,
 			@Param("pagesize") int pagesize,
 			@Param("type") String type);
+
+	String findPath(@Param("tasktype")  String tasktype);
 }

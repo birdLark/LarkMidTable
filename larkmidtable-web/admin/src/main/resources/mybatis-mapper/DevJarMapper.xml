@@ -35,7 +35,8 @@
 			run_param,
 			jarpath,
 			task_describe,
-			create_time
+			create_time,
+			`type`
 		) VALUES (
 			#{name},
 			#{tasktype},
@@ -43,7 +44,8 @@
 			#{run_param},
 			#{jarpath},
 			#{task_describe},
-			#{create_time}
+			#{create_time},
+			#{type}
 		);
 	</insert>
 

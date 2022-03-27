@@ -42,4 +42,7 @@ public class DevTask {
 
 	@ApiModelProperty("更新时间")
 	private String update_time;
+
+	@ApiModelProperty("类型")
+	private String type;
 }

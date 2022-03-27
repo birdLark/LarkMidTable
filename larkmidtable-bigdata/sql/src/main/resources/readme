@@ -1,1 +1,0 @@
- ./flink run  ../../job/flink-sql-submit.jar ../../job/odslarkorder.sql

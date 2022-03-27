@@ -25,4 +25,6 @@ public interface APIConfigMapper extends BaseMapper<APIConfig>{
 	APIConfig getById(int id);
 
 	List<JobDatasource> findDataSourceName();
+
+	APIConfig getByName(@Param("name") String name);
 }

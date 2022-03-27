@@ -53,6 +53,12 @@
         WHERE t.id = #{id}
     </select>
 
+    <select id="getByName" parameterType="java.util.HashMap" resultMap="APIConfig">
+        SELECT <include refid="Show_Column_List" />
+        FROM lark_api_config AS t
+        WHERE t.name = #{name}
+    </select>
+
     <insert id="save" parameterType="com.larkmidtable.admin.entity.APIConfig" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO lark_api_config (
 			path,
