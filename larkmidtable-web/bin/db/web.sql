@@ -1700,7 +1700,7 @@ INSERT INTO web.job_log_report (trigger_day,running_count,suc_count,fail_count) 
 	 (1,'* 05 * ? * * *','将客户系统Mysql表迁移到PG中','2022-03-06 15:10:41.0','2022-03-06 15:10:41.0',1,'','RANDOM','executorJobHandler','','DISCARD_LATER',0,0,'flinkx',NULL,NULL,'2022-03-06 15:10:41.0','',0,0,NULL,'',3),
 	 (4,'* * 01 ? * * *','迁移数据到sink数据库','2022-03-23 23:14:41.0','2022-03-23 23:14:41.0',3,'','RANDOM','executorJobHandler','','DISCARD_LATER',0,0,'flinkx',NULL,NULL,'2022-03-23 23:14:41.0','70',0,0,NULL,'',9),
 	 (4,'00 13 03 * * ? *','测试','2022-03-24 20:34:01.0','2022-03-24 20:34:01.0',3,'','RANDOM','executorJobHandler','','DISCARD_LATER',0,0,'flinkx',NULL,NULL,'2022-03-24 20:34:01.0','',0,0,NULL,'',9);INSERT INTO web.job_user (username,password,`role`,permission) VALUES
-	 ('admin','$2a$10$2KCqRbra0Yn2TwvkZxtfLuWuUP5KyCWsljO/ci5pLD27pqR3TV1vy',NULL),
+	 ('admin','$2a$10$2KCqRbra0Yn2TwvkZxtfLuWuUP5KyCWsljO/ci5pLD27pqR3TV1vy','ROLE_ADMIN',''),
 	 ('yoyo','$2a$10$yr4ZOZwoGpsXYPyalJMzVO5NsB9ydlvXZBdm0KwvAHZI.ZCiJ7xaK','ROLE_USER','');INSERT INTO web.lark_api_auth (token_id,group_id,update_time) VALUES
 	 ('Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLGFkbWluIiwiaXNzIjoiYWRtaW4iLCJleHAiOjE2NDU5NTIwNjEsImlhdCI6MTY0NTM0NzI2MSwicm9sIjoiUk9MRV9BRE1JTiJ9.yYik6il-yfp43fJxCDVz2f7-FyP5p-nZQ8yKqIA_sb7zafo0NeJu9x51hEVmR4e8mpwzguQzACEjvb1IHnz4nA','开发组','Tue Feb 01 12:08:54 CST 2022'),
 	 ('Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxLGFkbWluIiwiaXNzIjoiYWRtaW4iLCJleHAiOjE2NDU5NTIwNjEsImlhdCI6MTY0NTM0NzI2MSwicm9sIjoiUk9MRV9BRE1JTiJ9.yYik6il-yfp43fJxCDVz2f7-FyP5p-nZQ8yKqIA_sb7zafo0NeJu9x51hEVmR4e8mpwzguQzACEjvb1IHnz4nA','业务组','2022-01-01 11:00:00'),
