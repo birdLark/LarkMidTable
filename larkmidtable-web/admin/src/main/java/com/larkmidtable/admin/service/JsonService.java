@@ -19,5 +19,4 @@ public interface JsonService {
      */
     String buildJobFlinkxJson(JsonBuildDto dto);
     String buildJobDataxJson(JsonBuildDto dto);
-    String buildJobSeatunnelJson(JsonBuildDto dto);
 }

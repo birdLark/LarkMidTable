@@ -30,27 +30,26 @@ public class ExcecutorConfig  implements InitializingBean, DisposableBean {
 	public void destroy() throws Exception {
 	}
 
-	@Value("${flinkx.executor.jsonPath}")
-	private  String jsonPath;
-
 	@Value("${flinkx.executor.flinkxHome}")
 	private  String flinkxHome;
 
-	@Value("${flinkx.executor.logHome}")
-	private  String logHome;
+	@Value("${flinkx.executor.flinkxjsonPath}")
+	private  String flinkxjsonPath;
 
-	@Value("${flinkx.executor.dataxPyHome}")
-	private String dataxPyHome;
+	@Value("${flinkx.executor.flinkxlogHome}")
+	private  String flinkxlogHome;
 
 	@Value("${flinkx.executor.dataxHome}")
 	private String dataxHome;
 
-	public String getJsonPath() {
-		return jsonPath;
-	}
+	@Value("${flinkx.executor.dataxjsonPath}")
+	private String dataxjsonPath;
 
-	public void setJsonPath(String jsonPath) {
-		this.jsonPath = jsonPath;
+	@Value("${flinkx.executor.dataxlogHome}")
+	private String dataxlogHome;
+
+	public static void setExcecutorConfig(ExcecutorConfig excecutorConfig) {
+		ExcecutorConfig.excecutorConfig = excecutorConfig;
 	}
 
 	public String getFlinkxHome() {
@@ -61,20 +60,20 @@ public class ExcecutorConfig  implements InitializingBean, DisposableBean {
 		this.flinkxHome = flinkxHome;
 	}
 
-	public String getLogHome() {
-		return logHome;
+	public String getFlinkxjsonPath() {
+		return flinkxjsonPath;
 	}
 
-	public void setLogHome(String logHome) {
-		this.logHome = logHome;
+	public void setFlinkxjsonPath(String flinkxjsonPath) {
+		this.flinkxjsonPath = flinkxjsonPath;
 	}
 
-	public String getDataxPyHome() {
-		return dataxPyHome;
+	public String getFlinkxlogHome() {
+		return flinkxlogHome;
 	}
 
-	public void setDataxPyHome(String dataxPyHome) {
-		this.dataxPyHome = dataxPyHome;
+	public void setFlinkxlogHome(String flinkxlogHome) {
+		this.flinkxlogHome = flinkxlogHome;
 	}
 
 	public String getDataxHome() {
@@ -85,4 +84,19 @@ public class ExcecutorConfig  implements InitializingBean, DisposableBean {
 		this.dataxHome = dataxHome;
 	}
 
+	public String getDataxjsonPath() {
+		return dataxjsonPath;
+	}
+
+	public void setDataxjsonPath(String dataxjsonPath) {
+		this.dataxjsonPath = dataxjsonPath;
+	}
+
+	public String getDataxlogHome() {
+		return dataxlogHome;
+	}
+
+	public void setDataxlogHome(String dataxlogHome) {
+		this.dataxlogHome = dataxlogHome;
+	}
 }

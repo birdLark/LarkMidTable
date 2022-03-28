@@ -428,10 +428,8 @@ public class JobServiceImpl implements JobService {
             String glueType = jobTemplate.getGlueType();
             if(glueType.equals("flinkx")){
                 json= jsonService.buildJobFlinkxJson(jsonBuild);
-            } else if(glueType.equals("datax")) {
-                json= jsonService.buildJobDataxJson(jsonBuild);
             } else {
-                json= jsonService.buildJobSeatunnelJson(jsonBuild);
+                json= jsonService.buildJobDataxJson(jsonBuild);
             }
 
             JobInfo jobInfo = new JobInfo();

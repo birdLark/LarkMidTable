@@ -71,7 +71,7 @@ public class JobTriggerPoolHelper {
 			cmdArr.add(flinkXShPath);
 			cmdArr.add(tmpFilePath);
 		}
-		String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
+		String logHome = ExcecutorConfig.getExcecutorConfig().getFlinkxlogHome();
 		File folder = new File(logHome);
 		if (!folder.exists() && !folder.isDirectory()) {
 			folder.mkdirs();
@@ -95,8 +95,7 @@ public class JobTriggerPoolHelper {
 		}
 		cmdArr.add(dataXShPath);
 		cmdArr.add(tmpFilePath);
-		cmdArr.add(dataxHome);
-		String logHome = ExcecutorConfig.getExcecutorConfig().getLogHome();
+		String logHome = ExcecutorConfig.getExcecutorConfig().getDataxlogHome();
 		File folder = new File(logHome);
 		if (!folder.exists() && !folder.isDirectory()) {
 			folder.mkdirs();
@@ -113,19 +112,20 @@ public class JobTriggerPoolHelper {
 	public static void runJob(int jobId) {
 		try {
 			JobInfo jobInfo = JobAdminConfig.getAdminConfig().getJobInfoMapper().loadById(jobId);
-			String tmpFilePath = generateTemJsonFile(jobInfo.getJobJson());
-			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
 			String cmdstr = "";
+			String tmpFilePath ="";
 			String[] cmdarrayFinal = null;
 			switch (jobInfo.getGlueType()){
 				case "datax":
-					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxPyHome(),
+					tmpFilePath = generateTemJsonFile("datax",jobInfo.getJobJson());
+					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxHome(),
 							tmpFilePath,ExcecutorConfig.getExcecutorConfig().getDataxHome(),
 							jobId
 							);
 				    break;
 				case "flinkx":
-					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath,jobId);
+					tmpFilePath = generateTemJsonFile("flinkx",jobInfo.getJobJson());
+					cmdarrayFinal = buildFlinkXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getFlinkxHome(), tmpFilePath,jobId);
 					break;
 				default:
 					throw new RuntimeException("配置的执行类型["+jobInfo.getGlueType()+"]没有配置执行方法");
@@ -165,18 +165,20 @@ public class JobTriggerPoolHelper {
 
 	public static void runJobWithJson(String  jobJson,String type,int jobid,JobInfo jobInfo) {
 		try {
-			String tmpFilePath = generateTemJsonFile(jobJson);
+			String tmpFilePath = "";
 			String flinkxHome = ExcecutorConfig.getExcecutorConfig().getFlinkxHome();
 			String cmdstr = "";
 			String[] cmdarrayFinal = null;
 			switch (type){
 				case "datax":
-					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxPyHome(),
-							tmpFilePath,ExcecutorConfig.getExcecutorConfig().getDataxHome(),
+					tmpFilePath = generateTemJsonFile("datax",jobJson);
+					cmdarrayFinal = buildDataXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getDataxHome(),
+							tmpFilePath,ExcecutorConfig.getExcecutorConfig().getDataxjsonPath(),
 							jobid
 					);
 					break;
 				case "flinkx":
+					tmpFilePath = generateTemJsonFile("flinkx",jobJson);
 					cmdarrayFinal = buildFlinkXExecutorCmd(flinkxHome, tmpFilePath,jobid);
 					break;
 				default:
@@ -225,8 +227,14 @@ public class JobTriggerPoolHelper {
 		}
 	}
 
-	private static String generateTemJsonFile(String jobJson) {
-		String jsonPath = ExcecutorConfig.getExcecutorConfig().getJsonPath();
+	private static String generateTemJsonFile(String tasktype,String jobJson) {
+		String jsonPath = "";
+		if("flinkx".equals(tasktype)){
+			 jsonPath = ExcecutorConfig.getExcecutorConfig().getFlinkxjsonPath();
+		}else {
+			 jsonPath = ExcecutorConfig.getExcecutorConfig().getDataxjsonPath();
+		}
+
 		if (!FileUtil.exist(jsonPath)) {
 			FileUtil.mkdir(jsonPath);
 		}

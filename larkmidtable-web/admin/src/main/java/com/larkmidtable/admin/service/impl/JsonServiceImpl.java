@@ -48,17 +48,4 @@ public class JsonServiceImpl implements JsonService {
 
         return JSON.toJSONString(dataxJsonHelper.buildJob());
     }
-
-    @Override
-    public String buildJobSeatunnelJson(JsonBuildDto seatunnelJsonBuildDto) {
-        SeatunnelHelper seatunnelHelper = new SeatunnelHelper();
-        // reader
-        JobDatasource readerDatasource = jobJdbcDatasourceService.getById(seatunnelJsonBuildDto.getReaderDatasourceId());
-        seatunnelHelper.initReader(seatunnelJsonBuildDto, readerDatasource);
-        // writer
-        JobDatasource writerDatasource = jobJdbcDatasourceService.getById(seatunnelJsonBuildDto.getWriterDatasourceId());
-        seatunnelHelper.initWriter(seatunnelJsonBuildDto, writerDatasource);
-
-        return JSON.toJSONString(seatunnelHelper.buildJob());
-    }
 }

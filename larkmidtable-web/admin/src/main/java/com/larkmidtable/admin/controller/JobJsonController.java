@@ -41,10 +41,8 @@ public class JobJsonController extends BaseController {
 
         if("flinkx".equals(dto.getType())) {
             return success(jsonService.buildJobFlinkxJson(dto));
-        }else if("datax".equals(dto.getType())){
-            return success(jsonService.buildJobDataxJson(dto));
         }else {
-            return success(jsonService.buildJobSeatunnelJson(dto));
+            return success(jsonService.buildJobDataxJson(dto));
         }
     }
 }
