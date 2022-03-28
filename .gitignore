@@ -29,7 +29,6 @@ selenium-debug.log
 *.njsproj
 *.sln
 *.local
-*.yml
 package-lock.json
 yarn.lock
 larkmidtable-bigdata/common/target/*.jar
