@@ -36,7 +36,8 @@
 			jarpath,
 			task_describe,
 			create_time,
-			`type`
+			`type`,
+			sql_text
 		) VALUES (
 			#{name},
 			#{tasktype},
@@ -45,7 +46,8 @@
 			#{jarpath},
 			#{task_describe},
 			#{create_time},
-			#{type}
+			#{type},
+			#{sql_text}
 		);
 	</insert>
 
@@ -58,7 +60,8 @@
         run_param = #{run_param},
         jarpath = #{jarpath},
         task_describe = #{task_describe},
-        create_time = #{create_time}
+        create_time = #{create_time},
+        sql_text= #{sql_text}
         WHERE id = #{id}
     </update>
     <select id="getById" parameterType="java.util.HashMap" resultMap="DevTask">

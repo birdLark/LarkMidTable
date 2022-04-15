@@ -1,6 +1,7 @@
 package com.larkmidtable.admin.mapper;
 
 import com.larkmidtable.admin.entity.JobLog;
+import com.larkmidtable.admin.entity.OperLog;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -57,4 +58,11 @@ public interface JobLogMapper {
                           @Param("oldAlarmStatus") int oldAlarmStatus,
                           @Param("newAlarmStatus") int newAlarmStatus);
 
+	long writeLoinLog(@Param("ipAddr") String ipAddr, @Param("username")String username,
+			@Param("operator")String operator,@Param("time")String time);
+
+	List<OperLog> list(@Param("offset") int offset,
+			@Param("pagesize") int pagesize);
+
+	int listCount();
 }

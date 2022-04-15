@@ -1,5 +1,7 @@
 package com.larkmidtable.admin.service;
 
+import com.larkmidtable.admin.entity.ColumnClass;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -59,4 +61,6 @@ public interface DatasourceQueryService {
      * @return
      */
     List<String> getTableSchema(Long id);
+
+	List<String> getTableDetail(Long datasourceId, String tableName) throws IOException;
 }

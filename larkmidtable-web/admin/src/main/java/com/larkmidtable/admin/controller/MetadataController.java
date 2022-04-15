@@ -1,6 +1,7 @@
 package com.larkmidtable.admin.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
+import com.larkmidtable.admin.entity.ColumnClass;
 import com.larkmidtable.admin.service.DatasourceQueryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -80,6 +81,12 @@ public class MetadataController extends BaseController {
     public R<List<String>> getColumns(Long datasourceId, String tableName) throws IOException {
         return success(datasourceQueryService.getColumns(datasourceId, tableName));
     }
+
+	@GetMapping("/getTableDetail")
+	@ApiOperation("根据数据源id和表名获取所有字段")
+	public R<List<String>> getTableDetail(Long datasourceId, String tableName) throws IOException {
+		return success(datasourceQueryService.getTableDetail(datasourceId, tableName));
+	}
 
     /**
      * 根据数据源id和sql语句获取所有字段

@@ -2,9 +2,15 @@ package com.larkmidtable.admin.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.larkmidtable.admin.core.conf.ExcecutorConfig;
 import com.larkmidtable.admin.core.util.I18nUtil;
+import com.larkmidtable.admin.entity.JobDatasource;
 import com.larkmidtable.admin.entity.JwtUser;
 import com.larkmidtable.admin.entity.LoginUser;
+import com.larkmidtable.admin.mapper.JobLogMapper;
+import com.larkmidtable.admin.util.AESUtil;
+import com.larkmidtable.admin.util.DruidDataSource;
+import com.larkmidtable.admin.util.IPUtils;
 import com.larkmidtable.admin.util.JwtTokenUtils;
 import com.larkmidtable.core.biz.model.ReturnT;
 import lombok.extern.slf4j.Slf4j;
@@ -15,15 +21,16 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.annotation.Resource;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static com.larkmidtable.core.util.Constants.SPLIT_COMMA;
 
@@ -33,6 +40,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     private ThreadLocal<Integer> rememberMe = new ThreadLocal<>();
     private AuthenticationManager authenticationManager;
+	@Resource
+	public JobLogMapper jobLogMapper;
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -47,7 +57,19 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         try {
             LoginUser loginUser = new ObjectMapper().readValue(request.getInputStream(), LoginUser.class);
             rememberMe.set(loginUser.getRememberMe());
-            return authenticationManager.authenticate(
+            //记录日志
+			String ipAddr = IPUtils.getIpAddr(request);
+			JobDatasource jd =new JobDatasource();
+			String url = ExcecutorConfig.getExcecutorConfig().getUrl();
+			String[] urlArray = url.split("\\?");
+			String[] split = urlArray[0].split("\\/");
+			jd.setDatasourceName(split[split.length-1]);
+			jd.setJdbcUrl(ExcecutorConfig.getExcecutorConfig().getUrl());
+			jd.setJdbcUsername(AESUtil.encrypt(ExcecutorConfig.getExcecutorConfig().getUsername()));
+			jd.setJdbcPassword(AESUtil.encrypt(ExcecutorConfig.getExcecutorConfig().getPassword()));
+			jd.setJdbcDriverClass(ExcecutorConfig.getExcecutorConfig().getDriverClassname());
+			DruidDataSource.executeSql(jd,"insert into lark_operate_log(operate,user,address,createtime)values('login','"+loginUser.getUsername()+"','"+ipAddr+"','"+sdf.format(new Date())+"')",new HashMap<>());
+			return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword(), new ArrayList<>())
             );
         } catch (IOException e) {
@@ -64,7 +86,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication authResult) throws IOException {
 
+
         JwtUser jwtUser = (JwtUser) authResult.getPrincipal();
+//		authenticationManager.writeLog(jwtUser.getUsername(), IPUtils.getIpAddr(request));
         boolean isRemember = rememberMe.get() == 1;
 
         String role = "";
@@ -81,6 +105,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         maps.put("roles", role.split(SPLIT_COMMA));
         response.getWriter().write(JSON.toJSONString(new ReturnT<>(maps)));
     }
+
+
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {

@@ -54,29 +54,39 @@
 		t.job_desc
 	</sql>
 
-	<select id="pageList" resultMap="JobLog">
-		SELECT <include refid="Base_Column_List" />
-		FROM job_log AS t
-		<trim prefix="WHERE" prefixOverrides="AND | OR" >
-			<if test="type gt 0">
-				AND t.job_group=#{type}
-			</if>
-			<if test="status == 1" >
-				AND t.handle_code = 200
-			</if>
-			<if test="status == 2" >
-				AND (
-					t.trigger_code NOT IN (0, 200) OR
-					t.handle_code NOT IN (0, 200)
-				)
-			</if>
-			<if test="status == 3" >
-				AND t.trigger_code = 200
-				AND t.handle_code = 0
-			</if>
-		</trim>
-		ORDER BY t.trigger_time DESC
+	<select id="list" resultType="com.larkmidtable.admin.entity.OperLog">
+		SELECT id,operate,`user`,address,createtime
+		FROM lark_operate_log AS t
+		ORDER BY t.createtime DESC
+		LIMIT #{offset}, #{pagesize}
 	</select>
+    <select id="listCount" resultType="java.lang.Integer">
+		SELECT count(*) from lark_operate_log
+	</select>
+
+    <select id="pageList" resultMap="JobLog">
+        SELECT <include refid="Base_Column_List" />
+        FROM job_log AS t
+        <trim prefix="WHERE" prefixOverrides="AND | OR" >
+            <if test="type gt 0">
+                AND t.job_group=#{type}
+            </if>
+            <if test="status == 1" >
+                AND t.handle_code = 200
+            </if>
+            <if test="status == 2" >
+                AND (
+                t.trigger_code NOT IN (0, 200) OR
+                t.handle_code NOT IN (0, 200)
+                )
+            </if>
+            <if test="status == 3" >
+                AND t.trigger_code = 200
+                AND t.handle_code = 0
+            </if>
+        </trim>
+        ORDER BY t.trigger_time DESC
+    </select>
 
 	<select id="pageListCount" resultType="int">
 		SELECT count(1)
@@ -141,6 +151,23 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>-->
 	</insert>
+
+    <insert id="save" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO lark_operate_log (
+        `operate`,
+        `user`,
+        `address`,
+        `createtime`
+        ) VALUES (
+        #{operate},
+        #{user},
+        #{address},
+        #{createtime}
+        );
+        <!--<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>-->
+    </insert>
 
 	<update id="updateTriggerInfo" >
 		UPDATE job_log

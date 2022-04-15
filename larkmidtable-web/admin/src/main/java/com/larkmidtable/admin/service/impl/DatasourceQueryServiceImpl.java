@@ -2,6 +2,7 @@ package com.larkmidtable.admin.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.google.common.collect.Lists;
+import com.larkmidtable.admin.entity.ColumnClass;
 import com.larkmidtable.admin.entity.JobDatasource;
 import com.larkmidtable.admin.service.DatasourceQueryService;
 import com.larkmidtable.admin.service.JobDatasourceService;
@@ -74,7 +75,25 @@ public class DatasourceQueryServiceImpl implements DatasourceQueryService {
         return qTool.getTableSchema();
     }
 
-    @Override
+	@Override
+	public List<String> getTableDetail(Long id, String tableName) throws IOException {
+		//获取数据源对象
+		JobDatasource datasource = jobDatasourceService.getById(id);
+		//queryTool组装
+		if (ObjectUtil.isNull(datasource)) {
+			return Lists.newArrayList();
+		}
+		if (JdbcConstants.HBASE.equals(datasource.getDatasource())) {
+			return new HBaseQueryTool(datasource).getColumns(tableName);
+		} else if (JdbcConstants.MONGODB.equals(datasource.getDatasource())) {
+			return new MongoDBQueryTool(datasource).getColumns(tableName);
+		} else {
+			BaseQueryTool queryTool = QueryToolFactory.getByDbType(datasource);
+			return queryTool.getTableDetail(tableName, datasource.getDatasource());
+		}
+	}
+
+	@Override
     public List<String> getCollectionNames(long id, String dbName) throws IOException {
         //获取数据源对象
         JobDatasource datasource = jobDatasourceService.getById(id);

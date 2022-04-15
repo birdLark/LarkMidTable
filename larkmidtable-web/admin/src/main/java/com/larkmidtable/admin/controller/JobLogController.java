@@ -1,11 +1,11 @@
 package com.larkmidtable.admin.controller;
 
-import com.larkmidtable.admin.core.conf.ExcecutorConfig;
 import com.larkmidtable.admin.core.kill.KillJob;
 import com.larkmidtable.admin.core.scheduler.JobScheduler;
 import com.larkmidtable.admin.core.util.I18nUtil;
 import com.larkmidtable.admin.entity.JobInfo;
 import com.larkmidtable.admin.entity.JobLog;
+import com.larkmidtable.admin.entity.OperLog;
 import com.larkmidtable.admin.mapper.JobInfoMapper;
 import com.larkmidtable.admin.mapper.JobLogMapper;
 import com.larkmidtable.core.biz.ExecutorBiz;
@@ -56,6 +56,22 @@ public class JobLogController {
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("recordsTotal", data.size());        // 总记录数
 		maps.put("recordsFiltered", data.size());    // 过滤后的总记录数
+		maps.put("data", data);                    // 分页列表
+		return new ReturnT<>(maps);
+	}
+
+	@GetMapping("/list")
+	@ApiOperation("运行日志列表")
+	public ReturnT<Map<String, Object>> list(
+			@RequestParam(value = "current", required = false, defaultValue = "0") int current,
+			@RequestParam(value = "size", required = false, defaultValue = "10") int size) {
+
+		// page query
+		List<OperLog> data = jobLogMapper
+				.list((current - 1) * size, size);
+		int cnt = jobLogMapper.listCount();
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("recordsTotal", cnt);        // 总记录数
 		maps.put("data", data);                    // 分页列表
 		return new ReturnT<>(maps);
 	}

@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    username: lark
+    password: LarkMid!@#123
+    url: jdbc:mysql://114.115.180.192:3310/lark?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
@@ -106,12 +106,12 @@ flinkx:
       ### log retention days
     logretentiondays: 30
   executor:
-    flinkxHome: E:/flinkx/flinkx.py
-    flinkxjsonPath: E:/flinkx/job/
-    flinkxlogHome: E:/flinkx/job-log
-    dataxHome: E:/datax/datax.py
-    dataxjsonPath: E:/datax/job/
-    dataxlogHome: E:/datax/job-log
+    flinkxHome: /home/larkmidtable/flinkx/flinkx.py
+    flinkxjsonPath: /home/larkmidtable/flinkx/job/
+    flinkxlogHome: /home/larkmidtable/flinkx/job-log
+    dataxHome: /home/larkmidtable/datax/datax.py
+    dataxjsonPath: /home/larkmidtable/datax/job/
+    dataxlogHome: /home/larkmidtable/datax/job-log
 
 datasource:
   aes:

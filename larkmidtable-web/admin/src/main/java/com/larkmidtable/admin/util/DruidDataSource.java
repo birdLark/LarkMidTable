@@ -19,7 +19,6 @@ public class DruidDataSource {
 	public static Object executeSql(JobDatasource datasource, String sql, Map<String, Object> map) {
 		DruidPooledConnection connection = null;
 		try {
-
 			connection = DruidDataSource.getPooledConnection(datasource);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			//参数注入

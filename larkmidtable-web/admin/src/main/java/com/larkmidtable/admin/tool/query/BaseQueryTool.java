@@ -340,7 +340,6 @@ public abstract class BaseQueryTool implements QueryToolInterface {
             stmt = connection.createStatement();
             rs = stmt.executeQuery(querySql);
             ResultSetMetaData metaData = rs.getMetaData();
-
             int columnCount = metaData.getColumnCount();
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = metaData.getColumnName(i);
@@ -548,4 +547,41 @@ public abstract class BaseQueryTool implements QueryToolInterface {
     protected String getSQLQueryTableSchema() {
         return sqlBuilder.getSQLQueryTableSchema();
     }
+
+	public  List<String> getTableDetail(String tableName, String datasource) {
+		List<String> res = Lists.newArrayList();
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			//获取查询指定表所有字段的sql语句
+			String querySql = sqlBuilder.getSQLQueryFields(tableName);
+			logger.info("querySql: {}", querySql);
+
+			//获取所有字段
+			stmt = connection.createStatement();
+			rs = stmt.executeQuery(querySql);
+			ResultSetMetaData metaData = rs.getMetaData();
+			int columnCount = metaData.getColumnCount();
+			for (int i = 1; i <= columnCount; i++) {
+				String columnName = metaData.getColumnName(i);
+				if (JdbcConstants.HIVE.equals(datasource)) {
+					if (columnName.contains(Constants.SPLIT_POINT)) {
+						res.add(i - 1 + Constants.SPLIT_SCOLON + columnName.substring(columnName.indexOf(Constants.SPLIT_POINT) + 1) + Constants.SPLIT_SCOLON + metaData.getColumnTypeName(i));
+					} else {
+						res.add(i - 1 + Constants.SPLIT_SCOLON + columnName + Constants.SPLIT_SCOLON + metaData.getColumnTypeName(i));
+					}
+				} else {
+					res.add(columnName);
+				}
+
+			}
+		} catch (SQLException e) {
+			logger.error("[getColumnNames Exception] --> "
+					+ "the exception message is:" + e.getMessage());
+		} finally {
+			JdbcUtils.close(rs);
+			JdbcUtils.close(stmt);
+		}
+		return res;
+	};
 }

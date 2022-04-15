@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 
+ *
  */
 @Data
 public class DevEnvSetting {
@@ -34,6 +34,18 @@ public class DevEnvSetting {
     @ApiModelProperty("标记")
     private Boolean flag;
 
+	@ApiModelProperty("上传的URL")
+	private Boolean uploadurl;
+
+	@ApiModelProperty("部署的URL")
+	private Boolean deployurl;
+
+	@ApiModelProperty("展示的URL")
+	private Boolean showurl;
+
+	@ApiModelProperty("下线的URL")
+	private Boolean offlineurl;
+
     @ApiModelProperty("创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
@@ -43,5 +55,4 @@ public class DevEnvSetting {
 
     @TableField(exist=false)
     private String userName;
-
 }
