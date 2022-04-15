@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    username: lark
-    password: LarkMid!@#123
-    url: jdbc:mysql://114.115.180.192:3310/lark?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    username: xxx
+    password: xxx
+    url: jdbc:mysql://xxxxx:3310/lark?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
