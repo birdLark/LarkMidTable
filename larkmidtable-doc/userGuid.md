@@ -159,7 +159,7 @@ window部署验证启动是否成功:
 
 ### 2.7访问首页
 
-​    启动成功后打开页面（默认管理员用户名：admin 密码：1234567） http://{ip}:8080/index.html#/dashboard
+​    启动成功后打开页面（默认管理员用户名：admin 密码：123456） http://{ip}:8080/index.html#/dashboard
 
 **![](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162212117-942279447.jpg)**
 
