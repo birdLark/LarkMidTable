@@ -326,6 +326,17 @@ CREATE TABLE `lark_dev_tasklist` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
+-- larkmid.lark_operate_log definition
+
+CREATE TABLE `lark_operate_log` (
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
+  `operate` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
+  `user` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
+  `address` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
+  `createtime` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3270 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
 INSERT INTO web.dev_env_setting (name,prop_value,description,user_id,flag,create_time,update_time) VALUES
 	 ('Flink_HOME','/home/webmidtable/flink1.13/job','Flink任务JAR存储的位置',3,1,'2022-01-20 15:28:06.0',NULL),
 	 ('SPARK_HOME','/home/webmidtable/spark-2.2.0/job','Spark任务JAR存储位置',3,1,'2022-01-30 21:43:49.0',NULL),
