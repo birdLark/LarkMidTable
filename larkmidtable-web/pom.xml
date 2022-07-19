@@ -3,18 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.larkmidtable.cn</groupId>
-    <artifactId>web</artifactId>
+    <groupId>com.larkmt.cn</groupId>
+    <artifactId>LarkMidTable</artifactId>
     <version>2.1.2</version>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
 
     <modules>
-        <module>admin</module>
-        <module>core</module>
-        <module>rpc</module>
-        <module>assembly</module>
+        <module>larkmt-admin</module>
+        <module>larkmt-assembly</module>
     </modules>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,7 +31,7 @@
         <junit.version>4.12</junit.version>
         <hutool.version>5.4.3</hutool.version>
         <postgresql.version>42.2.5</postgresql.version>
-        <mysql-connector.version>8.0.16</mysql-connector.version>
+        <mysql-connector.version>5.1.47</mysql-connector.version>
         <jna.version>4.1.0</jna.version>
         <groovy.version>2.5.8</groovy.version>
         <mybatisplus.version>3.3.1</mybatisplus.version>
@@ -53,12 +52,6 @@
         <oshi.core.version>3.5.0</oshi.core.version>
 
         <phoenix.version>5.0.0-HBase-2.0</phoenix.version>
-        <ojdbc6.version>11.2.0.4</ojdbc6.version>
-        <jtds.version>1.3.1</jtds.version>
-        <ngdbc.version>2.3.48</ngdbc.version>
-        <druid.version>1.1.9</druid.version>
-        <clickhouse-jdbc.version>0.2.4</clickhouse-jdbc.version>
-        <hbase-protocol.version>1.3.5</hbase-protocol.version>
     </properties>
 
 </project>
