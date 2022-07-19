@@ -8,8 +8,6 @@ data/*
 */*/test/*.java
 build/*/*
 packages/*/*
-larkmt-admin/src/main/resources/*.yml
-*.yml
 packages.rar
 <<<<<<< HEAD
 flinkRealTime_temp/*
