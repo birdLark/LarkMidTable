@@ -214,19 +214,6 @@
             <version>${mysql-connector.version}</version>
         </dependency>
 
-        <!-- flinkx-core -->
-        <dependency>
-            <groupId>com.larkmt.cn</groupId>
-            <artifactId>larkmt-core</artifactId>
-            <version>${project.parent.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
