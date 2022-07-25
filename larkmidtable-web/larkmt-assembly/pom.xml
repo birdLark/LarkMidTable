@@ -3,16 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>LarkMidTable</artifactId>
-        <groupId>com.larkmt.cn</groupId>
+        <groupId>com.larkmidtable.cn</groupId>
+        <artifactId>larkmidtable-web</artifactId>
         <version>2.1.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.larkmt.cn</groupId>
-    <artifactId>larkmt-assembly</artifactId>
+    <groupId>com.larkmidtable.cn</groupId>
+    <artifactId>assembly</artifactId>
 
-    <build>
+    <!--<build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -24,7 +24,7 @@
                         <goals>
                             <goal>single</goal>
                         </goals>
-                        <!-- install -->
+                        &lt;!&ndash; install &ndash;&gt;
                         <phase>install</phase>
                     </execution>
                 </executions>
@@ -39,6 +39,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
 </project>

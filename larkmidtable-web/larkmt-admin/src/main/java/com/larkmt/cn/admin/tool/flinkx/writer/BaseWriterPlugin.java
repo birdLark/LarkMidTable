@@ -3,7 +3,7 @@ package com.larkmt.cn.admin.tool.flinkx.writer;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.larkmt.cn.admin.util.AESUtil;
-import com.larkmt.cn.core.util.Constants;
+import com.larkmt.core.util.Constants;
 import com.larkmt.cn.admin.entity.JobDatasource;
 import com.larkmt.cn.admin.tool.flinkx.BaseFlinkxPlugin;
 import com.larkmt.cn.admin.tool.pojo.FlinkxHbasePojo;

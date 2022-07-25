@@ -6,7 +6,7 @@ import com.larkmt.cn.admin.core.util.I18nUtil;
 import com.larkmt.cn.admin.entity.JobGroup;
 import com.larkmt.cn.admin.entity.JobInfo;
 import com.larkmt.cn.admin.entity.JobLog;
-import com.larkmt.cn.core.biz.model.ReturnT;
+import com.larkmt.core.biz.model.ReturnT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.MimeMessageHelper;

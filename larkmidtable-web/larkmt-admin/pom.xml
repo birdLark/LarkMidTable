@@ -14,6 +14,7 @@
     </properties>
 
     <dependencyManagement>
+
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -26,6 +27,7 @@
     </dependencyManagement>
 
     <dependencies>
+
         <!--SpringBoot集成Web模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -212,6 +214,18 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.larkmt.cn</groupId>
+            <artifactId>larkmt-core</artifactId>
+            <version>${project.parent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>

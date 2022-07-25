@@ -7,7 +7,7 @@ import com.larkmt.cn.admin.util.JwtTokenUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
-import static com.larkmt.cn.core.util.Constants.STRING_BLANK;
+import static com.larkmt.core.util.Constants.STRING_BLANK;
 
 /**
  *

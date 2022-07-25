@@ -10,7 +10,7 @@
         <fileSet>
             <directory>../packages</directory>
             <includes>
-                <include>larkmt-*</include>
+                <include>*</include>
             </includes>
             <outputDirectory>packages</outputDirectory>
         </fileSet>

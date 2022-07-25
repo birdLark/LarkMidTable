@@ -3,7 +3,7 @@ package com.larkmt.cn.admin.core.thread;
 import com.larkmt.cn.admin.core.conf.JobAdminConfig;
 import com.larkmt.cn.admin.entity.JobGroup;
 import com.larkmt.cn.admin.entity.JobRegistry;
-import com.larkmt.cn.core.enums.RegistryConfig;
+import com.larkmt.core.enums.RegistryConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

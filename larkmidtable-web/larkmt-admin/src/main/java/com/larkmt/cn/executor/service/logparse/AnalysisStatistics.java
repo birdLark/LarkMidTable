@@ -1,7 +1,7 @@
 package com.larkmt.cn.executor.service.logparse;
 
-import com.larkmt.cn.core.log.JobLogger;
-import com.larkmt.cn.core.util.Constants;
+import com.larkmt.core.log.JobLogger;
+import com.larkmt.core.util.Constants;
 import com.larkmt.cn.executor.service.jobhandler.FlinkXConstant;
 import org.apache.commons.lang3.StringUtils;
 

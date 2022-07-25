@@ -17,7 +17,7 @@ import com.larkmt.cn.admin.tool.pojo.FlinkxHivePojo;
 import com.larkmt.cn.admin.tool.pojo.FlinkxMongoDBPojo;
 import com.larkmt.cn.admin.tool.pojo.FlinkxRdbmsPojo;
 import com.larkmt.cn.admin.util.JdbcConstants;
-import com.larkmt.cn.core.util.Constants;
+import com.larkmt.core.util.Constants;
 import com.larkmt.cn.admin.dto.ClickhouseReaderDto;
 import com.larkmt.cn.admin.dto.ClickhouseWriterDto;
 import com.larkmt.cn.admin.dto.FlinkXJsonBuildDto;

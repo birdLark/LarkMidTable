@@ -1,6 +1,6 @@
 package com.larkmt.cn.executor.core.config;
 
-import com.larkmt.cn.core.executor.impl.JobSpringExecutor;
+import com.larkmt.core.executor.impl.JobSpringExecutor;
 import com.larkmt.cn.executor.util.SystemUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

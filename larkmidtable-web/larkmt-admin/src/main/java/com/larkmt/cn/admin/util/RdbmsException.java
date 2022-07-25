@@ -1,6 +1,6 @@
 package com.larkmt.cn.admin.util;
 
-import com.larkmt.cn.core.util.Constants;
+import com.larkmt.core.util.Constants;
 
 /**
  * RdbmsException

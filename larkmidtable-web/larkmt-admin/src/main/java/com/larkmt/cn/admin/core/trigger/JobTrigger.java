@@ -11,13 +11,13 @@ import com.larkmt.cn.admin.entity.JobLog;
 import com.larkmt.cn.admin.tool.query.BaseQueryTool;
 import com.larkmt.cn.admin.tool.query.QueryToolFactory;
 import com.larkmt.cn.admin.util.JSONUtils;
-import com.larkmt.cn.core.biz.ExecutorBiz;
-import com.larkmt.cn.core.biz.impl.ExecutorBizImpl;
-import com.larkmt.cn.core.biz.model.ReturnT;
-import com.larkmt.cn.core.biz.model.TriggerParam;
-import com.larkmt.cn.core.enums.ExecutorBlockStrategyEnum;
-import com.larkmt.cn.core.enums.IncrementTypeEnum;
-import com.larkmt.cn.core.glue.GlueTypeEnum;
+import com.larkmt.core.biz.ExecutorBiz;
+import com.larkmt.core.biz.impl.ExecutorBizImpl;
+import com.larkmt.core.biz.model.ReturnT;
+import com.larkmt.core.biz.model.TriggerParam;
+import com.larkmt.core.enums.ExecutorBlockStrategyEnum;
+import com.larkmt.core.enums.IncrementTypeEnum;
+import com.larkmt.core.glue.GlueTypeEnum;
 import io.netty.util.internal.ThrowableUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -109,7 +109,8 @@ public class JobTrigger {
         TriggerParam triggerParam = new TriggerParam();
 
         // param
-        ExecutorBlockStrategyEnum blockStrategy = ExecutorBlockStrategyEnum.match(jobInfo.getExecutorBlockStrategy(), ExecutorBlockStrategyEnum.SERIAL_EXECUTION);  // block strategy
+        ExecutorBlockStrategyEnum blockStrategy = ExecutorBlockStrategyEnum
+				.match(jobInfo.getExecutorBlockStrategy(), ExecutorBlockStrategyEnum.SERIAL_EXECUTION);  // block strategy
         ExecutorRouteStrategyEnum executorRouteStrategyEnum = ExecutorRouteStrategyEnum.match(jobInfo.getExecutorRouteStrategy(), null);    // route strategy
         String shardingParam = (ExecutorRouteStrategyEnum.SHARDING_BROADCAST == executorRouteStrategyEnum) ? String.valueOf(index).concat("/").concat(String.valueOf(total)) : null;
 

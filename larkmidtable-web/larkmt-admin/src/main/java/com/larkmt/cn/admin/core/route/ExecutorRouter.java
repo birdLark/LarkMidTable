@@ -1,7 +1,7 @@
 package com.larkmt.cn.admin.core.route;
 
-import com.larkmt.cn.core.biz.model.ReturnT;
-import com.larkmt.cn.core.biz.model.TriggerParam;
+import com.larkmt.core.biz.model.ReturnT;
+import com.larkmt.core.biz.model.TriggerParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

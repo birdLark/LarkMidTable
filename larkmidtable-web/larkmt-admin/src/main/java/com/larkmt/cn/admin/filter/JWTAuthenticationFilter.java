@@ -2,7 +2,7 @@ package com.larkmt.cn.admin.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.larkmt.cn.core.biz.model.ReturnT;
+import com.larkmt.core.biz.model.ReturnT;
 import com.larkmt.cn.admin.core.util.I18nUtil;
 import com.larkmt.cn.admin.entity.JwtUser;
 import com.larkmt.cn.admin.entity.LoginUser;
@@ -25,7 +25,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.larkmt.cn.core.util.Constants.SPLIT_COMMA;
+import static com.larkmt.core.util.Constants.SPLIT_COMMA;
 
 
 @Slf4j

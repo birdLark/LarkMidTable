@@ -12,6 +12,8 @@
     <modules>
         <module>larkmt-admin</module>
         <module>larkmt-assembly</module>
+        <module>larkmt-core</module>
+        <module>larkmt-rpc</module>
     </modules>
 
 

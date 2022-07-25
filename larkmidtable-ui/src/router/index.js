@@ -78,7 +78,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/dashboard/admin/index'),
+        component: () => import('@/views/dashboard/screen-display/index'),
         name: 'Dashboard',
         meta: {title: '运行报表', icon: 'dashboard', affix: true}
       }
@@ -147,7 +147,7 @@ export const asyncRoutes = [
         path: 'jobProject',
         name: 'JobProject',
         component: () => import('@/views/datax/jobProject/index'),
-        meta: {title: '项目管理', icon: 'project'}
+        meta: {title: '中台项目管理', icon: 'project'}
       },
       {
         path: 'jdbcDatasource',
@@ -159,31 +159,31 @@ export const asyncRoutes = [
         path: '/datax/DatabaseSync/job/jobTemplate',
         name: 'JobTemplate',
         component: () => import('@/views/datax/jobTemplate/index'),
-        meta: {title: '任务模板', icon: 'task-tmp'}
+        meta: {title: '任务调度模板', icon: 'task-tmp'}
       },
       {
         path: '/datax/DatabaseSync/job/jsonBuild',
         name: 'JsonBuild',
         component: () => import('@/views/datax/json-build/index'),
-        meta: {title: '任务构建', icon: 'guide', noCache: false}
+        meta: {title: '构建单表任务', icon: 'guide', noCache: false}
       },
       {
         path: '/datax/DatabaseSync/job/jsonBuildBatch',
         name: 'JsonBuildBatch',
         component: () => import('@/views/datax/json-build-batch/index'),
-        meta: {title: '任务批量构建', icon: 'batch-create', noCache: false}
+        meta: {title: '构建多表任务', icon: 'batch-create', noCache: false}
       },
       {
         path: '/datax/DatabaseSync/job/jobInfo',
         name: 'JobInfo',
         component: () => import('@/views/datax/jobInfo/index'),
-        meta: {title: '实例管理', icon: 'task-cfg'}
+        meta: {title: '任务调度执行', icon: 'task-cfg'}
       },
       {
         path: 'jobLog',
         name: 'JobLog',
         component: () => import('@/views/datax/jobLog/index'),
-        meta: {title: '日志管理', icon: 'log'}
+        meta: {title: '查看任务日志', icon: 'log'}
       }
     ]
   },
@@ -192,28 +192,13 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/datax/user',
     name: 'user',
-    meta: {title: '用户管理', icon: 'peoples', roles: ['ROLE_ADMIN']},
+    meta: {title: '用户管理', icon: 'work'},
     children: [
       {
         path: 'user',
         name: 'User',
         component: () => import('@/views/datax/user/index'),
         meta: {title: '用户管理', icon: 'peoples'}
-      }
-    ]
-  },
-  {
-    path: '/datax/resource',
-    component: Layout,
-    redirect: '/datax/resource',
-    name: 'resource',
-    meta: {title: '资源监控', icon: 'work'},
-    children: [
-      {
-        path: 'resource',
-        name: 'Resource',
-        component: () => import('@/views/datax/resource/index'),
-        meta: {title: '资源监控', icon: 'battery-line'}
       }
     ]
   },

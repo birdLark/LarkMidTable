@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.larkmt.cn.core.util.Constants.SPLIT_COMMA;
+import static com.larkmt.core.util.Constants.SPLIT_COMMA;
 
 /**
  * Created by jingwk on 2019/12/01

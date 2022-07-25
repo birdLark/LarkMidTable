@@ -1,8 +1,8 @@
 package com.larkmt.cn.admin.controller;
 
 import cn.hutool.core.util.StrUtil;
+import com.larkmt.core.biz.model.ReturnT;
 import com.larkmt.cn.admin.mapper.JobUserMapper;
-import com.larkmt.cn.core.biz.model.ReturnT;
 import com.larkmt.cn.admin.core.util.I18nUtil;
 import com.larkmt.cn.admin.entity.JobUser;
 import io.swagger.annotations.Api;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.larkmt.cn.core.biz.model.ReturnT.FAIL_CODE;
+import static com.larkmt.core.biz.model.ReturnT.FAIL_CODE;
 
 /**
  *

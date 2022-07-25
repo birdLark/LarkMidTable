@@ -2,10 +2,10 @@ package com.larkmt.cn.admin.controller;
 
 import com.larkmt.cn.admin.mapper.JobInfoMapper;
 import com.larkmt.cn.admin.mapper.JobLogGlueMapper;
-import com.larkmt.cn.core.biz.model.ReturnT;
 import com.larkmt.cn.admin.core.util.I18nUtil;
 import com.larkmt.cn.admin.entity.JobInfo;
 import com.larkmt.cn.admin.entity.JobLogGlue;
+import com.larkmt.core.biz.model.ReturnT;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.Date;
 
-import static com.larkmt.cn.core.biz.model.ReturnT.FAIL_CODE;
+import static com.larkmt.core.biz.model.ReturnT.FAIL_CODE;
 
 /**
  *

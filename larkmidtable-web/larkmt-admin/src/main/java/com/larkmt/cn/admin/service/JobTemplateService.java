@@ -1,14 +1,14 @@
 package com.larkmt.cn.admin.service;
 
 
-import com.larkmt.cn.core.biz.model.ReturnT;
 import com.larkmt.cn.admin.entity.JobTemplate;
+import com.larkmt.core.biz.model.ReturnT;
 
 import java.util.Map;
 
 /**
  * core job action for LarkMidTable
- * 
+ *
  * @author xuxueli 2016-5-28 15:30:33
  */
 public interface JobTemplateService {

@@ -2,7 +2,7 @@ package com.larkmt.cn.admin.service;
 
 
 import com.larkmt.cn.admin.dto.FlinkXBatchJsonBuildDto;
-import com.larkmt.cn.core.biz.model.ReturnT;
+import com.larkmt.core.biz.model.ReturnT;
 import com.larkmt.cn.admin.entity.JobInfo;
 
 import java.io.IOException;

@@ -2,7 +2,7 @@ package com.larkmt.cn.admin.tool.query;
 
 
 import com.larkmt.cn.admin.entity.JobDatasource;
-import com.larkmt.cn.core.util.Constants;
+import com.larkmt.core.util.Constants;
 import com.larkmt.cn.admin.core.util.LocalCacheUtil;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;

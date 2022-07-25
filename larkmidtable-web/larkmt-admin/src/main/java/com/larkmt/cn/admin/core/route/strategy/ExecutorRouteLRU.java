@@ -1,7 +1,7 @@
 package com.larkmt.cn.admin.core.route.strategy;
 
-import com.larkmt.cn.core.biz.model.ReturnT;
-import com.larkmt.cn.core.biz.model.TriggerParam;
+import com.larkmt.core.biz.model.ReturnT;
+import com.larkmt.core.biz.model.TriggerParam;
 import com.larkmt.cn.admin.core.route.ExecutorRouter;
 
 import java.util.ArrayList;

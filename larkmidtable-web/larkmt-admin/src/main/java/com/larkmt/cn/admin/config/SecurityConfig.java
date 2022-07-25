@@ -4,7 +4,7 @@ package com.larkmt.cn.admin.config;
 import com.larkmt.cn.admin.filter.JWTAuthenticationFilter;
 import com.larkmt.cn.admin.filter.JWTAuthorizationFilter;
 import com.larkmt.cn.admin.service.impl.UserDetailsServiceImpl;
-import com.larkmt.cn.core.util.Constants;
+import com.larkmt.core.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

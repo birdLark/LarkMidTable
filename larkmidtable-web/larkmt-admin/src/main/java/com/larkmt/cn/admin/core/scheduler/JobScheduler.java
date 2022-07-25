@@ -1,7 +1,7 @@
 package com.larkmt.cn.admin.core.scheduler;
 
 import com.larkmt.cn.admin.core.util.I18nUtil;
-import com.larkmt.cn.core.enums.ExecutorBlockStrategyEnum;
+import com.larkmt.core.enums.ExecutorBlockStrategyEnum;
 import com.larkmt.cn.admin.core.thread.JobFailMonitorHelper;
 import com.larkmt.cn.admin.core.thread.JobLogReportHelper;
 import com.larkmt.cn.admin.core.thread.JobRegistryMonitorHelper;
