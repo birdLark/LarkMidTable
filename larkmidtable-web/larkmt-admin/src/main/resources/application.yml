@@ -90,7 +90,7 @@ logging:
 
 
 #flinkx-job, access token
-larkmt:
+flinkx:
   job:
     accessToken:
     #i18n (default empty as chinese, "en" as english)
@@ -103,6 +103,13 @@ larkmt:
         max: 100
       ### log retention days
     logretentiondays: 30
+  executor:
+    flinkxHome: E:/flinkx/flinkx.py
+    flinkxjsonPath: E:/flinkx/job/
+    flinkxlogHome: E:/flinkx/job-log
+    dataxHome: E:/datax/datax.py
+    dataxjsonPath: E:/datax/job/
+    dataxlogHome: E:/datax/job-log
 datasource:
   aes:
     key: AD42F6697B035B75
