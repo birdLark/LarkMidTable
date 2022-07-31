@@ -26,45 +26,39 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # 产品架构图
 
-![系统架构图](./larkmidtable-pic/a.jpg) 
-
-
-
-# 产品技术选型
-
-| 组件                     | 用途       |
-| ------------------------ | ---------- |
-| clickhouse/doris         | 离线数仓   |
-| kafka                    | 实时数仓   |
-| datax,flinkx             | 数据集成   |
-| flink,flinkcdc,seatunnel | 数据开发   |
-| promicuse                | 数据监控   |
-| druid                    | 数据服务   |
-| datart                   | 数据可视化 |
-| cdh                      | 大数据平台 |
-| dolphin                  | 任务调度   |
-
-
+![系统架构图](https://img2020.cnblogs.com/blog/622382/202010/622382-20201019215540747-440767668.jpg ) 
 
 # 产品效果图
 
-![登陆页面](./larkmidtable-pic/b.jpg)
+![登陆页面](https://img2022.cnblogs.com/blog/622382/202201/622382-20220124162212117-942279447.jpg)
 
-![数据报表](./larkmidtable-pic/c.jpg)
+![数据报表](https://img2022.cnblogs.com/blog/622382/202202/622382-20220208153920857-1211695235.jpg)
 
-![基础建设](./larkmidtable-pic/d.png)
+![基础建设](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093859410-908575610.png)
 
-![数据集成](./larkmidtable-pic/e.png)
+![数据集成](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213095256736-980802722.png)
 
-![数据开发](./larkmidtable-pic/f.png)
+![数据开发](https://img2022.cnblogs.com/blog/622382/202202/622382-20220213093945512-1802846752.png)
 
-![监控告警](./larkmidtable-pic/g.png)
+**系统演示地址**：http://124.223.92.186:8080/index.html
 
-![数据服务](./larkmidtable-pic/k.png)
+**只供 测试 和 商业赞助的客户 使用，服务器流量有限谢谢合作，赞助后加微信 LarkMidTable2021 ，可以领取大数据学习资料 以及 演示地址的用户名和密码 **
 
-**系统演示地址**：www.larkmidtable.com
 
-**只供 测试 和 商业赞助的客户 使用，服务器流量有限谢谢合作，赞助后加微信 LarkMidTable2021 ，可以领取大数据学习资料 以及 演示地址的用户名和密码 **  
+
+# **快速开始**
+
+安装手册      [安装手册](https://github.com/wxgzgl/flinkx-web/blob/dev/larkmidtable-doc/userGuid.md)
+
+操作手册  	[操作手册](https://github.com/wxgzgl/LarkMidTable/tree/dev/larkmidtable-doc/userManual.md)
+
+产品的开发计划      [产品的开发计划](https://github.com/birdLark/LarkMidTable/issues/87) 
+
+开发人员和任务分配    [开发人员和任务分配](https://github.com/wxgzgl/LarkMidTable/tree/dev/larkmidtable-doc/engineer.md)
+
+# 应用领域
+
+智慧校园 、智慧交通 、智慧金融 、智慧农业、智慧医疗、智慧政务  等多个大数据领域
 
 
 
@@ -99,23 +93,31 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 **疯狂的挖掘机 提供域名 www.larkmidtable.cn 和 服务器3台，一台官网，一台数据库，一台放演示的产品**
 
+# 产品版本
+
+| 模块     | 子模块       | 功能点                                | 版本  |
+| -------- | ------------ | ------------------------------------- | ----- |
+| 基础建设 | 项目管理     | 新增  项目管理，已测试                | 0.1.0 |
+|          | 用户登陆     | 新增  用户登陆 ，已测试               | 0.1.0 |
+|          | 数据源管理   | 支持   MySQL、Oracle、Hana            | 0.1.0 |
+|          |              | 支持   PostGreSQL、SQLServer、Hive    | 0.1.0 |
+|          |              | 支持   Hbase、Mongodb、Clickhouse、ES | 0.2.0 |
+|          | 资源管理     | 新增 资源管理，已测试                 | 0.1.0 |
+| 数据集成 | 任务模板     | 新增 任务模板                         | 0.2.0 |
+|          | 任务构建     | 生成Flinkx任务                        | 0.2.0 |
+|          |              | 生成Datax任务                         | 0.2.0 |
+|          | 实例管理     | 新增实例、运行任务                    | 0.2.0 |
+|          | 日志管理     | 查看运行日志，清除运行日志            | 0.2.0 |
+| 监控告警 | 资源监控     | CPU使用率，内存使用率                 | 0.2.0 |
+| 数据开发 | 开发环境配置 | 新增 开发环境配置，已测试             | 0.1.0 |
 
 
-# **快速开始**
 
-安装手册      [安装手册](./larkmidtable-doc/userGuid.md)
 
-操作手册  	[操作手册](./larkmidtable-doc/userManual.md)
-
-开发人员和任务分配    [开发人员和任务分配](./larkmidtable-doc/engineer.md)
-
-# 应用领域
-
-智慧校园 、智慧交通 、智慧金融 、智慧农业、智慧医疗、智慧政务  等多个大数据领域
 
 
 # 技术交流
 
-**一个人走的很快，一群人走的更远。**   
+**一个人走的很快，一群人走的更远。**
 
 **关注微信公众号 【LarkMidTable】，并回复【LarkMidTable】，获取微信后，加我拉你到微信群，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术，如果觉得项目不错，可以star关注，LarkMidTable团队将十分感谢您的关注！**
