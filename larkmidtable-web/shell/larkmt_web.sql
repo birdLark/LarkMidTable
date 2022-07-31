@@ -13,6 +13,8 @@
 
  Date: 15/12/2019 22:27:10
 */
+CREATE DATABASE `web` CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE  `web`;
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;

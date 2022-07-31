@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.larkmt.cn</groupId>
-        <artifactId>LarkMidTable</artifactId>
+        <artifactId>larkmidtable-web</artifactId>
         <version>2.1.2</version>
     </parent>
     <artifactId>larkmt-admin</artifactId>
@@ -865,7 +865,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
 

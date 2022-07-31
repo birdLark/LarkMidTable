@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8888
 
 spring:
   #数据源
@@ -90,7 +90,7 @@ logging:
 
 
 #flinkx-job, access token
-flinkx:
+larkmt:
   job:
     accessToken:
     #i18n (default empty as chinese, "en" as english)
