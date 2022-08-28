@@ -38,43 +38,13 @@
       <el-table-column label="调度时间" align="center">
         <template slot-scope="scope">{{ scope.row.triggerTime }}</template>
       </el-table-column>
-      <el-table-column label="调度结果" align="center" width="100">
-        <template slot-scope="scope"> <span :style="`color:${scope.row.triggerCode==500?'red':''}`">{{ statusList.find(t => t.value === scope.row.triggerCode).label }}</span></template>
-      </el-table-column>
-      <el-table-column label="调度备注" align="center">
-        <template slot-scope="scope">
-          <el-popover
-            placement="bottom"
-            width="400"
-            trigger="click"
-          >
-            <h5 v-html="scope.row.triggerMsg" />
-            <el-button slot="reference">查看</el-button>
-          </el-popover>
-        </template>
-      </el-table-column>
-      <el-table-column label="执行时间" align="center">
-        <template slot-scope="scope">{{ scope.row.handleTime }}</template>
-      </el-table-column>
       <el-table-column label="执行结果" align="center">
         <template slot-scope="scope"> <span :style="`color:${scope.row.handleCode==500?'red':''}`">{{ statusList.find(t => t.value === scope.row.handleCode).label }}</span></template>
       </el-table-column>
-      <el-table-column label="执行备注" align="center">
-        <template slot-scope="scope">
-          <el-popover
-            placement="bottom"
-            width="400"
-            trigger="click"
-          >
-            <h5 v-html="scope.row.handleMsg" />
-            <el-button slot="reference">查看</el-button>
-          </el-popover>
-        </template>
-      </el-table-column>
       <el-table-column label="操作" align="center" width="300">
         <template slot-scope="{row}">
-          <el-button v-show="row.executorAddress" type="primary" @click="handleViewJobLog(row)">日志查看</el-button>
-          <el-button v-show="row.handleCode===0 && row.triggerCode===200" type="primary" @click="killRunningJob(row)">
+          <el-button  type="primary" @click="handleViewJobLog(row)">日志查看</el-button>
+          <el-button  type="primary" @click="killRunningJob(row)">
             终止任务
           </el-button>
         </template>
