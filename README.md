@@ -26,7 +26,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # 产品架构图
 
-![系统架构图](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/a.jpg) 
+![系统架构图](./larkmidtable-pic/a.jpg) 
 
 
 
@@ -48,19 +48,19 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # 产品效果图
 
-![登陆页面](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/b.jpg)
+![登陆页面](./larkmidtable-pic/b.jpg)
 
-![数据报表](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/c.jpg)
+![数据报表](./larkmidtable-pic/c.jpg)
 
-![基础建设](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/d.png)
+![基础建设](./larkmidtable-pic/d.png)
 
-![数据集成](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/e.png)
+![数据集成](./larkmidtable-pic/e.png)
 
-![数据开发](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/f.png)
+![数据开发](./larkmidtable-pic/f.png)
 
-![监控告警](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/g.png)
+![监控告警](./larkmidtable-pic/g.png)
 
-![数据服务](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/k.png)
+![数据服务](./larkmidtable-pic/k.png)
 
 **系统演示地址**：www.larkmidtable.com
 
@@ -72,7 +72,7 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 目前创业的初期，开源项目需要资金维护，比如买服务器，以及开源团队的运维，社区的运营，如果你觉得项目不错，可以进行赞助
 
-![插入图片](E:/larksource/A_open/ee/LarkMidTable/larkmidtable-pic/s.png)
+![插入图片](./larkmidtable-pic/s.png)
 
 项目金额： 1589.67元
 
