@@ -1,11 +1,30 @@
 package com.larkmt.cn.admin.core.thread;
 
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.util.IdUtil;
+import com.larkmt.cn.admin.core.conf.ExcecutorConfig;
 import com.larkmt.cn.admin.core.conf.JobAdminConfig;
 import com.larkmt.cn.admin.core.trigger.TriggerTypeEnum;
 import com.larkmt.cn.admin.core.trigger.JobTrigger;
+import com.larkmt.cn.admin.entity.JobInfo;
+import com.larkmt.cn.admin.entity.JobLog;
+import com.larkmt.core.biz.model.ReturnT;
+import com.larkmt.core.log.JobLogger;
+import com.larkmt.core.util.Constants;
+import com.larkmt.core.util.DateUtil;
+import com.larkmt.core.util.ProcessUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -129,5 +148,88 @@ public class JobTriggerPoolHelper {
     public static void trigger(int jobId, TriggerTypeEnum triggerType, int failRetryCount, String executorShardingParam, String executorParam) {
         helper.addTrigger(jobId, triggerType, failRetryCount, executorShardingParam, executorParam);
     }
+
+	public static String[] buildFlinkXExecutorCmd(String flinkXShPath, String tmpFilePath,int jobId) {
+		long timestamp = System.currentTimeMillis();
+		List<String> cmdArr = new ArrayList<>();
+		if(JobTriggerPoolHelper.isWindows()) {
+			cmdArr.add(Constants.CMDWINDOW);
+			cmdArr.add(flinkXShPath);
+			cmdArr.add(tmpFilePath);
+		} else {
+			cmdArr.add(Constants.CMDLINUX);
+			cmdArr.add(flinkXShPath);
+			cmdArr.add(tmpFilePath);
+		}
+		String logHome = ExcecutorConfig.getExcecutorConfig().getFlinkxlogHome();
+		File folder = new File(logHome);
+		if (!folder.exists() && !folder.isDirectory()) {
+			folder.mkdirs();
+		}
+		cmdArr.add(logHome+"/"+jobId+""+timestamp+".out");
+		logger.info(cmdArr + " " + flinkXShPath + " " + tmpFilePath);
+		return cmdArr.toArray(new String[cmdArr.size()]);
+	}
+
+	public static boolean isWindows() {
+		return System.getProperty("os.name").toLowerCase().contains("windows");
+	}
+
+	public static void runJob(int jobId) {
+		try {
+			JobInfo jobInfo = JobAdminConfig.getAdminConfig().getJobInfoMapper().loadById(jobId);
+			String cmdstr = "";
+			String tmpFilePath ="";
+			String[] cmdarrayFinal = null;
+			tmpFilePath = generateTemJsonFile(jobInfo.getJobJson());
+			cmdarrayFinal = buildFlinkXExecutorCmd(ExcecutorConfig.getExcecutorConfig().getFlinkxHome(), tmpFilePath,jobId);
+			for (int j = 0; j < cmdarrayFinal.length; j++) {
+				cmdstr += cmdarrayFinal[j] + " ";
+			}
+			final Process process = Runtime.getRuntime().exec(cmdstr);
+			String prcsId = ProcessUtil.getProcessId(process);
+			JobLogger.log("Execute: " + cmdstr);
+			JobLogger.log("process id: " + prcsId);
+			if (FileUtil.exist(tmpFilePath)) {
+				//				FileUtil.del(new File(tmpFilePath));
+			}
+			// 记录日志
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(new Date());
+			calendar.set(Calendar.MILLISECOND, 0);
+			Date triggerTime = calendar.getTime();
+			JobLog jobLog = new JobLog();
+			jobLog.setJobGroup(jobInfo.getJobGroup());
+			jobLog.setJobId(jobInfo.getId());
+			jobLog.setTriggerTime(triggerTime);
+			jobLog.setJobDesc(jobInfo.getJobDesc());
+			jobLog.setHandleTime(triggerTime);
+			jobLog.setTriggerCode(ReturnT.SUCCESS_CODE);
+			jobLog.setHandleCode(0);
+			jobLog.setProcessId(prcsId);
+			// 设置job的执行路径
+			jobLog.setExecutorAddress(cmdarrayFinal[3]);
+			JobAdminConfig.getAdminConfig().getJobLogMapper().save(jobLog);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static String generateTemJsonFile(String jobJson) {
+		String jsonPath = "";
+		jsonPath = ExcecutorConfig.getExcecutorConfig().getFlinkxjsonPath();
+		if (!FileUtil.exist(jsonPath)) {
+			FileUtil.mkdir(jsonPath);
+		}
+		String tmpFilePath = jsonPath + "jobTmp-" + IdUtil.simpleUUID() + ".json";
+		//jobJSON进行替换操作
+		// 根据json写入到临时本地文件
+		try (PrintWriter writer = new PrintWriter(tmpFilePath, "UTF-8")) {
+			writer.println(jobJson);
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			JobLogger.log("JSON 临时文件写入异常：" + e.getMessage());
+		}
+		return tmpFilePath;
+	}
 
 }

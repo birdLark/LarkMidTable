@@ -24,7 +24,7 @@ public class FlinkxRdbmsPojo {
     /**
      * 列名
      */
-    private List<String> rdbmsColumns;
+    private Object rdbmsColumns;
 
     /**
      * 数据源信息

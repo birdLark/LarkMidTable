@@ -100,7 +100,6 @@
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item @click.native="handlerExecute(row)">执行一次</el-dropdown-item>
-              <el-dropdown-item @click.native="handlerViewLog(row)">查询日志</el-dropdown-item>
               <el-dropdown-item divided @click.native="handlerUpdate(row)">编辑</el-dropdown-item>
               <el-dropdown-item @click.native="handlerDelete(row)">删除</el-dropdown-item>
             </el-dropdown-menu>

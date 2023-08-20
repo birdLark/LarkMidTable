@@ -107,9 +107,6 @@ larkmt:
     flinkxHome: E:/flinkx/flinkx.py
     flinkxjsonPath: E:/flinkx/job/
     flinkxlogHome: E:/flinkx/job-log
-    dataxHome: E:/datax/datax.py
-    dataxjsonPath: E:/datax/job/
-    dataxlogHome: E:/datax/job-log
 datasource:
   aes:
     key: AD42F6697B035B75

@@ -18,6 +18,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -74,27 +78,36 @@ public class JobLogController {
         return new ReturnT<>(maps);
     }
 
-//    @RequestMapping(value = "/logDetailCat", method = RequestMethod.GET)
-//    @ApiOperation("运行日志详情")
-//    public ReturnT<LogResult> logDetailCat(String executorAddress, long triggerTime, long logId, int fromLineNum) {
-//        try {
-//            ExecutorBiz executorBiz = JobScheduler.getExecutorBiz(executorAddress);
-//            ReturnT<LogResult> logResult = executorBiz.log(triggerTime, logId, fromLineNum);
-//
-//            // is end
-//            if (logResult.getContent() != null && fromLineNum > logResult.getContent().getToLineNum()) {
-//                JobLog jobLog = jobLogMapper.load(logId);
-//                if (jobLog.getHandleCode() > 0) {
-//                    logResult.getContent().setEnd(true);
-//                }
-//            }
-//
-//            return logResult;
-//        } catch (Exception e) {
-//            logger.error(e.getMessage(), e);
-//            return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
-//        }
-//    }
+
+	@RequestMapping(value = "/logDetailCat", method = RequestMethod.GET)
+	@ApiOperation("运行日志详情")
+	public ReturnT<LogResult> logDetailCat(HttpServletRequest request,String executorAddress) {
+		//添加日志审计功能
+		try {
+			InputStream in = new FileInputStream(executorAddress);
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			byte[] buf = new byte[1024];
+			int len;
+			while ((len = in.read(buf)) != -1) {
+				bos.write(buf, 0, len);
+			}
+			String logContent = new String(bos.toByteArray());
+			if (bos != null) {
+				bos.close();
+			}
+			if (in != null) {
+				in.close();
+			}
+			//@TODO 查看日志
+			ReturnT<LogResult> returnT = new ReturnT<>(ReturnT.SUCCESS_CODE, "查询日志成功");
+			LogResult logResult = new LogResult(0, 0, logContent, true);
+			returnT.setContent(logResult);
+			return returnT;
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
+		}
+	}
 
     @RequestMapping(value = "/logKill", method = RequestMethod.POST)
     @ApiOperation("kill任务")
@@ -173,6 +186,9 @@ public class JobLogController {
     @ApiOperation("停止该job作业")
     @PostMapping("/killJob")
     public ReturnT<String> killJob(@RequestBody JobLog log) {
-        return KillJob.trigger(log.getId(), log.getTriggerTime(), log.getExecutorAddress(), log.getProcessId());
+		//获取到任务的ID，执行脚本程序杀掉
+		//@TODO 停掉作业
+		String processId = log.getProcessId();
+		return KillJob.trigger(processId);
     }
 }

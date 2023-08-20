@@ -49,12 +49,12 @@
       <!-- <el-table-column label="jdbc驱动类" width="200" align="center" :show-overflow-tooltip="true">
         <template slot-scope="scope">{{ scope.row.jdbcDriverClass ? scope.row.jdbcDriverClass:'-' }}</template>
       </el-table-column>-->
-      <el-table-column label="ZK地址" width="200" align="center" :show-overflow-tooltip="true">
+      <!-- <el-table-column label="ZK地址" width="200" align="center" :show-overflow-tooltip="true">
         <template slot-scope="scope">{{ scope.row.zkAdress ? scope.row.zkAdress:'-' }}</template>
-      </el-table-column>
-      <el-table-column label="数据库名" width="200" align="center" :show-overflow-tooltip="true">-->
-        <template slot-scope="scope">{{ scope.row.databaseName ? scope.row.databaseName:'-' }}</template>-->
-      </el-table-column>
+      </el-table-column>-->
+      <!--<el-table-column label="数据库名" width="200" align="center" :show-overflow-tooltip="true">
+        <template slot-scope="scope">{{ scope.row.databaseName ? scope.row.databaseName:'-' }}</template>
+      </el-table-column> -->
 <!--      <el-table-column label="备注" width="150" align="center">-->
 <!--        <template slot-scope="scope">{{ scope.row.comments }}</template>-->
 <!--      </el-table-column>-->

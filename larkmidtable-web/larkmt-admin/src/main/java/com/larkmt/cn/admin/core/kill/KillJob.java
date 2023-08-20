@@ -1,10 +1,13 @@
 package com.larkmt.cn.admin.core.kill;
 
+import com.larkmt.cn.admin.core.thread.JobTriggerPoolHelper;
 import com.larkmt.core.biz.model.ReturnT;
 import com.larkmt.core.biz.model.TriggerParam;
 import com.larkmt.core.enums.ExecutorBlockStrategyEnum;
 import com.larkmt.core.glue.GlueTypeEnum;
 import com.larkmt.cn.admin.core.trigger.JobTrigger;
+import com.larkmt.core.util.Constants;
+import com.larkmt.core.util.ProcessUtil;
 
 import java.util.Date;
 
@@ -19,22 +22,23 @@ public class KillJob {
      * @param address
      * @param processId
      */
-    public static ReturnT<String> trigger(long logId, Date triggerTime, String address, String processId) {
-        ReturnT<String> triggerResult;
-        TriggerParam triggerParam = new TriggerParam();
-        triggerParam.setJobId(-1);
-        triggerParam.setExecutorHandler("killJobHandler");
-        triggerParam.setProcessId(processId);
-        triggerParam.setLogId(logId);
-        triggerParam.setGlueType(GlueTypeEnum.BEAN.getDesc());
-        triggerParam.setExecutorBlockStrategy(ExecutorBlockStrategyEnum.SERIAL_EXECUTION.getTitle());
-        triggerParam.setLogDateTime(triggerTime.getTime());
-        if (address != null) {
-            triggerResult = JobTrigger.runExecutor(triggerParam, address);
-        } else {
-            triggerResult = new ReturnT<>(ReturnT.FAIL_CODE, null);
-        }
-        return triggerResult;
-    }
+	public static ReturnT<String> trigger(String processId) {
+		ReturnT<String> triggerResult = null;
+		try {
+			//将作业杀掉
+			String cmdstr="";
+			if(JobTriggerPoolHelper.isWindows()){
+				cmdstr= Constants.CMDWINDOWTASKKILL+processId;
+			}else {
+				cmdstr=Constants.CMDLINUXTASKKILL+processId;
+			}
+			final Process process = Runtime.getRuntime().exec(cmdstr);
+			String prcsId = ProcessUtil.getProcessId(process);
+			triggerResult = new ReturnT<>(ReturnT.SUCCESS_CODE, "成功停止作业 !!!");
+		}catch (Exception e) {
+			triggerResult = new ReturnT<>(ReturnT.FAIL_CODE, null);
+		}
+		return triggerResult;
+	}
 
 }
