@@ -48,23 +48,23 @@ LarkMidTable 是一站式开源的数据中台，实现元数据管理，数据�
 
 # 产品效果图
 
-![登陆页面](./larkmidtable-pic/b.png)
+![登陆页面](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/b.png)
 
-![数据报表](./larkmidtable-pic/c.png)
+![数据报表](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/c.png)
 
-![基础建设](./larkmidtable-pic/d.png)
+![基础建设](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/d.png)
 
-![数据集成](./larkmidtable-pic/e.png)
+![数据集成](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/e.png)
 
-![数据开发](./larkmidtable-pic/f.png)
+![数据开发](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/f.png)
 
-![监控告警](./larkmidtable-pic/g.png)
+![监控告警](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/g.png)
 
-![数据服务](./larkmidtable-pic/h.png)
+![数据服务](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/h.png)
 
-![数据服务](./larkmidtable-pic/i.png)
+![数据服务](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/i.png)
 
-![数据服务](./larkmidtable-pic/j.png)
+![数据服务](https://gitee.com/LarkMidTable/LarkMidTable/raw/dev/larkmidtable-pic/j.png)
 
 
 
