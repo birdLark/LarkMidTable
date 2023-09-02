@@ -45,7 +45,7 @@
   "dependencies": {
     "axios": ">=0.18.1",
     "clipboard": "2.0.4",
-    "codemirror": "5.45.0",
+    "codemirror": "5.58.2",
     "driver.js": "0.9.5",
     "dropzone": "5.5.1",
     "echarts": "^4.2.1",
